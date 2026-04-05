@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | AI Accountability</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<!--Abordo, Jana Sayrielle G. -->
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077B6;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+.sidebar a.active {
+    background: #eaeaea;
+    color: #0077B6;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inner-hero {
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.5);
+}
+
+.inner-hero h1 {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    bottom: 30px;
+    left: 30px;
+}
+
+.about {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.about p:last-child {
+    margin-bottom: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+}
+
+.card p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+}
+
+.card a {
+    padding: 10px 20px;
+    background: #03045E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 14px;
+}
+
+.card a:hover {
+    background: #0077B6;
+}
+
+/* ===== SHARED EXTRAS ===== */
+.section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0077B6;
+    margin-bottom: 8px;
+}
+
+.highlight-box {
+    background: #EFF6FF;
+    border-left: 4px solid #0077B6;
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0 0;
+    font-size: 14px;
+    color: #003049;
+    line-height: 1.7;
+}
+
+.highlight-box strong { color: #03045E; }
+
+blockquote.pullquote {
+    background: #f0f4ff;
+    border-left: 5px solid #03045E;
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin: 18px 0 4px;
+    font-style: italic;
+    font-size: 15px;
+    color: #03045E;
+    line-height: 1.7;
+}
+
+blockquote.pullquote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    color: #0077B6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== ACCOUNTABILITY FLOW ===== */
+.acct-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.acct-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+}
+
+.acct-box .acct-icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 9px;
+}
+
+.acct-box h5 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.acct-box p {
+    font-size: 12px;
+    color: #6D6D6D;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== INTERNAL VS EXTERNAL ===== */
+.ie-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 18px;
+}
+
+.ie-box {
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.ie-box.internal {
+    background: #EFF6FF;
+    border-top: 4px solid #0077B6;
+}
+
+.ie-box.external {
+    background: #FFF7ED;
+    border-top: 4px solid #EA580C;
+}
+
+.ie-box h5 {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.ie-box.internal h5 { color: #0077B6; }
+.ie-box.external h5 { color: #EA580C; }
+
+.ie-box ul {
+    padding-left: 16px;
+    margin: 0;
+}
+
+.ie-box ul li {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin-bottom: 4px;
+}
+
+/* ===== PRINCIPLES GRID ===== */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.p-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 20px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #03045E;
+}
+
+.p-card .p-icon {
+    font-size: 26px;
+    display: block;
+    margin-bottom: 9px;
+}
+
+.p-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.p-card p {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ===== CASE CARDS ===== */
+.case-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 11px;
+}
+
+.badge-gap  { background: #FEE2E2; color: #991B1B; }
+.badge-uk   { background: #FEF3C7; color: #92400E; }
+.badge-priv { background: #FCE7F3; color: #9D174D; }
+.badge-good { background: #D1FAE5; color: #065F46; }
+
+.case-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.case-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.case-card p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===== IMPLICATION CARDS ===== */
+.imp-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #03045E;
+}
+
+.imp-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.imp-card p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin: 0 0 8px;
+}
+
+.imp-card p:last-child { margin-bottom: 0; }
+
+/* ===== FRAMEWORK TABLE ===== */
+.fw-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.fw-table thead {
+    background: #03045E;
+    color: #fff;
+}
+
+.fw-table thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fw-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+.fw-table tbody tr:last-child { border-bottom: none; }
+
+.fw-table tbody td {
+    padding: 13px 16px;
+    color: #444;
+    vertical-align: top;
+    line-height: 1.65;
+}
+
+.fw-table tbody td:first-child {
+    font-weight: 700;
+    color: #03045E;
+    white-space: nowrap;
+}
+
+.fw-table tbody tr:nth-child(even) { background: #f8fafc; }
+
+/* ===== TWO-COL STRATEGIES ===== */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.tech-col {
+    background: #fff;
+    border-radius: 12px;
+    padding: 26px;
+    border: 1px solid #e2e8f0;
+}
+
+.tech-col h3 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tech-item { margin-bottom: 16px; }
+.tech-item:last-child { margin-bottom: 0; }
+
+.tech-item strong {
+    display: block;
+    color: #03045E;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.tech-item span {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+}
+
+/* ===== DEBATE CARDS ===== */
+.debate-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #03045E;
+}
+
+.debate-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.debate-card p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===== RESEARCH GRID ===== */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.r-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 20px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.r-card .r-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.r-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.r-card p {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-brand { flex: 1; }
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px;
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1;
+    margin-top: -6px;
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .footer-container   { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+    .principles-grid    { grid-template-columns: repeat(2, 1fr); }
+    .research-grid      { grid-template-columns: repeat(2, 1fr); }
+    .two-col            { grid-template-columns: 1fr; }
+    .acct-row           { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+    .page {
+        grid-template-columns: 1fr;
+        padding: 100px 4% 40px;
+    }
+    .sidebar          { position: static; }
+    .grid             { grid-template-columns: 1fr; }
+    .principles-grid  { grid-template-columns: 1fr; }
+    .acct-row         { grid-template-columns: 1fr; }
+    .ie-row           { grid-template-columns: 1fr; }
+    .research-grid    { grid-template-columns: 1fr; }
+    .inner-hero h1    { font-size: 26px; }
+}
+
+@media (max-width: 600px) {
+    nav { gap: 14px; }
+    nav a { font-size: 12px; }
+    #back-to-top { bottom: 18px; right: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV logo">
+        STRATIV
+    </div>
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons &amp; Images</a>
+                <a href="../../resources/data-reports.html">Data &amp; Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
+            </div>
+        </div>
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI Ethics &amp; Social Issues</h3>
+        <a href="overview-ai-ethics.html">Overview of AI Ethics</a>
+        <a href="ai-bias.html">AI Bias and Fairness</a>
+        <a href="privacy-security-issue.html">Privacy and Security Issues</a>
+        <a href="job-displacement.html">Job Displacement by AI</a>
+        <a href="responsible-ai.html">Responsible AI Development</a>
+        <a href="ethics-summary.html">Ethics Summary</a>
+        <a href="algorithm-transparency.html">Algorithm Transparency</a>
+        <a href="ai-regulation.html">AI Regulation and Policies</a>
+        <a href="ai-accountability.html" class="active">AI Accountability</a>
+        <a href="ethical-ai-design.html">Ethical AI Design</a>
+        <a href="#">AI and Human Rights</a>
+        <a href="#">Social Impact of Artificial Intelligence</a>
+    </aside>
+
+    <main class="main">
+
+        <!-- HERO BANNER -->
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&auto=format&fit=crop"
+                 alt="Person signing a document at a desk representing accountability, responsibility, and governance in AI"
+                 title="AI Accountability Banner">
+            <h1>AI Accountability</h1>
+        </div>
+
+        <!-- SECTION 1: DEFINITIONS & SCOPE -->
+        <div class="about" id="definitions">
+            <span class="section-label">Section 1</span>
+            <h2>Definitions and Scope</h2>
+            <p>
+                Accountability in AI is a complex, multi-dimensional concept rooted in a well-established relational framework. A widely accepted definition frames it as follows:
+            </p>
+
+            <blockquote class="pullquote">
+                An actor has an obligation to explain and justify their conduct to a forum, which can pose questions, pass judgment — and the actor may face consequences.
+                <cite>— Bovens (2007); as applied to AI by Busuioc (2021) and Gualdi &amp; Cordella (2021)</cite>
+            </blockquote>
+
+            <p>
+                A critical starting point: <strong>AI systems are not moral or legal agents.</strong> Accountability lies entirely with the human actors and organizations that design, develop, deploy, and use them — including developers, product managers, business executives, public sector adopters, and end users. Responsibility does not disappear because a machine made the decision.
+            </p>
+            <p>
+                Responsibility is not a single point but a <strong>distributed network</strong> — dispersed across multiple actors, each with distinct obligations depending on their role in the AI lifecycle. Enforcement is achieved through a mix of legal frameworks, regulatory oversight, contractual obligations, market pressure, and reputational consequences.
+            </p>
+
+            <div class="ie-row">
+                <div class="ie-box internal">
+                    <h5>🏢 Internal Accountability</h5>
+                    <ul>
+                        <li>Operates within an organization</li>
+                        <li>Ethics boards and AI governance committees</li>
+                        <li>Internal audits and risk management frameworks</li>
+                        <li>Documentation practices (model cards, datasheets)</li>
+                        <li>Pre-deployment impact assessments</li>
+                        <li>Performance monitoring and incident reporting</li>
+                    </ul>
+                </div>
+                <div class="ie-box external">
+                    <h5>🌐 External Accountability</h5>
+                    <ul>
+                        <li>Directed toward regulators, the public, and affected individuals</li>
+                        <li>Legal compliance (GDPR, EU AI Act, national laws)</li>
+                        <li>Independent third-party audits and academic research</li>
+                        <li>Journalist and civil society investigations</li>
+                        <li>Regulatory inspections and sanctions</li>
+                        <li>Right to explanation and redress for affected persons</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="acct-row">
+                <div class="acct-box">
+                    <span class="acct-icon">📋</span>
+                    <h5>Explain &amp; Justify</h5>
+                    <p>The actor must provide reasons for their conduct — why the system was built, deployed, and how it reaches decisions.</p>
+                </div>
+                <div class="acct-box">
+                    <span class="acct-icon">🔍</span>
+                    <h5>Forum Can Question</h5>
+                    <p>The forum — a regulator, court, the public, or affected individuals — has the standing to interrogate the actor's decisions and challenge outcomes.</p>
+                </div>
+                <div class="acct-box">
+                    <span class="acct-icon">⚖️</span>
+                    <h5>Consequences Follow</h5>
+                    <p>Accountability without consequences is merely transparency. Meaningful accountability requires the possibility of sanctions, redress, or reputational consequences.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: CORE PRINCIPLES -->
+        <div class="about" id="principles">
+            <span class="section-label">Section 2</span>
+            <h2>Core Principles</h2>
+            <p>Five interconnected principles define what meaningful AI accountability requires in practice. They span technical, legal, organizational, and ethical dimensions — none of which is sufficient on its own.</p>
+        </div>
+
+        <div class="principles-grid">
+            <div class="p-card">
+                <span class="p-icon">🔎</span>
+                <h4>Transparency</h4>
+                <p>The foundation for all accountability. Requires making information about an AI system's purpose, design, data, decision-making logic, and limitations accessible and understandable to relevant stakeholders. Transparency is necessary — but not sufficient — for accountability: a system can be transparent yet still have no meaningful forum for challenge or consequences for harm.</p>
+            </div>
+            <div class="p-card">
+                <span class="p-icon">📜</span>
+                <h4>Liability</h4>
+                <p>The legal dimension of accountability — determining who is legally responsible for harms caused by an AI system. Traditional product liability, tort, and contract law are being stress-tested by AI's autonomous and adaptive behavior. Key challenges include proving foreseeability of harm, establishing causation through opaque systems, and attributing responsibility across multi-party AI supply chains.</p>
+            </div>
+            <div class="p-card">
+                <span class="p-icon">🏛️</span>
+                <h4>Governance</h4>
+                <p>The system by which organizations are directed, controlled, and held accountable. Encompasses internal structures (AI ethics boards, risk management frameworks, audit protocols) and external regulatory oversight. Effective governance ensures that AI development and deployment align with both ethical principles and legal standards — and that accountability is embedded, not bolted on after deployment.</p>
+            </div>
+            <div class="p-card">
+                <span class="p-icon">👤</span>
+                <h4>Human Oversight</h4>
+                <p>A critical accountability safeguard, particularly in high-stakes contexts like healthcare, criminal justice, and financial decisions. Ensures a human decision-maker is "in the loop" to understand, challenge, and override algorithmic recommendations. However, oversight is only as effective as the human's capacity to genuinely understand the system — nominal oversight without real comprehension creates the illusion of accountability, not the substance.</p>
+            </div>
+            <div class="p-card" style="grid-column: span 2;">
+                <span class="p-icon">🤝</span>
+                <h4>Ethical Responsibility</h4>
+                <p>Goes beyond legal liability to encompass the moral obligation of all AI actors to anticipate, prevent, and mitigate potential harms — and to ensure fairness, non-discrimination, and genuine respect for human rights and well-being. Ethical responsibility asks not only "Is this lawful?" but "Is this right? Who could be harmed? Have we done everything reasonable to protect them?" It is a proactive, values-driven commitment that legal compliance alone cannot fulfill.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 3: CASE STUDIES -->
+        <div class="about" id="cases">
+            <span class="section-label">Section 3</span>
+            <h2>Case Studies and Examples</h2>
+            <p>The following cases illustrate how AI accountability succeeds, fails, and is contested in practice — spanning criminal justice, immigration, biometric data, and organizational auditing.</p>
+        </div>
+
+        <div class="grid">
+            <div class="case-card">
+                <span class="case-badge badge-gap">⚠ Accountability Gap</span>
+                <h4>COMPAS — State v. Loomis</h4>
+                <p>
+                    COMPAS is a proprietary algorithm used in U.S. courts to predict the likelihood of reoffending, informing sentencing recommendations. In <em>State v. Loomis</em>, the defendant sought to challenge the tool's accuracy and potential racial bias — but was prevented from doing so because the algorithm's logic was protected as a trade secret.<br><br>
+                    <strong>Accountability failure:</strong> The Wisconsin Supreme Court ultimately allowed the tool's use despite its opacity. A proprietary commercial product was shaping judicial decisions affecting people's liberty, with no mechanism for the affected individual to scrutinize, challenge, or contest its reasoning.<br><br>
+                    <strong>Lesson:</strong> Opaque systems in high-stakes decisions create a fundamental conflict between commercial intellectual property rights and the constitutional right to due process.
+                </p>
+            </div>
+            <div class="case-card">
+                <span class="case-badge badge-uk">🇬🇧 Public Sector Failure</span>
+                <h4>UK Visas and Immigration (UKVI) Algorithm</h4>
+                <p>
+                    The UK Home Office deployed an AI system to streamline visa applications by assigning risk scores — Green, Amber, or Red — based on factors including nationality. The system was found to discriminate against BAME (Black, Asian, and Minority Ethnic) applicants, effectively creating a racial fast lane for white applicants.<br><br>
+                    <strong>Accountability evasion:</strong> The government refused to disclose the algorithm's details, citing commercial confidentiality. A public body evaded scrutiny of a discriminatory system by hiding behind trade secret protections — demonstrating how accountability mechanisms that apply to private companies can be sidestepped in government contexts.<br><br>
+                    <strong>Lesson:</strong> Public sector AI demands heightened accountability obligations, not fewer, given its power over access to rights and services.
+                </p>
+            </div>
+            <div class="case-card">
+                <span class="case-badge badge-priv">⚠ Privacy Accountability</span>
+                <h4>Clearview AI and Biometric Privacy</h4>
+                <p>
+                    Clearview AI scraped billions of photographs from the internet without user consent to build a facial recognition database sold to law enforcement agencies. The company violated Illinois' Biometric Information Privacy Act (BIPA) — one of the strongest biometric data protection laws in the U.S.<br><br>
+                    <strong>Accountability failure:</strong> Data collection at a massive scale proceeded for years without consent, oversight, or any mechanism for individuals to know their biometric data had been captured and commercialized. The affected individuals had no meaningful recourse until litigation brought the practice to light.<br><br>
+                    <strong>Lesson:</strong> In the absence of proactive accountability frameworks, harm can accumulate at scale before any forum becomes aware — let alone acts.
+                </p>
+            </div>
+            <div class="case-card">
+                <span class="case-badge badge-good">✔ Proactive Accountability</span>
+                <h4>Internal Algorithmic Audit — SMACTR Framework</h4>
+                <p>
+                    Proposed by Raji et al. (2020) and piloted at organizations including Google, SMACTR (Scoping, Mapping, Artifact Collection, Testing, Reflection) is a structured internal audit framework for identifying and mitigating AI risks <em>before</em> deployment.<br><br>
+                    <strong>Approach:</strong> Systematically documents an AI system's purpose, failure modes, affected populations, and performance across demographic groups — creating an internal accountability record that can inform governance decisions and serve as evidence in external reviews.<br><br>
+                    <strong>Significance:</strong> Demonstrates that accountability can be proactive and organizational — embedded in development processes rather than imposed only after a system causes harm. Closing the accountability gap is possible with institutional commitment.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 4: ETHICAL & SOCIAL IMPLICATIONS -->
+        <div class="about" id="implications">
+            <span class="section-label">Section 4</span>
+            <h2>Ethical and Social Implications</h2>
+            <p>AI accountability is not only a governance or legal question — it has direct consequences for trust, justice, human rights, and the distribution of power in society. These implications demand engagement from policymakers, technologists, and the public alike.</p>
+        </div>
+
+        <div class="grid">
+            <div class="imp-card">
+                <h4>Trust and Skepticism</h4>
+                <p>Accountability is foundational to public trust in AI systems. When systems are opaque and unaccountable — when no one can explain a decision, no one bears responsibility for its harms, and no one can be held to account — they breed legitimate skepticism and resistance, even when technically efficient. Conversely, demonstrated accountability mechanisms — visible governance, accessible appeals, meaningful redress — build the institutional confidence that enables beneficial AI adoption at scale.</p>
+            </div>
+            <div class="imp-card">
+                <h4>Fairness and Discrimination</h4>
+                <p>A lack of accountability allows algorithmic biases to remain hidden, unchallenged, and unaddressed. In consequential domains — hiring, credit scoring, housing, healthcare, criminal justice — unchecked biases perpetuate and amplify structural inequalities at scale and speed that manual processes never could. Accountability mechanisms such as mandatory bias audits, demographic performance reporting, and enforceable impact assessments are not optional extras — they are prerequisites for fair AI deployment.</p>
+            </div>
+            <div class="imp-card">
+                <h4>The "Responsibility Gap"</h4>
+                <p>A defining ethical challenge of the AI era: when no single human actor fully controls or understands an AI system's behavior, it becomes possible for harms to occur with <em>no one</em> genuinely held accountable. Developers may disclaim responsibility for downstream deployment decisions; deployers may blame the developer's algorithm; users may claim they were following the system's recommendation. This distributed diffusion of responsibility — where harm is everyone's fault and therefore no one's problem — is the accountability gap that governance frameworks must close.</p>
+            </div>
+            <div class="imp-card">
+                <h4>Human Rights and Governance</h4>
+                <p>Unaccountable AI directly threatens fundamental rights: the right to privacy (through surveillance and data misuse), the right to due process (through opaque automated decisions), freedom from discrimination (through biased algorithmic systems), and the right to an effective remedy. Without robust governance frameworks — and without their genuine enforcement — AI systems in high-stakes domains become vectors for systematic rights violations that affected individuals have no meaningful way to challenge or escape.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 5: FRAMEWORKS -->
+        <div class="about" id="frameworks">
+            <span class="section-label">Section 5</span>
+            <h2>Current Frameworks and Guidelines</h2>
+            <p>A layered ecosystem of binding law, international principles, and industry self-regulation now addresses AI accountability — though the gap between stated commitments and enforceable practice remains a persistent challenge.</p>
+        </div>
+
+        <table class="fw-table">
+            <thead>
+                <tr>
+                    <th>Framework</th>
+                    <th>Issuing Body</th>
+                    <th>Accountability Provisions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>EU AI Act</td>
+                    <td>European Union</td>
+                    <td>The world's first comprehensive AI law. Uses a risk-based approach to mandate accountability for high-risk systems: risk management, data governance, technical documentation, transparency, human oversight, and post-market monitoring. Legally binding with significant financial penalties for non-compliance — establishing the strongest external accountability regime globally.</td>
+                </tr>
+                <tr>
+                    <td>OECD AI Principles</td>
+                    <td>OECD (42+ countries)</td>
+                    <td>An intergovernmental standard calling for accountability, transparency, and the ability to challenge adverse automated decisions. Promotes AI that is innovative, trustworthy, and respects human rights. Serves as the primary international reference point for dozens of national AI governance strategies.</td>
+                </tr>
+                <tr>
+                    <td>UNESCO Recommendation on AI Ethics</td>
+                    <td>UNESCO — 193 member states</td>
+                    <td>The first global normative instrument on AI ethics. Adopted unanimously, it emphasizes transparency, accountability, and the rule of law — providing a framework for member states to develop national accountability policies consistent with human rights norms.</td>
+                </tr>
+                <tr>
+                    <td>Industry Codes and Principles</td>
+                    <td>Google, Microsoft, IBM, and others</td>
+                    <td>Major technology companies have published voluntary AI ethics principles and accountability commitments. While valuable for standard-setting and signaling, these are widely criticized for lacking independent oversight, enforcement mechanisms, and measurable obligations — making them susceptible to "ethics washing" accusations.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SECTION 6: TECHNICAL & ORGANIZATIONAL STRATEGIES -->
+        <div class="about" id="strategies">
+            <span class="section-label">Section 6</span>
+            <h2>Technical and Organizational Strategies</h2>
+            <p>Operationalizing AI accountability requires specific technical tools and organizational processes — not just policy commitments. The following strategies span the full development lifecycle, from design through deployment and audit.</p>
+        </div>
+
+        <div class="two-col">
+            <div class="tech-col">
+                <h3>🔧 Technical Strategies</h3>
+                <div class="tech-item">
+                    <strong>Explainable AI (XAI) — LIME &amp; SHAP</strong>
+                    <span>Post-hoc interpretation methods that approximate how a black-box model reached a specific prediction. LIME generates locally faithful explanations around individual decisions; SHAP uses game-theoretic Shapley values to assign feature contributions. Valuable for making opaque models legible — but they are approximations, and cannot fully resolve accountability challenges in the highest-stakes decisions.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Design Controls and Failure Modes Analysis (FMEA)</strong>
+                    <span>Borrowed from safety-critical industries (aerospace, medicine), FMEA systematically identifies potential failure modes, their causes, and their consequences — enabling teams to prioritize mitigations before deployment. Alongside design checklists and traceability matrices, these practices embed accountability into the engineering process rather than treating it as a post-deployment concern.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Algorithmic Auditing</strong>
+                    <span>Structured evaluations of AI systems against ethical, legal, and technical standards. Internal audits (e.g., the SMACTR framework) enable proactive risk identification before deployment. External audits by journalists, academics, and regulators provide independent third-party accountability — particularly critical for systems deployed in public interest contexts.</span>
+                </div>
+            </div>
+            <div class="tech-col">
+                <h3>🏢 Organizational Strategies</h3>
+                <div class="tech-item">
+                    <strong>Documentation — Model Cards &amp; Datasheets</strong>
+                    <span>Model cards document an AI system's intended use, performance across demographic subgroups, and known limitations — creating a public accountability record. Datasheets for datasets document training data provenance, composition, collection methods, and potential biases. Together, they make AI systems legible to auditors, regulators, and affected communities.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Impact Assessments — AIA &amp; DPIA</strong>
+                    <span>Algorithmic Impact Assessments (AIA) proactively evaluate potential harms, discriminatory impacts, and stakeholder effects before a system is deployed. Data Protection Impact Assessments (DPIA), required under GDPR for high-risk processing, assess privacy risks and identify mitigation measures. Both shift accountability from reactive (after harm occurs) to prospective (before harm is possible).</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Governance Structures</strong>
+                    <span>AI ethics committees, responsible AI officers, and cross-functional review boards that provide ongoing oversight of AI development and deployment decisions. Governance structures create institutional accountability — ensuring that decisions about high-risk AI are not made unilaterally by engineering teams but are reviewed against ethical and legal standards before and after deployment.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Redress and Complaints Mechanisms</strong>
+                    <span>Accessible channels through which affected individuals can challenge algorithmic decisions, request human review, and seek remedies for harm. Without meaningful redress — a path from "this decision harmed me" to "this harm is acknowledged and addressed" — accountability remains theoretical rather than real for the people most affected.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: EMERGING DEBATES -->
+        <div class="about" id="debates">
+            <span class="section-label">Section 7</span>
+            <h2>Emerging Debates and Unresolved Challenges</h2>
+            <p>Even as accountability frameworks mature, several foundational tensions remain genuinely unresolved — shaping the frontiers of both AI governance research and practical policy design.</p>
+        </div>
+
+        <div class="grid">
+            <div class="debate-card">
+                <h4>Shared vs. Individual Responsibility</h4>
+                <p>Should accountability be assigned to a single identifiable actor — a developer, a deployer, a decision-maker — or shared across the development chain? Shared accountability more accurately reflects how AI systems are built and deployed, but carries the risk of diffusing responsibility so widely that no one actor feels genuinely accountable. Designing frameworks that distribute responsibility proportionally while preserving clear lines of answerability is one of the central unresolved challenges in AI governance.</p>
+            </div>
+            <div class="debate-card">
+                <h4>Accountability Gap in Mixed Human-AI Systems</h4>
+                <p>When a human is nominally "in the loop" but lacks the technical expertise to evaluate an AI system's recommendation, human oversight becomes hollow — a procedural safeguard without substantive content. The question of how much responsibility appropriately rests with the human decision-maker versus the algorithm (and its developers) in such hybrid systems remains contested and legally unresolved, particularly in medicine, criminal justice, and benefits administration.</p>
+            </div>
+            <div class="debate-card">
+                <h4>Proprietary Secrecy vs. Public Accountability</h4>
+                <p>Trade secret protections frequently shield proprietary algorithms from public scrutiny, even when those algorithms make consequential decisions in public sector contexts — determining bail, visa eligibility, benefit claims, or credit scores. This creates a direct conflict between the commercial interests of AI vendors and the public's right to understand and challenge how government acts upon them. Current legal frameworks have not resolved this tension satisfactorily.</p>
+            </div>
+            <div class="debate-card">
+                <h4>Global Enforcement and Harmonization</h4>
+                <p>The EU AI Act sets demanding accountability standards, but its enforcement is geographically bounded. AI systems built in one jurisdiction and deployed in another exploit regulatory gaps in ways that cross-border enforcement mechanisms are not yet equipped to address. The fragmented global governance landscape makes it genuinely difficult to hold internationally operating AI companies to consistent accountability standards.</p>
+            </div>
+            <div class="debate-card" style="grid-column: 1 / -1;">
+                <h4>Empathy and Accountability</h4>
+                <p>A provocative emerging perspective (Srinivasan &amp; San Miguel González, 2022) argues that genuine accountability requires not just technical compliance and legal answerability, but <strong>empathy</strong> — the organizational capacity to understand and care about the real-world impacts on diverse stakeholders, particularly those who are least powerful and most affected. Current accountability frameworks focus heavily on process (audits, documentation, oversight) and outcomes (metrics, performance). What they often overlook is the quality of attention — whether the people building and deploying AI genuinely reckon with who is affected and how. This human-centric dimension may be as important as any structural mechanism.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 8: FUTURE RESEARCH -->
+        <div class="about" id="research">
+            <span class="section-label">Section 8</span>
+            <h2>Opportunities for Future Research and Innovation</h2>
+            <p>The field of AI accountability is developing rapidly, but significant gaps remain between governance aspiration and practical implementation. The following research directions represent the most urgent and promising frontiers.</p>
+        </div>
+
+        <div class="research-grid">
+            <div class="r-card">
+                <span class="r-icon">💛</span>
+                <h4>Empathy-Driven AI</h4>
+                <p>Explore how to systematically incorporate empathy into AI development lifecycles and governance frameworks — moving beyond proxy performance metrics to genuinely understand real-world impacts on individuals, communities, and marginalized groups who bear the greatest risks from algorithmic systems.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">🔬</span>
+                <h4>Strengthening Internal Audit Frameworks</h4>
+                <p>Develop more robust, scalable, and context-adaptable internal auditing methodologies — building on frameworks like SMACTR — that can be standardized across organizations of different sizes and AI system types, transforming audits from ad-hoc exercises into routine industry practice.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">⚖️</span>
+                <h4>New Legal and Liability Models</h4>
+                <p>Develop innovative legal frameworks suited to AI's complexity — including strict liability regimes for deployers, updated procedural rules enabling effective discovery of algorithmic decision records, and legal standing for affected communities to bring collective challenges against AI systems that cause systemic harm.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">🌐</span>
+                <h4>Participatory Governance</h4>
+                <p>Design and test effective models for engaging impacted communities, civil society organizations, and diverse stakeholder groups in the design, auditing, and ongoing oversight of AI systems — democratizing accountability so that it is not defined solely by the organizations that build and deploy AI.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">🤝</span>
+                <h4>Harmonizing Global Standards</h4>
+                <p>Study mechanisms for international regulatory alignment on AI accountability — including the "Brussels Effect" of the EU AI Act, bilateral regulatory cooperation agreements, and multilateral treaty frameworks — to prevent accountability arbitrage where globally operating AI companies exploit jurisdictional gaps.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">📏</span>
+                <h4>Accountability Metrics and Measurement</h4>
+                <p>Develop standardized, cross-domain metrics for evaluating the effectiveness of accountability mechanisms in practice — enabling comparison across jurisdictions, sectors, and organizational types, and building the evidence base needed to identify what governance structures actually produce accountable AI, not just compliant AI.</p>
+            </div>
+        </div>
+
+        <div class="about">
+            <div class="highlight-box">
+                <strong>Core insight:</strong> Accountability is not a feature that can be added to an AI system after it is built. It is an institutional, legal, and cultural commitment that must be embedded throughout the entire lifecycle — from the framing of the problem the AI is meant to solve, to the governance structures that oversee it, to the redress available to anyone it harms. Without each of these layers, accountability exists only on paper.
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
