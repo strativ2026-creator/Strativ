@@ -1,300 +1,693 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRATIV | Future Career Planning</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STRATIV | Future Career Planning</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-/* ===== RESET & BASE ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; }
+    <style>
+      /* ===== RESET & BASE ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+        background: #f8fafc;
+        line-height: 1.6;
+      }
 
-/* ===== HEADER ===== */
-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
-.logo img { width: 40px; height: 40px; }
-nav { display: flex; gap: 30px; }
-nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
-nav a:hover { color: #0077B6; }
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 6%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #03045e;
+      }
+      .logo img {
+        width: 40px;
+        height: 40px;
+      }
+      nav {
+        display: flex;
+        gap: 30px;
+      }
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      nav a:hover {
+        color: #0077b6;
+      }
 
-/* DROPDOWN STYLES */
-.dropdown { position: relative; }
-.dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-.dropdown-menu a { padding: 12px 15px; display: block; }
-.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+      /* DROPDOWN STYLES */
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
 
-/* ===== PAGE LAYOUT ===== */
-.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
+      /* ===== PAGE LAYOUT ===== */
+      .page {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 30px;
+        padding: 120px 6% 60px;
+      }
 
-/* STICKY SIDEBAR */
-.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
-.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; }
-.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
-.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
-/* Highlight current page */
-.sidebar a.active { background: #eaeaea; color: #0077B6; }
+      /* STICKY SIDEBAR */
+      .sidebar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
+      }
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px 10px 0 0;
+        text-transform: uppercase;
+      }
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
+      /* Highlight current page */
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+      }
 
-/* MAIN CONTENT */
-.main { display: flex; flex-direction: column; gap: 25px; }
-.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; }
-.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
-.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
-.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; }
+      /* MAIN CONTENT */
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      .inner-hero {
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+      .inner-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .inner-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.5);
+      }
+      .inner-hero h1 {
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 30px;
+        bottom: 50px;
+        left: 30px;
+      }
 
-.about, .card { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
-.about h2, .card h4 { font-family: Georgia, serif; color: #03045E; margin-bottom: 15px; }
-.card h4 { font-size: 20px; }
-.about p, .card p, .card ul { font-size: 14px; color: #6D6D6D; margin-bottom: 10px; }
-.card ul { margin-left: 20px; }
-.card li { margin-bottom: 8px; }
+      .about,
+      .card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+      .about h2,
+      .card h4 {
+        font-family: Georgia, serif;
+        color: #03045e;
+        margin-bottom: 15px;
+      }
+      .card h4 {
+        font-size: 20px;
+      }
+      .about p,
+      .card p,
+      .card ul {
+        font-size: 14px;
+        color: #6d6d6d;
+        margin-bottom: 10px;
+      }
+      .card ul {
+        margin-left: 20px;
+      }
+      .card li {
+        margin-bottom: 8px;
+      }
 
-/* Table Styles */
-.data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-.data-table th, .data-table td { padding: 12px 15px; border: 1px solid #e2e8f0; text-align: left; font-size: 14px; }
-.data-table th { background: #03045E; color: #fff; font-family: Georgia, serif; font-weight: normal; }
-.data-table td { color: #6D6D6D; }
-.data-table tr:nth-child(even) { background-color: #f8fafc; }
+      /* Table Styles */
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+      .data-table th,
+      .data-table td {
+        padding: 12px 15px;
+        border: 1px solid #e2e8f0;
+        text-align: left;
+        font-size: 14px;
+      }
+      .data-table th {
+        background: #03045e;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-weight: normal;
+      }
+      .data-table td {
+        color: #6d6d6d;
+      }
+      .data-table tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
 
-.references-list { font-size: 12px !important; word-break: break-word; }
-.references-list a { color: #0077B6; text-decoration: none; }
-.references-list a:hover { text-decoration: underline; }
+      .references-list {
+        font-size: 12px !important;
+        word-break: break-word;
+      }
+      .references-list a {
+        color: #0077b6;
+        text-decoration: none;
+      }
+      .references-list a:hover {
+        text-decoration: underline;
+      }
 
-/* ===== NAVY FOOTER ===== */
-footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
-.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
-.footer-brand { flex: 1; }
-.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
-.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
-.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
-.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
-.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
-.f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
-.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
-.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
-.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+      /* ===== NAVY FOOTER ===== */
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+      .footer-brand {
+        flex: 1;
+      }
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+      }
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .copyright-bar {
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
 
-@media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
+      @media (max-width: 1100px) {
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
+      }
 
-/* ===== SCROLL TO TOP ===== */
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
-}
+      /* ===== SCROLL TO TOP ===== */
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        background-color: #03045e;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ffffff;
+        transition: background-color 0.3s;
+      }
 
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
-}
-</style>
-</head>
+      #scrollTopBtn:hover {
+        background-color: #0077b6;
+      }
+    </style>
+  </head>
 
-<body id="top">
-
-<header>
-    <div class="logo">
-        <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+  <body id="top">
+    <header>
+      <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV Logo" />
         STRATIV
-    </div>
+      </div>
 
-    <nav>
+      <nav>
         <a href="../../index.html">Home</a>
         <div class="dropdown">
-            <a href="#topics">Topics ▾</a>
-            <div class="dropdown-menu">
-                <a href="topics/introduction-ai-workplace/overview.html">AI Workplace</a>
-                <a href="#">Jobs at Risk</a>
-                <a href="#">Emerging Careers</a>
-                <a href="#">Human + AI</a>
-                <a href="#">Skills</a>
-                <a href="#">Ethics</a>
-                <a href="#">Students</a>
-                <a href="#">Future</a>
-            </div>
+          <a href="#topics">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="topics/introduction-ai-workplace/overview.html"
+              >AI Workplace</a
+            >
+            <a href="#">Jobs at Risk</a>
+            <a href="#">Emerging Careers</a>
+            <a href="#">Human + AI</a>
+            <a href="#">Skills</a>
+            <a href="#">Ethics</a>
+            <a href="#">Students</a>
+            <a href="#">Future</a>
+          </div>
         </div>
         <div class="dropdown">
-            <a href="#">Resources ▾</a>
-            <div class="dropdown-menu">
-                <a href="#">Case Studies</a>
-                <a href="#">Data & Reports</a>
-            </div>
+          <a href="#">Resources ▾</a>
+          <div class="dropdown-menu">
+            <a href="#">Case Studies</a>
+            <a href="#">Data & Reports</a>
+          </div>
         </div>
         <a href="#">About</a>
         <a href="#">Contact</a>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<div class="page">
-    <aside class="sidebar">
+    <div class="page">
+      <aside class="sidebar">
         <h3>PREPARING STUDENTS</h3>
-        <a href="#">Overview of Preparing students AI</a>
-        <a href="#">AI in Education</a>
-        <a href="#">Student Skills for the AI Era</a>
-        <a href="#">AI Learning Tools</a>
-        <a href="#">Career Preparation for AI Jobs</a>
-        <a href="#">Student Preparation Summary</a>
-        <a href="#">AI Coding Skills</a>
-        <a href="#">Digital Projects with AI</a>
-        <a href="#">AI Research Skills</a>
-        <a href="#">Student Insights</a>
-        <a href="ai-learning-platforms.html">AI Learning Platforms</a>
-        <a href="future-career-planning.html" class="active">Future Career Planning</a>
-    </aside>
+        <a href="overviewofpreparingstudentsai.html"
+          >Overview of Preparing students AI</a
+        >
+        <a href="aiineducation.html">AI in Education</a>
+        <a href="studentskillsfortheaiera.html"
+          >Student Skills for the AI Era</a
+        >
+        <a href="ailearningtools.html">AI Learning Tools</a>
+        <a href="careerpreparationforaijobs.html"
+          >Career Preparation for AI Jobs</a
+        >
+        <a href="studentpreparationsummary.html">Student Preparation Summary</a>
+        <a href="aicodingskills.html">AI Coding Skills</a>
+        <a href="digitalprojectwithai.html">Digital Projects with AI</a>
+        <a href="airesearchskills.html">AI Research Skills</a>
+        <a href="studentinsights.html">Student Insights</a>
+        <a href="ailearningplatform.html">AI Learning Platforms</a>
+        <a href="#" class="active">Future Career Planning</a>
+      </aside>
 
-    <main class="main">
+      <main class="main">
         <div class="inner-hero">
-            <img src="images/topics/futurecareer.jpg" alt="Person planning career future on a laptop">
-            <h1>Future Career Planning</h1>
+          <img
+            src="../../images/preparing-student-images/futurecareer.jpg"
+            alt="Person planning career future on a laptop"
+          />
+          <h1>Future Career Planning</h1>
         </div>
 
         <div class="about">
-            <h2>Definition and Core Concept</h2>
-            <p><strong>Definition:</strong> The proactive process of aligning an individual’s professional development with the evolving capabilities of artificial intelligence and automated systems.</p>
-            <p><strong>The "Dynamic Career" Model:</strong> Moving away from static job titles (e.g., "Accountant"), this model focuses on roles and competencies. It emphasizes a worker’s ability to pivot between different industries by leveraging a core set of "durable" human skills that AI cannot easily replicate.</p>
+          <h2>Definition and Core Concept</h2>
+          <p>
+            <strong>Definition:</strong> The proactive process of aligning an
+            individual’s professional development with the evolving capabilities
+            of artificial intelligence and automated systems.
+          </p>
+          <p>
+            <strong>The "Dynamic Career" Model:</strong> Moving away from static
+            job titles (e.g., "Accountant"), this model focuses on roles and
+            competencies. It emphasizes a worker’s ability to pivot between
+            different industries by leveraging a core set of "durable" human
+            skills that AI cannot easily replicate.
+          </p>
         </div>
 
         <div class="card">
-            <h4>How AI-Driven Career Planning Helps</h4>
-            <ul>
-                <li><strong>AI as a Career Coach:</strong> Advanced platforms now use "Career Pathing AI" to analyze an individual’s current skills and map them against global job market trends, identifying the exact certifications or projects needed to jump to a higher-paying role.</li>
-                <li><strong>The "Fractional" Career:</strong> AI makes it easier for professionals to manage multiple income streams (gig work, consulting, and part-time roles) by automating the administrative overhead of scheduling, billing, and project management.</li>
-                <li><strong>Skill Gap Visualization:</strong> Instead of guessing what to learn next, workers can use AI to "overlay" their resume onto a future job description to see a heat map of exactly which skills they are missing.</li>
-                <li><strong>Hyper-Niche Specialization:</strong> AI handles the "average" tasks, allowing humans to become hyper-specialized in rare, high-value niches—such as AI Ethics Auditing or Prompt Engineering for Biotech.</li>
-            </ul>
+          <h4>How AI-Driven Career Planning Helps</h4>
+          <ul>
+            <li>
+              <strong>AI as a Career Coach:</strong> Advanced platforms now use
+              "Career Pathing AI" to analyze an individual’s current skills and
+              map them against global job market trends, identifying the exact
+              certifications or projects needed to jump to a higher-paying role.
+            </li>
+            <li>
+              <strong>The "Fractional" Career:</strong> AI makes it easier for
+              professionals to manage multiple income streams (gig work,
+              consulting, and part-time roles) by automating the administrative
+              overhead of scheduling, billing, and project management.
+            </li>
+            <li>
+              <strong>Skill Gap Visualization:</strong> Instead of guessing what
+              to learn next, workers can use AI to "overlay" their resume onto a
+              future job description to see a heat map of exactly which skills
+              they are missing.
+            </li>
+            <li>
+              <strong>Hyper-Niche Specialization:</strong> AI handles the
+              "average" tasks, allowing humans to become hyper-specialized in
+              rare, high-value niches—such as AI Ethics Auditing or Prompt
+              Engineering for Biotech.
+            </li>
+          </ul>
         </div>
 
         <div class="card">
-            <h4>Implementation Strategies for the Modern Worker</h4>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Strategy</th>
-                        <th>Action</th>
-                        <th>Goal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Skill Compounding</strong></td>
-                        <td>Layering AI literacy on top of a traditional craft (e.g., Marketing + AI Analytics).</td>
-                        <td>Professional Indispensability</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Personal Branding AI</strong></td>
-                        <td>Using AI to maintain a constant, professional digital presence across platforms.</td>
-                        <td>Passive Opportunity Generation</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Iterative Reskilling</strong></td>
-                        <td>Dedicating 5 hours a week to learning a new tool or methodology.</td>
-                        <td>Anti-Fragility</td>
-                    </tr>
-                </tbody>
-            </table>
+          <h4>Implementation Strategies for the Modern Worker</h4>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Strategy</th>
+                <th>Action</th>
+                <th>Goal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Skill Compounding</strong></td>
+                <td>
+                  Layering AI literacy on top of a traditional craft (e.g.,
+                  Marketing + AI Analytics).
+                </td>
+                <td>Professional Indispensability</td>
+              </tr>
+              <tr>
+                <td><strong>Personal Branding AI</strong></td>
+                <td>
+                  Using AI to maintain a constant, professional digital presence
+                  across platforms.
+                </td>
+                <td>Passive Opportunity Generation</td>
+              </tr>
+              <tr>
+                <td><strong>Iterative Reskilling</strong></td>
+                <td>
+                  Dedicating 5 hours a week to learning a new tool or
+                  methodology.
+                </td>
+                <td>Anti-Fragility</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div class="card">
-            <h4>Major Issues Addressed by Future Career Planning</h4>
-            <ul>
-                <li><strong>The Obsolescence Trap:</strong> Many workers fear their degree is becoming "dated" within years. Future planning focuses on Continuous Professional Development (CPD) to ensure skills remain fresh.</li>
-                <li><strong>Credential Inflation:</strong> As AI makes basic tasks easier, a "standard" degree is worth less. Planning now emphasizes Proof of Work (portfolios and real-world projects) over simple certificates.</li>
-                <li><strong>Burnout Management:</strong> AI tools help workers "work smarter," allowing them to plan careers that prioritize mental health and work-life balance without sacrificing income.</li>
-            </ul>
+          <h4>Major Issues Addressed by Future Career Planning</h4>
+          <ul>
+            <li>
+              <strong>The Obsolescence Trap:</strong> Many workers fear their
+              degree is becoming "dated" within years. Future planning focuses
+              on Continuous Professional Development (CPD) to ensure skills
+              remain fresh.
+            </li>
+            <li>
+              <strong>Credential Inflation:</strong> As AI makes basic tasks
+              easier, a "standard" degree is worth less. Planning now emphasizes
+              Proof of Work (portfolios and real-world projects) over simple
+              certificates.
+            </li>
+            <li>
+              <strong>Burnout Management:</strong> AI tools help workers "work
+              smarter," allowing them to plan careers that prioritize mental
+              health and work-life balance without sacrificing income.
+            </li>
+          </ul>
         </div>
 
         <div class="card">
-            <h4>Real-World Example: The "Blue-to-New" Collar Shift</h4>
-            <p><strong>The Scenario:</strong> A manufacturing floor manager sees their facility move toward 80% automation.</p>
-            <p><strong>The Problem:</strong> Their traditional skill set—manual scheduling and physical oversight—is being handled by a central AI dashboard.</p>
-            <p><strong>The Career Fix:</strong> Instead of facing redundancy, the manager uses a career planning platform to pivot into Industrial AI Maintenance. They leverage their "tribal knowledge" of how the machines actually work and combine it with a 6-month certification in AI diagnostics. They now earn 30% more as the person who "manages the robots" rather than the person replaced by them.</p>
+          <h4>Real-World Example: The "Blue-to-New" Collar Shift</h4>
+          <p>
+            <strong>The Scenario:</strong> A manufacturing floor manager sees
+            their facility move toward 80% automation.
+          </p>
+          <p>
+            <strong>The Problem:</strong> Their traditional skill set—manual
+            scheduling and physical oversight—is being handled by a central AI
+            dashboard.
+          </p>
+          <p>
+            <strong>The Career Fix:</strong> Instead of facing redundancy, the
+            manager uses a career planning platform to pivot into Industrial AI
+            Maintenance. They leverage their "tribal knowledge" of how the
+            machines actually work and combine it with a 6-month certification
+            in AI diagnostics. They now earn 30% more as the person who "manages
+            the robots" rather than the person replaced by them.
+          </p>
         </div>
 
         <div class="card">
-            <h4>Emerging Debates in Career Planning</h4>
-            <ul>
-                <li><strong>The "End of the Entry Level":</strong> If AI does all the "junior" work, how do young professionals get their first break? Career planners are debating if we need "AI Apprenticeships" to bridge this gap.</li>
-                <li><strong>Human-Only Zones:</strong> Should some careers be "protected" from AI? There is a growing debate about whether roles in social work, childcare, or mental health should remain strictly human-centric.</li>
-                <li><strong>The Retirement Rethink:</strong> As AI increases life expectancy and makes work less physically taxing, "Future Career Planning" is now looking at 60-year careers with multiple "gap years" rather than a single retirement at 65.</li>
-            </ul>
+          <h4>Emerging Debates in Career Planning</h4>
+          <ul>
+            <li>
+              <strong>The "End of the Entry Level":</strong> If AI does all the
+              "junior" work, how do young professionals get their first break?
+              Career planners are debating if we need "AI Apprenticeships" to
+              bridge this gap.
+            </li>
+            <li>
+              <strong>Human-Only Zones:</strong> Should some careers be
+              "protected" from AI? There is a growing debate about whether roles
+              in social work, childcare, or mental health should remain strictly
+              human-centric.
+            </li>
+            <li>
+              <strong>The Retirement Rethink:</strong> As AI increases life
+              expectancy and makes work less physically taxing, "Future Career
+              Planning" is now looking at 60-year careers with multiple "gap
+              years" rather than a single retirement at 65.
+            </li>
+          </ul>
         </div>
 
         <div class="card">
-            <h4>References</h4>
-            <ul class="references-list">
-                <li>Coursera. (2026). The 2026 job skills report: Why human-centric skills are the new gold standard. <a href="https://www.coursera.org/articles/job-skills-report-2026" target="_blank">https://www.coursera.org/articles/job-skills-report-2026</a></li>
-                <li>Forbes Advisor. (2026). How AI is changing the future of work: 10 trends to watch. <a href="https://www.forbes.com/advisor/business/ai-future-of-work/" target="_blank">https://www.forbes.com/advisor/business/ai-future-of-work/</a></li>
-                <li>LinkedIn Economic Graph. (2025). The shift toward skills-first hiring: How AI is rewriting the resume. <a href="https://economicgraph.linkedin.com/research/skills-first-hiring-2025" target="_blank">https://economicgraph.linkedin.com/research/skills-first-hiring-2025</a></li>
-                <li>World Economic Forum. (2026). The future of jobs: Navigating the 4th industrial revolution through lifelong learning. <a href="https://www.weforum.org/reports/future-of-jobs-2026/" target="_blank">https://www.weforum.org/reports/future-of-jobs-2026/</a></li>
-            </ul>
+          <h4>References</h4>
+          <ul class="references-list">
+            <li>
+              Coursera. (2026). The 2026 job skills report: Why human-centric
+              skills are the new gold standard.
+              <a
+                href="https://www.coursera.org/articles/job-skills-report-2026"
+                target="_blank"
+                >https://www.coursera.org/articles/job-skills-report-2026</a
+              >
+            </li>
+            <li>
+              Forbes Advisor. (2026). How AI is changing the future of work: 10
+              trends to watch.
+              <a
+                href="https://www.forbes.com/advisor/business/ai-future-of-work/"
+                target="_blank"
+                >https://www.forbes.com/advisor/business/ai-future-of-work/</a
+              >
+            </li>
+            <li>
+              LinkedIn Economic Graph. (2025). The shift toward skills-first
+              hiring: How AI is rewriting the resume.
+              <a
+                href="https://economicgraph.linkedin.com/research/skills-first-hiring-2025"
+                target="_blank"
+                >https://economicgraph.linkedin.com/research/skills-first-hiring-2025</a
+              >
+            </li>
+            <li>
+              World Economic Forum. (2026). The future of jobs: Navigating the
+              4th industrial revolution through lifelong learning.
+              <a
+                href="https://www.weforum.org/reports/future-of-jobs-2026/"
+                target="_blank"
+                >https://www.weforum.org/reports/future-of-jobs-2026/</a
+              >
+            </li>
+          </ul>
         </div>
-    </main>
-</div>
+      </main>
+    </div>
 
-<footer>
-    <div class="footer-container">
+    <footer>
+      <div class="footer-container">
         <div class="footer-brand">
-            <div class="footer-logo-blocks">
-                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-            </div>
-            <div class="mission-text">
-                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
-            </div>
+          <div class="footer-logo-blocks">
+            <span>S</span><span>T</span><span>R</span><span>A</span
+            ><span>T</span><span>I</span><span>V</span>
+          </div>
+          <div class="mission-text">
+            <p>
+              Navigating the future of human-AI collaboration in the workforce.
+              A comprehensive guide to automation and emerging careers.
+            </p>
+          </div>
         </div>
 
         <div class="footer-links-group">
-            <div class="f-col">
-                <h4>Quick Links</h4>
-                <div class="quick-links-grid">
-                    <div>
-                        <a href="ai.html">AI Workplace</a><br>
-                        <a href="#">Emerging Careers</a>
-                    </div>
-                    <div>
-                        <a href="#">Jobs at Risk</a><br>
-                        <a href="#">Ethics</a>
-                    </div>
-                </div>
+          <div class="f-col">
+            <h4>Quick Links</h4>
+            <div class="quick-links-grid">
+              <div>
+                <a href="ai.html">AI Workplace</a><br />
+                <a href="#">Emerging Careers</a>
+              </div>
+              <div>
+                <a href="#">Jobs at Risk</a><br />
+                <a href="#">Ethics</a>
+              </div>
             </div>
+          </div>
 
-            <div class="f-col">
-                <h4>Contact Info</h4>
-                <div class="contact-item">
-                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                        <span class="icon-box">f</span><span> Strativ.com</span>
-                    </a>
-                </div>
-                <div class="contact-item">
-                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
-                        <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
-                    </a>
-                </div>
+          <div class="f-col">
+            <h4>Contact Info</h4>
+            <div class="contact-item">
+              <a
+                href="https://facebook.com/strativ"
+                target="_blank"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">f</span><span> Strativ.com</span>
+              </a>
             </div>
+            <div class="contact-item">
+              <a
+                href="mailto:Strativ018@gmail.com"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
+              </a>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="copyright-bar">
+      </div>
+      <div class="copyright-bar">
         <p>© 2026 University of the East. All rights reserved.</p>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
-
-</body>
+    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
+      >↑</a
+    >
+  </body>
 </html>
