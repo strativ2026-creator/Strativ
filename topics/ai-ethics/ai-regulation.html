@@ -725,12 +725,36 @@ footer {
     nav a { font-size: 12px; }
     #back-to-top { bottom: 18px; right: 18px; }
 }
+
+#scrollTopBtn {
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 99; 
+    background-color: #03045E; 
+    color: white; 
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    font-size: 20px; 
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #ffffff;
+    transition: background-color 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #0077B6; 
+}
 </style>
 </head>
 
 <body>
 
-<header>
+<header id="top">
     <div class="logo">
         <img src="../../images/logo/logo.jpg" alt="STRATIV logo">
         STRATIV
@@ -740,14 +764,14 @@ footer {
         <div class="dropdown">
             <a href="../../index.html#topics">Topics ▾</a>
             <div class="dropdown-menu">
-                <a href="ai.html">AI Workplace</a>
-                <a href="#">Jobs at Risk</a>
-                <a href="#">Emerging Careers</a>
-                <a href="#">Human + AI</a>
-                <a href="#">Skills</a>
-                <a href="#">Ethics</a>
-                <a href="#">Students</a>
-                <a href="#">Future</a>
+                <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
+                <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Human + AI</a>
+                <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Skills</a>
+                <a href="overview-ai-ethics.html">Ethics</a>
+                <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future</a>
             </div>
         </div>
         <div class="dropdown">
@@ -777,8 +801,8 @@ footer {
         <a href="ai-regulation.html" class="active">AI Regulation and Policies</a>
         <a href="ai-accountability.html">AI Accountability</a>
         <a href="ethical-ai-design.html">Ethical AI Design</a>
-        <a href="#">AI and Human Rights</a>
-        <a href="#">Social Impact of Artificial Intelligence</a>
+        <a href="ai-and-human-rights.html">AI and Human Rights</a>
+        <a href="social-impact-of-artificial-intelligence.html">Social Impact of Artificial Intelligence</a>
     </aside>
 
     <main class="main">
@@ -1147,16 +1171,16 @@ footer {
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="#">AI Workplace</a><br>
-                        <a href="#">Emerging Careers</a><br>
-                        <a href="#">Future Skills</a><br>
-                        <a href="#">Students</a>
+                        <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
+                        <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
+                        <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Future Skills</a><br>
+                        <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
                     </div>
                     <div>
-                        <a href="#">Jobs at Risk</a><br>
-                        <a href="#">Collaboration</a><br>
-                        <a href="#">Ethics</a><br>
-                        <a href="#">Future Outlook</a>
+                        <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
+                        <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Collaboration</a><br>
+                        <a href="overview-ai-ethics.html">Ethics</a><br>
+                        <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -1186,6 +1210,8 @@ footer {
         <p>© 2026 University of the East. All rights reserved.</p>
     </div>
 </footer>
+
+<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
 
 </body>
 </html>
