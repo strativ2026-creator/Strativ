@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | Algorithm Transparency</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<!--Abordo, Jana Sayrielle G. -->
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077B6;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+.sidebar a.active {
+    background: #eaeaea;
+    color: #0077B6;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inner-hero {
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.5);
+}
+
+.inner-hero h1 {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    bottom: 30px;
+    left: 30px;
+}
+
+.about {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.about p:last-child {
+    margin-bottom: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+}
+
+.card p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+}
+
+.card a {
+    padding: 10px 20px;
+    background: #03045E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 14px;
+}
+
+.card a:hover {
+    background: #0077B6;
+}
+
+/* ===== CONTENT STYLES ===== */
+.section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0077B6;
+    margin-bottom: 8px;
+}
+
+.highlight-box {
+    background: #EFF6FF;
+    border-left: 4px solid #0077B6;
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0 0;
+    font-size: 14px;
+    color: #003049;
+    line-height: 1.7;
+}
+
+.highlight-box strong {
+    color: #03045E;
+}
+
+/* DUAL LAYER */
+.dual-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 18px;
+}
+
+.dual-box {
+    border-radius: 10px;
+    padding: 22px 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.dual-box.tech {
+    background: #EFF6FF;
+    border-top: 4px solid #0077B6;
+}
+
+.dual-box.org {
+    background: #f0fdf4;
+    border-top: 4px solid #059669;
+}
+
+.dual-box h5 {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.dual-box.tech h5 { color: #0077B6; }
+.dual-box.org h5  { color: #059669; }
+
+.dual-box p {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* PRINCIPLES GRID */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.p-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 18px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #03045E;
+}
+
+.p-card .p-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.p-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.p-card p {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* CASE CARDS */
+.case-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 11px;
+}
+
+.badge-risk  { background: #FEE2E2; color: #991B1B; }
+.badge-study { background: #FEF3C7; color: #92400E; }
+.badge-res   { background: #EFF6FF; color: #1D4ED8; }
+
+.case-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.case-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.case-card p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* IMPLICATION CARDS */
+.imp-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #03045E;
+}
+
+.imp-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.imp-card p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin: 0 0 8px;
+}
+
+.imp-card p:last-child { margin-bottom: 0; }
+
+/* FRAMEWORK TABLE */
+.fw-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.fw-table thead {
+    background: #03045E;
+    color: #fff;
+}
+
+.fw-table thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fw-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.fw-table tbody tr:last-child { border-bottom: none; }
+
+.fw-table tbody td {
+    padding: 13px 16px;
+    color: #444;
+    vertical-align: top;
+    line-height: 1.65;
+}
+
+.fw-table tbody td:first-child {
+    font-weight: 700;
+    color: #03045E;
+    white-space: nowrap;
+}
+
+.fw-table tbody tr:nth-child(even) { background: #f8fafc; }
+
+/* TECHNICAL TWO-COL */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.tech-col {
+    background: #fff;
+    border-radius: 12px;
+    padding: 26px;
+    border: 1px solid #e2e8f0;
+}
+
+.tech-col h3 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tech-item {
+    margin-bottom: 16px;
+}
+
+.tech-item:last-child { margin-bottom: 0; }
+
+.tech-item strong {
+    display: block;
+    color: #03045E;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.tech-item span {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+}
+
+/* DEBATES */
+.debate-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #03045E;
+}
+
+.debate-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.debate-card p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* FUTURE RESEARCH GRID */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.r-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 20px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.r-card .r-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.r-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.r-card p {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+    margin: 0;
+}
+
+
+/* ===== FOOTER ===== */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-brand { flex: 1; }
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px;
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1;
+    margin-top: -6px;
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .footer-container  { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+    .principles-grid   { grid-template-columns: repeat(2, 1fr); }
+    .research-grid     { grid-template-columns: repeat(2, 1fr); }
+    .two-col           { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+    .page {
+        grid-template-columns: 1fr;
+        padding: 100px 4% 40px;
+    }
+    .sidebar           { position: static; }
+    .grid              { grid-template-columns: 1fr; }
+    .principles-grid   { grid-template-columns: 1fr; }
+    .dual-row          { grid-template-columns: 1fr; }
+    .research-grid     { grid-template-columns: 1fr; }
+    .inner-hero h1     { font-size: 26px; }
+}
+
+@media (max-width: 600px) {
+    nav { gap: 14px; }
+    nav a { font-size: 12px; }
+    #back-to-top { bottom: 18px; right: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV logo">
+        STRATIV
+    </div>
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons &amp; Images</a>
+                <a href="../../resources/data-reports.html">Data &amp; Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
+            </div>
+        </div>
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI Ethics &amp; Social Issues</h3>
+        <a href="overview-ai-ethics.html">Overview of AI Ethics</a>
+        <a href="ai-bias.html">AI Bias and Fairness</a>
+        <a href="privacy-security-issue.html">Privacy and Security Issues</a>
+        <a href="job-displacement.html">Job Displacement by AI</a>
+        <a href="responsible-ai.html">Responsible AI Development</a>
+        <a href="ethics-summary.html">Ethics Summary</a>
+        <a href="algorithm-transparency.html" class="active">Algorithm Transparency</a>
+        <a href="ai-regulation.html">AI Regulation and Policies</a>
+        <a href="ai-accountability.html">AI Accountability</a>
+        <a href="ethical-ai-design.html">Ethical AI Design</a>
+        <a href="#">AI and Human Rights</a>
+        <a href="#">Social Impact of Artificial Intelligence</a>
+    </aside>
+
+    <main class="main">
+
+        <!-- HERO BANNER -->
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop"
+                 alt="Close-up of circuit board pathways representing algorithmic systems and transparency"
+                 title="Algorithm Transparency Banner">
+            <h1>Algorithm Transparency</h1>
+        </div>
+
+        <!-- SECTION 1: DEFINITIONS & SCOPE -->
+        <div class="about" id="definitions">
+            <span class="section-label">Section 1</span>
+            <h2>Definitions and Scope</h2>
+            <p>
+                <strong>Algorithm transparency</strong> refers to the principle that the factors influencing an AI system's decision should be visible or understandable to those who employ or are affected by its outcomes. At its core, it is the process of understanding and explaining how AI systems make decisions — moving beyond the "black box" nature of complex models.
+            </p>
+            <p>
+                Transparency is not a single property but a <strong>dual-layer framework</strong> operating at two interrelated levels. It applies across the full AI lifecycle — from design and development through deployment and auditing — and is equally relevant in public sector governance (e.g., benefits administration, criminal justice) and private sector applications (e.g., consumer chatbots, credit scoring).
+            </p>
+
+            <div class="dual-row">
+                <div class="dual-box tech">
+                    <h5>⚙️ Technical Transparency</h5>
+                    <p>Concerns the clarity of the algorithm's internal operational mechanisms — including its training data, decision-making processes, feature weighting, and known system limitations. Addresses <em>how</em> the system works at a technical level.</p>
+                </div>
+                <div class="dual-box org">
+                    <h5>🏢 Organizational Transparency</h5>
+                    <p>Reflects corporate disclosure practices — including published ethical guidelines, accountability measures for errors, responsiveness to stakeholder concerns, and governance structures that surround a deployed system. Addresses <em>who</em> is responsible and <em>what</em> commitments are made.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: CORE PRINCIPLES -->
+        <div class="about" id="principles">
+            <span class="section-label">Section 2</span>
+            <h2>Core Principles</h2>
+            <p>Four interconnected principles define what algorithm transparency requires in practice. Together they form a foundation for building AI systems that can be meaningfully understood, scrutinized, and held to account.</p>
+        </div>
+
+        <div class="principles-grid">
+            <div class="p-card">
+                <span class="p-icon">💬</span>
+                <h4>Explainability</h4>
+                <p>The ability to describe an AI system's internal workings and decision-making in terms that humans — including non-experts — can understand. The EU's GDPR, for instance, mandates "meaningful information about the logic involved" in automated decisions affecting individuals.</p>
+            </div>
+            <div class="p-card">
+                <span class="p-icon">🔎</span>
+                <h4>Interpretability</h4>
+                <p>The degree to which a human can consistently predict or follow a model's outputs. Often framed as a trade-off with accuracy: simpler models (e.g., linear regression) are more interpretable but potentially less accurate than complex neural networks — a tension at the heart of XAI research.</p>
+            </div>
+            <div class="p-card">
+                <span class="p-icon">⚖️</span>
+                <h4>Accountability</h4>
+                <p>The obligation of institutions that build or deploy algorithms to be responsible for their outcomes. Transparency is a prerequisite for accountability — without visibility into how decisions are made, meaningful oversight and redress for those harmed become impossible.</p>
+            </div>
+            <div class="p-card">
+                <span class="p-icon">📂</span>
+                <h4>Openness</h4>
+                <p>Making information about an algorithm's purpose, design, training data, and performance metrics available for scrutiny by relevant stakeholders. Practical tools include model cards (documenting intended use and performance) and datasheets (describing dataset composition, biases, and collection methods).</p>
+            </div>
+        </div>
+
+        <!-- SECTION 3: CASE STUDIES -->
+        <div class="about" id="cases">
+            <span class="section-label">Section 3</span>
+            <h2>Case Studies and Examples</h2>
+            <p>The following cases illustrate how algorithm transparency — and its absence — produces real-world consequences across public administration, the justice system, and research settings.</p>
+        </div>
+
+        <div class="grid">
+            <div class="case-card">
+                <span class="case-badge badge-risk">⚠ Transparency Failure</span>
+                <h4>Austrian Employment Service (AMS) Algorithm</h4>
+                <p>
+                    A machine-learning system designed to predict job seekers' chances of finding work was found to discriminate against women — particularly those with migration backgrounds or childcare responsibilities.<br><br>
+                    <strong>Transparency problem:</strong> The system's opacity made it nearly impossible for external auditors to understand its error rates or the reasoning behind individual classifications. Affected individuals had no meaningful path to challenge outcomes.<br><br>
+                    <strong>Lesson:</strong> Biased training data combined with a lack of transparency in high-stakes public administration creates compounded harms that are invisible until scrutinized externally.
+                </p>
+            </div>
+            <div class="case-card">
+                <span class="case-badge badge-risk">⚠ Transparency Failure</span>
+                <h4>COMPAS Recidivism Risk Assessment</h4>
+                <p>
+                    Used in U.S. courts to predict likelihood of re-offending and inform sentencing and parole decisions, COMPAS was found to be biased against African American defendants — flagging them as higher risk at nearly twice the rate of white defendants with similar histories.<br><br>
+                    <strong>Transparency problem:</strong> Its proprietary, black-box nature prevented effective legal scrutiny or redress. Its accuracy rate was no better than predictions made by random members of the public, yet it carried significant judicial weight.<br><br>
+                    <strong>Lesson:</strong> Opacity in high-stakes decisions does not just hide performance — it shields discrimination from challenge.
+                </p>
+            </div>
+            <div class="case-card">
+                <span class="case-badge badge-res">🔬 Research Finding</span>
+                <h4>Transparency and Trust Experiments</h4>
+                <p>
+                    An online experiment by Park &amp; Yoon (2025) tested how AI algorithm transparency affected trust across users with varying prior attitudes toward AI.<br><br>
+                    <strong>Key finding:</strong> Transparency did not necessarily increase trust in the AI system itself for users with pre-existing negative attitudes. However, it <em>did</em> meaningfully enhance trust in the <strong>parent organization</strong> — acting as a "peripheral cue" of accountability, especially when the issue was personally relevant to the user.<br><br>
+                    <strong>Implication:</strong> Transparency serves as an organizational trust signal even when it fails to change minds about the algorithm directly.
+                </p>
+            </div>
+            <div class="case-card">
+                <span class="case-badge badge-study">📋 Counterintuitive Finding</span>
+                <h4>The "Risk" of Transparency</h4>
+                <p>
+                    In a forecasting experiment by Lehmann et al. (2022), revealing that a simple (but statistically optimal) algorithm used a basic arithmetic mean actually <em>reduced</em> users' reliance on its advice and worsened their performance.<br><br>
+                    <strong>Contrast:</strong> Revealing a complex neural network algorithm <em>increased</em> adoption of its advice — users perceived complexity as a signal of sophistication.<br><br>
+                    <strong>Concept:</strong> This effect was mediated by whether users perceived the algorithm's complexity as appropriate for the task, giving rise to the "plateau curve" — where transparency backfires when simplicity disappoints user expectations.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 4: ETHICAL & SOCIAL IMPLICATIONS -->
+        <div class="about" id="implications">
+            <span class="section-label">Section 4</span>
+            <h2>Ethical and Social Implications</h2>
+            <p>Algorithm transparency is not merely a technical concern — it has far-reaching consequences for public trust, democratic governance, civil rights, and the ability of individuals to seek redress when automated systems affect their lives.</p>
+        </div>
+
+        <div class="grid">
+            <div class="imp-card">
+                <h4>Trust and Skepticism</h4>
+                <p>Transparency can serve as a credible signal of trustworthiness, particularly toward the organization deploying an AI system. However, this relationship is not linear — disclosing an algorithm perceived as "too simple" can backfire, reducing trust and user adoption. The effect of transparency on trust depends on users' prior attitudes, their domain expertise, and whether they find the algorithm's complexity appropriate for the task at hand.</p>
+            </div>
+            <div class="imp-card">
+                <h4>Fairness and Discrimination</h4>
+                <p>Opacity conceals and perpetuates biases embedded in training data or developer logic. When an algorithm's factors and weights are hidden, discriminatory outcomes in hiring, credit scoring, housing, and criminal justice can persist undetected for years. Transparency is a prerequisite for identifying, auditing, and remedying such disparate impacts — making it inseparable from the principle of fairness.</p>
+            </div>
+            <div class="imp-card">
+                <h4>Governance and the Rule of Law</h4>
+                <p>The use of AI in public administration raises two complementary transparency requirements: <strong>fishbowl transparency</strong> (openness of government processes) and <strong>reasoned transparency</strong> (the legal requirement to give reasons for administrative decisions). While machine learning challenges traditional notions of reasoned explanations, legal demands can be satisfied by explaining an algorithm's purpose, design principles, and basic functioning — without necessarily disclosing proprietary source code.</p>
+            </div>
+            <div class="imp-card">
+                <h4>Human Oversight</h4>
+                <p>Transparency is a precondition for the human oversight required by frameworks like the EU AI Act. Without visibility into how a system reaches its conclusions, users and reviewers cannot meaningfully decide when to override, contest, or defer to an algorithmic decision. Transparency thus sustains human agency in human-AI decision-making — particularly in high-stakes domains where errors have irreversible consequences.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 5: FRAMEWORKS & GUIDELINES -->
+        <div class="about" id="frameworks">
+            <span class="section-label">Section 5</span>
+            <h2>Current Frameworks and Guidelines</h2>
+            <p>A growing body of regulation, professional standards, and industry tools now addresses algorithm transparency — though enforcement and implementation depth vary considerably across jurisdictions and sectors.</p>
+        </div>
+
+        <table class="fw-table">
+            <thead>
+                <tr>
+                    <th>Framework</th>
+                    <th>Issuing Body</th>
+                    <th>Transparency Requirements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>EU AI Act</td>
+                    <td>European Union</td>
+                    <td>Mandates transparency for high-risk AI systems, requiring designs that allow for human oversight and clear information disclosure to users and affected parties. Positions transparency as a prerequisite for trustworthy AI.</td>
+                </tr>
+                <tr>
+                    <td>OECD Principles on AI</td>
+                    <td>OECD (46 countries)</td>
+                    <td>Calls for transparent and responsible disclosure. Encourages stakeholders to foster general understanding of AI systems and enable those affected to understand outcomes and meaningfully challenge decisions.</td>
+                </tr>
+                <tr>
+                    <td>GDPR</td>
+                    <td>European Union</td>
+                    <td>Provides a "right to explanation" for solely automated decisions with legal or significant effects. Requires data controllers to provide "meaningful information about the logic involved" in profiling and automated decision-making.</td>
+                </tr>
+                <tr>
+                    <td>ACM Principles for Algorithmic Transparency</td>
+                    <td>ACM</td>
+                    <td>A seven-point framework emphasizing: awareness, access and redress, accountability, explanation, data provenance, auditability, and validation and testing. A widely referenced professional standard for computing practitioners.</td>
+                </tr>
+                <tr>
+                    <td>Algo.Rules Project</td>
+                    <td>Industry / Civil Society</td>
+                    <td>Practical governance rules for the development and deployment of algorithmic systems, emphasizing documentation, monitoring, and stakeholder communication throughout the AI lifecycle.</td>
+                </tr>
+                <tr>
+                    <td>Model Cards &amp; Datasheets</td>
+                    <td>Google &amp; Research Community</td>
+                    <td>Model cards document a model's performance across conditions (e.g., skin tones, geographies) and intended use. Datasheets describe dataset motivation, composition, collection process, and potential biases — enabling independent scrutiny.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SECTION 6: TECHNICAL APPROACHES -->
+        <div class="about" id="technical">
+            <span class="section-label">Section 6</span>
+            <h2>Technical Approaches to Achieving Transparency</h2>
+            <p>Achieving meaningful transparency requires both technical methods embedded in AI systems and rigorous documentation and auditing practices applied throughout the development lifecycle.</p>
+        </div>
+
+        <div class="two-col">
+            <div class="tech-col">
+                <h3>🔍 Interpretability Methods</h3>
+                <div class="tech-item">
+                    <strong>Inherently Interpretable Models</strong>
+                    <span>Decision trees, linear regression, and rule-based systems are transparent by design — their logic can be followed step-by-step. Best suited for lower-complexity domains where accuracy trade-offs are acceptable.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>LIME (Local Interpretable Model-Agnostic Explanations)</strong>
+                    <span>Generates locally faithful approximations of complex models around individual predictions, explaining which features most influenced a specific outcome in terms humans can understand.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>SHAP (SHapley Additive exPlanations)</strong>
+                    <span>Uses Shapley values from cooperative game theory to assign each feature a contribution score for individual predictions. Provides both local (per-prediction) and global (model-wide) interpretability.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Counterfactual Explanations</strong>
+                    <span>Explain decisions by describing the smallest change to inputs that would have produced a different outcome — e.g., "Your loan was denied; if your income were 10% higher, it would have been approved."</span>
+                </div>
+            </div>
+            <div class="tech-col">
+                <h3>📋 Documentation &amp; Auditing</h3>
+                <div class="tech-item">
+                    <strong>Model Cards</strong>
+                    <span>Structured documents that detail a model's intended use, performance across different conditions and demographic subgroups (e.g., skin tones, geographic regions), and known limitations. Enable independent review and comparison.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Datasheets for Datasets</strong>
+                    <span>Standardized documentation describing a dataset's motivation, composition, collection process, preprocessing steps, and potential biases — providing provenance that enables auditors to assess training data quality.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Input Data Analysis</strong>
+                    <span>Scrutinizing the data used to train and run an algorithm for flaws, imbalances, missing groups, or proxy variables that correlate with protected attributes.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Statistical Outcome Analysis</strong>
+                    <span>Using held-out test datasets to evaluate whether a system behaves robustly and fairly across different populations — measuring disparate error rates by demographic group.</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Black-box / Sensitivity Testing</strong>
+                    <span>Providing many slightly varied inputs to infer how a system responds and identify potential biases or brittle behaviors — useful when model internals are inaccessible due to proprietary restrictions.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: EMERGING DEBATES -->
+        <div class="about" id="debates">
+            <span class="section-label">Section 7</span>
+            <h2>Emerging Debates and Unresolved Challenges</h2>
+            <p>Despite significant progress, algorithm transparency remains contested across technical, legal, and social dimensions. The following debates will shape the evolution of AI governance for years to come.</p>
+        </div>
+
+        <div class="grid">
+            <div class="debate-card">
+                <h4>Transparency vs. Performance Trade-off</h4>
+                <p>
+                    A central tension in AI development: complex "black-box" models (e.g., deep neural networks) often achieve higher predictive accuracy than interpretable models, but at the cost of explainability. In high-stakes domains like healthcare or criminal justice, deciding which to prioritize is a deeply ethical — not merely technical — choice. Research into XAI methods that reduce this trade-off remains an active and unresolved frontier.
+                </p>
+            </div>
+            <div class="debate-card">
+                <h4>"Mystic" vs. Transparent Algorithms</h4>
+                <p>
+                    Counterintuitively, research shows that transparency is not always beneficial. For algorithms perceived as too simple, revealing their logic can lead to disappointment and lower adoption — even when those algorithms are statistically optimal. Conversely, keeping a model's workings opaque ("mystic") can sustain higher trust for simple models. This challenges the assumption that more transparency is unconditionally better.
+                </p>
+            </div>
+            <div class="debate-card">
+                <h4>Proprietary Models and Intellectual Property</h4>
+                <p>
+                    Commercial secrecy is a persistent barrier to public auditability. Companies routinely refuse to disclose source code, training data, or model weights, citing trade secret protections. This directly conflicts with the need for independent scrutiny — particularly when algorithms are used in government decisions or other high-stakes contexts where affected individuals have legal rights to challenge outcomes.
+                </p>
+            </div>
+            <div class="debate-card">
+                <h4>Explainability vs. Understanding</h4>
+                <p>
+                    There is no consensus on what constitutes a "good" explanation — or for whom. Providing source code is meaningless to a patient or job applicant; a high-level summary may be insufficient for a regulator or judge. The challenge is designing <strong>multi-layered transparency</strong> that serves different audiences — technical auditors, affected individuals, oversight bodies, and the general public — without sacrificing depth for breadth.
+                </p>
+            </div>
+            <div class="debate-card">
+                <h4>Global Standards and Cultural Context</h4>
+                <p>
+                    AI trust and transparency perceptions are not universal. Cultural factors — including individualism, uncertainty avoidance, and different relationships with institutional authority — may influence how transparency cues are interpreted and how much disclosure is expected. Globally adaptable standards that respect cultural variation while maintaining minimum accountability floors are urgently needed but not yet established.
+                </p>
+            </div>
+            <div class="debate-card">
+                <h4>Audience-Appropriate Explanations</h4>
+                <p>
+                    Transparency mechanisms designed for engineers (e.g., SHAP feature importance plots) may be opaque or even misleading to the people most affected by algorithmic decisions. Designing explanations that are simultaneously accurate, accessible, actionable, and legally adequate across diverse audiences — from legal professionals to rural healthcare workers — remains a fundamental open challenge in both HCI and AI ethics research.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 8: FUTURE RESEARCH -->
+        <div class="about" id="research">
+            <span class="section-label">Section 8</span>
+            <h2>Opportunities for Future Research and Innovation</h2>
+            <p>The field of algorithm transparency is rapidly evolving. The following areas represent the most promising directions for advancing both scientific understanding and practical governance of transparent AI systems.</p>
+        </div>
+
+        <div class="research-grid">
+            <div class="r-card">
+                <span class="r-icon">🎚️</span>
+                <h4>Optimal Transparency Modalities</h4>
+                <p>Research should move beyond binary (high/low) transparency to investigate optimal, multi-layered approaches — studying how different types of explanation (counterfactual vs. feature-based) interact with user expertise and deployment context.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">👤</span>
+                <h4>Individualized Transparency</h4>
+                <p>Leveraging uplift modeling and adaptive interfaces to determine which users benefit from transparency and tailor explanations to individual needs, expectations, and prior attitudes — rather than applying a one-size-fits-all disclosure approach.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">🤝</span>
+                <h4>Transparency in Human-AI Collaboration</h4>
+                <p>Exploring how transparency affects dynamic, iterative workflows where humans and AI have complementary information — including how transparency influences trust repair after errors and how disclosure timing affects collaborative outcomes.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">🌍</span>
+                <h4>Cross-Cultural and Longitudinal Studies</h4>
+                <p>Moving beyond single-session Western experiments to examine how transparency perceptions differ across cultures and how trust in transparent AI systems evolves through repeated interactions over time.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">🧠</span>
+                <h4>Technical Innovation for Explainability</h4>
+                <p>Continued innovation in XAI methods is essential — creating techniques that provide meaningful explanations for complex models without significant loss in performance, data privacy, or computational efficiency.</p>
+            </div>
+            <div class="r-card">
+                <span class="r-icon">📜</span>
+                <h4>Regulatory Technology (RegTech)</h4>
+                <p>Developing technical tools and standards that automate the auditing of algorithms for compliance with regulations like the EU AI Act — ensuring accountability is a built-in, continuously verified property rather than an afterthought addressed at deployment.</p>
+            </div>
+        </div>
+
+        <div class="about">
+            <div class="highlight-box">
+                <strong>Takeaway:</strong> Algorithm transparency is not a binary property that systems either have or lack. It is a multidimensional, audience-sensitive, and context-dependent commitment — requiring ongoing investment in technical methods, organizational governance, legal frameworks, and the honest acknowledgment that more disclosure does not always produce better outcomes.
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

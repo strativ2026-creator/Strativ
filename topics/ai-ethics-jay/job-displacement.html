@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | Job Displacement by AI</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<!--Abordo, Jana Sayrielle G. -->
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077B6;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    display: grid;
+    grid-template-columns: 260px 1fr; 
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+/* STICKY SIDEBAR */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+.sidebar a.active { 
+    background: #eaeaea; 
+    color: #0077B6; 
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inner-hero {
+    height: 320px; 
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.5);
+}
+
+.inner-hero h1 {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    bottom: 30px;
+    left: 30px;
+}
+
+.about {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.card a:hover {
+    background: #0077B6;
+}
+
+.card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+}
+
+.card p {
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #6D6D6D;
+}
+
+.card a {
+    padding: 10px 20px;
+    background: #03045E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E; 
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px; 
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px; 
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1; 
+    margin-top: -6px; 
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid; 
+    grid-template-columns: auto auto; 
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+}
+
+/* ── SECTION BLOCKS ── */
+.section-intro {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+.section-intro h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+.section-intro > p { font-size: 14px; color: #555; line-height: 1.75; }
+
+.def-block {
+    background: #F8FAFC;
+    border-left: 4px solid #03045E;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-top: 18px;
+}
+.def-block.blue { border-left-color: #0077B6; }
+.def-block.green { border-left-color: #16a34a; }
+.def-block h4 { font-family: Georgia, serif; color: #03045E; font-size: 15px; margin-bottom: 6px; }
+.def-block p { font-size: 14px; color: #555; line-height: 1.7; margin: 0; }
+.def-block ul { margin: 8px 0 0 18px; font-size: 14px; color: #555; line-height: 1.85; }
+
+/* ── TABLES ── */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+.data-table thead tr { background: #03045E; color: #fff; }
+.data-table thead th { padding: 12px 14px; text-align: left; font-weight: 700; font-size: 12px; letter-spacing: .3px; }
+.data-table tbody tr:nth-child(even) { background: #F0F4FF; }
+.data-table tbody tr:nth-child(odd)  { background: #fff; }
+.data-table tbody td { padding: 11px 14px; color: #444; border-bottom: 1px solid #e2e8f0; vertical-align: top; line-height: 1.55; }
+.data-table tbody td:first-child { font-weight: 700; color: #03045E; }
+
+/* Risk badge colors in table */
+.badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: .3px;
+}
+.badge-critical  { background: #FEE2E2; color: #991B1B; }
+.badge-veryhigh  { background: #FEF3C7; color: #92400E; }
+.badge-high      { background: #FFF3CD; color: #856404; }
+.badge-medium    { background: #DBEAFE; color: #1E40AF; }
+.badge-low       { background: #DCFCE7; color: #166534; }
+
+/* ── RISK / SECTOR CARDS ── */
+.risk-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+.rt-critical { background: #FEE2E2; color: #991B1B; border: 1px solid #FCCCCB; }
+.rt-veryhigh { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+.rt-high     { background: #FFF3CD; color: #856404; border: 1px solid #FDE68A; }
+.rt-medium   { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+
+.sector-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #e2e8f0;
+}
+.sector-card h4 { font-family: Georgia, serif; color: #03045E; font-size: 15px; margin-bottom: 10px; }
+.sector-card p  { font-size: 13px; color: #555; line-height: 1.65; margin: 0; }
+.sector-card p + p { margin-top: 7px; }
+
+/* ── VULNERABILITY LIST ── */
+.vuln-list {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+}
+.vuln-list h4 { font-family: Georgia, serif; color: #03045E; font-size: 16px; margin-bottom: 14px; }
+.vuln-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid #f0f4f8;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.55;
+}
+.vuln-item:last-child { border-bottom: none; }
+.vuln-num {
+    background: #03045E;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.vuln-text strong { color: #03045E; display: block; margin-bottom: 2px; }
+
+/* ── CASE STUDY CARDS ── */
+.case-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #0077B6;
+}
+.case-card h4 { font-family: Georgia, serif; color: #03045E; font-size: 15px; margin-bottom: 12px; }
+.case-row { display: flex; gap: 8px; margin-bottom: 8px; font-size: 13px; line-height: 1.6; }
+.case-label { font-weight: 700; color: #03045E; white-space: nowrap; min-width: 90px; flex-shrink: 0; }
+.case-value { color: #555; }
+
+/* ── IMPLICATION BLOCKS ── */
+.impl-block {
+    background: #fff;
+    padding: 22px 24px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+.impl-block h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+}
+.impl-block h4::before {
+    content: "";
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #03045E;
+    display: inline-block; flex-shrink: 0;
+}
+.impl-item { padding: 8px 0; border-top: 1px solid #f0f4f8; font-size: 13px; color: #555; line-height: 1.65; }
+.impl-item:first-child { border-top: none; padding-top: 0; }
+.impl-item strong { color: #03045E; }
+
+/* ── STAT HIGHLIGHT ── */
+.stat-highlight {
+    background: linear-gradient(135deg, #03045E 0%, #0077B6 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 22px 26px;
+    font-size: 14px;
+    line-height: 1.75;
+}
+.stat-highlight strong { color: #CAF0F8; }
+
+/* ── DEBATE CARD ── */
+.debate-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 22px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0077B6;
+}
+.debate-card h4 { font-family: Georgia, serif; color: #03045E; font-size: 15px; margin-bottom: 10px; }
+.debate-card p { font-size: 13px; color: #555; line-height: 1.7; margin: 0; }
+.debate-card p + p { margin-top: 7px; }
+
+/* ── OPPORTUNITY CARD ── */
+.opp-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #16a34a;
+}
+.opp-card h4 { font-family: Georgia, serif; color: #03045E; font-size: 15px; margin-bottom: 10px; }
+.opp-card p  { font-size: 13px; color: #555; line-height: 1.65; margin: 0; }
+.opp-item { font-size: 13px; color: #555; line-height: 1.7; padding: 6px 0; border-top: 1px solid #f0f4f8; }
+.opp-item:first-child { border-top: none; padding-top: 0; }
+.opp-item strong { color: #03045E; display: block; margin-bottom: 2px; }
+
+/* ── RESEARCH BLOCKS ── */
+.research-block {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 24px;
+    border: 1px solid #e2e8f0;
+}
+.research-block h4 { font-family: Georgia, serif; color: #03045E; font-size: 15px; margin-bottom: 12px; }
+.research-block ul { padding-left: 18px; font-size: 13px; color: #555; line-height: 1.85; }
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .page { grid-template-columns: 1fr; padding: 90px 4% 50px; }
+    .sidebar { position: static; }
+    .grid { grid-template-columns: 1fr; }
+    .inner-hero h1 { font-size: 26px; bottom: 20px; left: 20px; }
+    .data-table { font-size: 12px; }
+}
+@media (max-width: 560px) {
+    .inner-hero { height: 220px; }
+    .inner-hero h1 { font-size: 20px; }
+    #backTopBtn { bottom: 18px; right: 18px; width: 42px; height: 42px; font-size: 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
+            </div>
+        </div>
+
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+     <aside class="sidebar">
+        <h3>AI Ethics &amp; Social Issues</h3>
+        <a href="overview-ai-ethics.html">Overview of AI Ethics</a>
+        <a href="ai-bias.html">AI Bias and Fairness</a>
+        <a href="privacy-security-issue.html">Privacy and Security Issues</a>
+        <a href="job-displacement.html" class="active">Job Displacement by AI</a>
+        <a href="responsible-ai.html">Responsible AI Development</a>
+        <a href="ethics-summary.html">Ethics Summary</a>
+        <a href="algorithm-transparency.html">Algorithm Transparency</a>
+        <a href="ai-regulation.html">AI Regulation and Policies</a>
+        <a href="ai-accountability.html">AI Accountability</a>
+        <a href="ethical-ai-design.html">Ethical AI Design</a>
+        <a href="#">AI and Human Rights</a>
+        <a href="#">Social Impact of Artificial Intelligence</a>
+    </aside>
+
+    <main class="main">
+
+        <!-- ── HERO ── -->
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&auto=format&fit=crop"
+                 alt="Robotic arm on factory floor representing job displacement by AI and automation"
+                 title="Job Displacement by AI Banner">
+            <h1>Job Displacement by AI</h1>
+        </div>
+
+        <!-- ══ SECTION 1: DEFINITIONS AND SCOPE ══ -->
+        <div class="section-intro">
+            <h2>Definitions and Scope</h2>
+            <p>Job displacement refers to the involuntary loss of employment due to structural changes in the economy driven by technological advancement. In the AI context, displacement occurs when AI systems and automation technologies substitute for human labor in tasks previously performed by workers.</p>
+
+            <div class="def-block">
+                <h4>AI Exposure vs. Actual Displacement</h4>
+                <p>A critical distinction in the literature is:</p>
+                <ul>
+                    <li><strong>AI exposure</strong> — The potential for AI to perform tasks within an occupation. This does <em>not</em> predict actual displacement, only the degree to which a job could theoretically be automated.</li>
+                    <li><strong>Actual displacement</strong> — The realized loss of jobs due to AI adoption, influenced by economic conditions, regulatory context, and employer decisions.</li>
+                </ul>
+            </div>
+
+            <div class="def-block blue">
+                <h4>The Task-Based Framework (Autor, Levy &amp; Murnane 2003; Acemoglu &amp; Restrepo 2019)</h4>
+                <p>Jobs are conceptualized as <em>bundles of tasks</em> that can be allocated between humans and machines. AI creates three primary effects within this framework:</p>
+                <ul>
+                    <li><strong>Displacement effect</strong> — AI directly substitutes for human labor in certain tasks, reducing demand for the workers who performed them.</li>
+                    <li><strong>Productivity effect</strong> — AI increases efficiency and potentially expands output, which may increase overall labor demand across the economy.</li>
+                    <li><strong>Reinstatement effect</strong> — New technologies create entirely new tasks where humans retain a comparative advantage over machines.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ══ SECTION 2: SCOPE AND MAGNITUDE ══ -->
+        <div class="about">
+            <h2>Scope and Magnitude</h2>
+            <p>Global estimates of AI-driven displacement vary widely depending on methodology, time horizon, and assumptions about adoption rates. The table below summarizes key findings from leading research institutions.</p>
+        </div>
+
+        <div class="about" style="padding:0; overflow:hidden;">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Source</th><th>Key Finding</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>World Economic Forum (2020)</td><td>85 million jobs displaced by 2025; 97 million new roles created — a net positive, but requiring significant transitions.</td></tr>
+                    <tr><td>Frey &amp; Osborne (2017)</td><td>47% of US jobs at high risk of automation within the next two decades.</td></tr>
+                    <tr><td>Arntz et al. (2016) — OECD</td><td>9% of jobs across 21 OECD countries face significant automation risk (range: 6% in Estonia to 12% in Germany).</td></tr>
+                    <tr><td>McKinsey Global Institute (2021)</td><td>Up to 375 million workers globally may need to change occupational categories by 2030.</td></tr>
+                    <tr><td>Nedelkoska &amp; Quintini (2018)</td><td>14% of jobs in 32 OECD nations face &gt;70% automation risk; 32% face 50–70% risk.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="stat-highlight">
+            <strong>Key Insight:</strong> AI exposure and adaptive capacity are positively correlated (r = 0.502) across U.S. occupations. While <strong>37.1 million workers</strong> are in the top quartile of AI exposure, <strong>26.5 million</strong> of these are in occupations with above-median adaptive capacity — meaning they are relatively well-equipped to navigate job transitions if displacement occurs.
+        </div>
+
+        <!-- ══ SECTION 3: INDUSTRIES MOST AFFECTED ══ -->
+        <div class="about">
+            <h2>Industries and Roles Most Affected</h2>
+            <p>Risk levels vary significantly by sector and occupation type. Roles involving routine, repetitive, or rules-based tasks face the highest near-term automation potential.</p>
+        </div>
+
+        <div class="about" style="padding:0; overflow:hidden;">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Risk Level</th><th>Timeline</th><th>Automation %</th><th>Characteristics</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="badge badge-critical">CRITICAL</span></td><td>2024–2025</td><td>70–95%</td><td>Immediate automation potential; substitution already underway in pilot deployments.</td></tr>
+                    <tr><td><span class="badge badge-veryhigh">VERY HIGH</span></td><td>2025–2026</td><td>50–70%</td><td>Near-term displacement risk; technology mature, adoption accelerating.</td></tr>
+                    <tr><td><span class="badge badge-high">HIGH</span></td><td>2026–2028</td><td>30–50%</td><td>Medium-term automation; requires cost reduction or regulatory change to accelerate.</td></tr>
+                    <tr><td><span class="badge badge-medium">MEDIUM</span></td><td>2027–2030</td><td>15–30%</td><td>Gradual transformation; augmentation likely before full substitution.</td></tr>
+                    <tr><td><span class="badge badge-low">LOW</span></td><td>Post-2030</td><td>5–15%</td><td>Strong complementarity with AI; human judgment, creativity, and empathy remain essential.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="grid">
+            <div class="sector-card">
+                <span class="risk-tag rt-critical">CRITICAL</span>
+                <h4>Customer Service</h4>
+                <p><strong>At-risk roles:</strong> Call center agents, live chat support, help desk technicians.</p>
+                <p><strong>Impact:</strong> 80% automation by 2025; 2.24 million US jobs at risk. ChatGPT-powered bots already replacing entire support teams with 99% cost reduction.</p>
+            </div>
+            <div class="sector-card">
+                <span class="risk-tag rt-veryhigh">VERY HIGH</span>
+                <h4>Data Entry &amp; Administration</h4>
+                <p><strong>At-risk roles:</strong> Data entry clerks, document processors, file clerks, basic administrative assistants.</p>
+                <p><strong>Impact:</strong> 7.5 million jobs projected eliminated by 2027 as document AI reaches near-human accuracy.</p>
+            </div>
+            <div class="sector-card">
+                <span class="risk-tag rt-high">HIGH</span>
+                <h4>Retail Operations</h4>
+                <p><strong>At-risk roles:</strong> Cashiers, self-checkout attendants, retail clerks.</p>
+                <p><strong>Impact:</strong> 65% automation risk by 2025; AI retail verification market growing at 12% CAGR as chains like Sam's Club phase out traditional checkouts.</p>
+            </div>
+            <div class="sector-card">
+                <span class="risk-tag rt-high">HIGH</span>
+                <h4>Transportation</h4>
+                <p><strong>At-risk roles:</strong> Long-haul truck drivers, delivery drivers, taxi and ride-share operators.</p>
+                <p><strong>Impact:</strong> 1.5 million US trucking jobs at risk by 2030; Level 4 autonomous trucks already in commercial testing across the Southwestern US.</p>
+            </div>
+            <div class="sector-card">
+                <span class="risk-tag rt-high">HIGH</span>
+                <h4>Manufacturing</h4>
+                <p><strong>At-risk roles:</strong> Assembly line workers, quality control inspectors, machine operators, packaging workers.</p>
+                <p><strong>Impact:</strong> 2 million US manufacturing jobs displaced by 2025; 39,000 industrial robots installed in 2023 (10% increase year-on-year).</p>
+            </div>
+            <div class="sector-card">
+                <span class="risk-tag rt-medium">MEDIUM-HIGH</span>
+                <h4>Financial Services</h4>
+                <p><strong>At-risk roles:</strong> Bookkeepers, accounting clerks, bank tellers, insurance underwriters, loan processors.</p>
+                <p><strong>Impact:</strong> 70–90% automation potential for routine functions; AI already handles fraud detection, basic underwriting, and document verification.</p>
+            </div>
+            <div class="sector-card">
+                <span class="risk-tag rt-medium">MEDIUM-HIGH</span>
+                <h4>Legal Support</h4>
+                <p><strong>At-risk roles:</strong> Paralegals (document review), legal researchers, contract reviewers.</p>
+                <p><strong>Impact:</strong> 40–65% automation risk by 2027; generative AI dramatically accelerates contract analysis and discovery workflows.</p>
+            </div>
+            <div class="sector-card">
+                <span class="risk-tag rt-medium">MEDIUM</span>
+                <h4>Healthcare Support</h4>
+                <p><strong>At-risk roles:</strong> Medical transcriptionists, basic medical coders, radiology technicians (routine scans).</p>
+                <p><strong>Impact:</strong> AI medical scribe market: $1.2B (2024) → $2.1B (2025). Diagnostic AI augments rather than replaces most clinical roles.</p>
+            </div>
+        </div>
+
+        <!-- ══ SECTION 4: HIGH-VULNERABILITY OCCUPATIONS ══ -->
+        <div class="about">
+            <h2>High-Vulnerability Occupations</h2>
+            <p>According to Manning and Aguirre (2026), <strong>6.1 million U.S. workers (4.2% of the workforce)</strong> are in occupations combining <em>high AI exposure</em> with <em>low adaptive capacity</em> — the most at-risk segment of the labor market. These workers are concentrated in:</p>
+        </div>
+
+        <div class="vuln-list">
+            <h4>Top At-Risk Occupations (High Exposure + Low Adaptive Capacity)</h4>
+            <div class="vuln-item"><span class="vuln-num">1</span><span class="vuln-text"><strong>Office Clerks, General</strong> — 2.5 million workers; routine administrative tasks with high AI substitutability and limited technical upskilling pathways.</span></div>
+            <div class="vuln-item"><span class="vuln-num">2</span><span class="vuln-text"><strong>Secretaries and Administrative Assistants</strong> — 1.7 million workers; scheduling, correspondence, and coordination tasks highly automatable by AI agents.</span></div>
+            <div class="vuln-item"><span class="vuln-num">3</span><span class="vuln-text"><strong>Medical Secretaries</strong> — 831,000 workers; medical record handling and appointment management increasingly handled by specialized healthcare AI.</span></div>
+            <div class="vuln-item"><span class="vuln-num">4</span><span class="vuln-text"><strong>Insurance Sales Agents</strong> — 469,000 workers; routine policy matching and quoting increasingly automated by AI underwriting platforms.</span></div>
+            <div class="vuln-item"><span class="vuln-num">5</span><span class="vuln-text"><strong>Court, Municipal, and License Clerks</strong> — 170,000 workers; record processing and form handling automatable at scale via document AI.</span></div>
+            <div class="vuln-item"><span class="vuln-num">6</span><span class="vuln-text"><strong>Payroll and Timekeeping Clerks</strong> — 157,000 workers; payroll calculation and compliance checking are among the highest-automation-potential administrative functions.</span></div>
+            <div class="vuln-item"><span class="vuln-num">7</span><span class="vuln-text"><strong>Eligibility Interviewers, Government Programs</strong> — 156,000 workers; structured rule-based eligibility determination is a strong candidate for AI automation within government agencies.</span></div>
+        </div>
+
+        <!-- ══ SECTION 5: CASE STUDIES ══ -->
+        <div class="about">
+            <h2>Case Studies</h2>
+            <p>The following cases illustrate that job displacement by AI is not a future scenario — it is already occurring across diverse industries and geographies.</p>
+        </div>
+
+        <div class="grid">
+            <div class="case-card">
+                <h4>Dukaan E-Commerce Platform (India)</h4>
+                <div class="case-row"><span class="case-label">Event</span><span class="case-value">Founder Suumit Shah replaced 27 customer service agents with a ChatGPT-powered bot in a single operational decision.</span></div>
+                <div class="case-row"><span class="case-label">Outcome</span><span class="case-value">Cost reduction of 99%; response time fell from 2–3 minutes to instant; customer satisfaction maintained at 85%.</span></div>
+                <div class="case-row"><span class="case-label">Significance</span><span class="case-value">Demonstrates rapid, profitable substitution of human labor — and that displacement is already happening, not a future possibility.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>IBM AskHR System</h4>
+                <div class="case-row"><span class="case-label">Scale</span><span class="case-value">Handles 11.5 million employee interactions annually across IBM's global workforce.</span></div>
+                <div class="case-row"><span class="case-label">Performance</span><span class="case-value">78% resolution rate without human escalation; average processing time under 30 seconds; only &lt;5% of interactions require human intervention.</span></div>
+                <div class="case-row"><span class="case-label">Significance</span><span class="case-value">Shows how large-scale HR functions can be automated at enterprise scale with minimal ongoing human supervision.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Sam's Club Checkout Transformation</h4>
+                <div class="case-row"><span class="case-label">Event</span><span class="case-value">Plans to phase out traditional checkout lanes across all 600+ US stores in favour of AI-verified Scan &amp; Go technology.</span></div>
+                <div class="case-row"><span class="case-label">Technology</span><span class="case-value">Scan &amp; Go app paired with AI exit verification; computer vision confirms purchases as customers leave without a cashier.</span></div>
+                <div class="case-row"><span class="case-label">Significance</span><span class="case-value">Illustrates the retail automation progression: self-checkout kiosks (2020–2025) → grab-and-go AI stores (2025–2027).</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Amazon Recruiting Tool (Scrapped, 2018)</h4>
+                <div class="case-row"><span class="case-label">Event</span><span class="case-value">An AI hiring tool systematically penalized resumes containing the word "women's" and downgraded graduates of all-women's colleges.</span></div>
+                <div class="case-row"><span class="case-label">Cause</span><span class="case-value">Trained on 10 years of predominantly male applicant data, encoding existing gender imbalance as a learned preference.</span></div>
+                <div class="case-row"><span class="case-label">Significance</span><span class="case-value">Demonstrates that AI systems can perpetuate and amplify existing labor market inequalities — and that displacement risk intersects with discrimination risk.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Healthcare Algorithm Racial Bias (Obermeyer et al., 2019)</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">Algorithm predicting healthcare needs deployed for approximately 200 million Americans.</span></div>
+                <div class="case-row"><span class="case-label">Finding</span><span class="case-value">Black patients were significantly sicker than white patients at identical risk scores — the algorithm underestimated their healthcare needs.</span></div>
+                <div class="case-row"><span class="case-label">Significance</span><span class="case-value">AI bias in workforce-adjacent tools can lead to unequal resource allocation, exacerbating existing disparities in care access and outcomes.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Autonomous Vehicle Development</h4>
+                <div class="case-row"><span class="case-label">Current state</span><span class="case-value">Companies including FedEx and TuSimple are testing Level 4 autonomous trucks commercially in the Southwestern United States.</span></div>
+                <div class="case-row"><span class="case-label">Timeline</span><span class="case-value">OEM-built fully autonomous trucks expected 2024–2025; widespread commercial deployment projected 2027–2030.</span></div>
+                <div class="case-row"><span class="case-label">Projected impact</span><span class="case-value">3.8 million professional drivers in the US → approximately 2.3 million by 2030 — a loss of 1.5 million jobs in a sector historically considered stable employment.</span></div>
+            </div>
+        </div>
+
+        <!-- ══ SECTION 6: ETHICAL AND SOCIAL IMPLICATIONS ══ -->
+        <div class="about">
+            <h2>Ethical and Social Implications</h2>
+            <p>Job displacement by AI does not affect all workers equally. Gender, education level, geography, and income interact to determine who bears the greatest burden of automation-driven disruption.</p>
+        </div>
+
+        <div class="grid">
+            <div class="impl-block">
+                <h4>Gender</h4>
+                <div class="impl-item"><strong>Disproportionate exposure:</strong> 8 out of 10 women (58.87 million) in the US workforce are in occupations highly exposed to generative AI automation, compared to 6 out of 10 men (48.62 million) — Kenan Institute of Private Enterprise.</div>
+                <div class="impl-item"><strong>Sectoral concentration:</strong> Women are overrepresented in administrative, customer service, and clerical roles — the categories with the highest near-term automation risk.</div>
+                <div class="impl-item"><strong>Policy implication:</strong> Gender-responsive reskilling programs and targeted social protections are essential to avoid AI-driven increases in the gender pay gap.</div>
+            </div>
+            <div class="impl-block">
+                <h4>Education</h4>
+                <div class="impl-item"><strong>Credential barrier:</strong> 77% of new AI-related jobs require master's degrees; 18% require doctoral degrees.</div>
+                <div class="impl-item"><strong>Vulnerable workers:</strong> Only 4.9% of workers in high-vulnerability occupations hold bachelor's degrees — creating a severe educational mismatch between displaced and emerging roles.</div>
+                <div class="impl-item"><strong>Upskilling gap:</strong> Traditional educational pathways are too slow and expensive for rapid workforce transitions; micro-credentials and vocational programs must fill the gap.</div>
+            </div>
+            <div class="impl-block">
+                <h4>Geography</h4>
+                <div class="impl-item"><strong>Concentration in institutional towns:</strong> High-vulnerability occupations are disproportionately concentrated in college towns (Laramie WY, Huntsville TX, Stillwater OK) and state capitals (Springfield IL, Carson City NV, Frankfort KY).</div>
+                <div class="impl-item"><strong>Regional economic fragility:</strong> Communities where administrative and government employment dominates face compounded risk if public sector automation accelerates.</div>
+                <div class="impl-item"><strong>Rural-urban divide:</strong> Rural areas with less economic diversification and weaker digital infrastructure face greater barriers to adaptation.</div>
+            </div>
+            <div class="impl-block">
+                <h4>Income</h4>
+                <div class="impl-item"><strong>Earnings reduction:</strong> Workers in routine-intensive occupations with one percentage point higher routine intensity experience an additional 0.39 percentage point quarterly earnings reduction over 24 quarters post-displacement.</div>
+                <div class="impl-item"><strong>Wealth concentration:</strong> AI productivity gains largely accrue to capital owners and highly skilled workers, potentially widening the wealth gap.</div>
+                <div class="impl-item"><strong>Long-term scarring:</strong> Displaced workers who cannot quickly transition to new roles face permanent income loss and reduced lifetime earnings.</div>
+            </div>
+        </div>
+
+        <!-- ══ SECTION 7: SKILLS GAPS ══ -->
+        <div class="about">
+            <h2>Skills Gaps and Reskilling Challenges</h2>
+            <p>The pace of AI-driven change is outrunning existing education and training systems globally, creating a structural mismatch between the skills workers have and those the labor market demands.</p>
+        </div>
+
+        <div class="grid">
+            <div class="stat-highlight" style="grid-column: 1 / -1;">
+                <strong>Global Scale:</strong> 84% of firms report adaptation barriers due to inadequate AI-related training among their workforce. Organizations that prioritize reskilling retain <strong>64% more displaced workers</strong>. Existing education systems in developing economies are often severely misaligned with the technical skills demanded by AI-driven labor markets.
+            </div>
+
+            <div class="about" style="padding:0; overflow:hidden; grid-column: 1 / -1;">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Country / Region</th><th>Projected Impact</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>United States</td><td>47% of jobs at high risk; 37.1 million workers in top quartile of AI exposure.</td></tr>
+                        <tr><td>Brazil</td><td>60% of jobs expected to be affected; 8 out of 10 most common occupations are highly susceptible to automation.</td></tr>
+                        <tr><td>United Kingdom</td><td>35% of jobs face substantial AI impact across professional and service sectors.</td></tr>
+                        <tr><td>Canada</td><td>42% of jobs at risk, with significant concentration in financial and administrative services.</td></tr>
+                        <tr><td>OECD Average</td><td>9–14% of jobs face &gt;70% automation risk; 32% face 50–70% risk across 32 member nations.</td></tr>
+                        <tr><td>Philippines</td><td>Call center industry — a major national employer — facing rapid automation; government inquiry launched into worker displacement.</td></tr>
+                        <tr><td>Pakistan</td><td>60% of workforce in informal sector; limited digital infrastructure creates significant barriers to AI adoption and adaptation.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ══ SECTION 8: HUMAN CAPITAL THEORY ══ -->
+        <div class="section-intro">
+            <h2>Human Capital Theory Implications</h2>
+            <p>Becker's Human Capital Theory provides a foundational framework for understanding how investments in education and training affect worker adaptability in the face of AI-driven disruption.</p>
+
+            <div class="def-block">
+                <h4>Reskilling Imperative</h4>
+                <p>Workers who invest in education and training are significantly better prepared to transition into new opportunities created by AI. Human capital investment is the primary mechanism through which displaced workers recover labor market position.</p>
+            </div>
+            <div class="def-block blue">
+                <h4>Equity Concerns</h4>
+                <p>Unequal access to education and training resources can sharply exacerbate labor market inequalities. Workers with less education, lower incomes, or in underserved geographic areas have fewer reskilling options — making structural support essential, not optional.</p>
+            </div>
+            <div class="def-block green">
+                <h4>Lifelong Learning Imperative</h4>
+                <p>Continuous skill development is no longer optional — it is essential as AI capabilities evolve at an accelerating pace. One-time training programs are insufficient; workers must adopt a lifelong learning mindset supported by institutional structures that make ongoing education accessible and affordable.</p>
+            </div>
+        </div>
+
+        <!-- ══ SECTION 9: CURRENT STRATEGIES ══ -->
+        <div class="about">
+            <h2>Current Strategies to Address Displacement</h2>
+            <p>Governments, employers, and international organizations are pursuing a range of strategies to cushion displacement and prepare workers for AI-transformed labor markets.</p>
+        </div>
+
+        <div class="about" style="padding: 22px 28px;">
+            <h4 style="font-family:Georgia,serif; color:#03045E; margin-bottom:14px; font-size:17px;">Reskilling and Upskilling Initiatives</h4>
+            <table class="data-table">
+                <thead><tr><th>Approach</th><th>Description</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td>Formal education integration</td><td>Embedding AI literacy and technical skills into national education curricula.</td><td>Singapore's SkillsFuture; EU Digital Education Action Plan.</td></tr>
+                    <tr><td>Vocational training programs</td><td>Targeted upskilling programs designed specifically for displaced workers.</td><td>Germany's Industry 4.0 workforce development initiatives.</td></tr>
+                    <tr><td>Employer-led training</td><td>Corporate programs to reskill existing employees before displacement occurs.</td><td>Organizations prioritizing reskilling retain 64% more displaced workers.</td></tr>
+                    <tr><td>Public-private partnerships</td><td>Collaborative training programs responsive to real-time market skill demands.</td><td>Sector skill councils; industry apprenticeship programs.</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="font-family:Georgia,serif; color:#03045E; margin: 22px 0 14px; font-size:17px;">Policy Interventions</h4>
+            <table class="data-table">
+                <thead><tr><th>Policy Type</th><th>Mechanism</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td>Social safety nets</td><td>Unemployment benefits, job placement services, and transition assistance for displaced workers.</td><td>OECD countries' expanded unemployment insurance programs.</td></tr>
+                    <tr><td>AI regulation</td><td>Governance frameworks to ensure responsible AI deployment and protect workers.</td><td>EU AI Act; OECD AI Principles.</td></tr>
+                    <tr><td>Education reform</td><td>Curriculum redesign to align with emerging labor market demands.</td><td>National digital literacy requirements; STEM emphasis.</td></tr>
+                    <tr><td>Active labor market policies</td><td>Retraining programs, job matching services, and relocation assistance.</td><td>Various national employment services and transition funds.</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="font-family:Georgia,serif; color:#03045E; margin: 22px 0 14px; font-size:17px;">The Universal Basic Income (UBI) Debate</h4>
+            <table class="data-table">
+                <thead><tr><th>Arguments For UBI</th><th>Arguments Against UBI</th></tr></thead>
+                <tbody>
+                    <tr><td>Provides economic security during AI transition periods.</td><td>May reduce work incentives and labour supply participation.</td></tr>
+                    <tr><td>Addresses potential mass unemployment scenarios.</td><td>High fiscal cost; difficult to sustain long-term without major tax reform.</td></tr>
+                    <tr><td>Allows displaced workers time and resources to pursue retraining.</td><td>Does not address skills mismatches or re-integrate workers into the labour market.</td></tr>
+                    <tr><td>Recognizes that not all displaced workers can or will be reemployed.</td><td>May not be politically sustainable across diverse political constituencies.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ══ SECTION 10: EMERGING DEBATES ══ -->
+        <div class="about">
+            <h2>Emerging Debates and Unresolved Challenges</h2>
+            <p>Fundamental questions about the pace, magnitude, and nature of AI-driven displacement remain actively contested among economists, technologists, and policymakers.</p>
+        </div>
+
+        <div class="grid">
+            <div class="debate-card">
+                <h4>Acceleration vs. Gradual Transition Thesis</h4>
+                <p><strong>Acceleration:</strong> AI capabilities are advancing faster than predicted; the timeline for major disruption may be shortened to 2027–2028. AI practitioners forecast a median of 40% of human tasks automated within 5 years, 60% within 10 years.</p>
+                <p><strong>Gradual transition:</strong> Adoption rates vary significantly by sector and country; institutional, regulatory, and social friction will slow displacement. History suggests transitions take decades, not years.</p>
+            </div>
+            <div class="debate-card">
+                <h4>The "Learning to Code" Myth</h4>
+                <p><strong>Historical assumption:</strong> Displaced workers could transition into tech roles through coding bootcamps and short-form education programs.</p>
+                <p><strong>Reality:</strong> 77% of new AI jobs require master's degrees; 18% require doctoral degrees. The skills mismatch between displaced workers and emerging AI roles is far deeper than simple retraining can bridge.</p>
+            </div>
+            <div class="debate-card">
+                <h4>Human-AI Collaboration vs. Substitution</h4>
+                <p><strong>Optimistic view:</strong> AI will augment human capabilities rather than replace workers; new roles will emphasize uniquely human skills (creativity, empathy, complex problem-solving).</p>
+                <p><strong>Pessimistic view:</strong> Substitution will dominate; displaced workers cannot be absorbed into new roles fast enough; permanent labor market scarring will result for millions.</p>
+            </div>
+            <div class="debate-card">
+                <h4>Measurement Challenges</h4>
+                <p><strong>Exposure ≠ displacement:</strong> Current measures predict AI exposure, not actual job loss; many exposed workers may be augmented rather than replaced.</p>
+                <p><strong>Temporal lags:</strong> Displacement may take years to fully manifest; short-term studies systematically miss long-term effects, leading to underestimation of eventual magnitude.</p>
+            </div>
+            <div class="debate-card" style="grid-column: 1 / -1;">
+                <h4>Theoretical Tensions in Labor Economics</h4>
+                <div style="display:grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 8px;">
+                    <div><strong style="display:block; color:#03045E; margin-bottom:4px; font-size:13px;">Skill-Biased Technological Change (SBTC)</strong><span style="font-size:13px; color:#555;">AI increases demand for highly skilled labor, contributing to wage inequality between high- and low-skilled workers.</span></div>
+                    <div><strong style="display:block; color:#03045E; margin-bottom:4px; font-size:13px;">Routine-Biased Technological Change (RBTC)</strong><span style="font-size:13px; color:#555;">AI replaces routine tasks, contributing to labor market polarization and the hollowing out of middle-skill employment.</span></div>
+                    <div><strong style="display:block; color:#03045E; margin-bottom:4px; font-size:13px;">Schumpeter's Creative Destruction</strong><span style="font-size:13px; color:#555;">Innovation destroys old jobs while creating new ones; net effects depend entirely on the speed of adaptation relative to the speed of disruption.</span></div>
+                    <div><strong style="display:block; color:#03045E; margin-bottom:4px; font-size:13px;">Marxist Labor Theory</strong><span style="font-size:13px; color:#555;">AI may generate surplus labor and fundamentally exacerbate socioeconomic inequality if productivity gains are not redistributed through wages or public investment.</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ SECTION 11: OPPORTUNITIES FOR INNOVATION ══ -->
+        <div class="about">
+            <h2>Opportunities for Innovation and Positive Transformation</h2>
+            <p>Alongside displacement risks, AI creates substantial opportunities for new roles, augmented work, and economic growth — if societies invest in enabling the transition.</p>
+        </div>
+
+        <div class="grid">
+            <div class="opp-card">
+                <h4>Emerging Job Categories</h4>
+                <div class="opp-item"><strong>Prompt Engineers</strong> Designing and optimizing AI prompts; requires language skills and deep understanding of AI capabilities.</div>
+                <div class="opp-item"><strong>AI Ethics Officers</strong> Ensuring ethical AI deployment within organizations; requires ethics, regulation, and governance expertise.</div>
+                <div class="opp-item"><strong>Data Analysts</strong> Interpreting AI-generated insights; requires statistics and domain expertise.</div>
+                <div class="opp-item"><strong>AI Trainers</strong> Training and fine-tuning AI systems; requires machine learning knowledge and domain expertise.</div>
+                <div class="opp-item"><strong>Human-AI Collaboration Specialists</strong> Designing effective human-AI workflows; requires organizational psychology and technology management.</div>
+                <div class="opp-item"><strong>Algorithm Auditors</strong> Testing AI for bias and fairness; requires computer science, ethics, and statistical expertise.</div>
+            </div>
+            <div class="opp-card">
+                <h4>Augmentation Across Sectors</h4>
+                <div class="opp-item"><strong>Healthcare</strong> AI enhances diagnostic accuracy; radiologists and pathologists work alongside AI tools — productivity rises without eliminating clinical judgment.</div>
+                <div class="opp-item"><strong>Education</strong> AI personalizes learning at scale; teachers focus on mentoring, complex instruction, and social-emotional development.</div>
+                <div class="opp-item"><strong>Creative Work</strong> AI assists with routine production tasks; humans focus on strategy, concept development, and emotional resonance.</div>
+                <div class="opp-item"><strong>Manufacturing</strong> AI-driven quality control and predictive maintenance; humans focus on complex problem-solving, process optimization, and exception handling.</div>
+            </div>
+            <div class="opp-card">
+                <h4>Hybrid Work Models</h4>
+                <div class="opp-item"><strong>Human-in-the-loop</strong> AI makes recommendations; humans make final decisions — combining AI efficiency with human accountability.</div>
+                <div class="opp-item"><strong>AI-assisted decision-making</strong> AI provides analytical insights; humans interpret and act, improving decision quality at scale.</div>
+                <div class="opp-item"><strong>Task specialization</strong> Humans and AI specialize based on comparative advantage — humans handle judgment-intensive tasks, AI handles data-intensive ones.</div>
+                <div class="opp-item"><strong>Collaborative design</strong> Teams deliberately designed to leverage both human and AI capabilities, creating resilient and adaptive workflows.</div>
+            </div>
+            <div class="opp-card">
+                <h4>Economic Opportunities</h4>
+                <div class="opp-item"><strong>Productivity gains</strong> AI could double annual economic growth rates in some countries by 2035, creating the fiscal space to fund transitions.</div>
+                <div class="opp-item"><strong>New industries</strong> Emergence of AI-related sectors — data science, AI development, algorithm auditing — creates entirely new employment categories.</div>
+                <div class="opp-item"><strong>SME enablement</strong> AI tools dramatically reduce barriers to entry for small businesses, democratizing access to capabilities previously available only to large corporations.</div>
+                <div class="opp-item"><strong>Sector-specific growth</strong> Agriculture, manufacturing, healthcare, education, and finance all have significant AI-driven growth opportunities alongside displacement risks.</div>
+            </div>
+        </div>
+
+        <!-- ══ SECTION 12: FURTHER RESEARCH ══ -->
+        <div class="about">
+            <h2>Areas for Further Research</h2>
+            <p>Despite a growing body of literature, significant gaps remain in understanding the full scope and dynamics of AI-driven job displacement. The following areas represent the most pressing research priorities.</p>
+        </div>
+
+        <div class="grid">
+            <div class="research-block">
+                <h4>Empirical Research Needs</h4>
+                <ul>
+                    <li>Multi-level analysis beyond occupation-level exposure — research at individual, organizational, and regional levels.</li>
+                    <li>Sector-specific studies of how AI affects distinct industries and occupational categories differently.</li>
+                    <li>Developing economy contexts — understanding AI's impact where institutional capacity is weaker and informal sectors dominate.</li>
+                    <li>Longitudinal tracking of displaced workers over time — earnings, health, and well-being outcomes.</li>
+                    <li>Rigorous policy effectiveness evaluation — which interventions (reskilling, safety nets, UBI) most effectively mitigate displacement impacts.</li>
+                </ul>
+            </div>
+            <div class="research-block">
+                <h4>Theoretical Development</h4>
+                <ul>
+                    <li>Integrating Technological Disruption Theory (TDT) and Human Capital Theory (HCT) into coherent predictive frameworks.</li>
+                    <li>Refining measures of worker adaptive capacity across occupational and demographic categories.</li>
+                    <li>Modeling general equilibrium effects — how AI-induced displacement interacts with broader macroeconomic dynamics.</li>
+                    <li>Understanding path dependency — how historical automation patterns shape and constrain current AI impacts.</li>
+                </ul>
+            </div>
+            <div class="research-block">
+                <h4>Policy and Governance</h4>
+                <ul>
+                    <li>International coordination mechanisms for cross-border AI workforce impacts.</li>
+                    <li>Sectoral policy design — what works best in industries with different automation risk profiles.</li>
+                    <li>Education system reform — how curricula should be redesigned for AI-driven labor markets.</li>
+                    <li>Social protection innovation — new insurance models to support workers during accelerating technological transitions.</li>
+                </ul>
+            </div>
+            <div class="research-block">
+                <h4>Interdisciplinary Approaches</h4>
+                <ul>
+                    <li>Economic-technical collaboration — integrating AI technical knowledge with labor economics expertise.</li>
+                    <li>Sociological perspectives — how social networks, cultural norms, and institutional factors shape displacement experiences.</li>
+                    <li>Ethical frameworks — developing normative guidance for just and equitable transitions.</li>
+                    <li>Comparative cross-national studies — analyzing divergent policy responses and their long-term outcomes.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

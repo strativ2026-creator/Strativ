@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | Ethics Summary in AI</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<!--Abordo, Jana Sayrielle G. -->
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077B6;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+.sidebar a.active {
+    background: #eaeaea;
+    color: #0077B6;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inner-hero {
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.5);
+}
+
+.inner-hero h1 {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    bottom: 30px;
+    left: 30px;
+}
+
+.about {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.about p:last-child {
+    margin-bottom: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+}
+
+.card p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+}
+
+.card a {
+    padding: 10px 20px;
+    background: #03045E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 14px;
+}
+
+.card a:hover {
+    background: #0077B6;
+}
+
+/* ===== EXTRA CONTENT STYLES ===== */
+.section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0077B6;
+    margin-bottom: 8px;
+}
+
+.highlight-box {
+    background: #EFF6FF;
+    border-left: 4px solid #0077B6;
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0 4px;
+    font-size: 14px;
+    color: #003049;
+    line-height: 1.7;
+}
+
+.highlight-box strong {
+    color: #03045E;
+}
+
+blockquote.pullquote {
+    background: #f0f4ff;
+    border-left: 5px solid #03045E;
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin: 18px 0 4px;
+    font-style: italic;
+    font-size: 15px;
+    color: #03045E;
+    line-height: 1.7;
+}
+
+blockquote.pullquote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    color: #0077B6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* PHILOSOPHY TABLE */
+.phil-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.phil-table thead {
+    background: #03045E;
+    color: #fff;
+}
+
+.phil-table thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.phil-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.phil-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.phil-table tbody td {
+    padding: 15px 16px;
+    color: #444;
+    vertical-align: top;
+    line-height: 1.65;
+}
+
+.phil-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.phil-table tbody td:first-child {
+    font-weight: 700;
+    color: #03045E;
+    white-space: nowrap;
+}
+
+/* SCOPE CARDS */
+.scope-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 18px;
+}
+
+.scope-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #03045E;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+}
+
+.scope-box h5 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.scope-box p {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.domains-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 16px;
+}
+
+.domain-tag {
+    background: #EFF6FF;
+    color: #0077B6;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 13px;
+    border-radius: 20px;
+    border: 1px solid #BFDBFE;
+}
+
+/* PRINCIPLE CARDS */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.p-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 20px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #03045E;
+}
+
+.p-card .p-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0077B6;
+    margin-bottom: 7px;
+    display: block;
+}
+
+.p-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.p-card ul {
+    padding-left: 16px;
+    margin: 0;
+}
+
+.p-card ul li {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin-bottom: 5px;
+}
+
+.p-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+.p-card ul li strong {
+    color: #003049;
+}
+
+/* IMPLICATION CARDS */
+.imp-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #03045E;
+}
+
+.imp-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.imp-card p {
+    font-size: 14px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin: 0 0 8px;
+}
+
+.imp-card p:last-child {
+    margin-bottom: 0;
+}
+
+.imp-card ul {
+    padding-left: 18px;
+    margin: 6px 0 0;
+}
+
+.imp-card ul li {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.7;
+    margin-bottom: 4px;
+}
+
+/* MEASURING CARDS */
+.measure-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.measure-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 20px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.measure-card .m-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.measure-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.measure-card p {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+    margin: 0;
+}
+
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-brand { flex: 1; }
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px;
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1;
+    margin-top: -6px;
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .footer-container { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+    .principles-grid { grid-template-columns: repeat(2, 1fr); }
+    .scope-row { grid-template-columns: 1fr 1fr; }
+    .measure-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+    .page {
+        grid-template-columns: 1fr;
+        padding: 100px 4% 40px;
+    }
+    .sidebar { position: static; }
+    .grid { grid-template-columns: 1fr; }
+    .principles-grid { grid-template-columns: 1fr; }
+    .scope-row { grid-template-columns: 1fr; }
+    .measure-grid { grid-template-columns: 1fr; }
+    .inner-hero h1 { font-size: 26px; }
+}
+
+@media (max-width: 600px) {
+    nav { gap: 14px; }
+    nav a { font-size: 12px; }
+    #back-to-top { bottom: 18px; right: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV logo">
+        STRATIV
+    </div>
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
+            </div>
+        </div>
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI Ethics &amp; Social Issues</h3>
+        <a href="overview-ai-ethics.html">Overview of AI Ethics</a>
+        <a href="ai-bias.html">AI Bias and Fairness</a>
+        <a href="privacy-security-issue.html">Privacy and Security Issues</a>
+        <a href="job-displacement.html">Job Displacement by AI</a>
+        <a href="responsible-ai.html">Responsible AI Development</a>
+        <a href="ethics-summary.html" class="active">Ethics Summary</a>
+        <a href="algorithm-transparency.html">Algorithm Transparency</a>
+        <a href="ai-regulation.html">AI Regulation and Policies</a>
+        <a href="ai-accountability.html">AI Accountability</a>
+        <a href="ethical-ai-design.html">Ethical AI Design</a>
+        <a href="#">AI and Human Rights</a>
+        <a href="#">Social Impact of Artificial Intelligence</a>
+    </aside>
+
+    <main class="main">
+
+        <!-- HERO BANNER -->
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1655720033654-a4239dd42d10?w=1200&auto=format&fit=crop"
+                 alt="Abstract glowing nodes representing the ethical landscape of artificial intelligence"
+                 title="Ethics Summary in AI Banner">
+            <h1>Ethics Summary in AI</h1>
+        </div>
+
+        <!-- SECTION 1: DEFINITIONS & SCOPE -->
+        <div class="about" id="definitions">
+            <span class="section-label">Section 1</span>
+            <h2>Definitions and Scope of AI Ethics</h2>
+            <p>
+                <strong>AI ethics</strong> is a multidisciplinary field concerned with the ethical issues arising from the development, deployment, and use of artificial intelligence systems. It encompasses two related but distinct ideas: <em>ethics of AI</em> — the study of the principles, guidelines, and policies that should govern AI — and <em>ethical AI</em> — the design and implementation of systems that actually behave ethically in practice.
+            </p>
+            <p>
+                The field draws on philosophy, law, computer science, sociology, and political theory to evaluate not only what AI systems do, but what they <em>should</em> do — and who bears responsibility when they fall short.
+            </p>
+
+            <blockquote class="pullquote">
+                "The principles of developing AI to interact with other AIs and humans ethically and function ethically in society."
+                <cite>— Siau &amp; Wang, defining AI ethics</cite>
+            </blockquote>
+        </div>
+
+        <!-- SECTION 2: PHILOSOPHICAL FOUNDATIONS -->
+        <div class="about" id="philosophy">
+            <span class="section-label">Section 2</span>
+            <h2>Philosophical Foundations</h2>
+            <p>AI ethics does not exist in a vacuum — it draws from three major traditions in normative ethics, each offering a different lens for evaluating AI behavior and design choices.</p>
+        </div>
+
+        <table class="phil-table">
+            <thead>
+                <tr>
+                    <th>Tradition</th>
+                    <th>Core Idea</th>
+                    <th>Application to AI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Deontological Ethics</td>
+                    <td>Actions are judged by adherence to moral rules or duties, regardless of outcome.</td>
+                    <td>AI should follow inviolable principles — such as respect for autonomy and the prohibition of harm — irrespective of utilitarian trade-offs.</td>
+                </tr>
+                <tr>
+                    <td>Consequentialist Ethics</td>
+                    <td>Actions are judged solely by their outcomes; good actions maximize well-being.</td>
+                    <td>AI systems should be designed and evaluated based on whether they maximize overall societal benefit and minimize harm across all affected populations.</td>
+                </tr>
+                <tr>
+                    <td>Virtue Ethics</td>
+                    <td>Actions reflect the moral character of the agent performing them.</td>
+                    <td>AI developers and organizations should cultivate virtues — honesty, care, responsibility, and humility — that shape the culture and practices of AI development.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="about">
+            <div class="highlight-box">
+                <strong>Unifying Framework — Human Flourishing:</strong> Drawing from Aristotelian ethics, the concept of <em>human flourishing</em> has emerged as a integrating lens for AI ethics. It positions AI not as an end in itself, but as a tool that should enable individuals and societies to thrive — supporting capabilities, expanding freedom, and preserving dignity across all communities.
+            </div>
+        </div>
+
+        <!-- SECTION 3: SCOPE -->
+        <div class="about" id="scope">
+            <span class="section-label">Section 3</span>
+            <h2>Scope of AI Ethics</h2>
+            <p>AI ethics spans the entire AI lifecycle, from initial problem formulation through deployment and long-term monitoring. Researchers distinguish three complementary dimensions of how ethics can be integrated into AI work:</p>
+
+            <div class="scope-row">
+                <div class="scope-box">
+                    <h5>Ethics by Design</h5>
+                    <p>The technical integration of ethical reasoning capabilities directly into AI systems — building constraints, fairness checks, and value alignment into the model architecture itself.</p>
+                </div>
+                <div class="scope-box">
+                    <h5>Ethics in Design</h5>
+                    <p>Regulatory and engineering methods used to evaluate ethical implications <em>during</em> the design process — including impact assessments, algorithmic audits, and iterative stakeholder review.</p>
+                </div>
+                <div class="scope-box">
+                    <h5>Ethics for Design</h5>
+                    <p>Codes of conduct, professional standards, and certification frameworks that govern <em>how</em> developers, deployers, and users engage with AI — establishing accountability beyond individual systems.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 18px;">Key domains of concern that run across all three dimensions include:</p>
+            <div class="domains-wrap">
+                <span class="domain-tag">Algorithmic Fairness</span>
+                <span class="domain-tag">Transparency</span>
+                <span class="domain-tag">Accountability</span>
+                <span class="domain-tag">Privacy</span>
+                <span class="domain-tag">Safety</span>
+                <span class="domain-tag">Human Autonomy</span>
+                <span class="domain-tag">Employment Impacts</span>
+                <span class="domain-tag">Inequality</span>
+                <span class="domain-tag">Democratic Governance</span>
+            </div>
+        </div>
+
+        <!-- SECTION 4: CORE PRINCIPLES -->
+        <div class="about" id="principles">
+            <span class="section-label">Section 4</span>
+            <h2>Core Ethical Principles</h2>
+            <p>Jobin et al. analyzed 84 AI ethics guidelines and identified five principles present in over half of them. Together, these form the operational backbone of responsible AI practice worldwide.</p>
+        </div>
+
+        <div class="principles-grid">
+            <div class="p-card">
+                <span class="p-num">Principle 01</span>
+                <h4>Fairness</h4>
+                <ul>
+                    <li><strong>Direct discrimination:</strong> Explicit use of protected attributes (race, gender, age) in decision-making.</li>
+                    <li><strong>Indirect discrimination:</strong> Use of proxy variables correlated with protected attributes (e.g., zip code as a proxy for race).</li>
+                    <li><strong>Data fairness:</strong> Representative, unbiased training datasets.</li>
+                    <li><strong>Design fairness:</strong> Unbiased model architectures and objective functions.</li>
+                    <li><strong>Outcome fairness:</strong> Equitable real-world impacts across groups.</li>
+                    <li><strong>Implementation fairness:</strong> Responsible deployment by trained, accountable users.</li>
+                </ul>
+            </div>
+            <div class="p-card">
+                <span class="p-num">Principle 02</span>
+                <h4>Accountability</h4>
+                <ul>
+                    <li><strong>Answerability:</strong> The ability to explain and justify AI decisions to affected parties and oversight bodies.</li>
+                    <li><strong>Auditability:</strong> Maintaining records and logs that enable independent oversight and post-hoc review.</li>
+                    <li><strong>Remedial accountability:</strong> Accessible mechanisms for recourse and redress when an AI system causes harm.</li>
+                    <li><strong>Many hands problem:</strong> Establishing clear chains of human responsibility across developers, deployers, and users.</li>
+                </ul>
+            </div>
+            <div class="p-card">
+                <span class="p-num">Principle 03</span>
+                <h4>Transparency</h4>
+                <ul>
+                    <li><strong>Explicability:</strong> The ability to explain how and why a system reached a particular decision in terms users can understand.</li>
+                    <li><strong>Process transparency:</strong> Openness about design, development, data sourcing, and implementation practices.</li>
+                    <li><strong>Outcome transparency:</strong> Clear communication of system results and limitations to affected stakeholders.</li>
+                    <li><strong>Black-box tools:</strong> Supplemental interpretability methods (LIME, SHAP, counterfactual explanations) for opaque models.</li>
+                </ul>
+            </div>
+            <div class="p-card">
+                <span class="p-num">Principle 04</span>
+                <h4>Privacy &amp; Data Governance</h4>
+                <ul>
+                    <li><strong>Data minimization:</strong> Collecting only data strictly necessary for the intended purpose.</li>
+                    <li><strong>Informed consent:</strong> Ensuring individuals understand how their data is collected, used, and shared.</li>
+                    <li><strong>Security:</strong> Protecting data from unauthorized access, breaches, and misuse.</li>
+                    <li><strong>Data governance:</strong> Maintaining quality, integrity, and appropriate access protocols across the data lifecycle.</li>
+                    <li><strong>Techniques:</strong> Differential privacy, federated learning, and homomorphic encryption.</li>
+                </ul>
+            </div>
+            <div class="p-card">
+                <span class="p-num">Principle 05</span>
+                <h4>Safety &amp; Robustness</h4>
+                <ul>
+                    <li><strong>Accuracy:</strong> Proportion of correct outputs under normal operating conditions.</li>
+                    <li><strong>Reliability:</strong> Consistent performance according to specifications over time.</li>
+                    <li><strong>Security:</strong> Protection against adversarial attacks and deliberate manipulation.</li>
+                    <li><strong>Robustness:</strong> Reliable operation under harsh, unexpected, or out-of-distribution conditions.</li>
+                    <li><strong>Critical domains:</strong> Autonomous vehicles, healthcare diagnostics, critical infrastructure.</li>
+                </ul>
+            </div>
+            <div class="p-card">
+                <span class="p-num">Principle 06</span>
+                <h4>Human-Centered Values</h4>
+                <ul>
+                    <li><strong>Respect for dignity:</strong> AI must not treat persons as mere instruments; human worth is non-negotiable.</li>
+                    <li><strong>Human oversight:</strong> Meaningful human control must be maintained over critical or high-stakes decisions.</li>
+                    <li><strong>Agency:</strong> AI should preserve — not erode — individuals' capacity to make free and informed choices.</li>
+                    <li><strong>Diversity:</strong> Systems must respect and serve the full range of human backgrounds and values.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 5: ETHICAL & SOCIAL IMPLICATIONS -->
+        <div class="about" id="implications">
+            <span class="section-label">Section 5</span>
+            <h2>Ethical and Social Implications</h2>
+            <p>The ethical questions surrounding AI are not confined to technical design. They extend into public trust, human rights, governance, global equity, and economic structures — with stakes that affect entire societies.</p>
+        </div>
+
+        <div class="grid">
+            <div class="imp-card">
+                <h4>Trust and Public Confidence</h4>
+                <p>Trust is foundational to beneficial AI adoption. Research shows that trust in AI systems depends on perceived reliability, fairness, transparency, and accountability. Two failure modes threaten this:</p>
+                <ul>
+                    <li><strong>Automation bias:</strong> Over-reliance on flawed systems due to perceived authority.</li>
+                    <li><strong>Automation distrust:</strong> Rejection of beneficial systems due to opacity or past failures.</li>
+                </ul>
+                <p style="margin-top: 10px;">Building trustworthy AI requires both technical robustness and a demonstrable, sustained commitment to ethical principles — not just communications about them.</p>
+            </div>
+            <div class="imp-card">
+                <h4>Human Rights</h4>
+                <p>AI systems increasingly affect fundamental rights protected under international law:</p>
+                <ul>
+                    <li><strong>Right to privacy:</strong> AI-enabled surveillance, data harvesting, and predictive analytics.</li>
+                    <li><strong>Right to non-discrimination:</strong> Algorithmic bias in housing, employment, credit, and criminal justice.</li>
+                    <li><strong>Right to due process:</strong> Opaque automated decisions without explanation or recourse.</li>
+                    <li><strong>Freedom of expression:</strong> Content moderation algorithms, echo chambers, and filter bubbles shaping public discourse.</li>
+                </ul>
+                <p style="margin-top: 10px;">The UN Guiding Principles and Universal Declaration of Human Rights are increasingly applied as binding frameworks for AI governance.</p>
+            </div>
+            <div class="imp-card">
+                <h4>Governance and Accountability Gaps</h4>
+                <p>The "black box" nature of many AI systems creates systemic governance challenges that existing institutions are poorly equipped to address:</p>
+                <ul>
+                    <li><strong>Opacity:</strong> Decisions cannot be meaningfully reviewed or contested.</li>
+                    <li><strong>Accountability gaps:</strong> Responsibility diffused across developers, deployers, and users.</li>
+                    <li><strong>Liability uncertainties:</strong> Who is legally liable when an autonomous system causes harm?</li>
+                    <li><strong>Enforcement deficits:</strong> Voluntary ethics guidelines lack binding enforcement mechanisms.</li>
+                </ul>
+            </div>
+            <div class="imp-card">
+                <h4>Inclusivity and Global Disparities</h4>
+                <p>AI development is heavily concentrated in a small number of countries and corporations, raising serious equity concerns:</p>
+                <ul>
+                    <li><strong>Representation:</strong> Datasets and models reflect Western, predominantly male perspectives.</li>
+                    <li><strong>Access inequity:</strong> Developing countries may bear displacement costs while receiving fewer benefits.</li>
+                    <li><strong>Data colonialism:</strong> Extraction of data from vulnerable populations without equitable return.</li>
+                    <li><strong>Digital divides:</strong> Infrastructure and skills gaps that deepen existing global inequalities.</li>
+                </ul>
+            </div>
+            <div class="imp-card" style="grid-column: 1 / -1;">
+                <h4>Economic and Employment Impacts</h4>
+                <p>AI-driven automation creates structural tensions between productivity gains and the distribution of economic benefits. Key risks include:</p>
+                <ul>
+                    <li><strong>Job polarization:</strong> Growth of high-skill and low-skill positions at the expense of middle-skill roles.</li>
+                    <li><strong>Wage inequality:</strong> Returns to capital increasingly outstripping returns to labor.</li>
+                    <li><strong>Transition costs:</strong> Displaced workers facing prolonged earnings losses and skill mismatches.</li>
+                    <li><strong>Power concentration:</strong> Wealth and market power consolidating among a small number of AI-owning corporations.</li>
+                </ul>
+                <p style="margin-top: 10px;">Responsible AI development increasingly recognizes that these economic dimensions are ethical issues — requiring proactive policy responses such as reskilling programs, redistributive mechanisms, and antitrust scrutiny of AI markets.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 6: MEASURING & EVALUATING -->
+        <div class="about" id="measuring">
+            <span class="section-label">Section 6</span>
+            <h2>Measuring and Evaluating Ethical AI</h2>
+            <p>One of the most persistent challenges in AI ethics is the lack of standardized, domain-specific metrics for assessing whether systems actually embody the principles they claim. Without agreed measures, accountability is difficult to enforce and progress is hard to verify.</p>
+        </div>
+
+        <div class="measure-grid">
+            <div class="measure-card">
+                <span class="m-icon">⚖️</span>
+                <h4>Fairness Metrics</h4>
+                <p>Multiple formal definitions of fairness exist — demographic parity, equalized odds, individual fairness — and are often mathematically incompatible with one another. Choosing which fairness criterion to optimize is itself an ethical and political decision, not merely a technical one.</p>
+            </div>
+            <div class="measure-card">
+                <span class="m-icon">🔍</span>
+                <h4>Explainability Evaluation</h4>
+                <p>It remains an open research problem to define what makes an explanation "adequate." Metrics must account for the cognitive needs of different audiences — a technical audit requires different explanations than a patient receiving a medical diagnosis or a defendant challenging a risk-assessment score.</p>
+            </div>
+            <div class="measure-card">
+                <span class="m-icon">📊</span>
+                <h4>Impact Assessment</h4>
+                <p>Measuring the long-term societal effects of AI systems is fundamentally difficult. Causal attribution is complex, time horizons are long, and effects are often distributed unevenly across populations. Standardized frameworks for prospective and retrospective AI impact assessment are still nascent across most sectors.</p>
+            </div>
+        </div>
+
+        <div class="about">
+            <div class="highlight-box">
+                <strong>Open challenge:</strong> How to assess the overall effectiveness of ethical AI interventions — and who should conduct those assessments — remains one of the defining unresolved questions in both AI research and governance. Independent, third-party evaluation with standardized benchmarks is widely recognized as essential but not yet consistently practiced.
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
