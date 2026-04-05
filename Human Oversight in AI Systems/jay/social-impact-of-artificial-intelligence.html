@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | Social Impact of Artificial Intelligence</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET & BASE ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; }
+
+/* ===== HEADER ===== */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
+.logo img { width: 40px; height: 40px; }
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
+
+/* DROPDOWN STYLES */
+.dropdown { position: relative; }
+.dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.dropdown-menu a { padding: 12px 15px; display: block; }
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+
+/* ===== PAGE LAYOUT ===== */
+.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
+
+/* STICKY SIDEBAR */
+.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
+.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; }
+.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+/* Highlight current page */
+.sidebar a.active { background: #eaeaea; color: #0077B6; font-weight: bold; }
+
+/* MAIN CONTENT */
+.main { display: flex; flex-direction: column; gap: 25px; }
+.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; }
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
+.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; }
+
+.about, .card { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.about h2, .card h4 { font-family: Georgia, serif; color: #03045E; margin-bottom: 15px; }
+.card h4 { font-size: 20px; }
+.about p, .card p, .card ul { font-size: 14px; color: #6D6D6D; margin-bottom: 10px; }
+.card ul { margin-left: 20px; }
+.card li { margin-bottom: 8px; }
+
+/* Table Styles */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.data-table th, .data-table td { padding: 12px 15px; border: 1px solid #e2e8f0; text-align: left; font-size: 14px; }
+.data-table th { background: #03045E; color: #fff; font-family: Georgia, serif; font-weight: normal; }
+.data-table td { color: #6D6D6D; }
+.data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+.references-list { font-size: 12px !important; word-break: break-word; }
+.references-list a { color: #0077B6; text-decoration: none; }
+.references-list a:hover { text-decoration: underline; }
+
+/* ===== NAVY FOOTER ===== */
+footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
+.f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+@media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="#">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="#">Case Studies</a>
+                <a href="#">Data & Reports</a>
+            </div>
+        </div>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI WORKPLACE</h3>
+        <a href="ai.html">Introduction AI Workplace</a>
+        <a href="#">History of Artificial Intelligence</a>
+        <a href="#">AI Tools Used in the Workplace</a>
+        <a href="#">AI for Workplace Productivity</a>
+        <a href="#">AI in Workplace Communication</a>
+        <a href="#">AI for Data Analysis</a>
+        <a href="#">AI in Marketing</a>
+        <a href="#">AI and Remote Work</a>
+        <a href="human-oversight-in-ai-systems.html">Human Oversight in AI Systems</a>
+        <a href="workplace-ai-integration.html">Workplace AI Integration</a>
+        <a href="innovation-skills.html">Innovation Skills in the AI Era</a>
+        <a href="collaboration-skills.html">Collaboration Skills in the AI Era</a>
+        <a href="ai-learning-platforms.html">AI Learning Platforms</a>
+        <a href="future-career-planning.html">Future Career Planning</a>
+        <a href="ai-and-human-rights.html">AI and Human Rights</a>
+        <a href="social-impact-of-ai.html" class="active">Social Impact of AI</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1000&q=80" alt="People connected globally via technology">
+            <h1>Social Impact of Artificial Intelligence</h1>
+        </div>
+
+        <div class="about">
+            <h2>Definition and Core Concept</h2>
+            <p><strong>Definition:</strong> The broad range of effects—both positive and negative—that AI technologies have on the structures of society, including labor markets, wealth distribution, and cultural norms.</p>
+            <p><strong>The "Techno-Social" Feedback Loop:</strong> This concept suggests that AI doesn't just "hit" society; society and AI shape each other. As AI changes how we work and communicate, our social expectations change, which in turn influences how the next generation of AI is built.</p>
+        </div>
+
+        <div class="card">
+            <h4>How AI Reshapes Society</h4>
+            <ul>
+                <li><strong>Economic Productivity vs. Concentration:</strong> While AI can grow the global GDP by trillions, there is a risk that this wealth will concentrate in a few "super-star" tech hubs, leaving rural or developing economies behind.</li>
+                <li><strong>The "Lonely AI" Paradox:</strong> AI companions and chatbots can reduce isolation for the elderly or homebound, yet they risk "de-skilling" humans in the art of real-world empathy and conflict resolution.</li>
+                <li><strong>Democratization of Expertise:</strong> AI allows a person with no coding or design skills to build apps or create art, potentially lowering the barrier to entry for the "Creative Economy."</li>
+                <li><strong>Algorithmic Social Sorting:</strong> From dating apps to credit scores, AI invisible "ranks" people, creating new social hierarchies based on data points that individuals often cannot see or contest.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Implementation Strategies for Social Stability</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Strategy</th>
+                        <th>Goal</th>
+                        <th>Primary Actor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Universal Basic Services (UBS)</strong></td>
+                        <td>Providing digital access and education as a right to prevent a "digital underclass."</td>
+                        <td>Governments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Algorithmic Literacy Programs</strong></td>
+                        <td>Teaching citizens how to identify AI-generated content and understand data privacy.</td>
+                        <td>Educators</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Community-Led Design</strong></td>
+                        <td>Including marginalized groups in the "training" phase of AI to ensure it serves diverse needs.</td>
+                        <td>AI Developers</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h4>Major Issues Addressed by Social Impact Frameworks</h4>
+            <ul>
+                <li><strong>The "Post-Work" Future:</strong> As AI automates routine tasks, society must redefine "purpose" beyond 9-to-5 labor. This involves debating shorter work weeks or creative-incentive programs.</li>
+                <li><strong>Erosion of Truth (Misinformation):</strong> Deepfakes and AI-generated "fake news" can polarize voters and break down social trust. Impact frameworks focus on Digital Provenance (proving what is real).</li>
+                <li><strong>Cultural Homogenization:</strong> Because large AI models are trained mostly on Western data, they risk "erasing" indigenous languages or non-Western cultural perspectives in their outputs.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Real-World Example: AI and the "Gig Economy"</h4>
+            <p><strong>The Scenario:</strong> Ride-sharing and delivery platforms use AI to manage thousands of workers without human managers.</p>
+            <p><strong>The Problem:</strong> The "Algorithm as Boss" created a social crisis where workers felt dehumanized, facing "ghost bookings" or being fired by a bot without any human to appeal to.</p>
+            <p><strong>The Social Fix:</strong> In 2024-2025, several European nations passed "Platform Work Directives," requiring human oversight of algorithmic management. This shifted the social impact from "pure efficiency" back to "worker dignity," ensuring technology supports rather than exploits labor.</p>
+        </div>
+
+        <div class="card">
+            <h4>Emerging Debates in Social Impact</h4>
+            <ul>
+                <li><strong>AI and Loneliness:</strong> Is a relationship with an AI "real"? As "AI partners" become common, sociologists are debating if this will help the loneliness epidemic or make it worse by replacing human effort with "perfect" programmed responses.</li>
+                <li><strong>The Carbon Social Cost:</strong> The environmental cost of training AI is a social issue. Should a community’s water and energy be used to power data centers that serve global corporations?</li>
+                <li><strong>Generational Divide:</strong> We are seeing a "split" between those who grew up with AI (the "AI Natives") and older generations, creating new tensions in how we define truth, work, and art.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>References</h4>
+            <ul class="references-list">
+                <li>Acemoglu, D., & Johnson, S. (2023). Power and progress: Our thousand-year struggle over technology and prosperity. PublicAffairs.</li>
+                <li>Crawford, K. (2026). The atlas of AI: Power, politics, and the planetary costs of artificial intelligence. Yale University Press.</li>
+                <li>Digital Data Design Institute at Harvard. (2025). Societal shifts: How generative AI is redefining the social contract. <a href="https://d3.harvard.edu/research/societal-shifts-ai/" target="_blank">https://d3.harvard.edu/research/societal-shifts-ai/</a></li>
+                <li>World Economic Forum. (2026). Digital evolution: Mapping the social impact of AI on global communities. <a href="https://www.weforum.org/reports/social-impact-ai-2026/" target="_blank">https://www.weforum.org/reports/social-impact-ai-2026/</a></li>
+            </ul>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="ai.html">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Ethics</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span><span> Strativ.com</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

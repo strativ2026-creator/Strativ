@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | Overview of AI Ethics and Social Issues</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<!--Abordo, Jana Sayrielle G. -->
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077B6;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    display: grid;
+    /* Changed to 2 columns: Sidebar and Main Content */
+    grid-template-columns: 260px 1fr; 
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+/* STICKY SIDEBAR */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+.sidebar a.active { 
+    background: #eaeaea; 
+    color: #0077B6; 
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inner-hero {
+    height: 320px; /* Slightly taller for better 2-column balance */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.5);
+}
+
+.inner-hero h1 {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    bottom: 30px;
+    left: 30px;
+}
+
+.about {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.card a:hover {
+    background: #0077B6;
+}
+
+.card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+}
+
+.card p {
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #6D6D6D;
+}
+
+.card a {
+    padding: 10px 20px;
+    background: #03045E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E; 
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px; 
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px; 
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1; 
+    margin-top: -6px; 
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid; 
+    grid-template-columns: auto auto; 
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
+            </div>
+        </div>
+
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+     <aside class="sidebar">
+        <h3>AI Ethics &amp; Social Issues</h3>
+        <a href="overview-ai-ethics.html" class="active">Overview of AI Ethics</a>
+        <a href="ai-bias.html">AI Bias and Fairness</a>
+        <a href="privacy-security.html">Privacy and Security Issues</a>
+        <a href="job-displacement.html">Job Displacement by AI</a>
+        <a href="responsible-ai.html">Responsible AI Development</a>
+        <a href="ethics-summary.html">Ethics Summary</a>
+        <a href="algorithm-transparency.html">Algorithm Transparency</a>
+        <a href="ai-regulation.html">AI Regulation and Policies</a>
+        <a href="ai-accountability.html">AI Accountability</a>
+        <a href="ethical-ai-design.html">Ethical AI Design</a>
+    </aside>
+
+    <main class="main">
+
+        <!-- HERO BANNER -->
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&auto=format&fit=crop"
+                 alt="Abstract digital brain representing AI ethics and social issues"
+                 title="AI Ethics and Social Issues Banner">
+            <h1>AI Ethics and Social Issues</h1>
+        </div>
+
+        <!-- SECTION 1: KEY ETHICAL PRINCIPLES -->
+        <div class="about">
+            <h2>Key Ethical Principles in AI</h2>
+            <p>Ethical AI is built on five interconnected pillars. Together, they provide a framework for ensuring AI systems are developed and deployed in ways that respect human rights and promote social good.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h4>Fairness</h4>
+                <p>
+                    AI systems should avoid discrimination and ensure equitable treatment across different demographic groups.<br><br>
+                    <strong>Key concerns:</strong> Algorithmic bias can perpetuate historical inequalities, leading to disparate outcomes based on race, gender, age, or socioeconomic status.<br><br>
+                    <strong>Implementation challenges:</strong> Balancing statistical fairness with real-world outcomes; determining what constitutes "fair" in different cultural contexts.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Accountability</h4>
+                <p>
+                    Clear assignment of responsibility for AI system outcomes and behaviors.<br><br>
+                    <strong>Key concerns:</strong> The "problem of many hands" — when AI systems cause harm, it becomes difficult to attribute responsibility across developers, deployers, users, and the system itself.<br><br>
+                    <strong>Implementation:</strong> Establishing liability frameworks, audit trails, and mechanisms for redress.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Transparency</h4>
+                <p>
+                    AI systems should be understandable and their decision-making processes accessible to relevant stakeholders.<br><br>
+                    <strong>Key concerns:</strong> The "black box" problem of machine learning models, particularly deep neural networks, makes reasoning difficult to explain.<br><br>
+                    <strong>Aspects:</strong> Includes explainability, interpretability, and justifiability of design processes.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Privacy</h4>
+                <p>
+                    Respect for personal data protection and individual autonomy over personal information.<br><br>
+                    <strong>Key concerns:</strong> AI's data hunger creates tensions between functionality and privacy; risks of surveillance, re-identification, and data misuse.<br><br>
+                    <strong>Implementation:</strong> Privacy by design, differential privacy, federated learning, and compliance with regulations like GDPR.
+                </p>
+            </div>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h4>Explainability</h4>
+                <p>
+                    The ability to understand and articulate why an AI system made a particular decision.<br><br>
+                    <strong>Key concerns:</strong> Without explainability, trust erodes; accountability becomes impossible; users cannot contest harmful decisions.<br><br>
+                    <strong>Distinction:</strong> Differs from transparency — transparency is about openness, explainability is about the comprehensibility of reasoning.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: MAJOR SOCIAL ISSUES -->
+        <div class="about">
+            <h2>Major Social Issues Raised by AI Adoption</h2>
+            <p>Beyond technical ethics, AI's rapid adoption raises systemic social challenges that affect communities, economies, and democratic institutions worldwide.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h4>Bias and Discrimination</h4>
+                <p>
+                    AI systems can perpetuate, amplify, or introduce biases from training data, design choices, or deployment contexts.<br><br>
+                    <strong>Examples:</strong> Gender bias in hiring algorithms; racial bias in criminal risk assessment tools; age discrimination in healthcare algorithms.<br><br>
+                    <strong>Impact:</strong> Reinforces existing social inequalities and harms marginalized groups disproportionately.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Inequality</h4>
+                <p>
+                    <strong>Economic inequality:</strong> AI may concentrate wealth among tech companies and high-skilled workers while displacing low- and medium-skilled labor.<br><br>
+                    <strong>Digital divide:</strong> Unequal access to AI technologies across geographic, economic, and gender lines.<br><br>
+                    <strong>Data exclusion:</strong> Populations with thin digital footprints are underrepresented in datasets, making AI systems less responsive to their needs.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Surveillance</h4>
+                <p>
+                    AI enables unprecedented monitoring capabilities through facial recognition, behavioral tracking, and predictive analytics.<br><br>
+                    <strong>Concerns:</strong> Chilling effects on civil liberties; targeting of political dissidents; normalization of pervasive monitoring.<br><br>
+                    <strong>Scale:</strong> From government surveillance programs to corporate data collection for commercial purposes.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Labor Displacement</h4>
+                <p>
+                    AI-driven automation threatens jobs across sectors, particularly routine cognitive and manual work.<br><br>
+                    <strong>Scope:</strong> While new jobs may emerge, transition periods may cause significant economic disruption.<br><br>
+                    <strong>Vulnerable groups:</strong> Lower-skilled workers, women, and populations in developing economies face the greatest risks.
+                </p>
+            </div>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h4>Misinformation</h4>
+                <p>
+                    AI enables the creation and spread of convincing fake content — deepfakes, synthetic media, and AI-generated disinformation.<br><br>
+                    <strong>Impact:</strong> Erosion of trust in institutions; manipulation of democratic processes; societal polarization.<br><br>
+                    <strong>Challenges:</strong> Detection methods lag behind generation capabilities; platform incentives often prioritize engagement over accuracy.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 3: REAL-WORLD EXAMPLES -->
+        <div class="about">
+            <h2>Real-World Examples</h2>
+            <p>The following cases illustrate how AI ethics issues manifest in practice — with real consequences for real people.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h4>Facial Recognition in Law Enforcement</h4>
+                <p>
+                    <strong>Example:</strong> Brazilian police deployed Chinese facial recognition technology in 2019; similar trials by the UK's Met Police and wide deployment in China for Uighur surveillance.<br><br>
+                    <strong>Issues:</strong> Potential to amplify existing police bias; targeting of marginalized communities; lack of transparency about system accuracy.<br><br>
+                    <strong>Global pattern:</strong> The US "perpetual lineup problem" — facial recognition matches can subject innocent individuals to repeated scrutiny.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Algorithmic Bias in Criminal Justice</h4>
+                <p>
+                    <strong>Finding:</strong> A ProPublica investigation revealed that the COMPAS risk assessment algorithm was twice as likely to falsely flag Black defendants as future criminals.<br><br>
+                    <strong>Issue:</strong> The system was used to inform sentencing and parole decisions with demonstrable racial bias.<br><br>
+                    <strong>Broader implications:</strong> A pattern of AI systems performing worst for the populations they most affect.
+                </p>
+            </div>
+            <div class="card">
+                <h4>India's Aadhaar Biometric ID System</h4>
+                <p>
+                    <strong>Context:</strong> The world's largest biometric identity program, covering 1.3+ billion people.<br><br>
+                    <strong>Benefits:</strong> Increased access to government services; reduced fraud in welfare distribution.<br><br>
+                    <strong>Risks:</strong> Data breaches; exclusion errors leading to denial of food rations and healthcare; HIV patients dropping out of treatment to avoid identity disclosure.<br><br>
+                    <strong>Ethical tension:</strong> Efficiency and inclusion vs. privacy and autonomy.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Saudi Arabia's Travel Notification App</h4>
+                <p>
+                    <strong>Example:</strong> An app replacing paper "yellow slips" that required male guardian consent for women's international travel.<br><br>
+                    <strong>Issue:</strong> Technology enforced existing discriminatory guardianship norms through automatic SMS notifications to male relatives.<br><br>
+                    <strong>Response:</strong> Women used Twitter and social media to resist and draw global attention to the surveillance system.<br><br>
+                    <strong>Lesson:</strong> A technology's ethical impact depends entirely on its deployment context.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 4: EMERGING DEBATES -->
+        <div class="about">
+            <h2>Emerging Debates and Unresolved Challenges</h2>
+            <p>Several foundational questions in AI ethics remain contested, with no consensus in sight. These unresolved debates will shape the trajectory of AI governance for decades to come.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h4>Definitional Ambiguity</h4>
+                <p>
+                    <strong>Challenge:</strong> What counts as "AI" remains contested; regulation risks being either too narrow or too broad.<br><br>
+                    <strong>Debate:</strong> Should the focus be on specific technologies (e.g., machine learning) or broader socio-technical systems?<br><br>
+                    <strong>Implication:</strong> Unclear boundaries complicate governance and accountability frameworks.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Ethics Washing vs. Meaningful Regulation</h4>
+                <p>
+                    <strong>Problem:</strong> A proliferation of ethics guidelines exists without enforcement mechanisms.<br><br>
+                    <strong>Concern:</strong> Companies use ethics statements to preempt binding regulation while maintaining harmful practices.<br><br>
+                    <strong>Unresolved:</strong> How to move from principles to enforceable, verifiable standards.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Global Value Conflicts</h4>
+                <p>
+                    <strong>Challenge:</strong> Different cultural contexts have divergent ethical priorities.<br><br>
+                    <strong>Examples:</strong> Privacy vs. security trade-offs vary by region; conceptions of fairness differ across societies.<br><br>
+                    <strong>Unresolved:</strong> Whether universal AI ethics are possible or desirable, and how to navigate cross-border AI deployment.
+                </p>
+            </div>
+            <div class="card">
+                <h4>AGI Governance</h4>
+                <p>
+                    <strong>Debate:</strong> Whether Artificial General Intelligence is achievable, and if so, how society should prepare.<br><br>
+                    <strong>Issues:</strong> Existential risk concerns; the value alignment problem; "singularity" scenarios.<br><br>
+                    <strong>Divergence:</strong> "Presentists" focus on near-term harms vs. "futurists" concerned with long-term catastrophic risks.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Responsibility and Liability</h4>
+                <p>
+                    <strong>Challenge:</strong> Traditional liability frameworks assume human agency; AI systems complicate attribution.<br><br>
+                    <strong>Questions:</strong> Can AI systems be legal persons? Who pays when autonomous systems cause harm?<br><br>
+                    <strong>Ongoing:</strong> EU AI liability reform discussions; product liability expansion debates across jurisdictions.
+                </p>
+            </div>
+            <div class="card">
+                <h4>Environmental Impact</h4>
+                <p>
+                    <strong>Emerging concern:</strong> AI's significant carbon footprint from training large-scale models.<br><br>
+                    <strong>Example:</strong> Training a single NLP model can emit 5× the lifetime carbon of an average car.<br><br>
+                    <strong>Unresolved:</strong> How to balance AI's societal benefits against environmental costs; the path toward sustainable AI development.
+                </p>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

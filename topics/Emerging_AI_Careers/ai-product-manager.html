@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGUNOD - AI Careers Overview</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #F8FAFC;
+    color: #003049;
+}
+
+/* LOGO WRAPPER */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* LOGO IMAGE */
+.logo img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+/* TITLE STYLE (same look you already had) */
+.logo h1 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin: 0;
+    font-size: 24px;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: Georgia, serif;
+    color: #03045E;
+}
+
+/* NAV */
+.navbar {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #0077B6;
+}
+
+.dropdown {
+    position: relative;
+}
+
+/* IMPORTANT: isolate layering */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    min-width: 220px;
+
+    display: none;
+    flex-direction: column;
+
+    padding: 6px 0;
+
+    z-index: 9999; /* higher so it floats above everything */
+}
+
+/* show dropdown */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* menu items */
+.dropdown-content a {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+
+    color: #003049;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 30px;
+    padding: 120px 6% 60px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    height: 500px;
+}
+
+.sidebar-header {
+    background: #03045E;
+    color: white;
+    padding: 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    border-radius: 10px 10px 0 0;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar-menu a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+/* ===== MAIN ===== */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ===== BANNER ===== */
+.banner {
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.5);
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 36px;
+    z-index: 2;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.card h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #0077B6;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* ===== BUTTON ===== */
+.button {
+    margin-top: 10px;
+    background: #03045E;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #0077B6;
+}
+
+.extra-card {
+    margin: 0 40px 20px 40px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card ul {
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+.card ul ul {
+    padding-left: 25px;
+    margin-top: 8px;
+}
+
+.card li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E; 
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px; 
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px; 
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1; 
+    margin-top: -6px; 
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+.quick-links-grid {
+    display: grid; 
+    grid-template-columns: auto auto; 
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="Strativ Logo">
+        <h1>STRATIV</h1>
+    </div>
+
+    <nav class="navbar">
+        <a href="#">Home</a>
+
+        <div class="dropdown">
+            <a href="#">Topics ▾</a>
+            <div class="dropdown-content">
+                <a href="#">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#">Resources ▾</a>
+            <div class="dropdown-content">
+                <a href="#">External Links</a>
+                <a href="#">Icons & Images</a>
+                <a href="#">Data & Reports</a>
+                <a href="#">Case Studies</a>
+            </div>
+        </div>
+
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+
+<div class="sidebar">
+    <div class="sidebar-header">Emerging AI Careers</div>
+
+    <div class="sidebar-menu">
+        <a href="index.html">Overview of Emerging AI Careers</a>
+        <a href="aiEngineer.html">AI Engineer</a>
+        <a href="dataSci.html">Data Scientist</a>
+        <a href="AI_ethics.html">AI Ethics Specialist</a>
+        <a href="ml_eng.html">Machine Learning Engineer</a>
+        <a href="ai-product-manager.html">AI Product Manager</a>
+        <a href="#">Careers Summary</a>
+        <a href="#">Prompt Engineer</a>
+        <a href="#">AI Research Scientist</a>
+        <a href="#">Robotics Engineer</a>
+    </div>
+</div>
+
+<div class="main">
+
+    <div class="banner">
+        <img src="../../images/strativ_images/aiEng.png" alt="AI Careers">
+        <div class="banner-text">AI Product Manager</div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="card">
+        <h2>AI Product Manager</h2>
+        <p>
+            An AI Product Manager is responsible for building and managing products powered by artificial intelligence. They decide what features should be developed and ensure that these solutions solve real user problems while delivering business value.
+        </p>
+    </div>
+
+    <div class="grid">
+
+        <!-- CORE FOCUS -->
+        <div class="card">
+            <h2>Core Focus of the Role</h2>
+
+            <h3>Customer Value</h3>
+            <ul>
+                <li>Does the product solve a real problem?</li>
+                <li>Will users find it useful?</li>
+            </ul>
+
+            <h3>Business Value</h3>
+            <ul>
+                <li>Is the product profitable?</li>
+                <li>Does it benefit the company?</li>
+            </ul>
+
+            <p>
+                This process is called product discovery—deciding if an idea is worth building before investing resources.
+            </p>
+        </div>
+
+        <!-- WHAT MAKES IT DIFFERENT -->
+        <div class="card">
+            <h2>What Makes It Different</h2>
+            <ul>
+                <li>Uncertainty: AI models are not always predictable</li>
+                <li>Data Dependency: Results rely on data quality</li>
+                <li>Experimentation: Continuous testing and iteration</li>
+                <li>Ethics: Handling bias and fairness in AI systems</li>
+            </ul>
+        </div>
+
+        <!-- ROLE -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>Key Responsibilities</h2>
+
+            <ul>
+                <li>Collaborate with engineers, data scientists, and designers</li>
+                <li>Define product vision and AI use cases</li>
+                <li>Lead product discovery and validation</li>
+                <li>Manage development and decision-making</li>
+                <li>Balance user needs with business goals</li>
+            </ul>
+        </div>
+
+        <!-- SKILLS BLEND -->
+        <div class="card">
+            <h2>Technical + Business Skills</h2>
+            <ul>
+                <li>Understanding of AI and machine learning basics</li>
+                <li>Data awareness and interpretation</li>
+                <li>Strategic thinking</li>
+                <li>Communication with technical teams</li>
+            </ul>
+        </div>
+
+        <!-- PM FUNDAMENTALS -->
+        <div class="card">
+            <h2>Product Management Skills</h2>
+            <ul>
+                <li>User research and problem identification</li>
+                <li>Product strategy and roadmaps</li>
+                <li>Metrics and decision-making</li>
+                <li>Turning ideas into product features</li>
+            </ul>
+        </div>
+
+        <!-- ROADMAP -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>How to Become an AI Product Manager</h2>
+
+            <h3>1. Learn Product Management Basics</h3>
+            <p>Understand users, strategy, and how to build valuable products.</p>
+
+            <h3>2. Learn AI Fundamentals</h3>
+            <p>Understand how models work, including data, accuracy, and limitations.</p>
+
+            <h3>3. Build Both Tech & Business Skills</h3>
+            <p>Balance what AI can do with what businesses need.</p>
+
+            <h3>4. Create Projects</h3>
+            <p>Develop case studies, prototypes, or product ideas.</p>
+
+            <h3>5. Learn the AI Product Lifecycle</h3>
+            <p>From idea → development → deployment → improvement.</p>
+
+            <h3>6. Optional: Certifications</h3>
+            <p>Courses in product management or AI can help.</p>
+
+            <h3>7. Network and Apply</h3>
+            <p>Build connections and apply strategically to roles.</p>
+        </div>
+
+        <!-- UNIQUE ADDITION (DIFFERENT FROM OTHER PAGES) -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>Why This Role is Unique</h2>
+
+            <p>
+                AI Product Managers sit at the intersection of technology and business. Unlike engineers who build systems, they decide what should be built and why.
+            </p>
+
+            <p>
+                Their role is not just about managing products, but about guiding innovation—ensuring AI solutions are useful, responsible, and valuable in real-world situations.
+            </p>
+
+            <img src="../../images/strativ_images/future.jpg" style="width:100%; margin-top:15px; border-radius:10px;" alt="AI PM">
+        </div>
+
+    </div>
+
+</div>
+    
+</div>
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;" title="Follow us on Facebook">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;" title="Email Us">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

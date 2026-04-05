@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | AI Case Studies in Companies</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<!--Abordo, Jana Sayrielle G. -->
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; }
+
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #fff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
+.logo img { width: 40px; height: 40px; }
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
+.dropdown { position: relative; }
+.dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.dropdown-menu a { padding: 12px 15px; display: block; }
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+
+.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
+.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
+.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; }
+.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+/* Highlight current page */
+.sidebar a.active { background: #eaeaea; color: #0077B6; }
+
+.main { display: flex; flex-direction: column; gap: 25px; }
+.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; }
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
+.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; }
+
+.about { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.about h2 { font-family: Georgia, serif; color: #03045E; margin-bottom: 10px; }
+.card { background: #fff; border-radius: 12px; padding: 25px; border: 1px solid #e2e8f0; margin-bottom: 25px; }
+.card h4 { font-family: Georgia, serif; color: #03045E; margin-bottom: 10px; }
+.card p { margin: 10px 0 0; font-size: 14px; color: #6D6D6D; }
+.card img { margin-top: 10px; border-radius: 8px; width: 100%; max-height: 250px; object-fit: cover; }
+
+footer { background: #03045E; color: #fff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #fff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
+.f-col p, .f-col a { font-size: 15px; color: #fff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #fff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
+            </div>
+        </div>
+
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI WORKPLACE</h3>
+        <a href="overview.html">Introduction AI Workplace</a>
+        <a href="#">History of Artificial Intelligence</a>
+        <a href="#">AI Tools Used in the Workplace</a>
+        <a href="#">AI for Workplace Productivity</a>
+        <a href="#">AI in Workplace Communication</a>
+        <a href="#">AI for Data Analysis</a>
+        <a href="#">AI in Marketing</a>
+        <a href="#">AI and Remote Work</a>
+        <a href="#">Benefits of AI in the Workplace</a>
+        <a href="#">Challenges of AI in the Workplace</a>
+        <a href="ai-case-studies.html" class="active">AI Case Studies in Companies</a>
+        <a href="ai-summary.html">Summary of AI in the Workplace</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <img src="https://supportmymac.ca/wp-content/uploads/2019/07/artificialintelligenceimage.jpg" alt="AI banner">
+            <h1>AI Case Studies in Companies</h1>
+        </div>
+
+        <div class="about">
+            <h2>Overview</h2>
+            <p>Artificial Intelligence is transforming industries by automating processes, personalizing services, and enhancing productivity. Below are real-world examples of companies leveraging AI to innovate and optimize their operations.</p>
+        </div>
+
+        <div class="card">
+            <h4>Amazon</h4>
+            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Amazon AI">
+            <p>AI drives product recommendations, warehouse automation, and demand forecasting. Amazon's AI optimizes operations and enhances the customer shopping experience globally.</p>
+        </div>
+
+        <div class="card">
+            <h4>Netflix</h4>
+            <img src="https://images.unsplash.com/photo-1601597111479-202d8e4860fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Netflix AI">
+            <p>Netflix uses AI to analyze viewing patterns and offer personalized content recommendations, significantly improving user engagement and satisfaction worldwide.</p>
+        </div>
+
+        <div class="card">
+            <h4>Tesla</h4>
+            <img src="https://images.unsplash.com/photo-1581093588401-1d77b828b8cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Tesla AI">
+            <p>Tesla’s AI-powered systems enable autonomous driving, predictive navigation, and safety improvements, setting industry standards for self-driving technology.</p>
+        </div>
+
+        <div class="card">
+            <h4>Starbucks</h4>
+            <img src="https://images.unsplash.com/photo-1510626176961-4b28b3720c52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Starbucks AI">
+            <p>AI helps Starbucks with predictive inventory, personalized promotions, and strategic store placement, enhancing operational efficiency and customer experience.</p>
+        </div>
+
+        <div class="card">
+            <h4>IBM Watson</h4>
+            <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="IBM Watson AI">
+            <p>IBM Watson offers AI-driven solutions in healthcare, analytics, and customer service, empowering companies to make smarter decisions with actionable insights.</p>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

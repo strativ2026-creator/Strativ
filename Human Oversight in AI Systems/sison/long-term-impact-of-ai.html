@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | The AI-Driven World</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET & BASE ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; }
+
+/* ===== HEADER ===== */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
+.logo img { width: 40px; height: 40px; }
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
+
+/* DROPDOWN STYLES */
+.dropdown { position: relative; }
+.dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.dropdown-menu a { padding: 12px 15px; display: block; }
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+
+/* ===== PAGE LAYOUT ===== */
+.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
+
+/* STICKY SIDEBAR */
+.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
+.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; }
+.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+/* Highlight current page */
+.sidebar a.active { background: #eaeaea; color: #0077B6; font-weight: bold; }
+
+/* MAIN CONTENT */
+.main { display: flex; flex-direction: column; gap: 25px; }
+.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; }
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
+.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; }
+
+.about, .card { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.about h2, .card h4 { font-family: Georgia, serif; color: #03045E; margin-bottom: 15px; }
+.card h4 { font-size: 20px; }
+.about p, .card p, .card ul { font-size: 14px; color: #6D6D6D; margin-bottom: 10px; }
+.card ul { margin-left: 20px; }
+.card li { margin-bottom: 8px; }
+
+/* Table Styles */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.data-table th, .data-table td { padding: 12px 15px; border: 1px solid #e2e8f0; text-align: left; font-size: 14px; }
+.data-table th { background: #03045E; color: #fff; font-family: Georgia, serif; font-weight: normal; }
+.data-table td { color: #6D6D6D; }
+.data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+.references-list { font-size: 12px !important; word-break: break-word; }
+.references-list a { color: #0077B6; text-decoration: none; }
+.references-list a:hover { text-decoration: underline; }
+
+/* ===== NAVY FOOTER ===== */
+footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
+.f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+@media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="#">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="#">Case Studies</a>
+                <a href="#">Data & Reports</a>
+            </div>
+        </div>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI WORKPLACE</h3>
+        <a href="ai.html">Introduction AI Workplace</a>
+        <a href="#">History of Artificial Intelligence</a>
+        <a href="#">AI Tools Used in the Workplace</a>
+        <a href="#">AI for Workplace Productivity</a>
+        <a href="#">AI in Workplace Communication</a>
+        <a href="#">AI for Data Analysis</a>
+        <a href="#">AI in Marketing</a>
+        <a href="#">AI and Remote Work</a>
+        <a href="human-oversight-in-ai-systems.html">Human Oversight in AI Systems</a>
+        <a href="workplace-ai-integration.html">Workplace AI Integration</a>
+        <a href="innovation-skills.html">Innovation Skills in the AI Era</a>
+        <a href="collaboration-skills.html">Collaboration Skills in the AI Era</a>
+        <a href="ai-learning-platforms.html">AI Learning Platforms</a>
+        <a href="future-career-planning.html">Future Career Planning</a>
+        <a href="ai-and-human-rights.html">AI and Human Rights</a>
+        <a href="social-impact-of-ai.html">Social Impact of AI</a>
+        <a href="long-term-impact-of-ai.html">Long-Term Impact of AI</a>
+        <a href="the-ai-driven-world.html" class="active">The AI-Driven World</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80" alt="Microchip and futuristic technology representing an AI-driven infrastructure">
+            <h1>The AI-Driven World</h1>
+        </div>
+
+        <div class="about">
+            <h2>Definition and Core Concept</h2>
+            <p><strong>Definition:</strong> A global state where artificial intelligence is the foundational infrastructure for most human systems, from the power grid and supply chains to environmental management and urban design.</p>
+            <p><strong>The "Autonomous Infrastructure" Model:</strong> In an AI-driven world, the environment becomes "responsive." Buildings, roads, and energy systems don't just exist; they actively sense human needs and environmental changes, adjusting in real-time to optimize for efficiency and safety.</p>
+        </div>
+
+        <div class="card">
+            <h4>How an AI-Driven World Operates</h4>
+            <ul>
+                <li><strong>The "Self-Healing" Grid:</strong> AI monitors energy consumption across cities, predicting surges and redistributing renewable energy (solar/wind) to prevent blackouts without human intervention.</li>
+                <li><strong>Predictive Global Logistics:</strong> Supply chains move from "just-in-time" to "predictive." AI anticipates a shortage of a resource (like grain or microchips) months in advance and reroutes global shipping to prevent economic shocks.</li>
+                <li><strong>Precision Environmentalism:</strong> AI-driven drones and satellites monitor deforestation, ocean acidity, and carbon levels at a granular level, automatically deploying reforestation bots or adjusting industrial outputs to meet climate goals.</li>
+                <li><strong>The Frictionless Economy:</strong> Digital twin technology allows entire cities to be simulated. Before a bridge is built or a new law is passed, the AI "runs the world" forward ten years to see the impact, reducing real-world trial and error.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Key Pillars of a Global AI Society</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Pillar</th>
+                        <th>AI Role</th>
+                        <th>Impact on Citizens</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Energy & Climate</strong></td>
+                        <td>Real-time carbon tracking and fusion optimization.</td>
+                        <td>Lower costs and stabilized climate.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Health & Longevity</strong></td>
+                        <td>Genomic monitoring and robotic surgery.</td>
+                        <td>Increased average lifespan and eradication of disease.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Urban Mobility</strong></td>
+                        <td>Autonomous transit networks (no private cars).</td>
+                        <td>90% reduction in traffic and zero accidents.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h4>Major Issues in a Hyper-Connected World</h4>
+            <ul>
+                <li><strong>The Vulnerability of Centralization:</strong> When a world is "driven" by AI, a single software bug or cyberattack could technically "turn off" a city. This creates a need for Decentralized AI and manual failsafes.</li>
+                <li><strong>Algorithmic Sovereignty:</strong> Small nations risk losing their independence if they must rely on AI "brains" owned by foreign tech giants to run their electricity or hospitals.</li>
+                <li><strong>The "Human Lag":</strong> Our laws, biological brains, and social habits move much slower than AI. An AI-driven world requires "Agile Governance"—laws that can update as fast as the software they regulate.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Real-World Example: NEOM and the "Cognitive City"</h4>
+            <p><strong>The Scenario:</strong> Saudi Arabia's "The Line" (part of the NEOM project) is designed to be the world's first truly AI-driven city, where 95% of data is used to improve living conditions (compared to 1% in typical "Smart Cities").</p>
+            <p><strong>The Problem:</strong> Critics point to the "Panopticon" effect—when a city knows exactly where you are and what you need to provide "frictionless service," you lose all sense of public anonymity.</p>
+            <p><strong>The World Lesson:</strong> This project serves as a global "beta test." It shows that an AI-driven world can be incredibly efficient and sustainable, but it forces a massive trade-off between convenience and total surveillance.</p>
+        </div>
+
+        <div class="card">
+            <h4>Emerging Debates in the AI-Driven World</h4>
+            <ul>
+                <li><strong>AI Neutrality:</strong> Should the AI that runs a global power grid be "neutral," or should it be programmed with specific political or environmental values?</li>
+                <li><strong>The Right to "Offline" Spaces:</strong> As AI integrates into the physical world (IoT), will there be any "Analog Zones" left for people who want to live outside the digital net?</li>
+                <li><strong>Resource Ethics:</strong> AI requires massive amounts of water and rare earth minerals. Is an "AI-driven world" truly sustainable for the planet, or is it just shifting the environmental cost elsewhere?</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>References</h4>
+            <ul class="references-list">
+                <li>Galloway, S. (2025). Post-Pandemic: The AI-driven world and the acceleration of everything. Portfolio.</li>
+                <li>International Energy Agency (IEA). (2026). AI in the energy transition: How machine learning is stabilizing the global grid. <a href="https://www.iea.org/reports/ai-energy-transition-2026" target="_blank">https://www.iea.org/reports/ai-energy-transition-2026</a></li>
+                <li>Khalifa, A. (2026). Cognitive cities: Lessons from NEOM and the future of urban AI. Journal of Urban Technology.</li>
+                <li>Microsoft Research. (2025). The planetary computer: Using AI to monitor and protect Earth’s ecosystems. <a href="https://www.microsoft.com/en-us/research/project/planetary-computer/" target="_blank">https://www.microsoft.com/en-us/research/project/planetary-computer/</a></li>
+                <li>World Economic Forum. (2026). The global risks report: Navigating a world managed by algorithms. <a href="https://www.weforum.org/reports/global-risks-report-2026/" target="_blank">https://www.weforum.org/reports/global-risks-report-2026/</a></li>
+            </ul>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="ai.html">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Ethics</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span><span> Strativ.com</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

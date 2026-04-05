@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | Innovation Skills in the AI Era</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET & BASE ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; }
+
+/* ===== HEADER ===== */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
+.logo img { width: 40px; height: 40px; }
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
+
+/* DROPDOWN STYLES */
+.dropdown { position: relative; }
+.dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.dropdown-menu a { padding: 12px 15px; display: block; }
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+
+/* ===== PAGE LAYOUT ===== */
+.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
+
+/* STICKY SIDEBAR */
+.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
+.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; }
+.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+/* Highlight current page */
+.sidebar a.active { background: #eaeaea; color: #0077B6; font-weight: bold; }
+
+/* MAIN CONTENT */
+.main { display: flex; flex-direction: column; gap: 25px; }
+.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; }
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
+.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; }
+
+.about, .card { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.about h2, .card h4 { font-family: Georgia, serif; color: #03045E; margin-bottom: 15px; }
+.card h4 { font-size: 20px; }
+.about p, .card p, .card ul { font-size: 14px; color: #6D6D6D; margin-bottom: 10px; }
+.card ul { margin-left: 20px; }
+.card li { margin-bottom: 8px; }
+
+/* Table Styles */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.data-table th, .data-table td { padding: 12px 15px; border: 1px solid #e2e8f0; text-align: left; font-size: 14px; }
+.data-table th { background: #03045E; color: #fff; font-family: Georgia, serif; font-weight: normal; }
+.data-table td { color: #6D6D6D; }
+.data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+.references-list { font-size: 12px !important; word-break: break-word; }
+.references-list a { color: #0077B6; text-decoration: none; }
+.references-list a:hover { text-decoration: underline; }
+
+/* ===== NAVY FOOTER ===== */
+footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
+.f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+@media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="#">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="#">Case Studies</a>
+                <a href="#">Data & Reports</a>
+            </div>
+        </div>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI WORKPLACE</h3>
+        <a href="ai.html">Introduction AI Workplace</a>
+        <a href="#">History of Artificial Intelligence</a>
+        <a href="#">AI Tools Used in the Workplace</a>
+        <a href="#">AI for Workplace Productivity</a>
+        <a href="#">AI in Workplace Communication</a>
+        <a href="#">AI for Data Analysis</a>
+        <a href="#">AI in Marketing</a>
+        <a href="#">AI and Remote Work</a>
+        <a href="human-oversight-in-ai-systems.html">Human Oversight in AI Systems</a>
+        <a href="workplace-ai-integration.html">Workplace AI Integration</a>
+        <a href="innovation-skills.html" class="active">Innovation Skills in the AI Era</a>
+        <a href="collaboration-skills.html">Collaboration Skills in the AI Era</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Innovation and AI banner">
+            <h1>Innovation Skills in the AI Era</h1>
+        </div>
+
+        <div class="about">
+            <h2>Definition and Core Concept</h2>
+            <p><strong>Definition:</strong> The ability to leverage artificial intelligence to identify novel opportunities, accelerate the creative process, and transform abstract ideas into scalable solutions.</p>
+            <p><strong>The "Co-Intelligence" Model:</strong> This model treats AI as a "sparring partner." Innovation shifts from a solo human endeavor to a feedback loop where humans provide the vision and empathy, while AI provides the infinite variations and rapid prototyping.</p>
+        </div>
+
+        <div class="card">
+            <h4>How AI-Driven Innovation Helps</h4>
+            <ul>
+                <li><strong>Infinite Ideation (The End of "Blank Page" Syndrome):</strong> AI can generate hundreds of product concepts, marketing angles, or architectural designs in seconds, allowing humans to move immediately to the high-value task of selection and refinement.</li>
+                <li><strong>Rapid Prototyping:</strong> AI-integrated tools (like 3D modeling AI or code generators) allow innovators to build "Minimum Viable Products" (MVPs) in days rather than months, drastically reducing the cost of failure.</li>
+                <li><strong>Predictive Market Insights:</strong> AI can scan global patents, social media trends, and scientific papers to identify "white spaces"—market needs that don't exist yet but are about to emerge.</li>
+                <li><strong>Cross-Pollination of Ideas:</strong> AI can connect concepts from unrelated fields (e.g., applying a biological process to a structural engineering problem), sparking "Blue Ocean" innovations that a human specialist might never see.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Key Innovation Competencies for 2026</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Description</th>
+                        <th>Human Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Prompt Engineering</strong></td>
+                        <td>The ability to structure inputs to get high-level creative outputs from AI.</td>
+                        <td>Linguistic Precision</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Curation & Judgment</strong></td>
+                        <td>Discerning which AI-generated ideas are truly valuable and "human-centric."</td>
+                        <td>Taste & Empathy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Iterative Refinement</strong></td>
+                        <td>Using AI to "fail fast" and pivot based on real-time data feedback.</td>
+                        <td>Resilience & Strategy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h4>Major Issues Addressed by Innovation Skills</h4>
+            <ul>
+                <li><strong>The High Cost of R&D:</strong> Traditionally, innovation required massive budgets. AI democratizes innovation, allowing small startups to compete with giant corporations in research and design.</li>
+                <li><strong>Overcoming Human Bias:</strong> Humans tend to stick to what has worked before. AI can be prompted to be "intentionally radical," forcing innovators to consider non-traditional solutions.</li>
+                <li><strong>Accelerating the "Time-to-Market":</strong> By automating the technical heavy lifting of design and testing, AI allows the most impactful innovations (like new medicines or green energy tech) to reach the public years sooner.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Real-World Example: Generative Design in Aerospace</h4>
+            <p><strong>The Scenario:</strong> Engineers at NASA and Airbus used AI "Generative Design" to create hardware for space missions.</p>
+            <p><strong>The Problem:</strong> Traditional human-designed parts were heavy and used standard geometric shapes that weren't optimized for weight or stress.</p>
+            <p><strong>The Innovation Fix:</strong> Engineers set "constraints" (weight, strength, material) and let the AI "grow" the part. The result looked organic—like a bone or a tree branch. These AI-designed parts were 45% lighter and stronger than anything a human could have drawn manually, proving that the modern innovator's job is to set the goals, not the lines.</p>
+        </div>
+
+        <div class="card">
+            <h4>Emerging Debates in Innovation</h4>
+            <ul>
+                <li><strong>The "Creativity" Crisis:</strong> If AI generates the ideas, is the human still the "author"? This is creating a legal and philosophical battle over Intellectual Property (IP) and patent laws.</li>
+                <li><strong>Algorithmic Sameness:</strong> If every company uses the same AI models for innovation, will all new products start to look and feel identical? True innovators must learn how to "break" the AI to find truly unique ideas.</li>
+                <li><strong>Ethical Innovation:</strong> Just because we can build it with AI doesn't mean we should. The most important innovation skill in 2026 is Moral Foresight—predicting the long-term social consequences of a new invention before it is released.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>References</h4>
+            <ul class="references-list">
+                <li>Harvard Business Review. (2025). How generative AI is changing the way we innovate. <a href="https://hbr.org/2025/01/how-generative-ai-is-changing-the-way-we-innovate" target="_blank">https://hbr.org/2025/01/how-generative-ai-is-changing-the-way-we-innovate</a></li>
+                <li>IDEO. (2026). Design thinking 2.0: Integrating AI into the creative process. <a href="https://www.ideo.com/blog/design-thinking-ai-2026" target="_blank">https://www.ideo.com/blog/design-thinking-ai-2026</a></li>
+                <li>MIT Technology Review. (2026). The generative design revolution: From aerospace to consumer goods. <a href="https://www.technologyreview.com/2026/generative-design-revolution" target="_blank">https://www.technologyreview.com/2026/generative-design-revolution</a></li>
+                <li>Mollick, E. (2024). Co-Intelligence: Living and working with AI. Portfolio. (Updated insights for 2026 innovation frameworks).</li>
+                <li>Wharton School of the University of Pennsylvania. (2026). The productivity of innovation: Measuring the AI impact. <a href="https://knowledge.wharton.upenn.edu/article/ai-innovation-productivity-2026/" target="_blank">https://knowledge.wharton.upenn.edu/article/ai-innovation-productivity-2026/</a></li>
+            </ul>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="ai.html">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Ethics</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span><span> Strativ.com</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

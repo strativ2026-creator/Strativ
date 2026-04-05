@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | History of AI</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a, nav span.drop-title {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover, nav span.drop-title:hover {
+    color: #0077B6;
+}
+
+nav span.drop-title {
+    cursor: default; /* Prevents it from looking like a clickable link */
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    display: grid;
+    grid-template-columns: 260px 1fr; 
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+/* STICKY SIDEBAR */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+.sidebar a.active { 
+    background: #eaeaea; 
+    color: #0077B6; 
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inner-hero {
+    height: 320px; 
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.6);
+    pointer-events: none;
+}
+
+.inner-hero h1 {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    bottom: 30px;
+    left: 30px;
+    pointer-events: none;
+}
+
+/* ARTICLE CONTENT STYLES */
+.article-section {
+    background: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.article-section h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.article-section h3 {
+    font-family: Georgia, serif;
+    color: #0077B6;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.article-section p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 15px;
+}
+
+.article-section ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.article-section li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.article-section strong {
+    color: #003049;
+}
+
+/* IMAGE LINKS */
+.image-link {
+    display: block;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.content-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    opacity: 0.85; 
+    transition: opacity 0.3s ease;
+}
+
+.image-link:hover .content-img {
+    opacity: 1; 
+}
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+#scrollTopBtn {
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 99; 
+    background-color: #03045E; 
+    color: white; 
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    font-size: 20px; 
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #ffffff; 
+    transition: background-color 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #0077B6; 
+}
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E; 
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px; 
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px; 
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1; 
+    margin-top: -6px; 
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid; 
+    grid-template-columns: auto auto; 
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+}
+</style>
+</head>
+
+<body id="top"> 
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html" title="Go to Homepage">Home</a>
+
+        <div class="dropdown">
+            <span class="drop-title">Topics ▾</span>
+            <div class="dropdown-menu">
+                <a href="overview.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <span class="drop-title">Resources ▾</span>
+            <div class="dropdown-menu">
+                <a href="#">External Links</a>
+                <a href="#">Icons & Images</a>
+                <a href="#">Data & Reports</a>
+                <a href="#">Case Studies</a>
+            </div>
+        </div>
+
+        <a href="#about" title="About Strativ">About</a>
+        <a href="#contact" title="Contact Us">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI WORKPLACE</h3>
+        <a href="overview.html" title="Introduction AI Workplace">Introduction AI Workplace</a>
+        <a href="history.html" class="active" title="History of Artificial Intelligence">History of Artificial Intelligence</a>
+        <a href="tools.html" title="AI Tools Used in the Workplace">AI Tools Used in the Workplace</a>
+        <a href="productivity.html" title="AI for Workplace Productivity">AI for Workplace Productivity</a>
+        <a href="communication.html" title="AI in Workplace Communication">AI in Workplace Communication</a>
+        <a href="analysis.html" title="AI for Data Analysis">AI for Data Analysis</a>
+        <a href="marketing.html" title="AI in Marketing">AI in Marketing</a>
+        <a href="#" title="AI and Remote Work">AI and Remote Work</a>
+        <a href="#" title="Benefits of AI in the Workplace">Benefits of AI in the Workplace</a>
+        <a href="#" title="Challenges of AI in the Workplace">Challenges of AI in the Workplace</a>
+        <a href="#case-studies" title="AI Case Studies in Companies">AI Case Studies in Companies</a>
+        <a href="#summary" title="Summary of AI in the Workplace">Summary of AI in the Workplace</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="A glowing computer chip on a motherboard representing the physical heart of AI" title="AI History Hero Banner">
+            <h1>History of Artificial Intelligence</h1>
+        </div>
+
+        <div class="article-section">
+            <h2>From Fiction to Reality: The AI Timeline</h2>
+            <p>The concept of artificial beings endowed with intelligence has roots in ancient myths and science fiction. However, the true history of Artificial Intelligence (AI) as a rigorous academic and scientific discipline began in the mid-20th century. What started as an ambitious mathematical theory has evolved through decades of triumphs, setbacks, and unprecedented breakthroughs to become the transformative technology we rely on today.</p>
+            
+            <h3 id="era-1">The Early Foundations (1950s)</h3>
+            <p>The 1950s marked the theoretical birth of AI. In 1950, British mathematician <strong>Alan Turing</strong> published his landmark paper, "Computing Machinery and Intelligence," introducing the "Turing Test" as a framework for determining whether a machine could exhibit human-equivalent conversational behavior. </p>
+            <p>The pivotal moment came in <strong>1956 at the Dartmouth Conference</strong>. Organized by John McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon, this summer workshop officially coined the term "Artificial Intelligence." The attendees shared a bold optimism, believing that a machine capable of simulating every aspect of human learning and intelligence could be built within a generation.</p>
+
+            <a href="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2400&q=80" target="image_viewer" class="image-link">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Retro vintage computer equipment illustrating the early physical foundations of technology" title="Click to view full size Early Computing Technology in a separate tab" class="content-img">
+            </a>
+
+            <h3>The Golden Years and the First AI Winter (1960s - 1970s)</h3>
+            <p>The decades following Dartmouth were characterized by rapid progress and massive government funding. Researchers developed programs that could solve algebra word problems, prove theorems in geometry, and learn to speak English. Notable creations included <strong>ELIZA</strong> (1966), an early natural language processing program created by Joseph Weizenbaum, and Shakey the Robot, the first general-purpose mobile robot able to reason about its actions.</p>
+            <p>However, the early optimism proved premature. Researchers severely underestimated the massive computing power and data required to solve real-world problems. When breakthroughs stalled in the mid-1970s, government funding was slashed, plunging the industry into what is now known as the <strong>"First AI Winter"</strong>—a period of reduced funding and interest in AI research.</p>
+
+            <h3 id="era-2">The Rise of Expert Systems (1980s)</h3>
+            <p>AI experienced a renaissance in the 1980s with the development of <strong>Expert Systems</strong>. Instead of trying to create general human intelligence, researchers focused on specific domains. These programs simulated the knowledge and analytical skills of human experts (such as medical diagnosis or financial forecasting) using complex "if-then" rules.</p>
+            <p>Corporations invested heavily in these systems, bringing AI into the workplace for the first time. Unfortunately, expert systems were expensive to maintain, difficult to update, and brittle when faced with unusual inputs, eventually leading to a Second AI Winter in the late 1980s and early 1990s.</p>
+
+            <a href="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=2400&q=80" target="image_viewer" class="image-link">
+                <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=1200&q=80" alt="Chess pieces on a board, symbolizing strategic computing and milestones like Deep Blue" title="Click to view full size Strategic AI Chess image in a separate tab" class="content-img">
+            </a>
+
+            <h3>The Machine Learning Era (1990s - 2000s)</h3>
+            <p>In the 1990s, the paradigm shifted from rule-based systems to <strong>Machine Learning</strong>. Instead of hard-coding rules, scientists created algorithms that allowed computers to learn patterns directly from data. This era saw AI achieving highly visible milestones. In 1997, IBM's supercomputer <strong>Deep Blue</strong> famously defeated the reigning world chess champion, Garry Kasparov, proving that machines could out-calculate humans in highly complex strategic environments.</p>
+
+            <h3>Deep Learning and the Modern Boom (2010s - Present)</h3>
+            <p>The current explosion of AI capabilities is largely driven by <strong>Deep Learning</strong>—a subset of machine learning based on artificial neural networks. Three factors aligned perfectly in the 2010s to make this possible:</p>
+            <ul>
+                <li><strong>Big Data:</strong> The internet provided unimaginably vast datasets to train algorithms.</li>
+                <li><strong>Computing Power:</strong> The rise of GPUs (Graphics Processing Units) provided the immense processing power required to run deep neural networks.</li>
+                <li><strong>Algorithmic Advancements:</strong> Better architectures allowed networks to have hidden layers, enabling them to process image, voice, and text data with unprecedented accuracy.</li>
+            </ul>
+            <p>This led to rapid breakthroughs. In 2016, DeepMind's <strong>AlphaGo</strong> defeated Lee Sedol, a 9-dan professional Go player. By the 2020s, generative AI models like OpenAI's ChatGPT and image generators like DALL-E shifted AI from a backend analytical tool into a creative, conversational partner accessible to everyone. Today, we stand on the frontier of this continuous evolution, observing AI integrate deeply into every facet of the modern workplace.</p>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#ai">AI Workplace</a><br>
+                        <a href="#careers">Emerging Careers</a><br>
+                        <a href="#skills">Future Skills</a><br>
+                        <a href="#students">Students</a>
+                    </div>
+                    <div>
+                        <a href="#jobs">Jobs at Risk</a><br>
+                        <a href="#collab">Collaboration</a><br>
+                        <a href="#ethics">Ethics</a><br>
+                        <a href="#future">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="#!" style="display: flex; align-items: center; gap: 10px;" title="Follow us on Facebook">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;" title="Email Us">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
+</body>
+</html>
