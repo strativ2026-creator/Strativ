@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRATIV | Preparing Students AI</title>
+<title>STRATIV | Career Preparation for AI Jobs</title>
 
 <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
@@ -173,8 +173,8 @@ nav a:hover {
     z-index: 2;
     color: #fff;
     font-family: Georgia, serif;
-    font-size: 38px;
-    bottom: 30px;
+    font-size: 30px;
+    bottom: 50px;
     left: 30px;
 }
 
@@ -188,6 +188,12 @@ nav a:hover {
 .about h2 {
     font-family: Georgia, serif;
     color: #03045E;
+    margin-bottom: 15px;
+}
+
+.about p {
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 .grid {
@@ -214,12 +220,10 @@ nav a:hover {
     color: #6D6D6D;
 }
 
-.card a {
-    padding: 10px 20px;
-    background: #03045E;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
+.content-img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 15px 0;
 }
 
 /* ===== FOOTER (STRATIV FORMAT) ===== */
@@ -308,20 +312,38 @@ footer {
     margin-top: 30px;
     text-align: center;
 }
+/* ===== SCROLL TO TOP ===== */
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        background-color: #03045e;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #0077b6;
+      }
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header>
     <div class="logo">
-        <img src="../../images/logo/logo.jpg">
-        STRATIV
-    </div>
-</header>
-<header>
-    <div class="logo">
-        <img src="../../images/logo/logo.jpg" alt="">
+        <img src="../../images/logo/logo.jpg" alt="Strativ Logo">
         STRATIV
     </div>
 
@@ -355,41 +377,88 @@ footer {
         <a href="#">Contact</a>
     </nav>
 </header>
+
 <div class="page">
 
 <aside class="sidebar">
     <h3>PREPARING STUDENTS</h3>
-    <a href="#">Overview of Preparing students AI</a>
-    <a href="#">AI in Education</a>
-    <a href="#">Student Skills for the AI Era</a>
-    <a href="#">AI Learning Tools</a>
+    <a href="overviewofpreparingstudentsai.html">Overview of Preparing students AI</a>
+    <a href="aiineducation.html">AI in Education</a>
+    <a href="studentskillsfortheaiera.html">Student Skills for the AI Era</a>
+    <a href="ailearningtools.html">AI Learning Tools</a>
     <a href="#" class="active">Career Preparation for AI Jobs</a>
-    <a href="#">Student Preparation Summary</a>
-    <a href="#">AI Coding Skills</a>
-    <a href="#">Digital Projects with AI</a>
-    <a href="#">AI Research Skills</a>
-    <a href="#">Student Insights</a>
-    <a href="#">AI Learning Platforms</a>
-    <a href="#">Future Career Planning</a>
+    <a href="studentpreparationsummary.html">Student Preparation Summary</a>
+    <a href="aicodingskills.html">AI Coding Skills</a>
+    <a href="digitalprojectwithai.html">Digital Projects with AI</a>
+    <a href="airesearchskills.html">AI Research Skills</a>
+    <a href="studentinsights.html">Student Insights</a>
+    <a href="ailearningplatform.html">AI Learning Platforms</a>
+    <a href="futurecareerplanning.html">Future Career Planning</a>
 </aside>
 
 <main class="main">
     <div class="inner-hero">
-        <img src="images/topics/careerprep.jpg">
+        <img src="../../images/preparing-student-images/careerprep.jpg" alt="Career Preparation Hero">
         <h1>Career Preparation for AI Jobs</h1>
     </div>
 
     <div class="about">
-        <h2>Overview</h2>
-        <p>Students today must prepare for an AI-driven future.</p>
+        <h2>Preparing Students for AI Careers</h2>
+        <p>Career preparation for AI jobs refers to the process of equipping students with the knowledge, technical skills, practical experience, and mindset needed to succeed in careers related to artificial intelligence. This includes roles like data scientists, AI engineers, and technology analysts.</p>
+        <p><strong>Scope includes:</strong> Technical skills (coding, data analysis), soft skills (teamwork, critical thinking), hands-on projects, and ethical understanding.</p>
     </div>
+
+    <div class="grid">
+        <div class="card">
+            <h4>Technical Development</h4>
+            <p>Mastering programming languages (Python), data analysis, and machine learning concepts.</p>
+        </div>
+        <div class="card">
+            <h4>Hands-On Experience</h4>
+            <p>Applying knowledge through internships, real-world projects, and industry applications.</p>
+        </div>
+        <div class="card">
+            <h4>Problem-Solving</h4>
+            <p>Designing efficient solutions for complex technological challenges.</p>
+        </div>
+        <div class="card">
+            <h4>Communication</h4>
+            <p>Collaborating in multidisciplinary teams and expressing ideas clearly.</p>
+        </div>
+    </div>
+
+    <img src="../../images/preparing-student-images/aipathway.jpg" class="content-img" alt="AI Career Pathways">
+
+    <div class="about">
+        <h2>How It Helps Students</h2>
+        <p>Preparing for an AI career ensures <strong>Career Readiness</strong> in high-demand technology fields. It provides a <strong>Competitive Advantage</strong> in the global job market and builds <strong>Confidence</strong> through real-world industry exposure.</p>
+        <p><strong>Real-World Career Paths:</strong> Data Scientist, AI Engineer, Machine Learning Specialist, Software Developer, and AI Researcher.</p>
+    </div>
+
+    <img src="../../images/preparing-student-images/aicareer.jpg" class="content-img" alt="AI Career Roles in Action">
+
+    <div class="about">
+        <h2>Strategies and Future Growth</h2>
+        <p>Success requires continuous education, building a portfolio of projects, and active networking within tech communities. Future professionals must prioritize <strong>Responsible AI Development</strong> and <strong>Data Privacy</strong> to ensure fairness and transparency.</p>
+        <div class="grid">
+            <div class="card">
+                <h4>Challenges</h4>
+                <p>High technical difficulty, rapid technological changes, and market competition.</p>
+            </div>
+            <div class="card">
+                <h4>Opportunities</h4>
+                <p>Growing demand for specialists, global career mobility, and entrepreneurship.</p>
+            </div>
+        </div>
+    </div>
+
+
 </main>
 
 </div>
 
 <footer>
     <div class="footer-container">
-
         <div class="footer-brand">
             <div class="footer-logo-blocks">
                 <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
@@ -400,7 +469,6 @@ footer {
         </div>
 
         <div class="footer-links-group">
-
             <div class="f-col">
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
@@ -417,18 +485,15 @@ footer {
 
             <div class="f-col">
                 <h4>Contact Info</h4>
-
                 <div class="contact-item">
                     <span class="icon-box">f</span>
                     <span>Strativ.com</span>
                 </div>
-
                 <div class="contact-item">
                     <span class="icon-box">✉</span>
                     <span>Strativ018@gmail.com</span>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -436,6 +501,8 @@ footer {
         © 2026 University of the East. All rights reserved.
     </div>
 </footer>
-
+<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
+      >↑</a
+    >
 </body>
 </html>

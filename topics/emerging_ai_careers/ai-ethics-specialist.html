@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGUNOD - AI Careers Overview</title>
+<title>Strativ | AI Ethics Specialist</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../../favicon.png" />
 
 <style>
 
@@ -166,6 +167,11 @@ header h1 {
     color: #0077B6;
 }
 
+.sidebar-menu a.active {
+    background: #e5e7eb;   
+    color: #0077B6;        
+}
+
 /* ===== MAIN ===== */
 .main {
     display: flex;
@@ -260,6 +266,22 @@ header h1 {
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
+.card ul {
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+.card ul ul {
+    padding-left: 25px;
+    margin-top: 8px;
+}
+
+.card li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
 footer {
     background: #03045E;
     color: #ffffff;
@@ -416,7 +438,7 @@ footer {
         <a href="overview-of-emerging-ai-careers.html">Overview of Emerging AI Careers</a>
         <a href="ai-engineer.html">AI Engineer</a>
         <a href="data-scientist.html">Data Scientist</a>
-        <a href="ai-ethics-specialist.html">AI Ethics Specialist</a>
+        <a href="ai-ethics-specialist.html" class="active">AI Ethics Specialist</a>
         <a href="machine-learning-engineer.html">Machine Learning Engineer</a>
         <a href="ai-product-manager.html">AI Product Manager</a>
         <a href="prompt-engineer.html">Prompt Engineer</a>
@@ -429,58 +451,115 @@ footer {
 <div class="main">
 
     <div class="banner">
-        <img src="../../images/strativ_images/overview.jpg" alt="AI Careers">
-        <div class="banner-text">Emerging AI Careers</div>
+        <img src="../../images/strativ_images/aiEng.png" alt="AI Careers">
+        <div class="banner-text">AI Ethics Specialist</div>
     </div>
 
-    <!-- OVERVIEW CARD -->
+    <!-- INTRO -->
     <div class="card">
-        <h2>Overview</h2>
-
         <p>
-            Artificial Intelligence is creating a wide range of new career opportunities across industries.
-            From developing intelligent systems to ensuring ethical AI use, these roles are shaping the
-            future of work. Each career path contributes uniquely to how AI is designed, implemented,
-            and managed in real-world environments.
+            An AI Ethics Specialist focuses on the moral, legal, and social impact of artificial intelligence. They ensure that AI systems are fair, transparent, and aligned with human values, helping organizations avoid harmful consequences and build responsible technology.
         </p>
     </div>
 
-    <!-- GRID SECTION -->
     <div class="grid">
 
+        <!-- WHY ETHICS -->
         <div class="card">
-            <h2>Career Highlights</h2>
-
+            <h2>Why Ethics Matter in AI</h2>
             <p>
-                The field of Artificial Intelligence offers many career paths across development, data, ethics, and product design. Technical roles like AI and Machine Learning Engineers build intelligent systems, while Data Scientists analyze data to support decisions.
+                AI systems can influence important decisions in areas like healthcare, finance, and employment. Without proper oversight, these systems may reinforce bias or make harmful decisions.
             </p>
-
             <p>
-                Non-technical roles such as AI Ethics Specialists and AI Product Managers focus on responsible development and user-centered AI solutions. Emerging jobs like Prompt Engineers, along with AI Researchers and Robotics Engineers, continue to expand AI capabilities.
-            </p>
-
-            <p>
-                Overall, these careers work together to drive innovation and responsible use of AI across industries.
+                Since AI is still evolving and not fully regulated, companies must take responsibility for ensuring their systems are ethical, fair, and safe for users.
             </p>
         </div>
 
-        <!-- NEW CARD: Future of AI Careers -->
+        <!-- CONCERNS -->
         <div class="card">
-            <h2>Future of AI Careers</h2>
+            <h2>Key Ethical Concerns</h2>
+            <ul>
+                <li>Discriminatory biases in AI decisions</li>
+                <li>Plagiarism and misuse of content</li>
+                <li>Intellectual property violations</li>
+                <li>Misinformation and fake outputs</li>
+                <li>Privacy and surveillance risks</li>
+            </ul>
+        </div>
+
+        <!-- ROLE -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>What AI Ethics Specialists Do</h2>
 
             <p>
-                As AI advances, careers will become more specialized, especially in areas like healthcare AI and quantum computing. Professionals will need to keep learning and adapting to new technologies.
+                AI ethicists guide organizations in building responsible AI systems. They analyze risks, create ethical frameworks, and ensure systems follow proper standards throughout development.
+            </p>
 
-                Interdisciplinary collaboration in fields like ethics, psychology, and computer science will be increasingly important for responsible AI development.
+            <ul>
+                <li>Review AI systems before deployment</li>
+                <li>Create ethical guidelines and compliance processes</li>
+                <li>Work with engineers to integrate ethical boundaries</li>
+                <li>Advise leadership on risks and solutions</li>
+                <li>Educate teams about responsible AI practices</li>
+            </ul>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="card">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li>Understanding of AI technologies</li>
+                <li>Basic computer science knowledge</li>
+                <li>Framework and policy development</li>
+                <li>Public speaking and reporting</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Workplace Skills</h2>
+            <ul>
+                <li>Strong communication skills</li>
+                <li>Collaboration across teams</li>
+                <li>Critical and analytical thinking</li>
+                <li>Ethical decision-making</li>
+            </ul>
+        </div>
+
+        <!-- CAREER PATH -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>How to Become an AI Ethics Specialist</h2>
+
+            <p>
+                This is a multidisciplinary career that combines technology, law, and ethics. There is no single path, but most professionals build diverse experience.
+            </p>
+
+            <h3>Common Steps:</h3>
+            <ul>
+                <li>Study fields like computer science, law, or philosophy</li>
+                <li>Learn how AI systems work</li>
+                <li>Develop knowledge in ethics and policy</li>
+                <li>Gain experience across different industries</li>
+                <li>Build communication and public speaking skills</li>
+            </ul>
+
+            <p>
+                Joining AI communities, attending conferences, and staying updated with trends are also important for growth in this field.
+            </p>
+        </div>
+
+        <!-- FUTURE -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>The Future of AI Ethics</h2>
+
+            <p>
+                AI ethics is a rapidly growing field as technology continues to expand into everyday life. Organizations increasingly need professionals who can ensure responsible innovation.
             </p>
 
             <p>
-                Soft skills such as critical thinking, creativity, and emotional intelligence will also play a key role.
+                As AI becomes more powerful, AI ethics specialists will play a critical role in shaping policies, protecting users, and guiding the future of technology.
             </p>
 
-            <p>
-                Overall, AI careers will continue to grow and evolve with many new opportunities.
-            </p>
+            <img src="../../images/strativ_images/future.jpg" style="width:100%; margin-top:15px; border-radius:10px;" alt="AI Ethics Future">
         </div>
 
     </div>
