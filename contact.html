@@ -198,6 +198,30 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
+#scrollTopBtn {
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 99; 
+    background-color: #03045E; 
+    color: white; 
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    font-size: 20px; 
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #ffffff;
+    transition: background-color 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #0077B6; 
+}
+
 /* ===== NAVY FOOTER (UPGRADED) ===== */
 footer {
     background: #03045E;
@@ -307,6 +331,7 @@ footer {
 <body>
 
 <header>
+    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
     <div class="logo">
         <img src="images/logo/logo.jpg" alt="Strativ Logo">
         STRATIV
