@@ -1,320 +1,326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRATIV | AI in Education</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STRATIV | AI in Education</title>
 
-<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
-<style>
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <style>
+      /* ===== RESET ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: #003049;
-    background: #F8FAFC;
-}
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+        background: #f8fafc;
+      }
 
-/* ===== HEADER ===== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 6%;
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 6%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: Georgia, serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #03045E;
-}
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #03045e;
+      }
 
-.logo img {
-    width: 40px;
-    height: 40px;
-}
+      .logo img {
+        width: 40px;
+        height: 40px;
+      }
 
-nav {
-    display: flex;
-    gap: 30px;
-}
+      nav {
+        display: flex;
+        gap: 30px;
+      }
 
-nav a {
-    text-decoration: none;
-    color: #003049;
-    font-weight: 600;
-    font-size: 14px;
-}
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
 
-nav a:hover {
-    color: #0077B6;
-}
+      nav a:hover {
+        color: #0077b6;
+      }
 
-/* ===== DROPDOWN ===== */
-.dropdown {
-    position: relative;
-}
+      /* ===== DROPDOWN ===== */
+      .dropdown {
+        position: relative;
+      }
 
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    min-width: 220px;
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
 
-.dropdown-menu a {
-    padding: 12px 15px;
-    display: block;
-}
+      .dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
 
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-}
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
 
-/* ===== LAYOUT ===== */
-.page {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 30px;
-    padding: 120px 6% 60px;
-}
+      /* ===== LAYOUT ===== */
+      .page {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 30px;
+        padding: 120px 6% 60px;
+      }
 
-/* ===== SIDEBAR ===== */
-.sidebar {
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    position: sticky;
-    top: 100px;
-}
+      /* ===== SIDEBAR ===== */
+      .sidebar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+      }
 
-.sidebar h3 {
-    background: #03045E;
-    color: #fff;
-    padding: 15px;
-    font-size: 13px;
-    text-transform: uppercase;
-    border-radius: 10px 10px 0 0;
-}
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        text-transform: uppercase;
+        border-radius: 10px 10px 0 0;
+      }
 
-.sidebar a {
-    display: block;
-    padding: 12px 15px;
-    font-size: 14px;
-    color: #003049;
-    text-decoration: none;
-    border-top: 1px solid #e2e8f0;
-}
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
 
-.sidebar a:hover {
-    background: #f1f5f9;
-    color: #0077B6;
-}
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
 
-.sidebar a.active {
-    background: #eaeaea;
-    color: #0077B6;
-}
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+      }
 
-/* ===== MAIN ===== */
-.main {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
+      /* ===== MAIN ===== */
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
 
-.inner-hero {
-    height: 320px;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-}
+      .inner-hero {
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
 
-.inner-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+      .inner-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-.inner-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(3,4,94,0.5);
-}
+      .inner-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.5);
+      }
 
-.inner-hero h1 {
-    position: absolute;
-    z-index: 2;
-    color: #fff;
-    font-family: Georgia, serif;
-    font-size: 30px;
-    bottom: 50px;
-    left: 30px;
-}
+      .inner-hero h1 {
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 30px;
+        bottom: 50px;
+        left: 30px;
+      }
 
-.about {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
+      .about {
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
 
-.about h2 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 15px;
-}
+      .about h2 {
+        font-family: Georgia, serif;
+        color: #03045e;
+        margin-bottom: 15px;
+      }
 
-.about p {
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
+      .about p {
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
 
-.card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    border: 1px solid #e2e8f0;
-}
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 25px;
+        border: 1px solid #e2e8f0;
+      }
 
-.card h4 {
-    font-family: Georgia, serif;
-    color: #03045E;
-}
+      .card h4 {
+        font-family: Georgia, serif;
+        color: #03045e;
+      }
 
-.card p {
-    margin: 10px 0 15px;
-    font-size: 14px;
-    color: #6D6D6D;
-}
+      .card p {
+        margin: 10px 0 15px;
+        font-size: 14px;
+        color: #6d6d6d;
+      }
 
-.content-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 15px;
-    display: block;
-}
+      .content-img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-top: 15px;
+        display: block;
+      }
 
-/* ===== FOOTER (STRATIV FORMAT) ===== */
-footer {
-    background: #03045E;
-    color: #ffffff;
-    padding: 40px 6% 30px;
-    font-family: Arial, sans-serif;
-}
+      /* ===== FOOTER (STRATIV FORMAT) ===== */
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-}
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
 
-.footer-brand {
-    flex: 1;
-}
+      .footer-brand {
+        flex: 1;
+      }
 
-.footer-logo-blocks {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 15px;
-}
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
 
-.footer-logo-blocks span {
-    background: #ffffff;
-    color: #03045E;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 20px;
-    border-radius: 3px;
-}
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
 
-.mission-text p {
-    font-size: 18px;
-    max-width: 380px;
-}
+      .mission-text p {
+        font-size: 18px;
+        max-width: 380px;
+      }
 
-.footer-links-group {
-    display: flex;
-    gap: 220px;
-}
+      .footer-links-group {
+        display: flex;
+        gap: 220px;
+      }
 
-.f-col h4 {
-    margin-bottom: 15px;
-    text-decoration: underline;
-}
+      .f-col h4 {
+        margin-bottom: 15px;
+        text-decoration: underline;
+      }
 
-.f-col a {
-    color: #ffffff;
-    text-decoration: none;
-    line-height: 1.7;
-}
+      .f-col a {
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
 
-.quick-links-grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px 40px;
-}
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
 
-.icon-box {
-    background: #ffffff;
-    color: #03045E;
-    width: 26px;
-    height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-.copyright-bar {
-    margin-top: 30px;
-    text-align: center;
-}
-/* ===== SCROLL TO TOP ===== */
+      .copyright-bar {
+        margin-top: 30px;
+        text-align: center;
+      }
+      /* ===== SCROLL TO TOP ===== */
       #scrollTopBtn {
         position: fixed;
         bottom: 30px;
@@ -338,170 +344,242 @@ footer {
       #scrollTopBtn:hover {
         background-color: #0077b6;
       }
-</style>
-</head>
+    </style>
+  </head>
 
-<body id="top">
-
-<header>
-    <div class="logo">
-        <img src="../../images/logo/logo.jpg" alt="Strativ Logo">
+  <body id="top">
+    <header>
+      <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="Strativ Logo" />
         STRATIV
-    </div>
+      </div>
 
-    <nav>
+      <nav>
         <a href="../../index.html">Home</a>
 
         <div class="dropdown">
-            <a href="#topics">Topics ▾</a>
-            <div class="dropdown-menu">
-                <a href="topics/introduction-ai-workplace/overview.html">AI Workplace</a>
-                <a href="#">Jobs at Risk</a>
-                <a href="#">Emerging Careers</a>
-                <a href="#">Human + AI</a>
-                <a href="#">Skills</a>
-                <a href="#">Ethics</a>
-                <a href="#">Students</a>
-                <a href="#">Future</a>
-            </div>
+          <a href="#topics">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="../introduction-ai-workplace/workplace-overview.html"
+              >AI Workplace</a
+            >
+            <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+              >Jobs at Risk</a
+            >
+            <a
+              href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
+              >Emerging Careers</a
+            >
+            <a href="../human-ai-collab-kimi/overview.html">Human + AI</a>
+            <a href="#">Skills</a>
+            <a href="#">Ethics</a>
+            <a href="#">Students</a>
+            <a href="#">Future</a>
+          </div>
         </div>
 
         <div class="dropdown">
-            <a href="../../resources.html">Resources ▾</a>
-            <div class="dropdown-menu">
-                <a href="../../resources/external-links.html">External Links</a>
-                <a href="../../resources/icons-images.html">Icons & Images</a>
-                <a href="../../resources/data-reports.html">Data & Reports</a>
-                <a href="../../resources/case-studies.html">Case Studies</a>
-            </div>
+          <a href="../../resources.html">Resources ▾</a>
+          <div class="dropdown-menu">
+            <a href="../../resources/external-links.html">External Links</a>
+            <a href="../../resources/icons-images.html">Icons & Images</a>
+            <a href="../../resources/data-reports.html">Data & Reports</a>
+            <a href="../../resources/case-studies.html">Case Studies</a>
+          </div>
         </div>
         <a href="#">About</a>
         <a href="#">Contact</a>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<div class="page">
+    <div class="page">
+      <aside class="sidebar">
+        <h3>PREPARING STUDENTS</h3>
+        <a href="overviewofpreparingstudentsai.html"
+          >Overview of Preparing students AI</a
+        >
+        <a href="#" class="active">AI in Education</a>
+        <a href="studentskillsfortheaiera.html"
+          >Student Skills for the AI Era</a
+        >
+        <a href="ailearningtools.html">AI Learning Tools</a>
+        <a href="careerpreparationforaijobs.html"
+          >Career Preparation for AI Jobs</a
+        >
+        <a href="studentpreparationsummary.html">Student Preparation Summary</a>
+        <a href="aicodingskills.html">AI Coding Skills</a>
+        <a href="digitalprojectwithai.html">Digital Projects with AI</a>
+        <a href="airesearchskills.html">AI Research Skills</a>
+        <a href="studentinsights.html">Student Insights</a>
+        <a href="ailearningplatform.html">AI Learning Platforms</a>
+        <a href="futurecareerplanning.html">Future Career Planning</a>
+      </aside>
 
-<aside class="sidebar">
-    <h3>PREPARING STUDENTS</h3>
-    <a href="overviewofpreparingstudentsai.html">Overview of Preparing students AI</a>
-    <a href="#" class="active">AI in Education</a>
-    <a href="studentskillsfortheaiera.html">Student Skills for the AI Era</a>
-    <a href="ailearningtools.html">AI Learning Tools</a>
-    <a href="careerpreparationforaijobs.html">Career Preparation for AI Jobs</a>
-    <a href="studentpreparationsummary.html">Student Preparation Summary</a>
-    <a href="aicodingskills.html">AI Coding Skills</a>
-    <a href="digitalprojectwithai.html">Digital Projects with AI</a>
-    <a href="airesearchskills.html">AI Research Skills</a>
-    <a href="studentinsights.html">Student Insights</a>
-    <a href="ailearningplatform.html">AI Learning Platforms</a>
-    <a href="futurecareerplanning.html">Future Career Planning</a>
-</aside>
+      <main class="main">
+        <div class="inner-hero">
+          <img
+            src="../../images/preparing-student-images/aieducation.jpg"
+            alt="AI in Education Hero Image"
+          />
+          <h1>AI in Education</h1>
+        </div>
 
-<main class="main">
-    <div class="inner-hero">
-        <img src="../../images/preparing-student-images/aieducation.jpg" alt="AI in Education Hero Image">
-        <h1>AI in Education</h1>
-    </div>
+        <div class="about">
+          <h2>AI-Driven Learning Systems</h2>
+          <p>
+            Artificial Intelligence (AI) in education refers to the integration
+            of intelligent technologies into teaching and learning processes to
+            enhance educational outcomes. These systems use data, algorithms,
+            and machine learning to personalize learning, automate tasks, and
+            support both students and educators.
+          </p>
+          <p>
+            AI in education is not limited to advanced robotics; it includes
+            tools like recommendation systems, virtual tutors, automated grading
+            systems, and learning analytics platforms. The goal is to create a
+            more efficient, accessible, and engaging learning environment.
+          </p>
+          <p>
+            <strong>Scope:</strong> Personalised learning systems, intelligent
+            tutoring systems, automated assessment, and virtual learning
+            environments.
+          </p>
+        </div>
 
-    <div class="about">
-        <h2>AI-Driven Learning Systems</h2>
-        <p>Artificial Intelligence (AI) in education refers to the integration of intelligent technologies into teaching and learning processes to enhance educational outcomes. These systems use data, algorithms, and machine learning to personalize learning, automate tasks, and support both students and educators.</p>
-        <p>AI in education is not limited to advanced robotics; it includes tools like recommendation systems, virtual tutors, automated grading systems, and learning analytics platforms. The goal is to create a more efficient, accessible, and engaging learning environment.</p>
-        <p><strong>Scope:</strong> Personalised learning systems, intelligent tutoring systems, automated assessment, and virtual learning environments.</p>
-    </div>
-
-    <div class="grid">
-        <div class="card">
+        <div class="grid">
+          <div class="card">
             <h4>Personalized Learning</h4>
-            <p>AI adapts content based on a student’s pace, strengths, and weaknesses, receiving customized lessons instead of a one-size-fits-all approach.</p>
-        </div>
-        <div class="card">
+            <p>
+              AI adapts content based on a student’s pace, strengths, and
+              weaknesses, receiving customized lessons instead of a
+              one-size-fits-all approach.
+            </p>
+          </div>
+          <div class="card">
             <h4>Intelligent Tutoring</h4>
-            <p>AI-powered tutors provide real-time feedback and guidance, helping students learn independently outside the classroom.</p>
-        </div>
-        <div class="card">
+            <p>
+              AI-powered tutors provide real-time feedback and guidance, helping
+              students learn independently outside the classroom.
+            </p>
+          </div>
+          <div class="card">
             <h4>Admin Automation</h4>
-            <p>Automating repetitive tasks such as grading exams and checking assignments allows teachers to focus more on direct student guidance.</p>
-        </div>
-        <div class="card">
+            <p>
+              Automating repetitive tasks such as grading exams and checking
+              assignments allows teachers to focus more on direct student
+              guidance.
+            </p>
+          </div>
+          <div class="card">
             <h4>Learning Analytics</h4>
-            <p>AI analyzes student data to identify patterns and predict performance, providing insights that help improve learning strategies.</p>
+            <p>
+              AI analyzes student data to identify patterns and predict
+              performance, providing insights that help improve learning
+              strategies.
+            </p>
+          </div>
         </div>
-    </div>
 
-    <img src="../../images/preparing-student-images/illustrationai.jpg" class="content-img" alt="Illustration of AI Functions in Education">
+        <img
+          src="../../images/preparing-student-images/illustrationai.jpg"
+          class="content-img"
+          alt="Illustration of AI Functions in Education"
+        />
 
-    <div class="about">
-        <h2>Benefits of AI in Education</h2>
-        <p>Students learn more effectively through personalized content and immediate feedback. Interactive AI tools make learning more engaging and enjoyable, while educators use data-driven insights to improve teaching methods.</p>
-        <p><strong>Real-World Applications:</strong> AI Tutors for math/science, automated grading for instant results, and recommendation systems for tailored learning materials.</p>
-    </div>
+        <div class="about">
+          <h2>Benefits of AI in Education</h2>
+          <p>
+            Students learn more effectively through personalized content and
+            immediate feedback. Interactive AI tools make learning more engaging
+            and enjoyable, while educators use data-driven insights to improve
+            teaching methods.
+          </p>
+          <p>
+            <strong>Real-World Applications:</strong> AI Tutors for
+            math/science, automated grading for instant results, and
+            recommendation systems for tailored learning materials.
+          </p>
+        </div>
 
-    <img src="../../images/preparing-student-images/educapp.jpg" class="content-img" alt="Educational AI Benefits and Applications">
+        <img
+          src="../../images/preparing-student-images/educapp.jpg"
+          class="content-img"
+          alt="Educational AI Benefits and Applications"
+        />
 
-    <div class="grid">
-        <div class="card">
+        <div class="grid">
+          <div class="card">
             <h4>Ethical Implications</h4>
-            <p>Raising concerns about data privacy, bias in algorithms, and the digital divide where not all students have equal access.</p>
-        </div>
-        <div class="card">
+            <p>
+              Raising concerns about data privacy, bias in algorithms, and the
+              digital divide where not all students have equal access.
+            </p>
+          </div>
+          <div class="card">
             <h4>Future of Education</h4>
-            <p>Smart Classrooms will enable interactive environments, while AI supports lifelong learning and global access for remote communities.</p>
+            <p>
+              Smart Classrooms will enable interactive environments, while AI
+              supports lifelong learning and global access for remote
+              communities.
+            </p>
+          </div>
         </div>
+
+        <img
+          src="../../images/preparing-student-images/smartclass.jpg"
+          class="content-img"
+          alt="The Future of Smart Classrooms"
+        />
+      </main>
     </div>
 
-    <img src="../../images/preparing-student-images/smartclass.jpg" class="content-img" alt="The Future of Smart Classrooms">
-</main>
-
-</div>
-
-<footer>
-    <div class="footer-container">
+    <footer>
+      <div class="footer-container">
         <div class="footer-brand">
-            <div class="footer-logo-blocks">
-                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-            </div>
-            <div class="mission-text">
-                <p>Preparing students for an AI-driven future.</p>
-            </div>
+          <div class="footer-logo-blocks">
+            <span>S</span><span>T</span><span>R</span><span>A</span
+            ><span>T</span><span>I</span><span>V</span>
+          </div>
+          <div class="mission-text">
+            <p>Preparing students for an AI-driven future.</p>
+          </div>
         </div>
 
         <div class="footer-links-group">
-            <div class="f-col">
-                <h4>Quick Links</h4>
-                <div class="quick-links-grid">
-                    <div>
-                        <a href="#">AI Workplace</a><br>
-                        <a href="#">Students</a>
-                    </div>
-                    <div>
-                        <a href="#">Ethics</a><br>
-                        <a href="#">Future</a>
-                    </div>
-                </div>
+          <div class="f-col">
+            <h4>Quick Links</h4>
+            <div class="quick-links-grid">
+              <div>
+                <a href="#">AI Workplace</a><br />
+                <a href="#">Students</a>
+              </div>
+              <div>
+                <a href="#">Ethics</a><br />
+                <a href="#">Future</a>
+              </div>
             </div>
+          </div>
 
-            <div class="f-col">
-                <h4>Contact Info</h4>
-                <div class="contact-item">
-                    <span class="icon-box">f</span>
-                    <span>Strativ.com</span>
-                </div>
-                <div class="contact-item">
-                    <span class="icon-box">✉</span>
-                    <span>Strativ018@gmail.com</span>
-                </div>
+          <div class="f-col">
+            <h4>Contact Info</h4>
+            <div class="contact-item">
+              <span class="icon-box">f</span>
+              <span>Strativ.com</span>
             </div>
+            <div class="contact-item">
+              <span class="icon-box">✉</span>
+              <span>Strativ018@gmail.com</span>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="copyright-bar">
+      <div class="copyright-bar">
         © 2026 University of the East. All rights reserved.
-    </div>
-</footer>
-<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
+      </div>
+    </footer>
+    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
       >↑</a
     >
-</body>
+  </body>
 </html>
