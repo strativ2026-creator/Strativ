@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | AI Bias and Fairness</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<!--Abordo, Jana Sayrielle G. -->
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077B6;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    display: grid;
+    /* Changed to 2 columns: Sidebar and Main Content */
+    grid-template-columns: 260px 1fr; 
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+/* STICKY SIDEBAR */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+.sidebar a.active { 
+    background: #eaeaea; 
+    color: #0077B6; 
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inner-hero {
+    height: 320px; /* Slightly taller for better 2-column balance */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.5);
+}
+
+.inner-hero h1 {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    bottom: 30px;
+    left: 30px;
+}
+
+.about {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.card a:hover {
+    background: #0077B6;
+}
+
+.card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+}
+
+.card p {
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #6D6D6D;
+}
+
+.card a {
+    padding: 10px 20px;
+    background: #03045E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E; 
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px; 
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px; 
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1; 
+    margin-top: -6px; 
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid; 
+    grid-template-columns: auto auto; 
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.section-intro {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+.section-intro h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+.section-intro p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.75;
+    margin-bottom: 0;
+}
+
+.perspective-block {
+    background: #F8FAFC;
+    border-left: 4px solid #03045E;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-top: 18px;
+}
+.perspective-block h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+.perspective-block p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.bias-tag {
+    display: inline-block;
+    background: #EEF2FF;
+    color: #03045E;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+.bias-item {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+.bias-item:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+.bias-item h5 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.bias-item p {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.metric-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 25px;
+    border: 1px solid #e2e8f0;
+}
+.metric-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 16px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEF2FF;
+}
+.metric-item {
+    margin-bottom: 12px;
+}
+.metric-item:last-child { margin-bottom: 0; }
+.metric-item strong {
+    display: block;
+    color: #03045E;
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+.metric-item span {
+    font-size: 13px;
+    color: #6D6D6D;
+    line-height: 1.6;
+}
+.metric-item em {
+    display: block;
+    font-size: 12px;
+    color: #0077B6;
+    margin-top: 3px;
+    font-style: normal;
+}
+
+.case-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #03045E;
+}
+.case-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+.case-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.case-label {
+    font-weight: 700;
+    color: #03045E;
+    white-space: nowrap;
+    min-width: 80px;
+}
+.case-value { color: #555; }
+
+.implication-block {
+    background: #fff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+.implication-block h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 16px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.implication-block h4::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #03045E;
+    flex-shrink: 0;
+}
+.impl-item {
+    border-top: 1px solid #f0f4f8;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.65;
+}
+.impl-item:first-child { border-top: none; padding-top: 0; }
+.impl-item strong { color: #03045E; }
+
+.tradeoff-box {
+    background: #EEF2FF;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-top: 12px;
+}
+.tradeoff-box p {
+    font-size: 13px;
+    color: #03045E;
+    line-height: 1.65;
+    margin: 0;
+}
+.tradeoff-box p + p { margin-top: 8px; }
+
+/* ===== BACK TO TOP BUTTON ===== */
+#backTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    background: #03045E;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(3,4,94,.35);
+    transition: background .2s, transform .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#backTopBtn:hover { background: #0077B6; transform: translateY(-3px); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .page { grid-template-columns: 1fr; padding: 90px 4% 50px; }
+    .sidebar { position: static; }
+    .grid { grid-template-columns: 1fr; }
+    .inner-hero h1 { font-size: 26px; bottom: 20px; left: 20px; }
+}
+@media (max-width: 560px) {
+    .inner-hero { height: 220px; }
+    .inner-hero h1 { font-size: 20px; }
+    #backTopBtn { bottom: 18px; right: 18px; width: 42px; height: 42px; font-size: 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
+            </div>
+        </div>
+
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+     <aside class="sidebar">
+        <h3>AI Ethics &amp; Social Issues</h3>
+        <a href="overview-ai-ethics.html">Overview of AI Ethics</a>
+        <a href="ai-bias.html" class="active">AI Bias and Fairness</a>
+        <a href="privacy-security.html">Privacy and Security Issues</a>
+        <a href="job-displacement.html">Job Displacement by AI</a>
+        <a href="responsible-ai.html">Responsible AI Development</a>
+        <a href="ethics-summary.html">Ethics Summary</a>
+        <a href="algorithm-transparency.html">Algorithm Transparency</a>
+        <a href="ai-regulation.html">AI Regulation and Policies</a>
+        <a href="ai-accountability.html">AI Accountability</a>
+        <a href="ethical-ai-design.html">Ethical AI Design</a>
+    </aside>
+
+    <main class="main">
+
+        <!-- HERO BANNER -->
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&fit=crop"
+                 alt="Scales of justice beside a circuit board representing AI bias and fairness"
+                 title="AI Bias and Fairness Banner">
+            <h1>AI Bias and Fairness</h1>
+        </div>
+
+        <!-- ── SECTION 1: WHAT IS BIAS IN AI? ── -->
+        <div class="section-intro">
+            <h2>What is Bias in AI?</h2>
+            <p>Bias in artificial intelligence refers to systematic errors that produce unfair outcomes, often favoring certain groups over others. It can be understood through three primary lenses.</p>
+            <div class="perspective-block">
+                <h4>Statistical Perspective</h4>
+                <p>Bias is measured as deviation between model predictions and actual ground truth. It focuses on accuracy gaps and error distributions across groups — quantifying <em>how much</em> a system's outputs differ from reality for different populations.</p>
+            </div>
+            <div class="perspective-block">
+                <h4>Social Perspective</h4>
+                <p>Bias manifests as systematic disadvantage imposed on certain groups based on protected characteristics such as race, gender, or socioeconomic status. It is rooted in historical inequities and reflects societal power dynamics embedded in data.</p>
+            </div>
+            <div class="perspective-block">
+                <h4>Ethical Perspective</h4>
+                <p>Bias violates moral principles such as justice, dignity, or equal respect. This perspective is normative — concerned with <em>what ought to be</em> rather than pure measurement — and asks whether an AI outcome is morally acceptable.</p>
+            </div>
+        </div>
+
+        <!-- ── SECTION 2: WHAT IS FAIRNESS IN AI? ── -->
+        <div class="section-intro">
+            <h2>What is Fairness in AI?</h2>
+            <p>Fairness is the absence of prejudice or favoritism toward individuals or groups based on intrinsic or acquired characteristics. It operates across three dimensions.</p>
+            <div class="perspective-block" style="border-left-color: #0077B6;">
+                <h4>Formal Fairness</h4>
+                <p>Consistent application of rules; equal treatment before the law. Every individual is assessed by the same criteria regardless of group membership.</p>
+            </div>
+            <div class="perspective-block" style="border-left-color: #0077B6;">
+                <h4>Substantive Fairness</h4>
+                <p>Equitable distribution of opportunities and outcomes; addressing structural inequalities. Recognises that identical treatment of unequal groups may perpetuate rather than resolve injustice.</p>
+            </div>
+            <div class="perspective-block" style="border-left-color: #0077B6;">
+                <h4>Procedural Fairness</h4>
+                <p>Transparency and accountability in decision-making processes. Individuals are entitled to understand how decisions affecting them are reached and to contest those decisions.</p>
+            </div>
+        </div>
+
+        <!-- ── SECTION 3: SOURCES OF BIAS ── -->
+        <div class="about">
+            <h2>Common Sources of Bias in Machine Learning</h2>
+            <p>Bias enters AI systems at every stage of the development pipeline — from how data is collected to how models are designed and ultimately deployed in the real world.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <span class="bias-tag">Data-Level Biases</span>
+                <div class="bias-item">
+                    <h5>Historical Bias</h5>
+                    <p>Pre-existing societal discrimination encoded in data. <em>Example:</em> COMPAS reflected racial disparities in arrests because it trained on historically biased arrest records.</p>
+                </div>
+                <div class="bias-item">
+                    <h5>Representation Bias</h5>
+                    <p>Underrepresentation of certain groups. <em>Example:</em> ImageNet datasets are dominated by images from Western and Northern hemisphere countries.</p>
+                </div>
+                <div class="bias-item">
+                    <h5>Measurement Bias</h5>
+                    <p>Systematic errors in how features are measured. <em>Example:</em> Using arrest records as a proxy for "criminality" over-represents minority groups who are disproportionately policed.</p>
+                </div>
+                <div class="bias-item">
+                    <h5>Sampling Bias</h5>
+                    <p>Non-random selection of training data. <em>Example:</em> Online surveys exclude populations without internet access.</p>
+                </div>
+                <div class="bias-item">
+                    <h5>Labeling / Annotation Bias</h5>
+                    <p>Human annotator prejudices reflected in ground-truth labels. <em>Example:</em> African American English is disproportionately labelled as offensive in hate-speech datasets.</p>
+                </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:25px;">
+                <div class="card">
+                    <span class="bias-tag">Algorithm-Level Biases</span>
+                    <div class="bias-item">
+                        <h5>Algorithmic Bias</h5>
+                        <p>Model architecture amplifies existing biases. <em>Example:</em> Deep neural networks learn spurious correlations that reinforce stereotypes.</p>
+                    </div>
+                    <div class="bias-item">
+                        <h5>Aggregation Bias</h5>
+                        <p>A "one-size-fits-all" model ignores subgroup differences. <em>Example:</em> A healthcare model performs well overall but poorly for minority ethnic groups.</p>
+                    </div>
+                    <div class="bias-item">
+                        <h5>Evaluation Bias</h5>
+                        <p>Using inappropriate benchmarks. <em>Example:</em> Facial recognition benchmarks lacked dark-skinned subjects, giving inflated performance claims.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="bias-tag">Deployment-Level Biases</span>
+                    <div class="bias-item">
+                        <h5>Interaction Bias</h5>
+                        <p>User behaviour shapes algorithmic feedback loops. <em>Example:</em> Search engines reinforce popularity bias because users click more on top results.</p>
+                    </div>
+                    <div class="bias-item">
+                        <h5>Emergent Bias</h5>
+                        <p>Bias arising in unanticipated contexts. <em>Example:</em> A COVID-19 symptom checker fails for non-English speakers.</p>
+                    </div>
+                    <div class="bias-item">
+                        <h5>Automation Bias</h5>
+                        <p>Overreliance on AI outputs. <em>Example:</em> Doctors deferring to faulty diagnostic models even when clinical signs contradict them.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── SECTION 4: FAIRNESS METRICS ── -->
+        <div class="about">
+            <h2>Frameworks and Metrics for Measuring Fairness</h2>
+            <p>Researchers have proposed a wide range of mathematical fairness criteria. Each captures a different moral intuition — and they often conflict with one another, reflecting the genuine complexity of the concept.</p>
+        </div>
+
+        <div class="grid">
+            <div class="metric-card">
+                <h4>Group Fairness Metrics</h4>
+                <div class="metric-item">
+                    <strong>Demographic / Statistical Parity</strong>
+                    <span>The proportion of positive outcomes (e.g., hired, admitted) is equal across groups.</span>
+                    <em>Application: Hiring, admissions, loan approvals.</em>
+                </div>
+                <div class="metric-item">
+                    <strong>Equalized Odds</strong>
+                    <span>Both false-positive and true-positive rates are equal across groups.</span>
+                    <em>Application: Criminal justice, medical diagnosis.</em>
+                </div>
+                <div class="metric-item">
+                    <strong>Equal Opportunity</strong>
+                    <span>True-positive rates are equal across groups — focuses on correctly identifying qualified individuals.</span>
+                    <em>Application: Scholarships, targeted interventions.</em>
+                </div>
+                <div class="metric-item">
+                    <strong>Predictive Parity</strong>
+                    <span>Positive predictive value is equal across groups — a positive prediction is equally likely to be correct for all groups.</span>
+                    <em>Application: Risk assessment, credit scoring.</em>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <h4>Individual Fairness Metrics</h4>
+                <div class="metric-item">
+                    <strong>Fairness Through Awareness</strong>
+                    <span>Similar individuals should receive similar outcomes, using an explicitly defined similarity metric.</span>
+                </div>
+                <div class="metric-item">
+                    <strong>Distance-Based Fairness</strong>
+                    <span>The distance between predictions should not exceed the distance between individuals' features (Lipschitz condition).</span>
+                </div>
+                <div class="metric-item">
+                    <strong>Ranking-Based Fairness</strong>
+                    <span>The ranking of predicted outcomes should align with the ranking of individual similarities.</span>
+                </div>
+                <h4 style="margin-top:20px;">Causal Fairness Metrics</h4>
+                <div class="metric-item">
+                    <strong>Counterfactual Fairness</strong>
+                    <span>A decision is fair if it would be the same had the sensitive attribute been different in a counterfactual world.</span>
+                </div>
+                <div class="metric-item">
+                    <strong>Path-Specific Fairness</strong>
+                    <span>Only allowable causal paths may influence decisions; discriminatory pathways are blocked.</span>
+                </div>
+                <div class="metric-item">
+                    <strong>Total Fairness</strong>
+                    <span>No direct or indirect discrimination via any causal pathway.</span>
+                </div>
+            </div>
+
+            <div class="metric-card" style="grid-column: 1 / -1;">
+                <h4>Key Trade-offs</h4>
+                <div class="tradeoff-box">
+                    <p><strong>Incompatibility:</strong> Kleinberg et al. (2016) proved that equalized odds and calibration cannot be simultaneously satisfied except in trivial cases — enforcing one metric mathematically violates another.</p>
+                    <p><strong>Fairness–Accuracy Trade-off:</strong> Optimizing for fairness often reduces overall predictive accuracy, forcing designers to make explicit value judgements about which errors are most harmful.</p>
+                    <p><strong>Individual vs. Group Fairness:</strong> Achieving group-level fairness may require treating similar individuals differently; achieving individual fairness may preserve group-level disparities.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── SECTION 5: REAL-WORLD CASES ── -->
+        <div class="about">
+            <h2>Real-World Bias and Fairness Challenges</h2>
+            <p>The following case studies show how AI bias causes measurable harm in high-stakes domains — from criminal justice to employment and healthcare.</p>
+        </div>
+
+        <div class="grid">
+            <div class="case-card">
+                <h4>COMPAS Recidivism Prediction</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">Risk assessment tool used in U.S. courts for pretrial and sentencing decisions.</span></div>
+                <div class="case-row"><span class="case-label">Finding</span><span class="case-value">African American defendants were twice as likely to be falsely flagged as high-risk; white defendants were more likely to be falsely flagged as low-risk (ProPublica, 2016).</span></div>
+                <div class="case-row"><span class="case-label">Technical issue</span><span class="case-value">The model achieved calibration but violated equalized odds — a fairness impossibility in practice.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Perpetuated racial disparities in incarceration and bail decisions.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Healthcare Algorithm (Obermeyer et al., 2019)</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">Algorithm predicting healthcare needs for approximately 200 million Americans.</span></div>
+                <div class="case-row"><span class="case-label">Finding</span><span class="case-value">Black patients were significantly sicker than white patients at the same risk score.</span></div>
+                <div class="case-row"><span class="case-label">Cause</span><span class="case-value">Used healthcare <em>spending</em> as a proxy for health need — Black patients have lower spending due to systemic barriers to care.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Denied needed care to Black patients; correcting the bias would make the model 50% more accurate.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Automated Hiring — Amazon (2018)</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">AI recruiting tool built to screen candidates for technical roles.</span></div>
+                <div class="case-row"><span class="case-label">Finding</span><span class="case-value">System penalised resumes containing the word "women's" and downgraded graduates of all-women's colleges.</span></div>
+                <div class="case-row"><span class="case-label">Cause</span><span class="case-value">Trained on 10 years of predominantly male applicant data, encoding existing gender imbalance as a learned preference.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Systematic gender discrimination; the tool was scrapped before deployment.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>ESL Students in Automated Essay Scoring</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">Automated grading systems deployed in e-learning platforms globally.</span></div>
+                <div class="case-row"><span class="case-label">Finding</span><span class="case-value">English as a Second Language (ESL) students consistently received lower scores than native speakers of equivalent ability.</span></div>
+                <div class="case-row"><span class="case-label">Cause</span><span class="case-value">Training data dominated by native-English essays, so non-native writing patterns were penalised as errors.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Unfair assessment of linguistic ability; hindered educational progression for non-native English speakers.</span></div>
+            </div>
+        </div>
+
+        <!-- ── SECTION 6: ETHICAL & SOCIAL IMPLICATIONS ── -->
+        <div class="about">
+            <h2>Ethical and Social Implications of Biased AI</h2>
+            <p>Bias in AI is not merely a technical glitch — it has profound consequences for discrimination, equality, institutional trust, and fundamental human rights.</p>
+        </div>
+
+        <div class="grid">
+            <div class="implication-block">
+                <h4>Discrimination</h4>
+                <div class="impl-item"><strong>Direct discrimination</strong> — Explicit use of protected attributes (race, gender) leads to unfavourable outcomes.</div>
+                <div class="impl-item"><strong>Indirect discrimination</strong> — Neutral proxies (e.g., zip code, name) correlate with protected attributes and produce discriminatory effects.</div>
+                <div class="impl-item"><strong>Proxy discrimination</strong> — Race inferred from geography, language, or purchasing patterns without ever naming race explicitly.</div>
+                <div class="impl-item"><strong>Intersectional discrimination</strong> — Bias at the intersection of multiple identities (e.g., dark-skinned women) is frequently overlooked by single-axis fairness metrics.</div>
+            </div>
+
+            <div class="implication-block">
+                <h4>Social Inequality</h4>
+                <div class="impl-item"><strong>Economic concentration</strong> — AI benefits accrue to a few tech companies; labour displacement affects vulnerable populations most.</div>
+                <div class="impl-item"><strong>Digital divide</strong> — AI tools remain inaccessible to communities lacking infrastructure, compounding existing inequalities.</div>
+                <div class="impl-item"><strong>Data exclusion</strong> — Underrepresented groups become invisible to AI systems, perpetuating their marginalisation in future models.</div>
+                <div class="impl-item"><strong>Amplification loops</strong> — Biased outcomes feed back into training data, reinforcing and strengthening future biases over time.</div>
+            </div>
+
+            <div class="implication-block">
+                <h4>Trust and Accountability</h4>
+                <div class="impl-item"><strong>Problem of many hands</strong> — Responsibility is diffused across developers, deployers, and users, making clear attribution of harm difficult.</div>
+                <div class="impl-item"><strong>Opacity</strong> — Black-box models prevent meaningful accountability; neither users nor regulators can audit what they cannot see.</div>
+                <div class="impl-item"><strong>Ethics washing</strong> — Using voluntary principles and guidelines to preempt binding regulation while maintaining harmful practices.</div>
+                <div class="impl-item"><strong>Liability gaps</strong> — Existing legal frameworks are ill-equipped to assign responsibility for harms caused by complex AI systems.</div>
+            </div>
+
+            <div class="implication-block">
+                <h4>Human Rights Violations</h4>
+                <div class="impl-item"><strong>Privacy</strong> — AI-enabled surveillance and re-identification threaten individuals' informational privacy and autonomy.</div>
+                <div class="impl-item"><strong>Freedom of expression</strong> — Content moderation algorithms can disproportionately silence minority voices and non-dominant languages.</div>
+                <div class="impl-item"><strong>Due process</strong> — Algorithmic decisions often lack meaningful explanation or accessible mechanisms for contestation.</div>
+                <div class="impl-item"><strong>Right to non-discrimination</strong> — Protected under international law (UDHR Art. 7, ICCPR Art. 2, EU Charter Art. 21); biased AI may violate these obligations.</div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
