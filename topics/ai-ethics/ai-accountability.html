@@ -22,6 +22,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #003049;
     background: #F8FAFC;
+    scroll-behavior: smooth;
 }
 
 /* ===== HEADER ===== */
@@ -774,14 +775,14 @@ footer {
         <div class="dropdown">
             <a href="../../index.html#topics">Topics ▾</a>
             <div class="dropdown-menu">
-                <a href="ai.html">AI Workplace</a>
-                <a href="#">Jobs at Risk</a>
-                <a href="#">Emerging Careers</a>
-                <a href="#">Human + AI</a>
-                <a href="#">Skills</a>
-                <a href="#">Ethics</a>
-                <a href="#">Students</a>
-                <a href="#">Future</a>
+                <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
+                <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                <a href="../../topics/Emerging_AI_Careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Human + AI</a>
+                <a href="../../topics/future-workforce-skills/collaboration-skills.html">Skills</a>
+                <a href="../../topics/ai-ethics/overview-ai-ethics.html">Ethics</a>
+                <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                <a href="../../topics/future-outlook-ai/ai-driven-world.html">Future</a>
             </div>
         </div>
         <div class="dropdown">
@@ -811,8 +812,8 @@ footer {
         <a href="ai-regulation.html">AI Regulation and Policies</a>
         <a href="ai-accountability.html" class="active">AI Accountability</a>
         <a href="ethical-ai-design.html">Ethical AI Design</a>
-        <a href="#">AI and Human Rights</a>
-        <a href="#">Social Impact of Artificial Intelligence</a>
+        <a href="ai-and-human-rights.html">AI and Human Rights</a>
+        <a href="social-impact-of-artificial-intelligence.html">Social Impact of Artificial Intelligence</a>
     </aside>
 
     <main class="main">
@@ -1174,16 +1175,16 @@ footer {
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="#">AI Workplace</a><br>
-                        <a href="#">Emerging Careers</a><br>
-                        <a href="#">Future Skills</a><br>
-                        <a href="#">Students</a>
+                        <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
+                        <a href="../../topics/Emerging_AI_Careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
+                        <a href="../../topics/future-workforce-skills/collaboration-skills.html">Future Skills</a><br>
+                        <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
                     </div>
                     <div>
-                        <a href="#">Jobs at Risk</a><br>
-                        <a href="#">Collaboration</a><br>
-                        <a href="#">Ethics</a><br>
-                        <a href="#">Future Outlook</a>
+                        <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
+                        <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Collaboration</a><br>
+                        <a href="../../topics/ai-ethics/overview-ai-ethics.html">Ethics</a><br>
+                        <a href="../../topics/future-outlook-ai/ai-driven-world.html">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -1215,6 +1216,23 @@ footer {
 </footer>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "flex";
+    } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+    }
+}
+
+document.getElementById("scrollTopBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 <style>
 /* ===== RESET & BASE ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; }
+body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; scroll-behavior: smooth; }
 
 /* ===== HEADER ===== */
 header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
@@ -121,12 +121,12 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
             <div class="dropdown-menu">
                 <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
                 <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <a href="../../topics/Emerging_AI_Careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
                 <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Human + AI</a>
-                <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Skills</a>
-                <a href="overview-ai-ethics.html">Ethics</a>
+                <a href="../../topics/future-workforce-skills/collaboration-skills.html">Skills</a>
+                <a href="../../topics/ai-ethics/overview-ai-ethics.html">Ethics</a>
                 <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future</a>
+                <a href="../../topics/future-outlook-ai/ai-driven-world.html">Future</a>
             </div>
         </div>
         <div class="dropdown">
@@ -300,6 +300,23 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
 </footer>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "flex";
+    } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+    }
+}
+
+document.getElementById("scrollTopBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
 
 </body>
 </html>

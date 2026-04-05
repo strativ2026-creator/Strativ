@@ -11,7 +11,7 @@
 <style>
 /* ===== RESET & BASE ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; }
+body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; scroll-behavior: smooth; }
 
 /* ===== HEADER ===== */
 header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
@@ -293,6 +293,18 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
 </footer>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "block";
+    } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+    }
+}
+</script>
 
 </body>
 </html>

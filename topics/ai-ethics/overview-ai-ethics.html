@@ -22,6 +22,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #003049;
     background: #F8FAFC;
+    scroll-behavior: smooth;
 }
 
 /* ===== HEADER ===== */
@@ -444,6 +445,7 @@ footer {
                     AI systems should avoid discrimination and ensure equitable treatment across different demographic groups.<br><br>
                     <strong>Key concerns:</strong> Algorithmic bias can perpetuate historical inequalities, leading to disparate outcomes based on race, gender, age, or socioeconomic status.<br><br>
                     <strong>Implementation challenges:</strong> Balancing statistical fairness with real-world outcomes; determining what constitutes "fair" in different cultural contexts.
+                    <a href="ai-bias.html">Learn More</a>
                 </p>
             </div>
             <div class="card">
@@ -452,6 +454,7 @@ footer {
                     Clear assignment of responsibility for AI system outcomes and behaviors.<br><br>
                     <strong>Key concerns:</strong> The "problem of many hands" — when AI systems cause harm, it becomes difficult to attribute responsibility across developers, deployers, users, and the system itself.<br><br>
                     <strong>Implementation:</strong> Establishing liability frameworks, audit trails, and mechanisms for redress.
+                    <a href="ai-accountability.html">Learn More</a>
                 </p>
             </div>
             <div class="card">
@@ -460,6 +463,7 @@ footer {
                     AI systems should be understandable and their decision-making processes accessible to relevant stakeholders.<br><br>
                     <strong>Key concerns:</strong> The "black box" problem of machine learning models, particularly deep neural networks, makes reasoning difficult to explain.<br><br>
                     <strong>Aspects:</strong> Includes explainability, interpretability, and justifiability of design processes.
+                    <a href="algorithm-transparency.html">Learn More</a>
                 </p>
             </div>
             <div class="card">
@@ -468,6 +472,7 @@ footer {
                     Respect for personal data protection and individual autonomy over personal information.<br><br>
                     <strong>Key concerns:</strong> AI's data hunger creates tensions between functionality and privacy; risks of surveillance, re-identification, and data misuse.<br><br>
                     <strong>Implementation:</strong> Privacy by design, differential privacy, federated learning, and compliance with regulations like GDPR.
+                    <a href="privacy-security-issue.html">Learn More</a>
                 </p>
             </div>
             <div class="card" style="grid-column: 1 / -1;">
@@ -476,6 +481,7 @@ footer {
                     The ability to understand and articulate why an AI system made a particular decision.<br><br>
                     <strong>Key concerns:</strong> Without explainability, trust erodes; accountability becomes impossible; users cannot contest harmful decisions.<br><br>
                     <strong>Distinction:</strong> Differs from transparency — transparency is about openness, explainability is about the comprehensibility of reasoning.
+                    <a href="algorithm-transparency.html">Learn More</a>
                 </p>
             </div>
         </div>
@@ -689,6 +695,23 @@ footer {
 </footer>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "flex";
+    } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+    }
+}
+
+document.getElementById("scrollTopBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
 
 </body>
 </html>

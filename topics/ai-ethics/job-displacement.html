@@ -22,6 +22,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #003049;
     background: #F8FAFC;
+    scroll-behavior: smooth;
 }
 
 /* ===== HEADER ===== */
@@ -1144,6 +1145,23 @@ footer {
 </footer>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "flex";
+    } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+    }
+}
+
+document.getElementById("scrollTopBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
 
 </body>
 </html>
