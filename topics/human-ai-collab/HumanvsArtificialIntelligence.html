@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human vs AI | STRATIV AI Frontier</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+    line-height: 1.6;
+}
+
+/* EXACT HEADER FROM TEMPLATE */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img { width: 40px; }
+
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
+
+.dropdown { position: relative; }
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+.dropdown-menu a { display: block; padding: 12px; border-bottom: 1px solid #f1f5f9; }
+.dropdown-menu a:last-child { border-bottom: none; }
+
+/* LAYOUT */
+.page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+/* SIDEBAR */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar a, .sidebar span {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    font-size: 13px;
+    border-top: 1px solid #e2e8f0;
+    transition: 0.3s ease;
+}
+
+.sidebar a { color: #003049; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+.sidebar span.active-page { background: #f1f5f9; color: #0077B6; font-weight: 600; cursor: default; }
+
+/* MAIN CONTENT */
+.main { display: flex; flex-direction: column; gap: 25px; }
+
+.inner-hero {
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.6); }
+.inner-hero h1 { position: absolute; color: #fff; bottom: 30px; left: 30px; font-family: Georgia, serif; font-size: 42px; z-index: 2; }
+
+.section {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.section h2 { font-family: Georgia, serif; color: #03045E; margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid #0077B6; display: inline-block; padding-bottom: 5px; }
+.section h3 { color: #03045E; margin: 25px 0 10px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
+.section p { font-size: 16px; color: #475569; margin-bottom: 15px; }
+
+.comparison-table { width: 100%; border-collapse: collapse; margin: 25px 0; border: 1px solid #e2e8f0; }
+.comparison-table th { background: #03045E; color: #fff; padding: 15px; text-align: left; }
+.comparison-table td { padding: 15px; border: 1px solid #e2e8f0; vertical-align: top; color: #475569; font-size: 14px; }
+.comparison-table tr:nth-child(even) { background: #F8FAFC; }
+
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+.content-card-small { background: #F8FAFC; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+.content-card-small h4 { color: #03045E; margin-bottom: 10px; border-bottom: 1px solid #0077B6; padding-bottom: 5px; }
+.content-card-small li { margin-bottom: 8px; font-size: 14px; list-style-position: inside; }
+
+.example-box { border-left: 4px solid #0077B6; background: #f0f7ff; padding: 20px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+.example-box strong { color: #03045E; display: block; margin-bottom: 5px; }
+
+.reference-list { background: #f1f5f9; padding: 20px; border-radius: 8px; margin-top: 30px; font-size: 14px; }
+.reference-list h4 { margin-bottom: 10px; color: #03045E; }
+
+/* FOOTER */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; gap: 220px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; }
+.f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+@media(max-width:1100px){
+    .page { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg">
+        STRATIV
+    </div>
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="OverviewofHumanAICollaboration.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="HumanvsArtificialIntelligence.html">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources.html#links">External Links</a>
+                <a href="../../resources.html#icons">Icons & Images</a>
+                <a href="../../resources.html#data">Data & Reports</a>
+                <a href="../../resources.html#cases">Case Studies</a>
+            </div>
+        </div>
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>Human AI Collaboration</h3>
+        <a href="overview.html">Overview of Human AI Collaboration</a>
+        <span class="active-page">Human vs Artificial Intelligence</span>
+        <a href="WorkingwithAITools.html">Working with AI Tools</a>
+        <a href="AIDecisionSupportSystems.html">AI Decision Support Systems</a>
+        <a href="CreativitywithArtificialIntelligence.html">Creativity with AI</a>
+        <a href="AIAssistedDesign.html">AI Assisted Design</a>
+        <a href="AIinTeamwork.html">AI in Teamwork</a>
+        <a href="AIDecisionPartnership.html">AI Decision Partnership</a>
+        <a href="AICreativeCollaboration.html">AI Creative Collaboration</a>
+        <a href="HumanOversightinAISystems.html">Human Oversight in AI Systems</a>
+        <a href="WorkplaceAIIntegration.html">Workplace AI Integration</a>
+        <a href="CollaborationSummary.html">Collaboration Summary</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=1600" alt="HI vs AI">
+            <h1>Human vs Artificial Intelligence</h1>
+        </div>
+
+        <div class="section">
+            <p>The relationship between Human Intelligence (HI) and Artificial Intelligence (AI) is one of the most significant technological narratives of the 21st century. While both systems process information to solve problems, they are built on fundamentally different foundations.</p>
+
+            <h2>Expanded Definitions</h2>
+            <div class="example-box">
+                <strong>Human Intelligence:</strong> This is the mental quality that consists of the abilities to learn from experience, adapt to new situations, understand abstract concepts, and use knowledge to manipulate one’s environment. It is inherently tied to consciousness.
+            </div>
+            <div class="example-box">
+                <strong>Artificial Intelligence:</strong> This refers to the simulation of human intelligence processes by computer systems. These processes include learning, reasoning, and self-correction through layered algorithmic processing.
+            </div>
+
+            <h2>Detailed Strengths</h2>
+            <div class="content-grid">
+                <div class="content-card-small">
+                    <h4>Strengths of AI</h4>
+                    <ul>
+                        <li><strong>High-Speed Computation:</strong> Billions of calculations per second.</li>
+                        <li><strong>Storage:</strong> Perfect recall of petabytes of data.</li>
+                        <li><strong>Consistency:</strong> No influence from fatigue, hunger, or mood.</li>
+                        <li><strong>Hazardous Zones:</strong> Explores radioactive or deep-sea areas safely.</li>
+                    </ul>
+                </div>
+                <div class="content-card-small">
+                    <h4>Strengths of Humans</h4>
+                    <ul>
+                        <li><strong>Abstract Nuance:</strong> Understanding sarcasm, irony, and metaphors.</li>
+                        <li><strong>EQ:</strong> Building trust, offering empathy, and social comfort.</li>
+                        <li><strong>General Intelligence:</strong> Applying music theory to engineering logic.</li>
+                        <li><strong>Ethical Judgment:</strong> Making decisions based on complex moral values.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Real-World Examples (2026)</h2>
+            <div class="example-box">
+                <strong>🏥 In the Hospital:</strong> AI scans 10,000 X-rays in seconds to find tiny spots; the human doctor talks to the patient with kindness and decides on the surgery plan.
+            </div>
+            <div class="example-box">
+                <strong>🚗 On the Road:</strong> AI reacts to pedestrians faster than a human can blink; the human driver handles "weird" situations like a police officer using hand signals.
+            </div>
+            <div class="example-box">
+                <strong>🎨 In the Studio:</strong> AI generates a sunset image in 5 seconds; the human artist chooses the theme to share a specific feeling or story.
+            </div>
+
+            <div class="reference-list">
+                <h4>REFERENCE</h4>
+                <p>• World Economic Forum. (2025). 7 ways AI is transforming global health.</p>
+                <p>• National University. (2026). Autonomous Systems and Human Interaction.</p>
+                <p>• MIT Sloan. (2026). The Creative Economy in the Age of Generative AI.</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display:flex;align-items:center;gap:10px;">
+                        <span class="icon-box">f</span>
+                        <span>Strativ.com</span>
+                    </a>
+                </div>
+                <p style="margin-top: 10px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:strativ018@gmail.com" style="display:flex;align-items:center;gap:10px;">
+                        <span class="icon-box">✉</span>
+                        <span>strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-bar">
+        <p>© 2026 STRATIV. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
