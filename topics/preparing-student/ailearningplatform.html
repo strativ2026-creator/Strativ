@@ -27,7 +27,6 @@
         font-family: "Montserrat", sans-serif;
         color: #003049;
         background: #f8fafc;
-        line-height: 1.6;
       }
 
       /* ===== HEADER ===== */
@@ -185,39 +184,60 @@
         left: 30px;
       }
 
-      .about,
-      .card {
+      .about {
         background: #fff;
         padding: 30px;
         border-radius: 12px;
         border: 1px solid #e2e8f0;
       }
 
-      .about h2,
-      .card h4 {
+      .about h2 {
         font-family: Georgia, serif;
         color: #03045e;
         margin-bottom: 15px;
       }
 
-      .card h4 {
-        font-size: 20px;
+      .about p {
+        margin-bottom: 15px;
+        line-height: 1.6;
       }
 
-      .about p,
-      .card p,
-      .card ul {
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 25px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .card h4 {
+        font-family: Georgia, serif;
+        color: #03045e;
+      }
+
+      .card p {
+        margin: 10px 0 15px;
         font-size: 14px;
         color: #6d6d6d;
-        margin-bottom: 10px;
+        line-height: 1.6;
       }
 
       .card ul {
+        list-style: disc;
         margin-left: 20px;
+        font-size: 14px;
+        color: #6d6d6d;
       }
 
-      .card li {
-        margin-bottom: 8px;
+      .content-image {
+        width: 100%;
+        border-radius: 8px;
+        margin: 20px 0;
       }
 
       /* Table Styles */
@@ -233,6 +253,7 @@
         border: 1px solid #e2e8f0;
         text-align: left;
         font-size: 14px;
+        line-height: 1.6;
       }
 
       .data-table th {
@@ -250,21 +271,7 @@
         background-color: #f8fafc;
       }
 
-      .references-list {
-        font-size: 12px !important;
-        word-break: break-word;
-      }
-
-      .references-list a {
-        color: #0077b6;
-        text-decoration: none;
-      }
-
-      .references-list a:hover {
-        text-decoration: underline;
-      }
-
-      /* ===== FOOTER ===== */
+      /* ===== FOOTER (STRATIV FORMAT) ===== */
       footer {
         background: #03045e;
         color: #ffffff;
@@ -344,17 +351,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 4px;
-        font-weight: bold;
       }
 
       .copyright-bar {
         margin-top: 30px;
         text-align: center;
-        padding-top: 20px;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.8);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       /* ===== SCROLL TO TOP ===== */
@@ -387,7 +388,7 @@
   <body id="top">
     <header>
       <div class="logo">
-        <img src="../../images/logo/logo.jpg" alt="STRATIV Logo" />
+        <img src="../../images/logo/logo.jpg" alt="Logo" />
         STRATIV
       </div>
 
@@ -432,23 +433,17 @@
     <div class="page">
       <aside class="sidebar">
         <h3>PREPARING STUDENTS</h3>
-        <a href="overviewofpreparingstudentsai.html"
-          >Overview of Preparing students AI</a
-        >
+        <a href="overviewofpreparingstudentsai.html">Overview of Preparing students AI</a>
         <a href="aiineducation.html">AI in Education</a>
-        <a href="studentskillsfortheaiera.html"
-          >Student Skills for the AI Era</a
-        >
+        <a href="studentskillsfortheaiera.html">Student Skills for the AI Era</a>
         <a href="ailearningtools.html">AI Learning Tools</a>
-        <a href="careerpreparationforaijobs.html"
-          >Career Preparation for AI Jobs</a
-        >
+        <a href="careerpreparationforaijobs.html">Career Preparation for AI Jobs</a>
         <a href="studentpreparationsummary.html">Student Preparation Summary</a>
         <a href="aicodingskills.html">AI Coding Skills</a>
         <a href="digitalprojectwithai.html">Digital Projects with AI</a>
         <a href="airesearchskills.html">AI Research Skills</a>
         <a href="studentinsights.html">Student Insights</a>
-        <a href="#" class="active">AI Learning Platforms</a>
+        <a href="ailearningplatform.html" class="active">AI Learning Platforms</a>
         <a href="futurecareerplanning.html">Future Career Planning</a>
       </aside>
 
@@ -479,38 +474,45 @@
           </p>
         </div>
 
-        <div class="card">
-          <h4>How AI Learning Platforms Help</h4>
-          <ul>
-            <li>
-              <strong>Hyper-Personalization at Scale:</strong> AI can provide a
-              "private tutor" experience for thousands of students
-              simultaneously, adjusting difficulty levels so fast learners stay
-              challenged and struggling learners aren't left behind.
-            </li>
-            <li>
-              <strong>Learning in the Flow of Work:</strong> Modern platforms
-              integrate directly into tools like Slack or Microsoft Teams. When
-              an employee hits a roadblock in a task, the AI "nudges" them with
-              a 60-second micro-lesson relevant to that exact moment.
-            </li>
-            <li>
-              <strong>Bridging the "Skills Gap":</strong> Platforms now use
-              "Skills Intelligence" to scan a company’s goals and compare them
-              to employees' current abilities, automatically creating custom
-              "reskilling" pathways to prepare the workforce for future demands.
-            </li>
-            <li>
-              <strong>Safe Failure Environments:</strong> Through AI-driven
-              simulations and "Roleplay" bots, learners can practice high-stakes
-              conversations (like sales negotiations or crisis management) in a
-              risk-free environment before trying them in the real world.
-            </li>
-          </ul>
+        <div class="about">
+          <h2>How AI Learning Platforms Help</h2>
+          <div class="grid">
+            <div class="card">
+              <h4>Hyper-Personalization</h4>
+              <p>
+                AI can provide a "private tutor" experience for thousands of students
+                simultaneously, adjusting difficulty levels so fast learners stay
+                challenged and struggling learners aren't left behind.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Learning in the Flow of Work</h4>
+              <p>
+                Modern platforms integrate directly into tools like Slack or Microsoft Teams. When
+                an employee hits a roadblock in a task, the AI "nudges" them with
+                a micro-lesson relevant to that exact moment.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Bridging the "Skills Gap"</h4>
+              <p>
+                Platforms now use "Skills Intelligence" to scan a company’s goals and compare them
+                to employees' current abilities, automatically creating custom
+                "reskilling" pathways to prepare the workforce.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Safe Failure Environments</h4>
+              <p>
+                Through AI-driven simulations and "Roleplay" bots, learners can practice high-stakes
+                conversations in a risk-free environment before trying them in the real world.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="card">
-          <h4>Implementation Strategies</h4>
+        <div class="about">
+          <h2>Implementation Strategies</h2>
           <table class="data-table">
             <thead>
               <tr>
@@ -548,32 +550,38 @@
           </table>
         </div>
 
-        <div class="card">
-          <h4>Major Issues Addressed by AI Platforms</h4>
-          <ul>
-            <li>
-              <strong>The "One-Size-Fits-None" Problem:</strong> Traditional
-              training moves too slow for some and too fast for others. AI
-              solves this by allowing every individual to move at their own
-              "Goldilocks" pace.
-            </li>
-            <li>
-              <strong>Administrative Burnout:</strong> AI handles the "grunt
-              work" of teaching—grading multiple-choice tests, tracking
-              attendance, and answering basic FAQs—freeing human mentors to
-              focus on high-level coaching and emotional support.
-            </li>
-            <li>
-              <strong>Information Decay:</strong> In the AI era, knowledge
-              becomes obsolete quickly. These platforms use "Continuous
-              Reskilling" to push updates to learners the moment an industry
-              standard or software tool changes.
-            </li>
-          </ul>
+        <div class="about">
+          <h2>Major Issues Addressed by AI Platforms</h2>
+          <div class="grid">
+            <div class="card">
+              <h4>The "One-Size-Fits-None" Problem</h4>
+              <p>
+                Traditional training moves too slow for some and too fast for others. AI
+                solves this by allowing every individual to move at their own
+                "Goldilocks" pace.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Administrative Burnout</h4>
+              <p>
+                AI handles the "grunt work" of teaching—grading multiple-choice tests, tracking
+                attendance, and answering basic FAQs—freeing human mentors to
+                focus on high-level coaching.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Information Decay</h4>
+              <p>
+                In the AI era, knowledge becomes obsolete quickly. These platforms use "Continuous
+                Reskilling" to push updates to learners the moment an industry
+                standard or software tool changes.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="card">
-          <h4>Real-World Example: Language Learning & Accessibility</h4>
+        <div class="about">
+          <h2>Real-World Example: Language Learning & Accessibility</h2>
           <p>
             <strong>The Scenario:</strong> Global platforms like Duolingo or
             Buddy.ai use multimodal AI to teach English to young learners in
@@ -594,28 +602,34 @@
           </p>
         </div>
 
-        <div class="card">
-          <h4>Emerging Debates in AI Learning</h4>
-          <ul>
-            <li>
-              <strong>The "Crutch" Effect:</strong> If an AI tutor always gives
-              the answer or simplifies the text, will students lose the
-              "productive struggle" necessary to build deep critical thinking
-              skills?
-            </li>
-            <li>
-              <strong>Data Sovereignty & Privacy:</strong> These platforms
-              collect massive amounts of "behavioral data" (how you think, where
-              you fail). Who owns that data? Could a future employer use your
-              learning history against you?
-            </li>
-            <li>
-              <strong>The Digital Meritocracy:</strong> As elite "Adaptive AI"
-              becomes expensive, we risk a new divide: wealthy students getting
-              world-class AI tutoring while others are stuck with static,
-              outdated textbooks.
-            </li>
-          </ul>
+        <div class="about">
+          <h2>Emerging Debates in AI Learning</h2>
+          <div class="grid">
+            <div class="card">
+              <h4>The "Crutch" Effect</h4>
+              <p>
+                If an AI tutor always gives the answer or simplifies the text, will students lose the
+                "productive struggle" necessary to build deep critical thinking
+                skills?
+              </p>
+            </div>
+            <div class="card">
+              <h4>Data Sovereignty & Privacy</h4>
+              <p>
+                These platforms collect massive amounts of "behavioral data" (how you think, where
+                you fail). Who owns that data? Could a future employer use your
+                learning history against you?
+              </p>
+            </div>
+            <div class="card">
+              <h4>The Digital Meritocracy</h4>
+              <p>
+                As elite "Adaptive AI" becomes expensive, we risk a new divide: wealthy students getting
+                world-class AI tutoring while others are stuck with static,
+                outdated textbooks.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
     </div>
@@ -649,12 +663,10 @@
 
           <div class="f-col">
             <h4>Contact Info</h4>
-
             <div class="contact-item">
               <span class="icon-box">f</span>
               <span>Strativ.com</span>
             </div>
-
             <div class="contact-item">
               <span class="icon-box">✉</span>
               <span>Strativ018@gmail.com</span>
@@ -664,10 +676,9 @@
       </div>
 
       <div class="copyright-bar">
-        <p>© 2026 University of the East. All rights reserved.</p>
+        © 2026 University of the East. All rights reserved.
       </div>
     </footer>
-
     <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
       >↑</a
     >
