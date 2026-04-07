@@ -18,7 +18,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; color: #03045E; }
 .logo img { width: 40px; height: 40px; }
 nav { display: flex; gap: 30px; }
-nav a { text-decoration: none; color: #003049; font-size: 14px; }
+nav a { text-decoration: none; color: #003049; font-size: 14px; font-weight: 600; }
 nav a:hover { color: #0077B6; }
 
 /* DROPDOWN STYLES */
@@ -35,7 +35,7 @@ nav a:hover { color: #0077B6; }
 .sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; font-weight: normal; }
 .sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
 .sidebar a:hover { background: #f1f5f9; color: #0077B6; }
-/* Highlight current page - Removed bold font-weight */
+/* Highlight current page - Ensured it is NOT bold */
 .sidebar a.active { background: #eaeaea; color: #0077B6; }
 
 /* MAIN CONTENT */
@@ -80,7 +80,9 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
 
 @media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
 
+/* ===== SCROLL TO TOP BUTTON ===== */
 #scrollTopBtn {
+    display: none; /* Hidden by default until scrolled */
     position: fixed; 
     bottom: 30px; 
     right: 30px; 
@@ -88,7 +90,6 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
     background-color: #03045E; 
     color: white; 
     text-decoration: none;
-    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%; 
@@ -106,9 +107,9 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
 </style>
 </head>
 
-<body>
+<body id="top">
 
-<header id="top">
+<header>
     <div class="logo">
         <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
         STRATIV
@@ -117,7 +118,7 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
     <nav>
         <a href="../../index.html">Home</a>
         <div class="dropdown">
-            <a href="../../index.html#topics">Topics ▾</a>
+            <a href="#">Topics ▾</a>
             <div class="dropdown-menu">
                 <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
                 <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
@@ -168,17 +169,17 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
 
         <div class="about">
             <h2>Definition and Core Concept</h2>
-            <p>Definition: The broad range of effects—both positive and negative—that AI technologies have on the structures of society, including labor markets, wealth distribution, and cultural norms.</p>
-            <p>The "Techno-Social" Feedback Loop: This concept suggests that AI doesn't just "hit" society; society and AI shape each other. As AI changes how we work and communicate, our social expectations change, which in turn influences how the next generation of AI is built.</p>
+            <p><strong>Definition:</strong> The broad range of effects—both positive and negative—that AI technologies have on the structures of society, including labor markets, wealth distribution, and cultural norms.</p>
+            <p><strong>The "Techno-Social" Feedback Loop:</strong> This concept suggests that AI doesn't just "hit" society; society and AI shape each other. As AI changes how we work and communicate, our social expectations change, which in turn influences how the next generation of AI is built.</p>
         </div>
 
         <div class="card">
             <h4>How AI Reshapes Society</h4>
             <ul>
-                <li>Economic Productivity vs. Concentration: While AI can grow the global GDP by trillions, there is a risk that this wealth will concentrate in a few "super-star" tech hubs, leaving rural or developing economies behind.</li>
-                <li>The "Lonely AI" Paradox: AI companions and chatbots can reduce isolation for the elderly or homebound, yet they risk "de-skilling" humans in the art of real-world empathy and conflict resolution.</li>
-                <li>Democratization of Expertise: AI allows a person with no coding or design skills to build apps or create art, potentially lowering the barrier to entry for the "Creative Economy."</li>
-                <li>Algorithmic Social Sorting: From dating apps to credit scores, AI invisible "ranks" people, creating new social hierarchies based on data points that individuals often cannot see or contest.</li>
+                <li><strong>Economic Productivity vs. Concentration:</strong> While AI can grow the global GDP by trillions, there is a risk that this wealth will concentrate in a few "super-star" tech hubs, leaving rural or developing economies behind.</li>
+                <li><strong>The "Lonely AI" Paradox:</strong> AI companions and chatbots can reduce isolation for the elderly or homebound, yet they risk "de-skilling" humans in the art of real-world empathy and conflict resolution.</li>
+                <li><strong>Democratization of Expertise:</strong> AI allows a person with no coding or design skills to build apps or create art, potentially lowering the barrier to entry for the "Creative Economy."</li>
+                <li><strong>Algorithmic Social Sorting:</strong> From dating apps to credit scores, AI invisible "ranks" people, creating new social hierarchies based on data points that individuals often cannot see or contest.</li>
             </ul>
         </div>
 
@@ -215,26 +216,37 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
         <div class="card">
             <h4>Major Issues Addressed by Social Impact Frameworks</h4>
             <ul>
-                <li>The "Post-Work" Future: As AI automates routine tasks, society must redefine "purpose" beyond 9-to-5 labor. This involves debating shorter work weeks or creative-incentive programs.</li>
-                <li>Erosion of Truth (Misinformation): Deepfakes and AI-generated "fake news" can polarize voters and break down social trust. Impact frameworks focus on Digital Provenance (proving what is real).</li>
-                <li>Cultural Homogenization: Because large AI models are trained mostly on Western data, they risk "erasing" indigenous languages or non-Western cultural perspectives in their outputs.</li>
+                <li><strong>The "Post-Work" Future:</strong> As AI automates routine tasks, society must redefine "purpose" beyond 9-to-5 labor. This involves debating shorter work weeks or creative-incentive programs.</li>
+                <li><strong>Erosion of Truth (Misinformation):</strong> Deepfakes and AI-generated "fake news" can polarize voters and break down social trust. Impact frameworks focus on Digital Provenance (proving what is real).</li>
+                <li><strong>Cultural Homogenization:</strong> Because large AI models are trained mostly on Western data, they risk "erasing" indigenous languages or non-Western cultural perspectives in their outputs.</li>
             </ul>
         </div>
 
         <div class="card">
             <h4>Real-World Example: AI and the "Gig Economy"</h4>
-            <p>The Scenario: Ride-sharing and delivery platforms use AI to manage thousands of workers without human managers.</p>
-            <p>The Problem: The "Algorithm as Boss" created a social crisis where workers felt dehumanized, facing "ghost bookings" or being fired by a bot without any human to appeal to.</p>
-            <p>The Social Fix: In 2024-2025, several European nations passed "Platform Work Directives," requiring human oversight of algorithmic management. This shifted the social impact from "pure efficiency" back to "worker dignity," ensuring technology supports rather than exploits labor.</p>
+            <p><strong>The Scenario:</strong> Ride-sharing and delivery platforms use AI to manage thousands of workers without human managers.</p>
+            <p><strong>The Problem:</strong> The "Algorithm as Boss" created a social crisis where workers felt dehumanized, facing "ghost bookings" or being fired by a bot without any human to appeal to.</p>
+            <p><strong>The Social Fix:</strong> In 2024-2025, several European nations passed "Platform Work Directives," requiring human oversight of algorithmic management. This shifted the social impact from "pure efficiency" back to "worker dignity," ensuring technology supports rather than exploits labor.</p>
         </div>
 
         <div class="card">
             <h4>Emerging Debates in Social Impact</h4>
             <ul>
-                <li>AI and Loneliness: Is a chatbot friend better than no friend at all? Social impact frameworks weigh the mental health benefits against the risk of humans losing the ability to form deep, authentic relationships.</li>
+                <li><strong>AI and Loneliness:</strong> Is a relationship with an AI "real"? As "AI partners" become common, sociologists are debating if this will help the loneliness epidemic or make it worse by replacing human effort with "perfect" programmed responses.</li>
+                <li><strong>The Carbon Social Cost:</strong> The environmental cost of training AI is a social issue. Should a community’s water and energy be used to power data centers that serve global corporations?</li>
+                <li><strong>Generational Divide:</strong> We are seeing a "split" between those who grew up with AI (the "AI Natives") and older generations, creating new tensions in how we define truth, work, and art.</li>
             </ul>
         </div>
 
+        <div class="card">
+            <h4>References</h4>
+            <ul class="references-list">
+                <li>Acemoglu, D., & Johnson, S. (2023). Power and progress: Our thousand-year struggle over technology and prosperity. PublicAffairs.</li>
+                <li>Crawford, K. (2026). The atlas of AI: Power, politics, and the planetary costs of artificial intelligence. Yale University Press.</li>
+                <li>Digital Data Design Institute at Harvard. (2025). Societal shifts: How generative AI is redefining the social contract. <a href="https://d3.harvard.edu/research/societal-shifts-ai/" target="_blank">https://d3.harvard.edu/research/societal-shifts-ai/</a></li>
+                <li>World Economic Forum. (2026). Digital evolution: Mapping the social impact of AI on global communities. <a href="https://www.weforum.org/reports/social-impact-ai-2026/" target="_blank">https://www.weforum.org/reports/social-impact-ai-2026/</a></li>
+            </ul>
+        </div>
     </main>
 </div>
 
@@ -255,15 +267,11 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
                 <div class="quick-links-grid">
                     <div>
                         <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
-                        <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Future Skills</a><br>
-                        <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                        <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
                     </div>
                     <div>
                         <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Collaboration</a><br>
-                        <a href="overview-ai-ethics.html">Ethics</a><br>
-                        <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future Outlook</a>
+                        <a href="overview-ai-ethics.html">Ethics</a>
                     </div>
                 </div>
             </div>
@@ -272,21 +280,17 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
                 <h4>Contact Info</h4>
                 <div class="contact-item">
                     <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                        <span class="icon-box">f</span>
-                        <span> Strativ.com</span>
+                        <span class="icon-box">f</span><span> Strativ.com</span>
                     </a>
                 </div>
-                
                 <div class="contact-item">
                     <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
-                        <span class="icon-box">✉</span>
-                        <span>Strativ018@gmail.com</span>
+                        <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="copyright-bar">
         <p>© 2026 University of the East. All rights reserved.</p>
     </div>
@@ -299,7 +303,7 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("scrollTopBtn").style.display = "block";
+        document.getElementById("scrollTopBtn").style.display = "flex"; // Changed from 'block' to 'flex' to keep it centered properly
     } else {
         document.getElementById("scrollTopBtn").style.display = "none";
     }
