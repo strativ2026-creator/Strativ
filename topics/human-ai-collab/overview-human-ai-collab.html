@@ -12,9 +12,9 @@
     <style>
         /* RESET & BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.8; scroll-behavior: smooth; }
 
-        /* HEADER - FIXED TO MATCH HUMAN VS AI */
+        /* HEADER - SYNCED */
         header {
             display: flex; 
             justify-content: space-between; 
@@ -33,18 +33,10 @@
         nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
         nav a:hover { color: #0077B6; }
 
-        /* DROPDOWN */
         .dropdown { position: relative; }
         .dropdown-menu {
-            position: absolute; 
-            top: 100%; 
-            background: #fff; 
-            border: 1px solid #e2e8f0;
-            border-radius: 6px; 
-            min-width: 220px; 
-            opacity: 0; 
-            visibility: hidden; 
-            transition: 0.3s;
+            position: absolute; top: 100%; background: #fff; border: 1px solid #e2e8f0;
+            border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; transition: 0.3s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
@@ -63,52 +55,29 @@
         .sidebar span.active-page { background: #f1f5f9; color: #0077B6; font-weight: 600; cursor: default; }
 
         /* MAIN CONTENT */
-        .main { display: flex; flex-direction: column; gap: 25px; }
-        
-        .img-link { display: block; width: 100%; height: 100%; transition: transform 0.3s, opacity 0.3s; }
-        .img-link:hover { opacity: 0.9; transform: scale(1.01); }
+        .main { display: flex; flex-direction: column; gap: 30px; }
 
+        /* FIRST IMAGE - HERO (LARGE) */
         .inner-hero { height: 400px; border-radius: 12px; overflow: hidden; position: relative; }
         .inner-hero img { width: 100%; height: 100%; object-fit: cover; }
         .inner-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent, rgba(3,4,94,0.7)); pointer-events: none; }
         .inner-hero h1 { position: absolute; color: #fff; bottom: 30px; left: 30px; font-family: Georgia, serif; font-size: 42px; z-index: 2; pointer-events: none; }
 
         /* SECTIONS */
-        .section { background: #fff; padding: 45px; border-radius: 12px; border: 1px solid #e2e8f0; }
-        .section h2 { font-family: Georgia, serif; color: #03045E; margin: 30px 0 20px; font-size: 30px; border-bottom: 3px solid #0077B6; display: inline-block; padding-bottom: 5px; }
-        .section h3 { color: #0077B6; margin: 35px 0 15px; font-weight: 900; font-size: 20px; text-transform: uppercase; }
-        .section p { margin-bottom: 20px; font-size: 16px; color: #334155; text-align: justify; line-height: 1.8; }
+        .section { background: #fff; padding: 50px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .section h2 { font-family: Georgia, serif; color: #03045E; margin: 40px 0 20px; font-size: 32px; border-bottom: 3px solid #0077B6; display: inline-block; padding-bottom: 5px; }
+        .section h3 { color: #0077B6; margin: 30px 0 15px; font-size: 20px; font-weight: 900; text-transform: uppercase; }
+        .section p { margin-bottom: 25px; font-size: 16.5px; color: #334155; text-align: justify; }
 
-        .example-card { display: flex; gap: 30px; background: #ffffff; padding: 30px; margin-bottom: 25px; border-radius: 12px; border: 1px solid #e2e8f0; align-items: flex-start; }
-        .example-card .img-box { width: 280px; height: 200px; flex-shrink: 0; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; }
-        .example-card .img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .example-text { flex: 1; }
-        .example-text strong { display: block; font-size: 22px; margin-bottom: 12px; color: #03045E; font-family: Georgia, serif; }
+        /* SUPPORTING IMAGES - SMALLER */
+        .side-img-box { float: right; width: 300px; margin: 10px 0 20px 30px; text-align: center; }
+        .side-img-box img { width: 100%; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .caption { font-size: 12px; color: #64748b; font-style: italic; margin-top: 5px; }
 
-        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 35px 0; }
-        .stat-box { background: #f0f7ff; padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #d1e9ff; }
-        .stat-box h4 { color: #0077B6; font-size: 36px; margin-bottom: 5px; }
-        .stat-box p { font-size: 13px; margin: 0; font-weight: 600; text-transform: uppercase; color: #03045E; letter-spacing: 1px; }
-
-        /* SCROLL BUTTON */
-        #scrollBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1001;
-            background: #03045E;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            font-size: 24px;
-            transition: 0.3s;
-        }
-        #scrollBtn:hover { background: #0077B6; transform: translateY(-5px); }
+        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; clear: both; }
+        .stat-box { background: #f0f7ff; padding: 25px; border-radius: 10px; text-align: center; border: 1px solid #d1e9ff; }
+        .stat-box h4 { color: #03045E; font-size: 32px; margin-bottom: 5px; }
+        .stat-box p { font-size: 12px; margin: 0; font-weight: 700; color: #0077B6; text-transform: uppercase; text-align: center; }
 
         /* FOOTER */
         footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
@@ -128,8 +97,7 @@
         @media(max-width:1100px){
             .page { grid-template-columns: 1fr; }
             .sidebar { display: none; }
-            .example-card { flex-direction: column; }
-            .example-card .img-box { width: 100%; height: 250px; }
+            .side-img-box { float: none; width: 100%; margin: 20px 0; }
         }
     </style>
 </head>
@@ -186,75 +154,46 @@
 
     <main class="main">
         <div class="inner-hero">
-            <a href="https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=1600" target="image_viewer" class="img-link">
-                <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80&w=1600" alt="Robot and Human Collaboration">
-            </a>
-            <h1>Human AI Collaboration</h1>
+            <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80&w=1600" alt="Robot and Human Hands">
+            <h1> HUMAN AI COLLABORATION </h1>
         </div>
 
         <div class="section">
-            <h2>The Collaborative Frontier</h2>
-            <p>Human-AI Collaboration is the emerging standard of the modern economy. It defines a relationship where artificial intelligence systems and human workers operate in a feedback loop, combining the computational excellence of machines with the strategic and empathetic depth of humans. This is often described as "Augmented Intelligence," where the goal is not to automate a job out of existence, but to elevate the professional by removing technical friction and manual data processing.</p>
+            <h2>Redefining Work Through Collaboration</h2>
+            <p>At STRATIV, we define Human-AI Collaboration as the intentional design of workflows where biological intuition meets computational scale. In the 2026 economy, the most successful organizations are those that have moved past the "replacement anxiety" of the 2010s and transitioned into a "synergy model." This involves delegating high-volume data analysis and iterative tasks to AI, while reserving high-stakes decision-making and empathetic communication for human experts.</p>
+
+            <p>This collaborative approach fundamentally changes the nature of productivity. Instead of a linear progression of tasks, we see a recursive loop. AI identifies a pattern; the human interprets the social or ethical context of that pattern; the AI then generates a solution based on that context. This is not just automation; it is the augmentation of human capability to an unprecedented degree.</p>
 
             <div class="stats-row">
-                <div class="stat-box"><h4>40%</h4><p>Efficiency Boost</p></div>
-                <div class="stat-box"><h4>2026</h4><p>Mainstream Adoption</p></div>
-                <div class="stat-box"><h4>$13T</h4><p>Market Potential</p></div>
+                <div class="stat-box"><h4>40%</h4><p>Productivity Gain</p></div>
+                <div class="stat-box"><h4>2026</h4><p>The Collaborative Pivot</p></div>
+                <div class="stat-box"><h4>$13T</h4><p>Market Value</p></div>
             </div>
 
-            <h3>A Detailed Brief History</h3>
-            <p>The concept of "thinking machines" began in the 1950s with the Turing Test, but for decades, AI was a "silent" partner—operating behind the scenes in mainframes. In the 1980s, the emergence of Expert Systems allowed computers to mimic the decision-making of specialists in niche fields like mineral exploration or medical diagnosis, though they were limited by rigid "if-then" logic.</p>
-            <p>The 2000s saw the shift toward Machine Learning, where systems like IBM's Watson or Google's search algorithms began processing unstructured data to assist humans in information retrieval. Today, we are in the third wave: **Generative Collaboration**. Unlike previous eras where humans just received an output, modern AI allows for real-time creative dialogue, enabling architects, engineers, and doctors to iterate on complex ideas in seconds rather than weeks.</p>
-
-            <h2>Real-World Industry Case Studies</h2>
-
-            <div class="example-card">
-                <div class="img-box">
-                    <a href="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=800" target="image_viewer" class="img-link">
-                        <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=600" alt="Healthcare Precision">
-                    </a>
-                </div>
-                <div class="example-text">
-                    <strong>Precision Medicine & Diagnostics</strong>
-                    Radiologists now use AI to pre-screen thousands of MRI images. The AI highlights potential anomalies with 99% accuracy, allowing the radiologist to focus their energy on the most difficult cases. This collaboration significantly reduces physician burnout while increasing the speed of life-saving cancer diagnoses.
-                </div>
+            <h2>A Detailed Historical Trajectory</h2>
+            
+            <h3>1. The Era of Symbolic Logic (1950 - 1980)</h3>
+            <div class="side-img-box">
+                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=600" alt="Vintage Computer Logic">
+                <div class="caption">Fig 1.1: Early logic boards represented the "top-down" era of AI.</div>
             </div>
+            <p>The journey began with Alan Turing and the pioneers of symbolic AI. During these three decades, collaboration was limited by the "top-down" nature of programming. Humans had to write every specific rule for a computer to follow. If a task was too complex to be reduced to an "if-then" statement, the machine failed. This meant that while computers could help with advanced mathematics, they could not collaborate on creative or nuanced workplace tasks.</p>
 
-            <div class="example-card">
-                <div class="img-box">
-                    <a href="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800" target="image_viewer" class="img-link">
-                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=600" alt="Financial Security">
-                    </a>
-                </div>
-                <div class="example-text">
-                    <strong>Global Financial Fraud Detection</strong>
-                    AI systems analyze global transaction patterns in real-time, identifying fraudulent behavior that would be invisible to human auditors. When the AI flags a high-risk transaction, human investigators provide the final verification, ensuring that innocent customers aren't locked out of their accounts while criminal actors are stopped.
-                </div>
-            </div>
+            <h3>2. Expert Systems and Decision Support (1980 - 2000)</h3>
+            <p>As microchips became ubiquitous, AI moved from the lab to the office. The development of "Expert Systems" allowed professionals to use AI as a digital encyclopedia that could analyze specific variables. For instance, in geology or finance, AI could flag anomalies that a human eye might miss. This was the first true evidence of a partnership, though the AI remained a passive tool rather than an active participant in problem-solving.</p>
 
-            <div class="example-card">
-                <div class="img-box">
-                    <a href="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800" target="image_viewer" class="img-link">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600" alt="Architecture Design">
-                    </a>
-                </div>
-                <div class="example-text">
-                    <strong>Generative Design in Engineering</strong>
-                    Architects use AI to generate structural designs that use the least amount of material while maintaining maximum strength. The AI generates 1,000 possibilities; the human architect selects the one that best fits the aesthetic and cultural context of the neighborhood.
-                </div>
+            <h3>3. The Machine Learning Explosion (2010 - 2022)</h3>
+            <div class="side-img-box">
+                <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=600" alt="Data Streams">
+                <div class="caption">Fig 1.2: Big Data became the fuel for modern neural networks.</div>
             </div>
+            <p>The dawn of the internet provided the massive datasets required for neural networks to function. Collaboration entered the "Predictive Phase." AI systems like IBM’s Watson proved that machines could process natural language and surface insights from unstructured data. Humans began collaborating with AI to optimize supply chains, predict consumer behavior, and detect diseases at stages invisible to the human eye. The AI became a world-class research assistant.</p>
 
-            <div class="example-card">
-                <div class="img-box">
-                    <a href="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800" target="image_viewer" class="img-link">
-                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600" alt="Smart Factory">
-                    </a>
-                </div>
-                <div class="example-text">
-                    <strong>Collaborative Robotics (Cobots)</strong>
-                    On modern assembly lines, robots handle dangerous, repetitive heavy lifting, while human workers oversee the robots' performance and handle intricate delicate wiring. This partnership has reduced workplace injuries by 40% in heavy industry sectors.
-                </div>
-            </div>
+            <h3>4. Generative Symbiosis (Present Day - 2026)</h3>
+            <p>We are now in the age of dialogue. The current phase of collaboration is "Multimodal." We don't just ask AI for data; we collaborate on the creation of assets, code, and strategy. In 2026, AI acts as a creative sounding board. A software engineer might write a core function, and the AI will suggest three different ways to optimize it for security. An architect might sketch a floorplan, and the AI will generate structural variations that minimize carbon footprint. This constant feedback loop is the STRATIV Frontier.</p>
+
+            <h2>Looking Ahead</h2>
+            <p>As we continue to integrate these systems, the value of "Human-Centric" skills like leadership, ethics, and empathy will only increase. At STRATIV, we believe the future belongs to those who view AI as their most powerful teammate, not their replacement.</p>
         </div>
     </main>
 </div>
