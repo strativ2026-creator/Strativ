@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="../../favicon.png" />
-<link rel="stylesheet" href="../../css/sidebar&footer.css">
+<link rel="stylesheet" href="../../css/style.css">
 
 <style>
 
@@ -25,108 +25,6 @@ body {
     color: #003049;
 }
 
-/* LOGO WRAPPER */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* LOGO IMAGE */
-.logo img {
-    width: 65px;
-    height: 65px;
-    object-fit: contain;
-}
-
-/* TITLE STYLE (same look you already had) */
-.logo h1 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    margin: 0;
-    font-size: 24px;
-}
-
-/* ===== HEADER ===== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 6%;
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-header h1 {
-    font-family: Georgia, serif;
-    color: #03045E;
-}
-
-/* NAV */
-.navbar {
-    display: flex;
-    gap: 30px;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: #003049;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.navbar a:hover {
-    color: #0077B6;
-}
-
-.dropdown {
-    position: relative;
-}
-
-/* IMPORTANT: isolate layering */
-.dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-
-    min-width: 220px;
-
-    display: none;
-    flex-direction: column;
-
-    padding: 6px 0;
-
-    z-index: 9999; /* higher so it floats above everything */
-}
-
-/* show dropdown */
-.dropdown:hover .dropdown-content {
-    display: flex;
-}
-
-/* menu items */
-.dropdown-content a {
-    display: block;
-    width: 100%;
-    padding: 12px 15px;
-
-    color: #003049;
-    text-decoration: none;
-}
-
-.dropdown-content a:hover {
-    background: #f1f5f9;
-    color: #0077B6;
-}
-
 /* ===== LAYOUT ===== */
 .container {
     display: grid;
@@ -134,6 +32,8 @@ header h1 {
     gap: 30px;
     padding: 120px 6% 60px;
 }
+
+
 /* ===== MAIN ===== */
 .main {
     display: flex;
@@ -229,21 +129,6 @@ header h1 {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.card ul {
-    padding-left: 25px;
-    margin-top: 10px;
-}
-
-.card ul ul {
-    padding-left: 25px;
-    margin-top: 8px;
-}
-
-.card li {
-    margin-bottom: 6px;
-    line-height: 1.6;
-}
-
 #scrollTopBtn {
     position: fixed; 
     bottom: 30px; 
@@ -267,48 +152,51 @@ header h1 {
 #scrollTopBtn:hover {
     background-color: #0077B6; 
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">
-        <img src="../../images/logo/logo.jpg" alt="Strativ Logo">
-        <h1>STRATIV</h1>
+  <div class="logo">
+    <img
+      src="../../images/logo/logo.jpg"
+      alt="Strativ Corporate Logo"
+      title="STRATIV - Navigating the Future of Human-AI Collaboration"
+    />
+    STRATIV
+  </div>
+
+  <nav>
+    <a href="../../index.html" title="Go to Homepage">Home</a>
+
+    <div class="dropdown">
+      <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
+      <div class="dropdown-menu">
+        <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
+        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+        <a href="../emerging-ai-careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+        <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+        <a href="../future-workforce-skills/">Skills</a>
+        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+        <a href="../future-outlook-ai/">Future</a>
+      </div>
     </div>
 
-    <nav class="navbar">
-        <a href="../../index.html">Home</a>
+    <div class="dropdown">
+      <a href="../../resources.html" title="View Resources">Resources ▾</a>
+      <div class="dropdown-menu">
+        <a href="../../resources/external-links.html">External Links</a>
+        <a href="../../resources/icons-images.html">Icons & Images</a>
+        <a href="../../resources/data-reports.html">Data & Reports</a>
+        <a href="../../resources/case-studies.html">Case Studies</a>
+      </div>
+    </div>
 
-        <div class="dropdown">
-            <a href="#">Topics ▾</a>
-            <div class="dropdown-content">
-                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
-                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <a href="../emerging-ai-careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-                <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
-                <a href="">Skills</a>
-                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                <a href="#">Future</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <a href="../../resources.html">Resources ▾</a>
-            <div class="dropdown-content">
-                <a href="#">External Links</a>
-                <a href="#">Icons & Images</a>
-                <a href="#">Data & Reports</a>
-                <a href="#">Case Studies</a>
-            </div>
-        </div>
-
-        <a href="../../about.html">About</a>
-        <a href="../../contact.html">Contact</a>
-    </nav>
+    <a href="../../about.html" title="About Strativ">About</a>
+    <a href="../../contact.html" title="Contact Us">Contact</a>
+  </nav>
 </header>
 
 <div class="container">
@@ -326,7 +214,9 @@ header h1 {
         <a href="prompt-engineer.html">Prompt Engineer</a>
         <a href="ai-research-specialist.html">AI Research Scientist</a>
         <a href="robotics-engineer.html">Robotics Engineer</a>
-        <a href="careers-summary.html">Careers Summary</a>
+        <a href="ai-trainer.html">AI Trainer</a>
+        <a href="ai-consultant.html">AI Business Consultant</a>
+        <a href="careers-summary.html">Careers in Artificial Intelligence Summary</a>
     </div>
 </div>
 
