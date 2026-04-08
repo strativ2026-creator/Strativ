@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
 
-<!--Abordo, Jana Sayrielle G. -->
+
 
 <style>
 /* ===== RESET & BASE ===== */
@@ -18,11 +18,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; 
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     color: #003049;
     background: #F8FAFC;
-    scroll-behavior: smooth;
 }
 
 /* ===== HEADER ===== */
@@ -230,6 +233,7 @@ nav a:hover {
     text-decoration: none;
     border-radius: 6px;
     display: inline-block;
+    margin-top: 15px;
 }
 
 /* ===== NAVY FOOTER ===== */
@@ -365,9 +369,9 @@ footer {
 </style>
 </head>
 
-<body>
+<body id="top">
 
-<header id="top">
+<header>
     <div class="logo">
         <img src="../../images/logo/logo.jpg" alt="">
         STRATIV
@@ -379,14 +383,14 @@ footer {
         <div class="dropdown">
             <a href="../../index.html#topics">Topics ▾</a>
             <div class="dropdown-menu">
-                <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
-                <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-                <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Human + AI</a>
-                <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Skills</a>
-                <a href="overview-ai-ethics.html">Ethics</a>
-                <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future</a>
+                <a href="ai.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="#">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
             </div>
         </div>
 
@@ -418,8 +422,8 @@ footer {
         <a href="ai-regulation.html">AI Regulation and Policies</a>
         <a href="ai-accountability.html">AI Accountability</a>
         <a href="ethical-ai-design.html">Ethical AI Design</a>
-        <a href="ai-and-human-rights.html">AI and Human Rights</a>
-        <a href="social-impact-of-artificial-intelligence.html">Social Impact of Artificial Intelligence</a>
+        <a href="#">AI and Human Rights</a>
+        <a href="#">Social Impact of Artificial Intelligence</a>
     </aside>
 
     <main class="main">
@@ -445,8 +449,8 @@ footer {
                     AI systems should avoid discrimination and ensure equitable treatment across different demographic groups.<br><br>
                     <strong>Key concerns:</strong> Algorithmic bias can perpetuate historical inequalities, leading to disparate outcomes based on race, gender, age, or socioeconomic status.<br><br>
                     <strong>Implementation challenges:</strong> Balancing statistical fairness with real-world outcomes; determining what constitutes "fair" in different cultural contexts.
-                    <a href="ai-bias.html">Learn More</a>
                 </p>
+                <a href="ai-bias.html">Learn More</a>
             </div>
             <div class="card">
                 <h4>Accountability</h4>
@@ -454,8 +458,8 @@ footer {
                     Clear assignment of responsibility for AI system outcomes and behaviors.<br><br>
                     <strong>Key concerns:</strong> The "problem of many hands" — when AI systems cause harm, it becomes difficult to attribute responsibility across developers, deployers, users, and the system itself.<br><br>
                     <strong>Implementation:</strong> Establishing liability frameworks, audit trails, and mechanisms for redress.
-                    <a href="ai-accountability.html">Learn More</a>
                 </p>
+                <a href="ai-accountability.html">Learn More</a>
             </div>
             <div class="card">
                 <h4>Transparency</h4>
@@ -463,8 +467,8 @@ footer {
                     AI systems should be understandable and their decision-making processes accessible to relevant stakeholders.<br><br>
                     <strong>Key concerns:</strong> The "black box" problem of machine learning models, particularly deep neural networks, makes reasoning difficult to explain.<br><br>
                     <strong>Aspects:</strong> Includes explainability, interpretability, and justifiability of design processes.
-                    <a href="algorithm-transparency.html">Learn More</a>
                 </p>
+                <a href="algorithm-transparency.html">Learn More</a>
             </div>
             <div class="card">
                 <h4>Privacy</h4>
@@ -472,8 +476,8 @@ footer {
                     Respect for personal data protection and individual autonomy over personal information.<br><br>
                     <strong>Key concerns:</strong> AI's data hunger creates tensions between functionality and privacy; risks of surveillance, re-identification, and data misuse.<br><br>
                     <strong>Implementation:</strong> Privacy by design, differential privacy, federated learning, and compliance with regulations like GDPR.
-                    <a href="privacy-security-issue.html">Learn More</a>
                 </p>
+                <a href="privacy-security-issue.html">Learn More</a>
             </div>
             <div class="card" style="grid-column: 1 / -1;">
                 <h4>Explainability</h4>
@@ -481,8 +485,8 @@ footer {
                     The ability to understand and articulate why an AI system made a particular decision.<br><br>
                     <strong>Key concerns:</strong> Without explainability, trust erodes; accountability becomes impossible; users cannot contest harmful decisions.<br><br>
                     <strong>Distinction:</strong> Differs from transparency — transparency is about openness, explainability is about the comprehensibility of reasoning.
-                    <a href="algorithm-transparency.html">Learn More</a>
                 </p>
+                <a href="algorithm-transparency.html">Learn More</a>
             </div>
         </div>
 
@@ -654,16 +658,16 @@ footer {
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
-                        <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Future Skills</a><br>
-                        <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
                     </div>
                     <div>
-                        <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Collaboration</a><br>
-                        <a href="overview-ai-ethics.html">Ethics</a><br>
-                        <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future Outlook</a>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -695,23 +699,6 @@ footer {
 </footer>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
-
-<script>
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("scrollTopBtn").style.display = "flex";
-    } else {
-        document.getElementById("scrollTopBtn").style.display = "none";
-    }
-}
-
-document.getElementById("scrollTopBtn").addEventListener("click", function(e) {
-    e.preventDefault();
-    window.scrollTo({top: 0, behavior: 'smooth'});
-});
-</script>
 
 </body>
 </html>

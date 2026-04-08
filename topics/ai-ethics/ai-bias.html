@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
 
-<!--Abordo, Jana Sayrielle G. -->
+
 
 <style>
 /* ===== RESET & BASE ===== */
@@ -16,6 +16,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; 
 }
 
 body {
@@ -565,7 +569,7 @@ footer {
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header id="top">
     <div class="logo">
@@ -903,16 +907,16 @@ footer {
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
-                        <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Future Skills</a><br>
-                        <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
                     </div>
                     <div>
-                        <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Collaboration</a><br>
-                        <a href="overview-ai-ethics.html">Ethics</a><br>
-                        <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future Outlook</a>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -944,23 +948,6 @@ footer {
 </footer>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
-
-<script>
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("scrollTopBtn").style.display = "flex";
-    } else {
-        document.getElementById("scrollTopBtn").style.display = "none";
-    }
-}
-
-document.getElementById("scrollTopBtn").addEventListener("click", function(e) {
-    e.preventDefault();
-    window.scrollTo({top: 0, behavior: 'smooth'});
-});
-</script>
 
 </body>
 </html>

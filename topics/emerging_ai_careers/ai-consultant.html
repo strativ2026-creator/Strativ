@@ -15,7 +15,6 @@
     />
     <!--Abordo, Jana Sayrielle G. Abordo-->
     <style>
-      /* ===== RESET & BASE ===== */
       * {
         margin: 0;
         padding: 0;
@@ -249,8 +248,8 @@
         margin-bottom: 8px;
       }
 
-      p {
-        text-align: justify;
+      .article-section strong {
+        color: #03045e;
       }
 
       .content-img {
@@ -264,6 +263,10 @@
       .image-link {
         display: block;
         text-decoration: none;
+      }
+
+      p {
+        text-align: justify;
       }
 
       #scrollTopBtn {
@@ -286,18 +289,9 @@
         transition: background-color 0.3s;
       }
 
-      p {
-        text-align: justify;
-      }
-
-      strong {
-        color:#03045e;
-      }
-
       #scrollTopBtn:hover {
         background-color: #0077b6;
       }
-
       /* ===== NAVY FOOTER ===== */
       footer {
         background: #03045e;
@@ -401,170 +395,6 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      /* ===== CARDS DESIGN ===== */
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin: 30px 0 10px;
-}
-
-.card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 25px 20px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-
-}
-
-.card-icon {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.card h3 {
-  font-family: Georgia, serif;
-  font-size: 18px;
-  color: #03045e;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 14px;
-  color: #475569;
-  line-height: 1.6;
-}
-
-/* Vertical Line for H2 */
-.article-section h2::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 100%;
-    background: #0077b6;
-    border-radius: 3px;
-}
-
-/* Cards for Insights */
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin: 25px 0;
-}
-
-.card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.card h3 {
-    font-size: 15px;
-    margin-bottom: 8px;
-    color: #03045e;
-}
-
-
-/* Impact Items (Blue side-border) */
-.impact-list {
-    display: grid;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.impact-item {
-    background: #f8fafc;
-    padding: 12px 15px;
-    border-radius: 8px;
-    color: #003049;
-    font-size: 15px;
-}
-
-/* Skill Role Cards */
-.role-cards-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.role-card {
-    flex: 1 1 300px; /* responsive width */
-    border: 1px solid #e2e8f0;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #ffffff;
-     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.role-card h3 {
-    margin-bottom: 10px;
-    color: #003049;
-}
-
-.role-card ul {
-    padding-left: 20px;
-}
-
-.role-card ul li {
-    margin-bottom: 8px;
-}
-/* Job Transitions Table */
-.job-transitions {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: "Montserrat", sans-serif;
-    color: #003049;
-}
-
-.job-transitions th,
-.job-transitions td {
-    padding: 14px 18px;
-    border: 1px solid #e2e8f0;
-    text-align: left;
-    font-size: 15px;
-}
-
-.job-transitions thead {
-    background-color: #03045e;
-    color: #ffffff;
-    font-family: Georgia, serif;
-    font-weight: 700;
-}
-
-.job-transitions tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.job-transitions tbody tr:nth-child(even) {
-    background-color: #f1f5f9;
-}
-
-/* Quote/Cite */
-cite {
-    display: block;
-    text-align: center;
-    font-style: italic;
-    color: #475569;
-    margin-top: 40px;
-    font-size: 18px;
-}
-
-.author {
-      margin-top: 60px;
-      font-size: 13px;
-      color: #94a3b8;
-      text-align: right;
-    }
       @media (max-width: 1100px) {
         .footer-container {
           flex-direction: column;
@@ -603,6 +433,117 @@ cite {
         background: #eaeaea;
         color: #0077b6;
       }
+
+    .author {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: right;
+    }
+
+    .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+    margin-top: 20px;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  }
+
+  .card-icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    font-size: 16px; /* smaller than default 20px */
+    margin-bottom: 8px;
+}
+
+  .card p {
+      font-size: 14px; /* smaller paragraph text */
+      line-height: 1.6; /* keeps readability */
+  }
+
+    cite {
+    display: block;               /* makes it a block element so it can be centered */
+    text-align: center;           /* centers the text */
+    font-style: italic;           /* keeps the traditional cite italic */
+    font-weight: 500;             /* slightly bolder for readability */
+    color: #4a5568;               /* soft gray text */
+    font-size: 1.1rem;            /* slightly larger than normal text */
+    margin: 50px auto 0 auto;     /* spacing above the cite */
+    max-width: 600px;             /* optional: limits width for readability */
+    line-height: 1.6;             /* improves line spacing */
+}
+
+    .ai-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: "Montserrat", sans-serif; /* match body font */
+        color: #003049; /* match primary text color */
+    }
+
+    .ai-table th,
+    .ai-table td {
+        padding: 14px 18px;
+        border: 1px solid #e2e8f0; /* soft border like cards */
+        text-align: left;
+        font-size: 15px;
+    }
+
+    .ai-table thead {
+        background-color: #03045e; /* dark navy header */
+        color: #ffffff; /* white text in header */
+        font-family: Georgia, serif; /* heading style for thead */
+        font-weight: 700;
+    }
+
+    .ai-table tbody tr:nth-child(odd) {
+        background-color: #ffffff; /* white row */
+    }
+
+    .ai-table tbody tr:nth-child(even) {
+        background-color: #f1f5f9; /* light gray row matching your design palette */
+    }
+
+    /* Role Cards */
+    .role-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .role-card {
+      background: #f8fafc;
+      padding: 15px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #003049;
+    }
+
+    /* Workforce Impact List */
+    .impact-list {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .impact-item {
+      background: #f8fafc;
+      padding: 12px 15px;
+      border-radius: 8px;
+      font-size: 15px;
+      color: #003049;
+    }
+    
     </style>
   </head>
 
@@ -610,7 +551,7 @@ cite {
     <header>
       <div class="logo">
         <img
-          src="images/logo/logo-v2.jpg"
+          src="../../images/logo/logo.jpg"
           alt="Strativ Corporate Logo"
           title="Strativ Logo"
         />
@@ -622,26 +563,21 @@ cite {
         <div class="dropdown">
           <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
           <div class="dropdown-menu">
-            <a
-              href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+            <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
               >AI Workplace</a
             >
             <a href="../jobs-at-risk/overview-jobs-at-risk.html"
               >Jobs at Risk</a
             >
             <a
-              href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+              href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
               >Emerging Careers</a
             >
-            <a href="../human-ai-collab/overview-human-ai-collab.html"
-              >Human + AI</a
-            >
-            <a href="../future-workforce-skills/">Skills</a>
+            <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+            <a href="">Future Skills</a>
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-            <a href="../preparing-student/overviewofpreparingstudentsai.html"
-              >Students</a
-            >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../students/overview.html">Students</a>
+            <a href="../future/overview.html">Future</a>
           </div>
         </div>
         <div class="dropdown">
@@ -660,222 +596,208 @@ cite {
 
     <div class="page">
       <aside class="sidebar">
-        <h3>AI WORKPLACE</h3>
-        <a href="overview-jobs-at-risk.html" title="overview of jobs at risk"
-          >Overview of Jobs at Risk</a
+        <h3>Emerging AI Careers</h3>
+        <a href="overview-of-emerging-ai-careers.html" title="overview of emerging AI careers"
+          >Overview of Emerging AI Careers</a
         >
-        <a href="jobs-most-affected.html" title="jobs most affected by AI"
-          >Jobs Most Affected by AI</a
-        >
-        <a
-          href="automation-impact-jobs.html"
-          title="AI Tools Used in the Workplace"
-          >Impact of Automation on Jobs</a
+        <a href="ai-engineer.html" title="AI Engineer"
+          >AI Engineer</a
         >
         <a
-          href="industries-at-risk.html"
-          title="Industries at Risk of Automation"
-          >Industries at Risk of Automation</a
+          href="data-scientist.html"
+          title="Data Scientist"
+          >Data Scientist</a
         >
         <a
-          href="job-transformation-ai.html"
-          title="Job Transformation Due to AI"
-          >Job Transformation Due to AI</a
-        >
-        <a href="summary-jobs-at-risk.html" title="Summary of Jobs at Risk"
-          >Summary of Jobs at Risk</a
-        >
-        <a href="retail-jobs-at-risk.html" title="AI in Marketing"
-          >Retail Jobs at Risk</a
-        >
-        <a href="manufacturing-automation.html" title="AI and Remote Work"
-          >Manufacturing Automation</a
+          href="ai-ethics-specialist.html"
+          title="AI Ethics Specialist"
+          >AI Ethics Specialist</a
         >
         <a
-          href="transport-automation.html"
-          title="Benefits of AI in the Workplace"
-          >Transport Automation</a
+          href="machine-learning-engineer.html"
+          title="Machine Learning Engineer"
+          >Machine Learning Engineer</a
+        >
+        <a href="ai-product-manager.html" title="AI Product Manager"
+          >AI Product Manager</a
+        >
+        <a href="prompt-engineer.html" title="Prompt Engineers"
+          >Prompt Engineers</a
+        >
+        <a href="ai-research-specialist.html" title="AI Research Scientist"
+          >AI Research Scientist</a
         >
         <a
-          href="administrative-job-loss.html"
-          title="Challenges of AI in the Workplace"
-          >Administrative Job Loss</a
+          href="robotics-engineer.html"
+          title="Robotics Engineer"
+          >Robotics Engineer</a
         >
-        <a href="service-industry-risk.html" title="Service Industry Risk"
-          >Service Industry Risk</a
+        <a href="ai-trainer.html" title="AI Trainer"
+          >AI Trainer</a>
+        <a
+          href="ai-consultant.html"
+          title="AI Business Consultant" class="active"
+          >AI Business Consultant</a
         >
         <a
-          href="job-transition-strategies.html"
-          title="Job Transition Strategies"
-          class="active"
-          >Job Transition Strategies</a
+          href="careers-summary.html"
+          title="Careers in Artificial Intelligence Summary"
+          >Careers in Artificial Intelligence Summary</a
         >
       </aside>
       <main class="main">
-        <div class="inner-hero">
-          <a
-            href="images/banners/job-transition-banner.jpg"
-            target="image_viewer"
-          >
-            <img
-              src="images/banners/job-transition-banner.jpg"
-              alt="Job Transition Strategies Banner Image"
-              title="Job Transition Strategies Banner"
-            />
-          </a>
-          <h1>Job Transition Strategies</h1>
-        </div>
+  <div class="inner-hero">
+    <a href="../../images/emerging-ai-careers/banner/ai-consultant.jpg" target="image_viewer">
+      <img
+        src="../../images/emerging-ai-careers/banner/ai-consultant.jpg"
+        alt="AI Business Consultant Banner"
+        title="AI Business Consultant Banner"
+      />
+    </a>
+    <h1>AI Business Consultant</h1>
+  </div>
 
-        <div class="article-section">
-    <h2 id="overview">Navigating Job Transitions in the AI Era</h2>
+  <div class="article-section">
+    <h2 id="overview">Understanding the Role of an AI Business Consultant</h2>
+
     <p>
-        As <strong>artificial intelligence (AI)</strong> continues to reshape the workforce, job transition strategies have become essential for workers navigating a rapidly changing labor market. Rather than simply eliminating jobs, AI is transforming the tasks within them, requiring workers to <em>adapt, reskill, and rethink</em> their career pathways.
-    </p>
-    <p>
-        Research shows that AI does not just impact individual jobs—it also affects the pathways that connect them. Traditional career progression is no longer a simple step-by-step ladder, but a <strong>dynamic system</strong> where workers must move across roles by building transferable skills and adapting to new demands.
+      An <strong>AI Business Consultant</strong> is a professional who helps organizations adopt and implement artificial intelligence solutions to improve efficiency, decision-making, and innovation. They act as a bridge between complex AI technologies and practical business needs, ensuring that AI investments deliver real value.
     </p>
 
-    <h3>Key Insights on Job Transitions</h3>
+    <p>
+      By combining <em>technical understanding</em> with <em>strategic business insight</em>, AI consultants enable companies to transform ideas into impactful, real-world solutions.
+    </p>
+
+    <div class="full-width-image">
+      <a href="../../images/emerging-ai-careers/others/consulter.jpg" target="image_viewer">
+        <img
+          src="../../images/emerging-ai-careers/others/consulter.jpg"
+          alt="AI Consulter Picture"
+          title="AI Consulter Picture"
+        />
+      </a>
+    </div>
+<br>
+    <h2 id="importance">Why AI Consulting Matters</h2>
+
+    <p>
+      Many organizations recognize the potential of artificial intelligence but struggle with implementation. Without a clear strategy, AI projects may fail or not deliver meaningful results.
+    </p>
+
+    <table class="ai-table">
+      <thead>
+        <tr>
+          <th>Challenge</th>
+          <th>How AI Consultants Help</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lack of Expertise</td>
+          <td>Provide guidance on AI tools and technologies</td>
+        </tr>
+        <tr>
+          <td>Implementation Risks</td>
+          <td>Ensure structured and strategic deployment</td>
+        </tr>
+        <tr>
+          <td>Unclear ROI</td>
+          <td>Measure and optimize business value</td>
+        </tr>
+        <tr>
+          <td>Integration Issues</td>
+          <td>Align AI systems with existing operations</td>
+        </tr>
+      </tbody>
+    </table>
+<br><br><br>
+    <h2 id="roles">What AI Business Consultants Do</h2>
+
     <div class="cards-container">
-        <div class="card">
-            <div class="card-icon">🔄</div>
-            <h3>Constant Change</h3>
-            <p>AI continuously reshapes job roles, requiring workers to adapt and evolve their skills regularly.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">🎯</div>
-            <h3>Skill Shift</h3>
-            <p>Employers now prioritize digital, analytical, and human-centered skills over routine abilities.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">📈</div>
-            <h3>Growth Opportunity</h3>
-            <p>Job transitions create new opportunities for higher-value and more meaningful careers.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">🧠</div>
-            <h3>Human Advantage</h3>
-            <p>Creativity, emotional intelligence, and critical thinking remain irreplaceable by AI.</p>
-        </div>
-    </div>
-
-    <h2 id="why-transition" style="margin-top: 40px;">Why Job Transition is Necessary</h2>
-    <p>
-        The rise of automation has made job transitions more urgent than ever. AI systems can now perform many routine and cognitive tasks, leading to significant changes in job requirements across industries.
-    </p>
-    <div class="impact-list">
-        <div class="impact-item"><strong>Automation of Tasks:</strong> AI replaces repetitive and predictable work</div>
-        <div class="impact-item"><strong>Changing Skill Demands:</strong> Employers prioritize digital and analytical skills</div>
-        <div class="impact-item"><strong>Career Path Disruption:</strong> Traditional job progression is becoming less stable</div>
-    </div>
-    <br>
-    <h2 id="job-transitions">Types of Job Transitions</h2>
-<div class="job-transitions-container">
-  <table class="job-transitions">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Example</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Upskilling</strong></td>
-        <td>
-          Improving your current skills to stay relevant and competitive in your existing role. 
-          This includes learning new tools, mastering emerging technologies, and refining expertise 
-          to enhance performance and productivity.
-        </td>
-        <td>Learning AI tools, data analysis techniques, or automation software to increase efficiency in your current job.</td>
-      </tr>
-      <tr>
-        <td><strong>Reskilling</strong></td>
-        <td>
-          Learning entirely new skills to transition into a different role when your current job becomes obsolete. 
-          Reskilling prepares workers to take on opportunities in other positions or industries that are growing in demand.
-        </td>
-        <td>Taking courses in digital marketing or programming to switch from a manual clerical role to a tech-focused position.</td>
-      </tr>
-      <tr>
-        <td><strong>Career Shifting</strong></td>
-        <td>
-          Moving to a completely different industry or field that offers better long-term stability in an AI-driven economy. 
-          This approach requires research, planning, and a willingness to embrace new challenges and opportunities.
-        </td>
-        <td>Transitioning from retail to healthcare, leveraging transferable skills while learning industry-specific knowledge.</td>
-      </tr>
-      <tr>
-        <td><strong>Hybrid Roles</strong></td>
-        <td>
-          Combining multiple skill sets to create a unique role that merges human expertise with AI capabilities. 
-          Hybrid roles help workers remain indispensable by offering tasks that AI cannot fully replicate.
-        </td>
-        <td>A marketing analyst using AI-driven insights while providing creative strategy and human judgment for campaigns.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-    <h2 id="skills" style="margin-top: 40px;">In-Demand Skills for the Future</h2>
-
-<div class="role-cards-container">
-    <div class="role-card">
-        <h3>🤖 Technical Skills</h3>
-        <p>Skills that help you work effectively with AI and emerging technologies.</p>
-        <ul>
-            <li><strong>AI Tools:</strong> Basic understanding of AI platforms and applications</li>
-            <li><strong>Data Literacy:</strong> Data analysis & digital literacy</li>
-            <li><strong>Emerging Tech:</strong> Familiarity with new technologies shaping industries</li>
-        </ul>
-    </div>
-
-    <div class="role-card">
-        <h3>🧠 Human Skills</h3>
-        <p>Skills that make humans indispensable in an AI-driven world.</p>
-        <ul>
-            <li><strong>Communication & Collaboration:</strong> Working effectively with teams</li>
-            <li><strong>Critical Thinking:</strong> Problem solving and decision-making</li>
-            <li><strong>Creativity & Adaptability:</strong> Innovating and adjusting to change</li>
-        </ul>
-    </div>
-</div>
-
-<br><br>
-    <h2 id="strategies">Effective Strategies for Job Transitions</h2>
-    <p>
-        Workers can proactively navigate AI-driven changes by engaging in continuous learning and skill development. Enrolling in <em>online courses</em> and <em>certification programs</em>, building digital literacy, and familiarizing themselves with AI tools can help employees stay competitive. Gaining practical experience through <em>internships</em> or <em>freelancing</em> allows workers to apply new skills in real-world settings. Staying updated with industry trends ensures they are prepared for evolving roles.
-    </p>
-    <p>
-        <strong>Companies</strong> and governments play a critical role in supporting workforce adaptation. Organizations can provide structured upskilling and reskilling programs to prepare employees for shifting job requirements. Governments can invest in <em>education</em> and workforce development initiatives. Partnerships between industries and academic institutions can strengthen career pathways.
-    </p>
-    <p>
-        Despite these efforts, challenges remain. High costs of education and training, limited access to technology, and skill gaps between current and future jobs can hinder transitions. Additionally, many workers face <em>uncertainty</em> and fear of change, making it essential to offer guidance and supportive learning environments that encourage adaptability.
-    </p>
-    <h3>Opportunities Created by AI</h3>
-    <div class="impact-list">
-        <div class="impact-item"><strong>AI Specialists:</strong> Engineers and specialized developers</div>
-        <div class="impact-item"><strong>Digital Strategists:</strong> Data analysts and automation experts</div>
-        <div class="impact-item"><strong>Human-AI Collaboration:</strong> Roles focused on overseeing AI systems</div>
-    </div>
-<br><br>
-    <h2 id="summary">What This Means for the Future of Work</h2>
-    <p>
-        The future of work will not be defined by job loss alone, but by the ability of individuals to <strong>adapt and transition</strong> into new opportunities. Those who are willing to learn, evolve, and collaborate with technology will be best positioned for success.
-    </p>
-
-    <cite>"The future belongs to those who are willing to learn, adapt, and evolve."</cite>
-</div>
-          <p class="author">Written by: Abordo, Jana Sayrielle G.</p>
-
-          </div>
-        </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Business Analysis</h3>
+        <p>Assessing current processes to identify AI opportunities.</p>
       </div>
-            <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
+
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>Strategy Development</h3>
+        <p>Designing AI-driven solutions aligned with business goals.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>Implementation</h3>
+        <p>Guiding teams in deploying AI systems effectively.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Performance Tracking</h3>
+        <p>Evaluating success and improving outcomes over time.</p>
+      </div>
+    </div>
+
+<br><br><br>
+    <h2 id="skills">Technical Skills</h2>
+
+    <div class="impact-list">
+      <div class="impact-item">Understanding of AI and data analytics</div>
+      <div class="impact-item">Knowledge of business intelligence tools</div>
+      <div class="impact-item">Familiarity with automation technologies</div>
+      <div class="impact-item">Basic knowledge of machine learning systems</div>
+    </div>
+<br><br>
+    <h2 id="workplace">Workplace Skills</h2>
+
+    <div class="impact-list">
+      <div class="impact-item">Strong communication and presentation skills</div>
+      <div class="impact-item">Strategic and critical thinking</div>
+      <div class="impact-item">Problem-solving and decision-making</div>
+      <div class="impact-item">Leadership and collaboration</div>
+      <div class="impact-item">Ability to translate technical concepts into business insights</div>
+    </div>
+<br><br>
+    <h2 id="path">How to Become an AI Business Consultant</h2>
+
+    <p>
+      This career path combines business knowledge with technical understanding. Professionals typically build expertise through education, certifications, and real-world experience.
+    </p>
+
+    <div class="impact-list">
+      <div class="impact-item">Study Business Administration, Information Systems, or Data Analytics</div>
+      <div class="impact-item">Learn AI fundamentals and digital transformation concepts</div>
+      <div class="impact-item">Gain experience in consulting or business analysis</div>
+      <div class="impact-item">Develop strategic thinking and communication skills</div>
+      <div class="impact-item">Earn certifications in AI or data-related fields</div>
+    </div>
+<br><br>
+    <h2 id="future">The Future of AI Consulting</h2>
+
+    <p>
+      As businesses increasingly rely on automation and data-driven decision-making, the demand for AI Business Consultants continues to grow. Organizations need experts who can transform AI capabilities into practical solutions that drive innovation and growth.
+    </p>
+
+    <p>
+      In the future, AI consultants will play a key role in shaping industries, helping companies remain competitive in a rapidly evolving technological landscape.
+    </p>
+
+    <cite>
+      “In the age of AI, success is not just about building smarter machines, but about ensuring they serve smarter decisions, guided by human values and vision.”
+      <br />— Original Insight, 2026
+    </cite>
+
+  </div>
+
+  <p class="author">Written by: Abordo, Jana Sayrielle G.</p>
+</main>
+    </div>
+          <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
         >↑</a
       >
 
-      <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer>
       <div class="footer-container">
         <div class="footer-brand">
@@ -926,7 +848,7 @@ cite {
 
           <div class="f-col">
             <h4>Contact Info</h4>
-            <p style="margin-bottom: 8px"><strong style="color: #ffffff;">Follow Us:</strong></p>
+            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
 
             <div class="contact-item">
               <a
@@ -940,7 +862,7 @@ cite {
             </div>
 
             <p style="margin-top: 10px; margin-bottom: 8px">
-              <strong style="color: #ffffff;">Email:</strong>
+              <strong>Email:</strong>
             </p>
 
             <div class="contact-item">
@@ -962,4 +884,3 @@ cite {
     </footer>
   </body>
 </html>
-
