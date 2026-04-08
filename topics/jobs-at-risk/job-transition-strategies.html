@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -205,7 +205,22 @@
         color: #03045e;
         margin-bottom: 20px;
         font-size: 26px;
+        position: relative;
+        padding-left: 12px;
       }
+
+      /* Line design */
+      .article-section h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;       /* thickness of the vertical line */
+        height: 100%;     /* full height of the h2 */
+        background:  #0077b6; 
+        border-radius: 3px; /* rounded edges */
+}
 
       .article-section h3 {
         font-family: Georgia, serif;
@@ -234,8 +249,8 @@
         margin-bottom: 8px;
       }
 
-      .article-section strong {
-        color: #03045e;
+      p {
+        text-align: justify;
       }
 
       .content-img {
@@ -251,112 +266,313 @@
         text-decoration: none;
       }
 
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        background-color: #03045e;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      p {
+        text-align: justify;
+      }
+
+      strong {
+        color:#03045e;
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #0077b6;
+      }
+
       /* ===== NAVY FOOTER ===== */
-footer {
-    background: #03045E;
-    color: #ffffff;
-    padding: 40px 6% 30px;
-    font-family: Arial, sans-serif;
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        flex: 1;
+      }
+
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
+
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+      }
+
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
+
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
+
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
+
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .copyright-bar {
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* ===== CARDS DESIGN ===== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 30px 0 10px;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; 
-    gap: 40px;
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
 }
 
-.footer-brand {
-    flex: 1;
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-.footer-logo-blocks {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 15px;
+.card h3 {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  color: #03045e;
+  margin-bottom: 10px;
 }
 
-.footer-logo-blocks span {
-    background: #ffffff;
-    color: #03045E; 
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 20px;
+.card p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* Vertical Line for H2 */
+.article-section h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background: #0077b6;
     border-radius: 3px;
 }
 
-.mission-text p {
-    font-size: 18px; 
-    line-height: 1.5;
-    font-weight: 500;
-    max-width: 380px;
+/* Cards for Insights */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 25px 0;
 }
 
-.footer-links-group {
-    display: flex;
-    flex: 2;
-    justify-content: flex-start;
-    gap: 220px; 
-}
-
-.f-col h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    text-decoration: underline;
-    line-height: 1; 
-    margin-top: -6px; 
-}
-
-.f-col p, .f-col a {
-    font-size: 15px;
-    color: #ffffff;
-    text-decoration: none;
-    line-height: 1.7;
-}
-
-.quick-links-grid {
-    display: grid; 
-    grid-template-columns: auto auto; 
-    gap: 10px 40px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-}
-
-.icon-box {
+.card {
     background: #ffffff;
-    color: #03045E;
-    width: 26px;
-    height: 26px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #03045e;
+}
+
+
+/* Impact Items (Blue side-border) */
+.impact-list {
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.impact-item {
+    background: #f8fafc;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: #003049;
+    font-size: 15px;
+}
+
+/* Skill Role Cards */
+.role-cards-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border-radius: 4px;
-    font-size: 14px;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
-.copyright-bar {
-    margin-top: 30px;
-    padding-top: 20px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+.role-card {
+    flex: 1 1 300px; /* responsive width */
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.role-card h3 {
+    margin-bottom: 10px;
+    color: #003049;
+}
+
+.role-card ul {
+    padding-left: 20px;
+}
+
+.role-card ul li {
+    margin-bottom: 8px;
+}
+/* Job Transitions Table */
+.job-transitions {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: #003049;
+}
+
+.job-transitions th,
+.job-transitions td {
+    padding: 14px 18px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.job-transitions thead {
+    background-color: #03045e;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-weight: 700;
+}
+
+.job-transitions tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.job-transitions tbody tr:nth-child(even) {
+    background-color: #f1f5f9;
+}
+
+/* Quote/Cite */
+cite {
+    display: block;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-style: italic;
+    color: #475569;
+    margin-top: 40px;
+    font-size: 18px;
 }
 
-@media (max-width: 1100px) {
-    .footer-container { flex-direction: column; }
-    .footer-links-group { gap: 30px; }
-}
+.author {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: right;
+    }
+      @media (max-width: 1100px) {
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
+      }
 
       .full-width-image {
         width: 100%;
@@ -406,14 +622,26 @@ footer {
         <div class="dropdown">
           <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
           <div class="dropdown-menu">
-            <a href="ai.html">AI Workplace</a>
-            <a href="#">Jobs at Risk</a>
-            <a href="#">Emerging Careers</a>
-            <a href="#">Human + AI</a>
-            <a href="#">Skills</a>
-            <a href="#">Ethics</a>
-            <a href="#">Students</a>
-            <a href="#">Future</a>
+            <a
+              href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+              >AI Workplace</a
+            >
+            <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+              >Jobs at Risk</a
+            >
+            <a
+              href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+              >Emerging Careers</a
+            >
+            <a href="../human-ai-collab/overview-human-ai-collab.html"
+              >Human + AI</a
+            >
+            <a href="../future-workforce-skills/">Skills</a>
+            <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+            <a href="../preparing-student/overviewofpreparingstudentsai.html"
+              >Students</a
+            >
+            <a href="../future-outlook-ai/">Future</a>
           </div>
         </div>
         <div class="dropdown">
@@ -433,9 +661,7 @@ footer {
     <div class="page">
       <aside class="sidebar">
         <h3>AI WORKPLACE</h3>
-        <a
-          href="overview-jobs-at-risk.html"
-          title="overview of jobs at risk"
+        <a href="overview-jobs-at-risk.html" title="overview of jobs at risk"
           >Overview of Jobs at Risk</a
         >
         <a href="jobs-most-affected.html" title="jobs most affected by AI"
@@ -459,7 +685,7 @@ footer {
         <a href="summary-jobs-at-risk.html" title="Summary of Jobs at Risk"
           >Summary of Jobs at Risk</a
         >
-        <a href="retail-jobs-risk.html" title="AI in Marketing"
+        <a href="retail-jobs-at-risk.html" title="AI in Marketing"
           >Retail Jobs at Risk</a
         >
         <a href="manufacturing-automation.html" title="AI and Remote Work"
@@ -470,21 +696,29 @@ footer {
           title="Benefits of AI in the Workplace"
           >Transport Automation</a
         >
-        <a href="#" title="Challenges of AI in the Workplace"
+        <a
+          href="administrative-job-loss.html"
+          title="Challenges of AI in the Workplace"
           >Administrative Job Loss</a
         >
-        <a href="#" title="Service Industry Risk"
+        <a href="service-industry-risk.html" title="Service Industry Risk"
           >Service Industry Risk</a
         >
-        <a href="#" title="Job Transition Strategies" class="active"
+        <a
+          href="job-transition-strategies.html"
+          title="Job Transition Strategies"
+          class="active"
           >Job Transition Strategies</a
         >
       </aside>
       <main class="main">
         <div class="inner-hero">
-          <a href="images/banners/jobs-head-image.png" target="image_viewer">
+          <a
+            href="images/banners/job-transition-banner.jpg"
+            target="image_viewer"
+          >
             <img
-              src="images/banners/jobs-head-image.png"
+              src="images/banners/job-transition-banner.jpg"
               alt="Job Transition Strategies Banner Image"
               title="Job Transition Strategies Banner"
             />
@@ -493,176 +727,155 @@ footer {
         </div>
 
         <div class="article-section">
-  <h2 id="overview">Overview of Service Industry Risk</h2>
-  <p>
-    The service industry is one of the largest sectors in the global economy,
-    covering jobs that involve direct interaction with customers such as food
-    service, hospitality, retail assistance, and customer support. As artificial
-    intelligence (AI) continues to advance, many of these roles are becoming
-    increasingly vulnerable to automation.
-  </p>
+    <h2 id="overview">Navigating Job Transitions in the AI Era</h2>
+    <p>
+        As <strong>artificial intelligence (AI)</strong> continues to reshape the workforce, job transition strategies have become essential for workers navigating a rapidly changing labor market. Rather than simply eliminating jobs, AI is transforming the tasks within them, requiring workers to <em>adapt, reskill, and rethink</em> their career pathways.
+    </p>
+    <p>
+        Research shows that AI does not just impact individual jobs—it also affects the pathways that connect them. Traditional career progression is no longer a simple step-by-step ladder, but a <strong>dynamic system</strong> where workers must move across roles by building transferable skills and adapting to new demands.
+    </p>
 
-  <p>
-    According to labor market trends, service-related occupations are among the
-    most exposed to AI disruption due to their reliance on repetitive tasks and
-    predictable workflows. From chatbots handling customer inquiries to
-    self-service kiosks replacing cashiers, the transformation of the service
-    industry is no longer a future possibility—it is already happening today.
-  </p>
-
-  <div class="full-width-image">
-    <a href="images/service/overview.png" target="image_viewer">
-      <img src="images/service/overview.png" alt="Service industry automation overview" />
-    </a>
-  </div>
-
-  <h2 id="why-ai">Why AI Affects the Service Industry</h2>
-  <p>
-    The rapid adoption of AI in service-based businesses is driven by the need
-    for efficiency, speed, and cost reduction. Companies are increasingly
-    integrating AI systems to streamline operations and improve customer
-    experience while minimizing labor expenses.
-  </p>
-
-  <p>
-    As a result, tasks that were once performed by humans are now being handled
-    by intelligent systems capable of operating continuously and delivering
-    instant responses.
-  </p>
-
-  <ul>
-    <li><strong>Repetitive Tasks:</strong> Many service roles involve predictable interactions that AI can easily automate</li>
-    <li><strong>Cost Efficiency:</strong> Businesses reduce expenses by replacing labor with automated systems</li>
-    <li><strong>24/7 Availability:</strong> AI systems operate continuously without breaks</li>
-    <li><strong>Speed and Accuracy:</strong> Automated systems provide faster and more consistent service</li>
-  </ul>
-
-  <h2 id="jobs-risk">Service Jobs Most at Risk</h2>
-  <p>
-    Several roles in the service industry are highly exposed to automation due
-    to their structured and repetitive nature. Studies suggest that employment
-    in certain service occupations, particularly customer service and retail,
-    is expected to decline as AI adoption increases.
-  </p>
-
-  <ul>
-    <li><strong>Cashiers:</strong> Replaced by self-checkout and digital payment systems</li>
-    <li><strong>Customer Service Representatives:</strong> Replaced by AI chatbots and virtual assistants</li>
-    <li><strong>Fast Food Workers:</strong> Automated ordering kiosks and robotic preparation systems</li>
-    <li><strong>Hotel Front Desk Staff:</strong> AI-powered check-in and booking platforms</li>
-    <li><strong>Call Center Agents:</strong> Voice AI handling customer interactions efficiently</li>
-  </ul>
-
-  <div class="full-width-image">
-    <a href="images/service/jobs-risk.png" target="image_viewer">
-      <img src="images/service/jobs-risk.png" alt="Service jobs at risk due to AI" />
-    </a>
-  </div>
-
-  <h2 id="examples">Real-World Applications of AI</h2>
-  <p>
-    AI technologies are already widely implemented across the service industry,
-    demonstrating how automation is reshaping everyday business operations.
-  </p>
-
-  <ul>
-    <li>Chatbots providing instant customer support</li>
-    <li>Self-service kiosks in restaurants and retail stores</li>
-    <li>Automated booking and reservation systems</li>
-    <li>AI-powered voice assistants in call centers</li>
-  </ul>
-
-  <p>
-    These systems not only improve efficiency but also redefine how businesses
-    interact with customers, shifting the focus from human labor to digital
-    solutions.
-  </p>
-
-  <h2 id="impact">Impact on Workers</h2>
-  <p>
-    The rise of AI in the service industry has significant implications for the
-    workforce. While automation increases efficiency, it also creates challenges
-    for workers, particularly those in entry-level and low-skill positions.
-  </p>
-
-  <ul>
-    <li><strong>Job Displacement:</strong> Many roles are being reduced or eliminated</li>
-    <li><strong>Reduced Work Opportunities:</strong> Fewer employees are needed to perform the same tasks</li>
-    <li><strong>Skill Shift:</strong> Demand is increasing for digital and technical skills</li>
-    <li><strong>Job Polarization:</strong> Growth in high-skill jobs while low-skill jobs decline</li>
-  </ul>
-
-  <p>
-    This trend may contribute to economic inequality, as workers without access
-    to education or training face greater difficulty adapting to the changing
-    job market.
-  </p>
-
-  <div class="full-width-image">
-    <a href="images/service/impact.png" target="image_viewer">
-      <img src="images/service/impact.png" alt="Impact of AI on service workers" />
-    </a>
-  </div>
-
-  <h2 id="transformation">Job Transformation, Not Just Loss</h2>
-  <p>
-    Despite the risks, AI is not solely eliminating jobs—it is transforming
-    them. Many service roles are evolving to focus on tasks that require human
-    judgment, creativity, and emotional intelligence.
-  </p>
-
-  <p>
-    Employees are increasingly shifting from routine work to roles that involve
-    managing AI systems, resolving complex issues, and enhancing customer
-    experience. This highlights the continued importance of human-centered
-    skills in an automated world.
-  </p>
-
-  <h2 id="adaptation">How Workers Can Adapt</h2>
-  <p>
-    To remain competitive in an AI-driven service industry, workers must be
-    proactive in developing new skills and embracing lifelong learning.
-  </p>
-
-  <ul>
-    <li>Learn digital tools and basic AI concepts</li>
-    <li>Strengthen communication and interpersonal skills</li>
-    <li>Develop critical thinking and problem-solving abilities</li>
-    <li>Be open to reskilling and career transitions</li>
-  </ul>
-
-  <p>
-    Adaptability is no longer optional—it is essential for long-term career
-    success in the evolving workforce.
-  </p>
-
-  <div class="full-width-image">
-    <a href="images/service/adaptation.png" target="image_viewer">
-      <img src="images/service/adaptation.png" alt="Adapting to AI in the workplace" />
-    </a>
-  </div>
-
-  <h2 id="summary">Summary</h2>
-  <p>
-    The service industry is among the most affected sectors in the age of AI.
-    Jobs that involve repetitive and predictable tasks are at the highest risk,
-    while roles that require human interaction and emotional intelligence
-    remain valuable.
-  </p>
-
-  <p>
-    As automation continues to reshape the workforce, the key to success lies in
-    adaptation. Workers who embrace technology, develop new skills, and focus on
-    uniquely human abilities will be better prepared for the future of work.
-  </p>
-
-  <p>
-    <strong>The future of the service industry will not eliminate humans—but it will redefine their role.</strong>
-  </p>
-</div>
-      </main>
+    <h3>Key Insights on Job Transitions</h3>
+    <div class="cards-container">
+        <div class="card">
+            <div class="card-icon">🔄</div>
+            <h3>Constant Change</h3>
+            <p>AI continuously reshapes job roles, requiring workers to adapt and evolve their skills regularly.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🎯</div>
+            <h3>Skill Shift</h3>
+            <p>Employers now prioritize digital, analytical, and human-centered skills over routine abilities.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📈</div>
+            <h3>Growth Opportunity</h3>
+            <p>Job transitions create new opportunities for higher-value and more meaningful careers.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Human Advantage</h3>
+            <p>Creativity, emotional intelligence, and critical thinking remain irreplaceable by AI.</p>
+        </div>
     </div>
 
+    <h2 id="why-transition" style="margin-top: 40px;">Why Job Transition is Necessary</h2>
+    <p>
+        The rise of automation has made job transitions more urgent than ever. AI systems can now perform many routine and cognitive tasks, leading to significant changes in job requirements across industries.
+    </p>
+    <div class="impact-list">
+        <div class="impact-item"><strong>Automation of Tasks:</strong> AI replaces repetitive and predictable work</div>
+        <div class="impact-item"><strong>Changing Skill Demands:</strong> Employers prioritize digital and analytical skills</div>
+        <div class="impact-item"><strong>Career Path Disruption:</strong> Traditional job progression is becoming less stable</div>
+    </div>
+    <br>
+    <h2 id="job-transitions">Types of Job Transitions</h2>
+<div class="job-transitions-container">
+  <table class="job-transitions">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Upskilling</strong></td>
+        <td>
+          Improving your current skills to stay relevant and competitive in your existing role. 
+          This includes learning new tools, mastering emerging technologies, and refining expertise 
+          to enhance performance and productivity.
+        </td>
+        <td>Learning AI tools, data analysis techniques, or automation software to increase efficiency in your current job.</td>
+      </tr>
+      <tr>
+        <td><strong>Reskilling</strong></td>
+        <td>
+          Learning entirely new skills to transition into a different role when your current job becomes obsolete. 
+          Reskilling prepares workers to take on opportunities in other positions or industries that are growing in demand.
+        </td>
+        <td>Taking courses in digital marketing or programming to switch from a manual clerical role to a tech-focused position.</td>
+      </tr>
+      <tr>
+        <td><strong>Career Shifting</strong></td>
+        <td>
+          Moving to a completely different industry or field that offers better long-term stability in an AI-driven economy. 
+          This approach requires research, planning, and a willingness to embrace new challenges and opportunities.
+        </td>
+        <td>Transitioning from retail to healthcare, leveraging transferable skills while learning industry-specific knowledge.</td>
+      </tr>
+      <tr>
+        <td><strong>Hybrid Roles</strong></td>
+        <td>
+          Combining multiple skill sets to create a unique role that merges human expertise with AI capabilities. 
+          Hybrid roles help workers remain indispensable by offering tasks that AI cannot fully replicate.
+        </td>
+        <td>A marketing analyst using AI-driven insights while providing creative strategy and human judgment for campaigns.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <h2 id="skills" style="margin-top: 40px;">In-Demand Skills for the Future</h2>
+
+<div class="role-cards-container">
+    <div class="role-card">
+        <h3>🤖 Technical Skills</h3>
+        <p>Skills that help you work effectively with AI and emerging technologies.</p>
+        <ul>
+            <li><strong>AI Tools:</strong> Basic understanding of AI platforms and applications</li>
+            <li><strong>Data Literacy:</strong> Data analysis & digital literacy</li>
+            <li><strong>Emerging Tech:</strong> Familiarity with new technologies shaping industries</li>
+        </ul>
+    </div>
+
+    <div class="role-card">
+        <h3>🧠 Human Skills</h3>
+        <p>Skills that make humans indispensable in an AI-driven world.</p>
+        <ul>
+            <li><strong>Communication & Collaboration:</strong> Working effectively with teams</li>
+            <li><strong>Critical Thinking:</strong> Problem solving and decision-making</li>
+            <li><strong>Creativity & Adaptability:</strong> Innovating and adjusting to change</li>
+        </ul>
+    </div>
+</div>
+
+<br><br>
+    <h2 id="strategies">Effective Strategies for Job Transitions</h2>
+    <p>
+        Workers can proactively navigate AI-driven changes by engaging in continuous learning and skill development. Enrolling in <em>online courses</em> and <em>certification programs</em>, building digital literacy, and familiarizing themselves with AI tools can help employees stay competitive. Gaining practical experience through <em>internships</em> or <em>freelancing</em> allows workers to apply new skills in real-world settings. Staying updated with industry trends ensures they are prepared for evolving roles.
+    </p>
+    <p>
+        <strong>Companies</strong> and governments play a critical role in supporting workforce adaptation. Organizations can provide structured upskilling and reskilling programs to prepare employees for shifting job requirements. Governments can invest in <em>education</em> and workforce development initiatives. Partnerships between industries and academic institutions can strengthen career pathways.
+    </p>
+    <p>
+        Despite these efforts, challenges remain. High costs of education and training, limited access to technology, and skill gaps between current and future jobs can hinder transitions. Additionally, many workers face <em>uncertainty</em> and fear of change, making it essential to offer guidance and supportive learning environments that encourage adaptability.
+    </p>
+    <h3>Opportunities Created by AI</h3>
+    <div class="impact-list">
+        <div class="impact-item"><strong>AI Specialists:</strong> Engineers and specialized developers</div>
+        <div class="impact-item"><strong>Digital Strategists:</strong> Data analysts and automation experts</div>
+        <div class="impact-item"><strong>Human-AI Collaboration:</strong> Roles focused on overseeing AI systems</div>
+    </div>
+<br><br>
+    <h2 id="summary">What This Means for the Future of Work</h2>
+    <p>
+        The future of work will not be defined by job loss alone, but by the ability of individuals to <strong>adapt and transition</strong> into new opportunities. Those who are willing to learn, evolve, and collaborate with technology will be best positioned for success.
+    </p>
+
+    <cite>"The future belongs to those who are willing to learn, adapt, and evolve."</cite>
+</div>
+          <p class="author">Written by: Abordo, Jana Sayrielle G.</p>
+
+          </div>
+        </div>
+      </div>
+            <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
+        >↑</a
+      >
+
+      <!-- FOOTER -->
     <footer>
       <div class="footer-container">
         <div class="footer-brand">
@@ -683,43 +896,57 @@ footer {
             <h4>Quick Links</h4>
             <div class="quick-links-grid">
               <div>
-                <a href="#">AI Workplace</a><br />
-                <a href="#">Emerging Careers</a><br />
-                <a href="#">Future Skills</a><br />
-                <a href="#">Students</a>
+                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+                  >AI Workplace</a
+                ><br />
+                <a
+                  href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
+                  >Emerging Careers</a
+                ><br />
+                <a href="../future-workforce-skills/overview-future-workforce-skills.html ">Future Skills</a
+                ><br />
+                <a
+                  href="../preparing-student/overviewofpreparingstudentsai.html"
+                  >Students</a
+                >
               </div>
               <div>
-                <a href="#">Jobs at Risk</a><br />
-                <a href="#">Collaboration</a><br />
-                <a href="#">Ethics</a><br />
-                <a href="#">Future Outlook</a>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+                  >Jobs at Risk</a
+                ><br />
+                <a href="../human-ai-collab/overview-human-ai-collab.html"
+                  >Collaboration</a
+                ><br />
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a
+                ><br />
+                <a href="../future-outlook-ai/">Future Outlook</a>
               </div>
             </div>
           </div>
 
           <div class="f-col">
             <h4>Contact Info</h4>
-            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
+            <p style="margin-bottom: 8px"><strong style="color: #ffffff;">Follow Us:</strong></p>
+
             <div class="contact-item">
               <a
-                href="https://facebook.com/strativ"
+                href="https://www.facebook.com/profile.php?id=61580704943031"
                 target="_blank"
                 style="display: flex; align-items: center; gap: 10px"
-                title="Follow us on Facebook"
               >
                 <span class="icon-box">f</span>
-                <span> Strativ.com</span>
+                <span>Strativ.com</span>
               </a>
             </div>
 
             <p style="margin-top: 10px; margin-bottom: 8px">
-              <strong>Email:</strong>
+              <strong style="color: #ffffff;">Email:</strong>
             </p>
+
             <div class="contact-item">
               <a
                 href="mailto:strativ018@gmail.com"
                 style="display: flex; align-items: center; gap: 10px"
-                title="Email Us"
               >
                 <span class="icon-box">✉</span>
                 <span>strativ018@gmail.com</span>
@@ -735,3 +962,4 @@ footer {
     </footer>
   </body>
 </html>
+

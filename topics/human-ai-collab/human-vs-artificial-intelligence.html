@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human vs AI | STRATIV AI Frontier</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img { width: 40px; }
+
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
+
+.dropdown { position: relative; }
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+.dropdown-menu a { display: block; padding: 12px; border-bottom: 1px solid #f1f5f9; text-decoration: none; color: #003049; font-size: 14px; font-weight: 600; }
+.dropdown-menu a:last-child { border-bottom: none; }
+
+/* LAYOUT */
+.page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+/* SIDEBAR */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar a, .sidebar span {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    font-size: 13px;
+    border-top: 1px solid #e2e8f0;
+    transition: 0.3s ease;
+}
+
+.sidebar a { color: #003049; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+.sidebar span.active-page { background: #f1f5f9; color: #0077B6; font-weight: 600; cursor: default; }
+
+/* MAIN CONTENT */
+.main { display: flex; flex-direction: column; gap: 25px; }
+
+.img-link { display: block; width: 100%; height: 100%; transition: transform 0.3s, opacity 0.3s; cursor: pointer; }
+.img-link:hover { opacity: 0.9; transform: scale(1.01); }
+
+.inner-hero {
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.6); pointer-events: none; }
+.inner-hero h1 { position: absolute; color: #fff; bottom: 30px; left: 30px; font-family: Georgia, serif; font-size: 42px; z-index: 2; }
+
+.section {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.section h2 { font-family: Georgia, serif; color: #03045E; margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid #0077B6; display: inline-block; padding-bottom: 5px; }
+.section h3 { color: #03045E; margin: 35px 0 15px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
+.section p { font-size: 16px; color: #475569; margin-bottom: 15px; text-align: justify; }
+
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
+.content-card-small { background: #F8FAFC; padding: 25px; border-radius: 8px; border: 1px solid #e2e8f0; }
+.content-card-small h4 { color: #03045E; margin-bottom: 15px; border-bottom: 1px solid #0077B6; padding-bottom: 5px; }
+.content-card-small li { margin-bottom: 10px; font-size: 14px; list-style-position: inside; color: #475569; }
+
+.example-card { display: flex; gap: 25px; background: #f0f7ff; padding: 25px; margin-bottom: 20px; border-radius: 12px; border-left: 5px solid #0077B6; align-items: center; }
+.example-card .img-box { width: 220px; height: 150px; flex-shrink: 0; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; }
+.example-card .img-box img { width: 100%; height: 100%; object-fit: cover; }
+.example-text { flex: 1; font-size: 15px; color: #334155; }
+.example-text strong { display: block; font-size: 18px; color: #03045E; margin-bottom: 8px; }
+
+.history-card { display: flex; gap: 20px; margin: 30px 0; align-items: center; }
+.history-card .img-container { width: 300px; height: 180px; flex-shrink: 0; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; }
+.history-card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* SCROLL TOP BUTTON */
+#scrollTopBtn {
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 99; 
+    background-color: #03045E; 
+    color: white; 
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    font-size: 20px; 
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #ffffff;
+    transition: background-color 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #0077B6; 
+}
+
+/* FOOTER */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; gap: 220px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; }
+.f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+@media(max-width:1100px){
+    .page { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .history-card, .example-card { flex-direction: column; align-items: flex-start; }
+    .history-card .img-container, .example-card .img-box { width: 100%; height: 200px; }
+}
+</style>
+</head>
+
+<body id="top">
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg">
+        STRATIV
+    </div>
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="overview-of-human-ai-collaboration.html">AI Workplace</a>
+                <a href="jobs-at-risk.html">Jobs at Risk</a>
+                <a href="emerging-careers.html">Emerging Careers</a>
+                <a href="overview-human-ai-collab.html">Human + AI</a>
+                <a href="skills.html">Skills</a>
+                <a href="ethics.html">Ethics</a>
+                <a href="students.html">Students</a>
+                <a href="future.html">Future</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources.html#links">External Links</a>
+                <a href="../../resources.html#icons">Icons & Images</a>
+                <a href="../../resources.html#data">Data & Reports</a>
+                <a href="../../resources.html#cases">Case Studies</a>
+            </div>
+        </div>
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>Human AI Collaboration</h3>
+        <a href="overview-human-ai-collab.html">Overview of Human AI Collaboration</a>
+        <span class="active-page">Human vs Artificial Intelligence</span>
+        <a href="working-with-ai-tools.html">Working with AI Tools</a>
+        <a href="ai-decision-support-systems.html">AI Decision Support Systems</a>
+        <a href="creativity-with-artificial-intelligence.html">Creativity with AI</a>
+        <a href="ai-assisted-design.html">AI Assisted Design</a>
+        <a href="ai-in-teamwork.html">AI in Teamwork</a>
+        <a href="ai-decision-partnership.html">AI Decision Partnership</a>
+        <a href="ai-creative-collaboration.html">AI Creative Collaboration</a>
+        <a href="human-oversight-in-ai-systems.html">Human Oversight in AI Systems</a>
+        <a href="workplace-ai-integration.html">Workplace AI Integration</a>
+        <a href="collaboration-summary.html">Collaboration Summary</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <a href="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=1600" target="image_viewer" class="img-link">
+                <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=1600" alt="HI vs AI">
+            </a>
+            <h1>Human vs Artificial Intelligence</h1>
+        </div>
+
+        <div class="section">
+            <h2>The Great Convergence</h2>
+            <p>The relationship between Human Intelligence (HI) and Artificial Intelligence (AI) is the most significant technological narrative of the 21st century. While both systems process information, they are built on fundamentally different foundations. One is born of biological evolution; the other, of silicon and code.</p>
+
+            <h2>A Journey Through Time</h2>
+            
+            <div class="history-card">
+                <div class="img-container">
+                    <a href="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?q=80&w=800" target="image_viewer" class="img-link">
+                        <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&q=80&w=600" alt="Early Computing">
+                    </a>
+                </div>
+                <div>
+                    <h3>1950s - 1990s: Symbolic Logic</h3>
+                    <p>The journey began with Alan Turing’s question, "Can machines think?" This era was defined by Symbolic AI, where humans programmed every rule manually. The landmark moment was in 1997, when IBM’s Deep Blue defeated Garry Kasparov, proving machines could master rigid logic.</p>
+                </div>
+            </div>
+
+            <div class="history-card">
+                <div class="img-container">
+                    <a href="https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=800" target="image_viewer" class="img-link">
+                        <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=600" alt="Neural Networks">
+                    </a>
+                </div>
+                <div>
+                    <h3>2010s: The Deep Learning Era</h3>
+                    <p>The explosion of Big Data shifted focus to "Pattern Recognition" via Neural Networks. AI began to beat humans at intuitive tasks like image classification and speech. In 2016, AlphaGo's victory proved machines could simulate "intuition" in complex environments.</p>
+                </div>
+            </div>
+
+            <h2>How They Compare</h2>
+            <div class="content-grid">
+                <div class="content-card-small">
+                    <h4>The Human Mind</h4>
+                    <ul>
+                        <li><strong>Energy Usage:</strong> Runs on just 20 watts of power.</li>
+                        <li><strong>Versatility:</strong> Can learn a new language and ride a bike simultaneously.</li>
+                        <li><strong>Emotional Depth:</strong> Uses empathy to navigate complex social cues.</li>
+                        <li><strong>Survival Instinct:</strong> Contextualizes information based on life experience.</li>
+                    </ul>
+                </div>
+                <div class="content-card-small">
+                    <h4>The AI Engine</h4>
+                    <ul>
+                        <li><strong>Computational Speed:</strong> Processes billions of data points per second.</li>
+                        <li><strong>Data Retention:</strong> Perfect recall of every training document.</li>
+                        <li><strong>Objectivity:</strong> Decisions are uninfluenced by fatigue or mood.</li>
+                        <li><strong>Precision:</strong> Capable of identifying patterns invisible to the naked eye.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Real-World Partnerships (2026)</h2>
+
+            <div class="example-card">
+                <div class="img-box">
+                    <a href="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800" target="image_viewer" class="img-link">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600" alt="Healthcare AI">
+                    </a>
+                </div>
+                <div class="example-text">
+                    <strong>🏥 Modern Healthcare</strong>
+                    AI algorithms analyze 10,000 X-rays to flag potential anomalies with 99% accuracy; the human radiologist then confirms the findings and creates a personalized care plan for the patient.
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="img-box">
+                    <a href="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800" target="image_viewer" class="img-link">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600" alt="Autonomous Tech">
+                    </a>
+                </div>
+                <div class="example-text">
+                    <strong>🚗 Safety & Transport</strong>
+                    Autonomous systems react to road obstacles in milliseconds—faster than human reflexes; however, humans are still required to navigate ethical "no-win" scenarios in heavy traffic.
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="img-box">
+                    <a href="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800" target="image_viewer" class="img-link">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" alt="Creative AI">
+                    </a>
+                </div>
+                <div class="example-text">
+                    <strong>🎨 Creative Collaboration</strong>
+                    AI generates thousands of variations of a logo or melody based on a prompt; the human creator then sifts through these drafts to find the one that resonates with the human spirit.
+                </div>
+            </div>
+
+            <div class="example-card">
+                <div class="img-box">
+                    <a href="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800" target="image_viewer" class="img-link">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600" alt="Legal Research">
+                    </a>
+                </div>
+                <div class="example-text">
+                    <strong>⚖️ Research & Law</strong>
+                    AI combs through decades of case law to find obscure precedents in seconds; the lawyer uses this data to build a persuasive moral and ethical defense for their client.
+                </div>
+            </div>
+
+            <p style="margin-top: 30px;">The bridge to the future involves teaching machines "common sense"—the basic understanding of physical reality that every human child has. Until machines possess General Intelligence, the human remains the essential "pilot" of this technological frontier.</p>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="overview-of-human-ai-collaboration.html">AI Workplace</a><br>
+                        <a href="jobs-at-risk.html">Jobs at Risk</a><br>
+                        <a href="emerging-careers.html">Emerging Careers</a><br>
+                        <a href="overview-human-ai-collab.html">Human + AI</a>
+                    </div>
+                    <div>
+                        <a href="skills.html">Skills</a><br>
+                        <a href="ethics.html">Ethics</a><br>
+                        <a href="students.html">Students</a><br>
+                        <a href="future.html">Future</a>
+                    </div>
+                </div>
+            </div>
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:white;">
+                        <span class="icon-box">f</span>
+                        <span>Strativ.com</span>
+                    </a>
+                </div>
+                <p style="margin-top: 10px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:strativ018@gmail.com" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:white;">
+                        <span class="icon-box">✉</span>
+                        <span>strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-bar">
+        <p>© 2026 STRATIV. All rights reserved.</p>
+    </div>
+</footer>
+
+<a href="#top" id="scrollTopBtn" title="Scroll back to top">↑</a>
+
+</body>
+</html>

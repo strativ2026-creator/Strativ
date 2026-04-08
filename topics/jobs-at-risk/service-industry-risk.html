@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +15,6 @@
     />
     <!--Abordo, Jana Sayrielle G. Abordo-->
     <style>
-      /* ===== RESET & BASE ===== */
       * {
         margin: 0;
         padding: 0;
@@ -205,7 +204,22 @@
         color: #03045e;
         margin-bottom: 20px;
         font-size: 26px;
+        position: relative;
+        padding-left: 12px;
       }
+
+      /* Line design */
+      .article-section h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;       /* thickness of the vertical line */
+        height: 100%;     /* full height of the h2 */
+        background:  #0077b6; 
+        border-radius: 3px; /* rounded edges */
+}
 
       .article-section h3 {
         font-family: Georgia, serif;
@@ -251,116 +265,144 @@
         text-decoration: none;
       }
 
-      p  {
+      p {
         text-align: justify;
       }
 
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        background-color: #03045e;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #0077b6;
+      }
       /* ===== NAVY FOOTER ===== */
-footer {
-    background: #03045E;
-    color: #ffffff;
-    padding: 40px 6% 30px;
-    font-family: Arial, sans-serif;
-}
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; 
-    gap: 40px;
-}
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
 
-.footer-brand {
-    flex: 1;
-}
+      .footer-brand {
+        flex: 1;
+      }
 
-.footer-logo-blocks {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 15px;
-}
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
 
-.footer-logo-blocks span {
-    background: #ffffff;
-    color: #03045E; 
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 20px;
-    border-radius: 3px;
-}
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
 
-.mission-text p {
-    font-size: 18px; 
-    line-height: 1.5;
-    font-weight: 500;
-    max-width: 380px;
-}
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+      }
 
-.footer-links-group {
-    display: flex;
-    flex: 2;
-    justify-content: flex-start;
-    gap: 220px; 
-}
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
 
-.f-col h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    text-decoration: underline;
-    line-height: 1; 
-    margin-top: -6px; 
-}
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
 
-.f-col p, .f-col a {
-    font-size: 15px;
-    color: #ffffff;
-    text-decoration: none;
-    line-height: 1.7;
-}
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
 
-.quick-links-grid {
-    display: grid; 
-    grid-template-columns: auto auto; 
-    gap: 10px 40px;
-}
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-}
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
 
-.icon-box {
-    background: #ffffff;
-    color: #03045E;
-    width: 26px;
-    height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border-radius: 4px;
-    font-size: 14px;
-}
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
+      }
 
-.copyright-bar {
-    margin-top: 30px;
-    padding-top: 20px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+      .copyright-bar {
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
 
-@media (max-width: 1100px) {
-    .footer-container { flex-direction: column; }
-    .footer-links-group { gap: 30px; }
-}
+      @media (max-width: 1100px) {
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
+      }
 
       .full-width-image {
         width: 100%;
@@ -391,6 +433,117 @@ footer {
         background: #eaeaea;
         color: #0077b6;
       }
+
+    .author {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: right;
+    }
+
+    .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+    margin-top: 20px;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  }
+
+  .card-icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    font-size: 16px; /* smaller than default 20px */
+    margin-bottom: 8px;
+}
+
+  .card p {
+      font-size: 14px; /* smaller paragraph text */
+      line-height: 1.6; /* keeps readability */
+  }
+
+    cite {
+    display: block;               /* makes it a block element so it can be centered */
+    text-align: center;           /* centers the text */
+    font-style: italic;           /* keeps the traditional cite italic */
+    font-weight: 500;             /* slightly bolder for readability */
+    color: #4a5568;               /* soft gray text */
+    font-size: 1.1rem;            /* slightly larger than normal text */
+    margin: 50px auto 0 auto;     /* spacing above the cite */
+    max-width: 600px;             /* optional: limits width for readability */
+    line-height: 1.6;             /* improves line spacing */
+}
+
+    .ai-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: "Montserrat", sans-serif; /* match body font */
+        color: #003049; /* match primary text color */
+    }
+
+    .ai-table th,
+    .ai-table td {
+        padding: 14px 18px;
+        border: 1px solid #e2e8f0; /* soft border like cards */
+        text-align: left;
+        font-size: 15px;
+    }
+
+    .ai-table thead {
+        background-color: #03045e; /* dark navy header */
+        color: #ffffff; /* white text in header */
+        font-family: Georgia, serif; /* heading style for thead */
+        font-weight: 700;
+    }
+
+    .ai-table tbody tr:nth-child(odd) {
+        background-color: #ffffff; /* white row */
+    }
+
+    .ai-table tbody tr:nth-child(even) {
+        background-color: #f1f5f9; /* light gray row matching your design palette */
+    }
+
+    /* Role Cards */
+    .role-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .role-card {
+      background: #f8fafc;
+      padding: 15px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #003049;
+    }
+
+    /* Workforce Impact List */
+    .impact-list {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .impact-item {
+      background: #f8fafc;
+      padding: 12px 15px;
+      border-radius: 8px;
+      font-size: 15px;
+      color: #003049;
+    }
+    
     </style>
   </head>
 
@@ -410,10 +563,17 @@ footer {
         <div class="dropdown">
           <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
           <div class="dropdown-menu">
-            <a href="../introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
-            <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-            <a href="../emerging-ai-careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-            <a href="../human-ai-collab/overview.html">Human + AI</a>
+            <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+              >AI Workplace</a
+            >
+            <a href="overview-jobs-at-risk.html"
+              >Jobs at Risk</a
+            >
+            <a
+              href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
+              >Emerging Careers</a
+            >
+            <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
             <a href="">Future Skills</a>
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
             <a href="../students/overview.html">Students</a>
@@ -437,9 +597,7 @@ footer {
     <div class="page">
       <aside class="sidebar">
         <h3>AI WORKPLACE</h3>
-        <a
-          href="overview-jobs-at-risk.html"
-          title="overview of jobs at risk"
+        <a href="overview-jobs-at-risk.html" title="overview of jobs at risk"
           >Overview of Jobs at Risk</a
         >
         <a href="jobs-most-affected.html" title="jobs most affected by AI"
@@ -463,7 +621,7 @@ footer {
         <a href="summary-jobs-at-risk.html" title="Summary of Jobs at Risk"
           >Summary of Jobs at Risk</a
         >
-        <a href="retail-jobs-risk.html" title="AI in Marketing"
+        <a href="retail-jobs-at-risk.html" title="AI in Marketing"
           >Retail Jobs at Risk</a
         >
         <a href="manufacturing-automation.html" title="AI and Remote Work"
@@ -474,19 +632,27 @@ footer {
           title="Benefits of AI in the Workplace"
           >Transport Automation</a
         >
-        <a href="#" title="Challenges of AI in the Workplace"
+        <a href="administrative-job-loss.html" title="Challenges of AI in the Workplace"
           >Administrative Job Loss</a
         >
-        <a href="#" title="Service Industry Risk" class="active"
+        <a
+          href="service-industry-risk.html"
+          title="Service Industry Risk"
+          class="active"
           >Service Industry Risk</a
         >
-        <a href="#" title="Job Transition Strategies"
+        <a
+          href="job-transition-strategies.html"
+          title="Job Transition Strategies"
           >Job Transition Strategies</a
         >
       </aside>
       <main class="main">
         <div class="inner-hero">
-          <a href="images/banners/service-industry-banner.jpg" target="image_viewer">
+          <a
+            href="images/banners/service-industry-banner.jpg"
+            target="image_viewer"
+          >
             <img
               src="images/banners/service-industry-banner.jpg"
               alt="Service Industry Risk Banner"
@@ -497,233 +663,335 @@ footer {
         </div>
 
         <div class="article-section">
-  <h2 id="overview">Overview of Service Industry Risk</h2>
-  <p>
-    The service industry is one of the largest sectors in the global economy,
-    covering jobs that involve direct interaction with customers such as food
-    service, hospitality, retail assistance, and customer support. As artificial
-    intelligence (AI) continues to advance, many of these roles are becoming
-    increasingly vulnerable to automation.
-  </p>
+          <h2 id="overview">The Service Industry at a Turning Point</h2>
+          <p>
+            The <strong>service industry</strong> is one of the largest sectors in the global
+            economy, covering jobs that involve <strong>direct interaction</strong> with
+            customers such as food service, hospitality, retail assistance, and
+            customer support. <em>Artificial intelligence (AI)</em> continues to
+            advance, many of these roles are becoming increasingly vulnerable to
+            automation.
+          </p>
 
-  <p>
-    According to labor market trends, service-related occupations are among the
-    most exposed to AI disruption due to their reliance on repetitive tasks and
-    predictable workflows. From chatbots handling customer inquiries to
-    self-service kiosks replacing cashiers, the transformation of the service
-    industry is no longer a future possibility—it is already happening today.
-  </p>
+          <p>
+            According to labor market trends, service-related occupations are
+            among the most exposed to AI disruption due to their reliance on
+            repetitive tasks and predictable workflows. From chatbots handling
+            customer inquiries to self-service kiosks replacing cashiers, the
+            transformation of the service industry is <em>no longer</em> a future
+            possibility—it is <strong>already happening today.</strong>
+          </p>
 
-  <div class="full-width-image">
-    <a href="images/others/robotlookingup.jpg" target="image_viewer">
-      <img src="images/others/robotlookingup.jpg" alt="This is a picture of a robot looking up" title="This is a picture of a robot looking up" />
-    </a>
+          <div class="full-width-image">
+            <a href="images/others/robotlookingup.jpg" target="image_viewer">
+              <img
+                src="images/others/robotlookingup.jpg"
+                alt="This is a picture of a robot looking up"
+                title="This is a picture of a robot looking up"
+              />
+            </a>
+          </div>
+          <br>
+          <h2 id="why-ai">Why the Service Sector Is Highly Vulnerable to AI</h2>
+          <p>
+            The rapid adoption of AI in service-based businesses is driven by
+            the need for <em>efficiency, speed, and cost reduction</em>. Companies are
+            increasingly integrating AI systems to streamline operations and
+            improve customer experience while minimizing labor expenses.
+          </p>
+
+          <p>
+            As a result, tasks that were once performed by humans are now being
+            handled by <strong>intelligent systems</strong> capable of operating <strong>continuously</strong> and
+            delivering instant responses.
+          </p>
+
+          <table class="ai-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Repetitive Tasks</td>
+                <td>Many service roles involve predictable interactions that AI can easily automate</td>
+              </tr>
+              <tr>
+                <td>Cost Efficiency</td>
+                <td>Businesses reduce expenses by replacing labor with automated systems</td>
+              </tr>
+              <tr>
+                <td>24/7 Availability</td>
+                <td>AI systems operate continuously without breaks</td>
+              </tr>
+              <tr>
+                <td>Speed and Accuracy</td>
+                <td>Automated systems provide faster and more consistent service</td>
+              </tr>
+            </tbody>
+          </table>
+          <br><br>
+          <h2 id="jobs-risk">Frontline Roles on the Brink of Automation</h2>
+          <p>
+            Several roles in the service industry are highly exposed to
+            automation due to their structured and repetitive nature. Studies
+            suggest that employment in certain service occupations, particularly
+            customer service and retail, is expected to decline as AI adoption
+            increases.
+          </p>
+          <div class="impact-list">
+            <div class="impact-item"><strong>Cashiers:</strong> Replaced by <em>self-checkout</em> and <em>digital payment systems</em></div>
+            <div class="impact-item"><strong>Customer Service Representatives:</strong> Replaced by <em>chatbots and virtual assistants</em></div>
+            <div class="impact-item"><strong>Fast Food Workers:</strong> Automated ordering <em>kiosks</em> and <em>preparation systems</em></div>
+            <div class="impact-item"><strong>Hotel Front Desk Staff:</strong> <em>AI-powered</em> check-in and booking platforms</div>
+            <div class="impact-item"><strong>Call Center Agents:</strong> <em>AI</em> handling customer interactions efficiently</div>
+          </div>
+
+          <div class="full-width-image">
+            <a href="images/others/robotserver.jpg" target="image_viewer">
+              <img
+                src="images/others/robotserver.jpg"
+                alt="This is a picture of a robot serving customers"
+                title="This is a picture of a robot serving customers"
+              />
+            </a>
+          </div>
+          <br>
+        <h2 id="examples">Where AI Is Already Replacing Human Tasks</h2>
+        <p class="section-desc">
+        AI technologies are already widely implemented across the service industry, demonstrating how automation is reshaping everyday business operations.
+      </p>
+
+<div class="cards-container">
+  <div class="card">
+    <div class="card-icon">🤖</div>
+    <h3>Chatbots & Virtual Assistants</h3>
+    <p>Providing instant customer support, answering inquiries, and handling repetitive service tasks without human intervention.</p>
   </div>
 
-  <h2 id="why-ai">Why AI Affects the Service Industry</h2>
-  <p>
-    The rapid adoption of AI in service-based businesses is driven by the need
-    for efficiency, speed, and cost reduction. Companies are increasingly
-    integrating AI systems to streamline operations and improve customer
-    experience while minimizing labor expenses.
-  </p>
+      <div class="card">
+        <div class="card-icon">🛍️</div>
+        <h3>Self-Service Kiosks</h3>
+        <p>Automated ordering and checkout systems in restaurants and retail stores reduce reliance on frontline staff.</p>
+      </div>
 
-  <p>
-    As a result, tasks that were once performed by humans are now being handled
-    by intelligent systems capable of operating continuously and delivering
-    instant responses.
-  </p>
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <h3>Automated Booking Systems</h3>
+        <p>AI-enabled scheduling and reservation platforms streamline bookings for hotels, restaurants, and appointments.</p>
+      </div>
 
-  <ul>
-    <li><strong>Repetitive Tasks:</strong> Many service roles involve predictable interactions that AI can easily automate</li>
-    <li><strong>Cost Efficiency:</strong> Businesses reduce expenses by replacing labor with automated systems</li>
-    <li><strong>24/7 Availability:</strong> AI systems operate continuously without breaks</li>
-    <li><strong>Speed and Accuracy:</strong> Automated systems provide faster and more consistent service</li>
-  </ul>
+      <div class="card">
+        <div class="card-icon">🎙️</div>
+        <h3>AI-Powered Call Centers</h3>
+        <p>Voice assistants and AI systems handle routine customer interactions, reducing the need for human agents.</p>
+      </div>
+    </div>
+    <br>
+    <p class="section-desc">
+            These systems not only improve efficiency but also redefine how businesses interact with customers, shifting the focus from human labor to digital solutions.
+          </p>
+          <h3>Impacts on the Workforce</h3>
+          <div class="impact-list">
+            <div class="impact-item"><strong>Job Displacement:</strong> Many roles are being reduced or eliminated</div>
+            <div class="impact-item"><strong>Reduced Work Opportunities:</strong> Fewer employees are needed to perform the same tasks</div>
+            <div class="impact-item"><strong>Skill Shift:</strong> Demand is increasing for digital and technical skills</div>
+            <div class="impact-item"><strong>Job Polarization:</strong> Growth in high-skill jobs while low-skill jobs decline</div>
+          </div>
 
-  <h2 id="jobs-risk">Service Jobs Most at Risk</h2>
-  <p>
-    Several roles in the service industry are highly exposed to automation due
-    to their structured and repetitive nature. Studies suggest that employment
-    in certain service occupations, particularly customer service and retail,
-    is expected to decline as AI adoption increases.
-  </p>
+          <p class="section-desc">
+            This trend may contribute to economic inequality, as workers without access to education or training face greater difficulty adapting to the changing job market.
+          </p>
 
-  <ul>
-    <li><strong>Cashiers:</strong> Replaced by self-checkout and digital payment systems</li>
-    <li><strong>Customer Service Representatives:</strong> Replaced by AI chatbots and virtual assistants</li>
-    <li><strong>Fast Food Workers:</strong> Automated ordering kiosks and robotic preparation systems</li>
-    <li><strong>Hotel Front Desk Staff:</strong> AI-powered check-in and booking platforms</li>
-    <li><strong>Call Center Agents:</strong> Voice AI handling customer interactions efficiently</li>
-  </ul>
+          <div class="full-width-image">
+            <a
+              href="images/others/humanwithrobotfingers.jpg"
+              target="image_viewer"
+            >
+              <img
+                src="images/others/humanwithrobotfingers.jpg"
+                alt="This is a picture of a human with robot fingers"
+                title="This is a picture of a human with robot fingers"
+              />
+            </a>
+          </div>
+          <br>
 
-  <div class="full-width-image">
-    <a href="images/others/robotserver.jpg" target="image_viewer">
-      <img src="images/others/robotserver.jpg" alt="This is a picture of a robot serving customers" title="This is a picture of a robot serving customers" />
-    </a>
-  </div>
+        <h2 id="reinvention">From Replacement to Reinvention</h2>
 
-  <h2 id="examples">Real-World Applications of AI</h2>
-  <p>
-    AI technologies are already widely implemented across the service industry,
-    demonstrating how automation is reshaping everyday business operations.
-  </p>
+        <p class="section-desc">
+          Despite the risks, AI is <strong>not solely eliminating jobs</strong>—it is <strong>transforming</strong> them. Many service roles are evolving to focus on tasks that require <em>human judgment, creativity, and emotional intelligence</em>.
+        </p>
 
-  <ul>
-    <li>Chatbots providing instant customer support</li>
-    <li>Self-service kiosks in restaurants and retail stores</li>
-    <li>Automated booking and reservation systems</li>
-    <li>AI-powered voice assistants in call centers</li>
-  </ul>
+        <p class="section-desc">
+          Employees are increasingly shifting from <strong>routine work</strong> to roles that involve <strong>managing AI systems, resolving complex issues,</strong> and <strong>enhancing customer experience</strong>. This highlights the continued importance of human-centered skills in an automated world.
+        </p>
+        <h3>Skills Workers Need to Survive and Thrive</h3>
+        <p class="section-desc">
+          To remain competitive in an AI-driven service industry, workers must be proactive in developing new skills and embracing lifelong learning.
+        </p>
+          <div class="impact-list">
+            <div class="impact-item"><strong>Digital & AI Literacy:</strong> Learn digital tools and basic AI concepts to stay relevant in automated workplaces.</div> 
+            <div class="impact-item"><strong>Communication Skills:</strong> Strengthen communication and interpersonal skills for collaborative and customer-focused roles.</div>
+            <div class="impact-item"><strong>Critical Thinking:</strong> Develop problem-solving and analytical abilities to manage AI systems effectively.</div>
+            <div class="impact-item"><strong>Adaptability:</strong> Be open to reskilling, career transitions, and learning new approaches to work.</div>
+          </div>
+        <p class="section-desc" style="margin-top: 25px;">
+          Adaptability is no longer optional—it is essential for long-term career success in the evolving workforce.
+        </p>
 
-  <p>
-    These systems not only improve efficiency but also redefine how businesses
-    interact with customers, shifting the focus from human labor to digital
-    solutions.
-  </p>
+          <div class="full-width-image">
+            <a href="images/others/humanandrobot.jpg" target="image_viewer">
+              <img
+                src="images/others/humanandrobot.jpg"
+                alt="This is a picture of a human and a robot working together"
+                title="This is a picture of a human and a robot working together"
+              />
+            </a>
+          </div>
+          <br><br>
+          <h2 id="insights">Key Insights on AI in the Service Industry</h2>
+          <div class="cards-container">
+            <div class="card">
+              <div class="card-icon">🤖</div>
+              <h3>Automation Risk</h3>
+              <p>Many service roles, especially repetitive tasks like cashiers or customer support, are increasingly vulnerable to AI-driven automation.</p>
+            </div>
 
-  <h2 id="impact">Impact on Workers</h2>
-  <p>
-    The rise of AI in the service industry has significant implications for the
-    workforce. While automation increases efficiency, it also creates challenges
-    for workers, particularly those in entry-level and low-skill positions.
-  </p>
+            <div class="card">
+              <div class="card-icon">💼</div>
+              <h3>Job Transformation</h3>
+              <p>AI is not just replacing jobs—it’s changing them. New roles require human judgment, creativity, and emotional intelligence.</p>
+            </div>
 
-  <ul>
-    <li><strong>Job Displacement:</strong> Many roles are being reduced or eliminated</li>
-    <li><strong>Reduced Work Opportunities:</strong> Fewer employees are needed to perform the same tasks</li>
-    <li><strong>Skill Shift:</strong> Demand is increasing for digital and technical skills</li>
-    <li><strong>Job Polarization:</strong> Growth in high-skill jobs while low-skill jobs decline</li>
-  </ul>
+            <div class="card">
+              <div class="card-icon">📊</div>
+              <h3>Efficiency Gains</h3>
+              <p>Businesses benefit from faster, 24/7 AI services, cost reduction, and operational consistency without human limitations.</p>
+            </div>
 
-  <p>
-    This trend may contribute to economic inequality, as workers without access
-    to education or training face greater difficulty adapting to the changing
-    job market.
-  </p>
+            <div class="card">
+              <div class="card-icon">⚖️</div>
+              <h3>Ethical & Social Impacts</h3>
+              <p>Lack of accountability and transparency can lead to bias, inequity, and reduced public trust in automated systems.</p>
+            </div>
+          </div>
+          <br><br><br><br>
+          <h2 id="summary">What This Means for the Future of Work</h2>
+          <p>
+            The <strong>service industry</strong> is among the most affected sectors in the age
+            of AI. Jobs that involve <strong>repetitive</strong> and <strong>predictable</strong> tasks are at the
+            highest risk, while roles that require <strong>human interaction</strong> and
+            emotional intelligence remain valuable.
+          </p>
 
-  <div class="full-width-image">
-    <a href="images/others/humanwithrobotfingers.jpg" target="image_viewer">
-      <img src="images/others/humanwithrobotfingers.jpg" alt="This is a picture of a human with robot fingers" title="This is a picture of a human with robot fingers" />
-    </a>
-  </div>
+          <p>
+            As automation continues to reshape the workforce, the <strong>key to success
+            lies in adaptation</strong>. Workers who <strong>embrace technology, develop new
+            skills</strong>, and focus on <strong>uniquely human abilities</strong> will be better
+            prepared for the <em>future of work.</em>
+          </p>
 
-  <h2 id="transformation">Job Transformation, Not Just Loss</h2>
-  <p>
-    Despite the risks, AI is not solely eliminating jobs—it is transforming
-    them. Many service roles are evolving to focus on tasks that require human
-    judgment, creativity, and emotional intelligence.
-  </p>
-
-  <p>
-    Employees are increasingly shifting from routine work to roles that involve
-    managing AI systems, resolving complex issues, and enhancing customer
-    experience. This highlights the continued importance of human-centered
-    skills in an automated world.
-  </p>
-
-  <h2 id="adaptation">How Workers Can Adapt</h2>
-  <p>
-    To remain competitive in an AI-driven service industry, workers must be
-    proactive in developing new skills and embracing lifelong learning.
-  </p>
-
-  <ul>
-    <li>Learn digital tools and basic AI concepts</li>
-    <li>Strengthen communication and interpersonal skills</li>
-    <li>Develop critical thinking and problem-solving abilities</li>
-    <li>Be open to reskilling and career transitions</li>
-  </ul>
-
-  <p>
-    Adaptability is no longer optional—it is essential for long-term career
-    success in the evolving workforce.
-  </p>
-
-  <div class="full-width-image">
-    <a href="images/others/humanandrobot.jpg" target="image_viewer">
-      <img src="images/others/humanandrobot.jpg" alt="This is a picture of a human and a robot working together" title="This is a picture of a human and a robot working together" />
-    </a>
-  </div>
-
-  <h2 id="summary">Keep in Mind!</h2>
-  <p>
-    The service industry is among the most affected sectors in the age of AI.
-    Jobs that involve repetitive and predictable tasks are at the highest risk,
-    while roles that require human interaction and emotional intelligence
-    remain valuable.
-  </p>
-
-  <p>
-    As automation continues to reshape the workforce, the key to success lies in
-    adaptation. Workers who embrace technology, develop new skills, and focus on
-    uniquely human abilities will be better prepared for the future of work.
-  </p>
-
-  <p>
-    <strong>The future of the service industry will not eliminate humans—but it will redefine their role.</strong>
-  </p>
-</div>
+          <p>
+            <cite align="center"
+              >"The future of the service industry will not eliminate humans, rather,
+              it will redefine their role."</cite
+            >
+          </p>
+        </div>
+        <p class="author">Written by: Abordo, Jana Sayrielle G.</p>
       </main>
     </div>
+          <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page"
+        >↑</a
+      >
 
     <!-- FOOTER -->
-<footer>
-    <div class="footer-container">
+    <footer>
+      <div class="footer-container">
         <div class="footer-brand">
-            <div class="footer-logo-blocks">
-                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-            </div>
-            <div class="mission-text">
-                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
-            </div>
+          <div class="footer-logo-blocks">
+            <span>S</span><span>T</span><span>R</span><span>A</span
+            ><span>T</span><span>I</span><span>V</span>
+          </div>
+          <div class="mission-text">
+            <p>
+              Navigating the future of human-AI collaboration in the workforce.
+              A comprehensive guide to automation and emerging careers.
+            </p>
+          </div>
         </div>
 
         <div class="footer-links-group">
-            <div class="f-col">
-                <h4>Quick Links</h4>
-                <div class="quick-links-grid">
-                    <div>
-                        <a href="../introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
-                        <a href="../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="../topics/future-workforce-skills">Future Skills</a><br>
-                        <a href="../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                    </div>
-                    <div>
-                        <a href="../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../topics/human-ai-collab/overview.html">Collaboration</a><br>
-                        <a href="../topics/ai-ethics/overview-ai-ethics.html">Ethics</a><br>
-                        <a href="../topics/future-outlook-ai/">Future Outlook</a>
-                    </div>
-                </div>
+          <div class="f-col">
+            <h4>Quick Links</h4>
+            <div class="quick-links-grid">
+              <div>
+                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+                  >AI Workplace</a
+                ><br />
+                <a
+                  href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
+                  >Emerging Careers</a
+                ><br />
+                <a href="../future-workforce-skills/overview-future-workforce-skills.html ">Future Skills</a
+                ><br />
+                <a
+                  href="../preparing-student/overviewofpreparingstudentsai.html"
+                  >Students</a
+                >
+              </div>
+              <div>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+                  >Jobs at Risk</a
+                ><br />
+                <a href="../human-ai-collab/overview-human-ai-collab.html"
+                  >Collaboration</a
+                ><br />
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a
+                ><br />
+                <a href="../future-outlook-ai/">Future Outlook</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-col">
+            <h4>Contact Info</h4>
+            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
+
+            <div class="contact-item">
+              <a
+                href="https://www.facebook.com/profile.php?id=61580704943031"
+                target="_blank"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">f</span>
+                <span>Strativ.com</span>
+              </a>
             </div>
 
-            <div class="f-col">
-                <h4>Contact Info</h4>
-                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
-                
-                <div class="contact-item">
-                    <a href="https://facebook.com/strativ" target="_blank" style="display:flex;align-items:center;gap:10px;">
-                        <span class="icon-box">f</span>
-                        <span>Strativ.com</span>
-                    </a>
-                </div>
+            <p style="margin-top: 10px; margin-bottom: 8px">
+              <strong>Email:</strong>
+            </p>
 
-                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
-                
-                <div class="contact-item">
-                    <a href="mailto:strativ018@gmail.com" style="display:flex;align-items:center;gap:10px;">
-                        <span class="icon-box">✉</span>
-                        <span>strativ018@gmail.com</span>
-                    </a>
-                </div>
+            <div class="contact-item">
+              <a
+                href="mailto:strativ018@gmail.com"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">✉</span>
+                <span>strativ018@gmail.com</span>
+              </a>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="copyright-bar">
+      <div class="copyright-bar">
         <p>© 2026 STRATIV. All rights reserved.</p>
-    </div>
-</footer>
+      </div>
+    </footer>
   </body>
 </html>

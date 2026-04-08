@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | Privacy and Security Issues in AI</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+    scroll-behavior: smooth;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077B6;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    display: grid;
+    grid-template-columns: 260px 1fr; 
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+/* STICKY SIDEBAR */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar a:hover {
+    background: #f1f5f9;
+    color: #0077B6;
+}
+
+.sidebar a.active { 
+    background: #eaeaea; 
+    color: #0077B6; 
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inner-hero {
+    height: 320px; /* Slightly taller for better 2-column balance */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(3,4,94,0.5);
+}
+
+.inner-hero h1 {
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    bottom: 30px;
+    left: 30px;
+}
+
+.about {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.card a:hover {
+    background: #0077B6;
+}
+
+.card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+}
+
+.card p {
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: #6D6D6D;
+}
+
+.card a {
+    padding: 10px 20px;
+    background: #03045E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045E; 
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px; 
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px; 
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1; 
+    margin-top: -6px; 
+}
+
+.f-col p, .f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid; 
+    grid-template-columns: auto auto; 
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045E;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
+}
+
+/* ── SECTION INTRO BLOCK ── */
+.section-intro {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+.section-intro h2 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+.section-intro > p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.75;
+    margin-bottom: 0;
+}
+
+/* ── PERSPECTIVE / DEFINITION BLOCK ── */
+.def-block {
+    background: #F8FAFC;
+    border-left: 4px solid #03045E;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-top: 18px;
+}
+.def-block.blue  { border-left-color: #0077B6; }
+.def-block h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+.def-block p { font-size: 14px; color: #555; line-height: 1.7; margin: 0; }
+.def-block ul {
+    margin: 8px 0 0 18px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* ── COMPARISON TABLE ── */
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+.compare-table thead tr {
+    background: #03045E;
+    color: #fff;
+}
+.compare-table thead th {
+    padding: 13px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .3px;
+}
+.compare-table tbody tr:nth-child(even) { background: #F0F4FF; }
+.compare-table tbody tr:nth-child(odd)  { background: #fff; }
+.compare-table tbody td {
+    padding: 12px 16px;
+    color: #444;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+    line-height: 1.6;
+}
+.compare-table tbody td:first-child { font-weight: 700; color: #03045E; }
+
+/* ── RISK CARDS ── */
+.risk-tag {
+    display: inline-block;
+    background: #FFF0F0;
+    color: #C0392B;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    border: 1px solid #FCCCCB;
+}
+.risk-item {
+    border-top: 1px solid #f0f4f8;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.65;
+}
+.risk-item:first-of-type { border-top: none; padding-top: 0; margin-top: 4px; }
+.risk-item strong { color: #03045E; display: block; margin-bottom: 3px; font-size: 13px; }
+
+/* ── CASE STUDY CARDS ── */
+.case-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #0077B6;
+}
+.case-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+.case-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.case-label { font-weight: 700; color: #03045E; white-space: nowrap; min-width: 82px; }
+.case-value { color: #555; }
+
+/* ── IMPLICATION BLOCKS ── */
+.impl-block {
+    background: #fff;
+    padding: 24px 26px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+.impl-block h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 16px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.impl-block h4::before {
+    content: "";
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #03045E;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.impl-item {
+    border-top: 1px solid #f0f4f8;
+    padding: 9px 0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.65;
+}
+.impl-item:first-child { border-top: none; padding-top: 0; }
+.impl-item strong { color: #03045E; }
+
+/* ── TECH TABLE ── */
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+.tech-table thead tr { background: #03045E; color: #fff; }
+.tech-table thead th { padding: 12px 16px; text-align: left; font-weight: 700; }
+.tech-table tbody tr:nth-child(even) { background: #F0F4FF; }
+.tech-table tbody tr:nth-child(odd)  { background: #fff; }
+.tech-table tbody td {
+    padding: 11px 16px;
+    color: #444;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+    line-height: 1.6;
+}
+.tech-table tbody td:first-child { font-weight: 700; color: #03045E; }
+
+/* ── DEBATE CARDS ── */
+.debate-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 24px;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0077B6;
+}
+.debate-card h4 {
+    font-family: Georgia, serif;
+    color: #03045E;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.debate-card p { font-size: 13px; color: #555; line-height: 1.7; margin: 0; }
+.debate-card p + p { margin-top: 8px; }
+.debate-card strong { color: #03045E; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .page { grid-template-columns: 1fr; padding: 90px 4% 50px; }
+    .sidebar { position: static; }
+    .grid { grid-template-columns: 1fr; }
+    .inner-hero h1 { font-size: 26px; bottom: 20px; left: 20px; }
+    .compare-table, .tech-table { font-size: 12px; }
+    .footer-links-group { gap: 30px; }
+}
+@media (max-width: 560px) {
+    .inner-hero { height: 220px; }
+    .inner-hero h1 { font-size: 20px; }
+}
+
+#scrollTopBtn {
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 99; 
+    background-color: #03045E; 
+    color: white; 
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    font-size: 20px; 
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid #ffffff;
+    transition: background-color 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #0077B6; 
+}
+</style>
+</head>
+
+<body>
+
+<header id="top">
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
+                <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Human + AI</a>
+                <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Skills</a>
+                <a href="overview-ai-ethics.html">Ethics</a>
+                <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
+            </div>
+        </div>
+
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+     <aside class="sidebar">
+        <h3>AI Ethics &amp; Social Issues</h3>
+        <a href="overview-ai-ethics.html">Overview of AI Ethics</a>
+        <a href="ai-bias.html">AI Bias and Fairness</a>
+        <a href="privacy-security-issue.html" class="active">Privacy and Security Issues</a>
+        <a href="job-displacement.html">Job Displacement by AI</a>
+        <a href="responsible-ai.html">Responsible AI Development</a>
+        <a href="ethics-summary.html">Ethics Summary</a>
+        <a href="algorithm-transparency.html">Algorithm Transparency</a>
+        <a href="ai-regulation.html">AI Regulation and Policies</a>
+        <a href="ai-accountability.html">AI Accountability</a>
+        <a href="ethical-ai-design.html">Ethical AI Design</a>
+        <a href="ai-and-human-rights.html">AI and Human Rights</a>
+        <a href="social-impact-of-artificial-intelligence.html">Social Impact of Artificial Intelligence</a>
+    </aside>
+
+    <main class="main">
+
+        <!-- ── HERO ── -->
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&auto=format&fit=crop"
+                 alt="Digital padlock on circuit board representing AI privacy and security"
+                 title="Privacy and Security Issues in AI Systems Banner">
+            <h1>Privacy and Security Issues in AI</h1>
+        </div>
+
+        <!-- SECTION 1: DEFINITIONS AND SCOPE -->
+        <div class="section-intro">
+            <h2>Definitions and Scope</h2>
+            <p>Privacy and security are distinct but deeply interconnected pillars of responsible AI. Understanding both — and how they differ — is essential before addressing the risks they jointly present.</p>
+
+            <div class="def-block">
+                <h4>Privacy in AI</h4>
+                <p>As Mary Culnan defines it, privacy is <em>"the ability of an individual to control the terms under which their personal information is acquired and used."</em> In the AI context, this encompasses four key dimensions:</p>
+                <ul>
+                    <li><strong>Informational privacy</strong> — Control over collection, storage, and processing of personal data used to train or operate AI models.</li>
+                    <li><strong>Identity protection</strong> — Safeguarding against re-identification of individuals from supposedly anonymized datasets.</li>
+                    <li><strong>Membership privacy</strong> — Preventing inference about whether a specific individual's data was used in model training.</li>
+                    <li><strong>Data minimization</strong> — Limiting collection strictly to what is necessary for legitimate and declared purposes.</li>
+                </ul>
+            </div>
+
+            <div class="def-block blue">
+                <h4>Security in AI</h4>
+                <p>Security encompasses the technical and organizational measures that protect AI systems and their data from unauthorized access, modification, or disruption. Five core dimensions apply:</p>
+                <ul>
+                    <li><strong>Confidentiality</strong> — Ensuring sensitive data and model parameters remain accessible only to authorized parties.</li>
+                    <li><strong>Integrity</strong> — Protecting against unauthorized modification of training data, model parameters, or system outputs.</li>
+                    <li><strong>Availability</strong> — Ensuring AI systems remain operational and accessible to legitimate users at all times.</li>
+                    <li><strong>Non-repudiation</strong> — Providing verifiable evidence of actions taken within AI systems.</li>
+                    <li><strong>Authentication</strong> — Verifying the identities of users, systems, and data sources interacting with AI.</li>
+                </ul>
+            </div>
+
+            <h4 style="font-family:Georgia,serif; color:#03045E; margin: 24px 0 12px; font-size:16px;">Distinguishing Privacy vs. Security</h4>
+            <table class="compare-table">
+                <thead>
+                    <tr><th>Dimension</th><th>Privacy</th><th>Security</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Focus</td><td>Control over personal information</td><td>Protection of system assets</td></tr>
+                    <tr><td>Primary concern</td><td>Rights of individuals</td><td>Integrity of systems</td></tr>
+                    <tr><td>Violation consequence</td><td>Loss of autonomy, dignity, and trust</td><td>System compromise and financial loss</td></tr>
+                    <tr><td>Typical mechanisms</td><td>Consent, anonymization, transparency</td><td>Encryption, access control, monitoring</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 2: KEY RISKS AND CHALLENGES -->
+        <div class="about">
+            <h2>Key Risks and Challenges</h2>
+            <p>AI systems introduce a distinct and evolving set of privacy and security vulnerabilities spanning data handling, model behavior, and deployment environments.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <span class="risk-tag">Data Breaches &amp; Exposure</span>
+                <div class="risk-item">
+                    <strong>Model Extraction Attacks</strong>
+                    Adversaries duplicate model parameters by sending queries to cloud AI services (MLaaS), compromising intellectual property and potentially exposing training data.
+                </div>
+                <div class="risk-item">
+                    <strong>Data Leakage</strong>
+                    AI models may inadvertently memorize and reveal sensitive training data, especially when overfitted to small datasets.
+                </div>
+                <div class="risk-item">
+                    <strong>Membership Inference</strong>
+                    Attackers determine whether specific records were used in training, exposing participation in sensitive datasets such as medical studies or financial records.
+                </div>
+                <div class="risk-item">
+                    <strong>Backend Vulnerabilities</strong>
+                    Insecure web servers or databases storing personal profiles, credit card data, and order information remain prime targets for large-scale breaches.
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="risk-tag">Surveillance &amp; Privacy Intrusion</span>
+                <div class="risk-item">
+                    <strong>Mass Data Collection</strong>
+                    IoT devices and AI systems continuously collect behavioral, location, and biometric data — often without meaningful user consent or awareness.
+                </div>
+                <div class="risk-item">
+                    <strong>Profiling</strong>
+                    Cross-site data aggregation enables construction of detailed personal profiles without users' knowledge.
+                </div>
+                <div class="risk-item">
+                    <strong>Re-identification</strong>
+                    AI techniques can re-identify individuals from supposedly anonymized datasets with high accuracy.
+                </div>
+                <div class="risk-item">
+                    <strong>Function Creep</strong>
+                    Data collected for one purpose is routinely repurposed for unrelated, often unanticipated applications.
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="risk-tag">Adversarial Attacks</span>
+                <div class="risk-item">
+                    <strong>Evasion Attacks</strong>
+                    Subtle, imperceptible perturbations to inputs cause models to misclassify with high confidence — e.g., a stop sign recognized as a speed limit sign.
+                </div>
+                <div class="risk-item">
+                    <strong>Poisoning Attacks</strong>
+                    Malicious data injected during training corrupts model behavior, potentially embedding hidden backdoors that activate on trigger inputs.
+                </div>
+                <div class="risk-item">
+                    <strong>White-box vs. Black-box</strong>
+                    Both attacks using full model knowledge and those relying only on query responses pose serious threats to deployed AI systems.
+                </div>
+                <div class="risk-item">
+                    <strong>Transferability</strong>
+                    Adversarial examples crafted for one model frequently fool models with entirely different architectures.
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="risk-tag">Model Inversion &amp; Reconstruction</span>
+                <div class="risk-item">
+                    <strong>Model Inversion Attacks</strong>
+                    Using model outputs to reconstruct training data — researchers have recovered recognizable faces from facial recognition models.
+                </div>
+                <div class="risk-item">
+                    <strong>Attribute Inference</strong>
+                    Deriving sensitive attributes such as sexual orientation or political views from seemingly innocuous model predictions.
+                </div>
+                <div class="risk-item">
+                    <strong>Gradient Leakage</strong>
+                    In federated learning, shared gradients can leak private information about individual participants' local data.
+                </div>
+                <div class="risk-item">
+                    <strong>Hyperparameter Theft</strong>
+                    Attackers estimate model hyperparameters via query responses, enabling more effective subsequent targeted attacks.
+                </div>
+            </div>
+
+            <div class="card" style="grid-column: 1 / -1;">
+                <span class="risk-tag">Identity Theft &amp; Fraud</span>
+                <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 10px;">
+                    <div>
+                        <strong style="display:block; color:#03045E; font-size:13px; margin-bottom:5px;">Credential Compromise</strong>
+                        <span style="font-size:13px; color:#555; line-height:1.65;">Weak authentication mechanisms expose user accounts to takeover by automated bots and credential stuffing attacks.</span>
+                    </div>
+                    <div>
+                        <strong style="display:block; color:#03045E; font-size:13px; margin-bottom:5px;">Synthetic Identity Fraud</strong>
+                        <span style="font-size:13px; color:#555; line-height:1.65;">AI-generated synthetic identities blend real and fabricated data for fraudulent financial transactions, evading traditional detection.</span>
+                    </div>
+                    <div>
+                        <strong style="display:block; color:#03045E; font-size:13px; margin-bottom:5px;">Voice Spoofing &amp; Social Engineering</strong>
+                        <span style="font-size:13px; color:#555; line-height:1.65;">Deepfake audio impersonates individuals for financial fraud; AI chatbots conduct convincing automated phishing campaigns at scale.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: CASE STUDIES -->
+        <div class="about">
+            <h2>Case Studies</h2>
+            <p>Real-world incidents illustrate how privacy and security vulnerabilities in AI translate into concrete harms for individuals and organizations.</p>
+        </div>
+
+        <div class="grid">
+            <div class="case-card">
+                <h4>Credit Card Data Breach — Insecure E-Commerce Servers</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">E-commerce merchants storing customer order archives on public-facing web servers throughout the 2000s–2020s.</span></div>
+                <div class="case-row"><span class="case-label">Vulnerability</span><span class="case-value">Order archives containing credit card numbers, home addresses, and personal data stored outside firewalls with inadequate access controls.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Thefts of 100,000 to 3.7 million credit card records documented across multiple incidents.</span></div>
+                <div class="case-row"><span class="case-label">Lesson</span><span class="case-value">Sensitive data must sit behind firewalls; front-end servers require minimal functionality and strict least-privilege access.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Membership Inference Against ML Models (Shokri et al., 2017)</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">Seminal research demonstrating membership inference attacks against commercial deep learning models.</span></div>
+                <div class="case-row"><span class="case-label">Attack</span><span class="case-value">Adversaries inferred with high confidence whether a specific record was used in model training, exposing participation in sensitive datasets.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Individuals in confidential medical or financial studies are exposed despite no direct data release from the system.</span></div>
+                <div class="case-row"><span class="case-label">Lesson</span><span class="case-value">Even black-box model access is sufficient to violate participant privacy; differential privacy during training is essential.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Physical Adversarial Attack on Autonomous Vehicles (Eykholt et al., 2018)</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">Deep learning-based road sign recognition systems deployed in autonomous and semi-autonomous vehicles.</span></div>
+                <div class="case-row"><span class="case-label">Attack</span><span class="case-value">Adversarial stickers on stop signs caused consistent misclassification as speed limit signs under varying lighting, angles, and distances.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Demonstrated adversarial examples remain effective in real-world physical environments, not only in controlled lab conditions.</span></div>
+                <div class="case-row"><span class="case-label">Lesson</span><span class="case-value">AI security vulnerabilities carry direct physical safety implications; testing must simulate real-world environmental variation.</span></div>
+            </div>
+
+            <div class="case-card">
+                <h4>Smart Home IoT Surveillance</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">Smart thermostats, cameras, and voice assistants collecting continuous household behavioral data.</span></div>
+                <div class="case-row"><span class="case-label">Vulnerability</span><span class="case-value">Convenience data repurposed for behavioral profiling; breaches expose intimate daily activities to unauthorized third parties.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Consumer fears validated by documented incidents of unauthorized access to home cameras and microphones.</span></div>
+                <div class="case-row"><span class="case-label">Lesson</span><span class="case-value">IoT privacy requires both technical safeguards and meaningful user control; "privacy by design" must be foundational.</span></div>
+            </div>
+
+            <div class="case-card" style="grid-column: 1 / -1;">
+                <h4>Generative AI Data Memorization (Carlini et al., 2019)</h4>
+                <div class="case-row"><span class="case-label">Context</span><span class="case-value">Large language models and generative models trained on public and private datasets, including commercial models like GPT-3.</span></div>
+                <div class="case-row"><span class="case-label">Finding</span><span class="case-value">Models memorize and can reproduce training data verbatim — including personally identifiable information — even without deliberate overfitting.</span></div>
+                <div class="case-row"><span class="case-label">Impact</span><span class="case-value">Researchers successfully extracted sensitive PII from commercial models, demonstrating practical, exploitable privacy risks in deployed generative AI.</span></div>
+                <div class="case-row"><span class="case-label">Lesson</span><span class="case-value">Large model scale does not guarantee training data privacy; privacy-preserving training research is a critical imperative, not an optional enhancement.</span></div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: ETHICAL AND SOCIAL IMPLICATIONS -->
+        <div class="about">
+            <h2>Ethical and Social Implications</h2>
+            <p>Privacy and security failures in AI generate cascading harms for institutional trust, human rights, social equality, and economic fairness that extend well beyond the technical domain.</p>
+        </div>
+
+        <div class="grid">
+            <div class="impl-block">
+                <h4>Trust and Accountability</h4>
+                <div class="impl-item"><strong>Erosion of consumer trust</strong> — 92% of survey respondents do not believe companies will protect their data even when explicitly promised.</div>
+                <div class="impl-item"><strong>Accountability gap</strong> — The "problem of many hands" makes attribution of responsibility very difficult when AI systems fail.</div>
+                <div class="impl-item"><strong>Opacity</strong> — Black-box models prevent meaningful accountability; neither users nor regulators can audit what they cannot see.</div>
+                <div class="impl-item"><strong>Regulatory compliance burden</strong> — Organizations struggle to demonstrate compliance without transparency into model behavior and data flows.</div>
+            </div>
+
+            <div class="impl-block">
+                <h4>Human Rights Violations</h4>
+                <div class="impl-item"><strong>Right to privacy</strong> — Enshrined in UDHR Article 12, ICCPR Article 17, and EU Charter Article 7; AI surveillance routinely tests these limits.</div>
+                <div class="impl-item"><strong>Freedom of expression</strong> — Fear of AI surveillance chills speech, association, and political dissent globally.</div>
+                <div class="impl-item"><strong>Due process</strong> — Algorithmic decisions without explanation or accessible recourse violate fundamental procedural rights.</div>
+                <div class="impl-item"><strong>Non-discrimination</strong> — Privacy violations frequently intersect with and amplify existing patterns of bias and discrimination.</div>
+            </div>
+
+            <div class="impl-block">
+                <h4>Digital Inequality</h4>
+                <div class="impl-item"><strong>Surveillance asymmetry</strong> — Vulnerable populations are disproportionately subjected to AI-powered monitoring by governments and corporations.</div>
+                <div class="impl-item"><strong>Data exclusion</strong> — Those who can afford privacy protections (VPNs, legal counsel, premium services) enjoy meaningfully better outcomes.</div>
+                <div class="impl-item"><strong>Consent disparities</strong> — Power imbalances in employer-employee and government-citizen relationships undermine genuinely free consent.</div>
+                <div class="impl-item"><strong>Access barriers</strong> — Privacy-enhancing technologies remain financially and technically inaccessible to marginalized communities.</div>
+            </div>
+
+            <div class="impl-block">
+                <h4>Economic Consequences</h4>
+                <div class="impl-item"><strong>Concentration of power</strong> — Data-rich organizations gain compounding competitive advantages that reinforce market dominance and entrench monopolies.</div>
+                <div class="impl-item"><strong>Consumer harm</strong> — Stolen identities and financial fraud impose direct and lasting economic costs on individuals.</div>
+                <div class="impl-item"><strong>Innovation chilling</strong> — Overly restrictive or poorly designed privacy regulations may limit beneficial AI applications and research.</div>
+                <div class="impl-item"><strong>Market failure</strong> — Information asymmetries prevent consumers from making genuinely informed choices about data-sharing trade-offs.</div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: CURRENT APPROACHES -->
+        <div class="about">
+            <h2>Current Approaches to Safeguarding Privacy and Security</h2>
+            <p>A range of cryptographic, mathematical, and hardware-based techniques are deployed to protect privacy within AI systems. Each involves trade-offs between protection strength and practical utility.</p>
+        </div>
+
+        <div class="about" style="padding: 0; overflow: hidden;">
+            <table class="tech-table">
+                <thead>
+                    <tr><th>Technology</th><th>Description</th><th>Applications in AI</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Homomorphic Encryption (HE)</td>
+                        <td>Enables computation on encrypted data without ever decrypting it, so sensitive inputs never leave a protected state.</td>
+                        <td>Secure outsourced ML inference; privacy-preserving prediction APIs where raw data must not leave client premises.</td>
+                    </tr>
+                    <tr>
+                        <td>Secure Multi-Party Computation (SMC)</td>
+                        <td>Allows multiple parties to jointly compute a function over their private inputs without revealing those inputs to each other.</td>
+                        <td>Collaborative model training across institutions; federated analytics without pooling raw patient or financial records.</td>
+                    </tr>
+                    <tr>
+                        <td>Trusted Execution Environments (TEE)</td>
+                        <td>Hardware-enforced isolated execution (e.g., Intel SGX) ensures sensitive code and data are protected even from the host OS.</td>
+                        <td>Protecting model weights during inference; secure enclave processing of PII in cloud environments.</td>
+                    </tr>
+                    <tr>
+                        <td>Differential Privacy (DP)</td>
+                        <td>Adds mathematically calibrated noise to outputs so the inclusion or exclusion of any single record has negligible effect on results.</td>
+                        <td>Privacy-preserving data release; training large models (deployed by Apple, Google, and the U.S. Census Bureau).</td>
+                    </tr>
+                    <tr>
+                        <td>Federated Learning</td>
+                        <td>Training occurs locally on user devices; only model updates — not raw data — are shared with a central server, keeping personal data on-device.</td>
+                        <td>On-device keyboard prediction; medical AI across hospital networks without sharing patient records between institutions.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 6: EMERGING DEBATES -->
+        <div class="about">
+            <h2>Emerging Debates and Unresolved Challenges</h2>
+            <p>Despite significant technical progress, fundamental tensions in AI privacy and security remain unresolved — many of which are as much social and political as they are technical.</p>
+        </div>
+
+        <div class="grid">
+            <div class="debate-card">
+                <h4>Utility–Privacy Trade-offs</h4>
+                <p><strong>Fundamental tension:</strong> Stronger privacy guarantees consistently reduce model accuracy and utility, forcing explicit value judgements about acceptable risk.</p>
+                <p><strong>Differential privacy limits:</strong> High privacy budgets may not provide adequate protection; low budgets degrade utility below acceptable operational thresholds.</p>
+                <p><strong>Emerging frameworks:</strong> Fairness Bonded Utility (FBU) approaches attempt to systematize trade-off evaluation across diverse application contexts.</p>
+            </div>
+
+            <div class="debate-card">
+                <h4>Emerging Technologies, New Risks</h4>
+                <p><strong>Generative AI:</strong> Large language models memorize and reproduce training data including PII, raising risks for every commercial deployment at scale.</p>
+                <p><strong>Metaverse:</strong> Persistent virtual spaces introduce novel surveillance vectors and behavioral manipulation risks at unprecedented intimacy and granularity.</p>
+                <p><strong>Quantum computing:</strong> Near-future quantum capabilities threaten current cryptographic protections underpinning most AI security architectures.</p>
+            </div>
+
+            <div class="debate-card">
+                <h4>Adversarial Defense Limitations</h4>
+                <p><strong>No universal defense:</strong> Current defenses are effective against specific known attacks — not all possible adversarial inputs or contexts.</p>
+                <p><strong>Obfuscated gradients:</strong> Many widely cited defenses provide a false sense of security; adaptive adversaries routinely circumvent them in practice.</p>
+                <p><strong>Cat-and-mouse dynamics:</strong> Defense techniques are rapidly matched by new attack methods, sustaining an escalating and expensive adversarial arms race.</p>
+            </div>
+
+            <div class="debate-card">
+                <h4>Sociotechnical Complexity</h4>
+                <p><strong>Human factors:</strong> End users remain the weakest link despite robust technical protections — social engineering consistently bypasses encryption.</p>
+                <p><strong>Organizational failures:</strong> Strong security policies are routinely undermined by inadequate implementation, staff training, and misaligned incentive structures.</p>
+                <p><strong>Legacy systems:</strong> Existing infrastructure severely limits the practical deployment of advanced privacy and security protections in most organizations.</p>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
+                        <a href="../../topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
+                        <a href="../../topics/future-workforce-skills-cj/innovation-skills.html">Future Skills</a><br>
+                        <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                    </div>
+                    <div>
+                        <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
+                        <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Collaboration</a><br>
+                        <a href="overview-ai-ethics.html">Ethics</a><br>
+                        <a href="../../topics/future-outlook-ai-sison/ai-driven-world.html">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollTopBtn").style.display = "flex";
+    } else {
+        document.getElementById("scrollTopBtn").style.display = "none";
+    }
+}
+
+document.getElementById("scrollTopBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
+
+</body>
+</html>

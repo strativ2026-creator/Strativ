@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Decision Support Systems | STRATIV AI Frontier</title>
+<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #003049;
+    background: #F8FAFC;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045E;
+}
+
+.logo img { width: 40px; }
+
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
+
+.dropdown { position: relative; }
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+.dropdown-menu a { display: block; padding: 12px; border-bottom: 1px solid #f1f5f9; text-decoration: none; color: #003049; font-size: 14px; }
+
+/* LAYOUT */
+.page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    padding: 120px 6% 60px;
+    align-items: start;
+}
+
+/* SIDEBAR */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    background: #03045E;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar a, .sidebar span {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    font-size: 13px;
+    border-top: 1px solid #e2e8f0;
+    transition: 0.3s ease;
+}
+
+.sidebar a { color: #003049; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+.sidebar span.active-page { background: #f1f5f9; color: #0077B6; font-weight: 600; cursor: default; }
+
+/* MAIN CONTENT */
+.main { display: flex; flex-direction: column; gap: 25px; }
+
+.inner-hero {
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.6); pointer-events: none; }
+.inner-hero h1 { position: absolute; color: #fff; bottom: 30px; left: 30px; font-family: Georgia, serif; font-size: 42px; z-index: 2; }
+
+.section {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.section h2 { font-family: Georgia, serif; color: #03045E; margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid #0077B6; display: inline-block; padding-bottom: 5px; margin-top: 40px; }
+.section h2:first-of-type { margin-top: 0; }
+.section h3 { color: #03045E; margin: 25px 0 10px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
+.section p { font-size: 16px; color: #475569; margin-bottom: 20px; text-align: justify; }
+
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+.content-card-small { background: #F8FAFC; padding: 25px; border-radius: 8px; border: 1px solid #e2e8f0; }
+.content-card-small h4 { color: #03045E; margin-bottom: 12px; border-bottom: 1px solid #0077B6; padding-bottom: 5px; }
+.content-card-small li { margin-bottom: 10px; font-size: 14px; list-style-position: inside; color: #475569; }
+
+.img-container { margin: 30px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
+.img-container img { width: 100%; display: block; transition: 0.5s ease; }
+.img-container img:hover { transform: scale(1.02); opacity: 0.9; }
+
+.example-box { border-left: 5px solid #0077B6; background: #f0f7ff; padding: 25px; margin-bottom: 20px; border-radius: 0 12px 12px 0; }
+.example-box strong { color: #03045E; display: block; margin-bottom: 10px; font-size: 1.1rem; }
+
+/* SCROLL TOP BUTTON */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background: #03045E;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: 2px solid #fff;
+}
+#scrollTopBtn:hover { background: #0077B6; transform: translateY(-5px); }
+
+/* FOOTER */
+footer {
+    background: #03045E;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; gap: 120px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; }
+.f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+@media(max-width:1100px){
+    .page { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+}
+</style>
+</head>
+
+<body id="top">
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg">
+        STRATIV
+    </div>
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="overview-of-human-ai-collaboration.html">AI Workplace</a>
+                <a href="#">Jobs at Risk</a>
+                <a href="#">Emerging Careers</a>
+                <a href="overview-human-ai-collab.html">Human + AI</a>
+                <a href="#">Skills</a>
+                <a href="#">Ethics</a>
+                <a href="#">Students</a>
+                <a href="#">Future</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="../../resources.html">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../resources.html#links">External Links</a>
+                <a href="../../resources.html#icons">Icons & Images</a>
+                <a href="../../resources.html#data">Data & Reports</a>
+                <a href="../../resources.html#cases">Case Studies</a>
+            </div>
+        </div>
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>Human AI Collaboration</h3>
+        <a href="overview-human-ai-collab.html">Overview of Human AI Collaboration</a>
+        <a href="human-vs-artificial-intelligence.html">Human vs Artificial Intelligence</a>
+        <a href="working-with-ai-tools.html">Working with AI Tools</a>
+        <span class="active-page">AI Decision Support Systems</span>
+        <a href="creativity-with-artificial-intelligence.html">Creativity with AI</a>
+        <a href="ai-assisted-design.html">AI Assisted Design</a>
+        <a href="ai-in-teamwork.html">AI in Teamwork</a>
+        <a href="ai-decision-partnership.html">AI Decision Partnership</a>
+        <a href="ai-creative-collaboration.html">AI Creative Collaboration</a>
+        <a href="human-oversight-in-ai-systems.html">Human Oversight in AI Systems</a>
+        <a href="workplace-ai-integration.html">Workplace AI Integration</a>
+        <a href="collaboration-summary.html">Collaboration Summary</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <a href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600" target="image_gallery">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" alt="Decision Support Systems">
+            </a>
+            <h1>AI Decision Support Systems</h1>
+        </div>
+
+        <div class="section">
+            <p>An AI Decision Support System (DSS) is an integrated computer-based framework that utilizes advanced machine learning algorithms, data mining, and predictive modeling to assist humans in making complex, non-routine decisions. In 2026, these systems have evolved from simple "help" tools to essential "cognitive partners."</p>
+            
+            <div class="example-box">
+                <strong>The Cognitive Partner:</strong> Unlike traditional software that simply displays historical data, an AI DSS provides prescriptive recommendations. It forecasts potential futures and suggests specific actions, effectively acting as a digital advisor that enhances human judgment in high-stakes environments.
+            </div>
+
+            <h2>The Historical Evolution of DSS</h2>
+            <p>The journey from basic calculators to autonomous decision agents has occurred in several distinct technological waves. Each era solved a specific problem while introducing new complexities.</p>
+
+            <div class="img-container">
+                <a href="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200" target="image_gallery">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" alt="Tech Evolution">
+                </a>
+            </div>
+
+            <h3>Chronological Milestones</h3>
+            <p><strong>Wave 1: Rule-Based Systems (1980s-2000s):</strong> Early DSS relied on "If-Then" logic programmed by humans. They were rigid and could not learn from new information. If a situation fell outside the pre-programmed rules, the system failed to provide useful output.</p>
+            <p><strong>Wave 2: Big Data & Statistical Analysis (2010-2020):</strong> Systems began processing massive datasets to identify correlations. While powerful, they often identified patterns without understanding the "why" behind them, leading to some high-profile errors in finance and hiring.</p>
+            <p><strong>Wave 3: Generative & Reasoning AI (2023-Present):</strong> Modern DSS now use Large Language Models (LLMs) and neural networks to "reason" through problems. They can explain their logic to human users, making the decision-making process more transparent and collaborative than ever before.</p>
+
+            <h2>Advantages & Disadvantages</h2>
+            <div class="content-grid">
+                <div class="content-card-small">
+                    <h4>Advantages</h4>
+                    <ul>
+                        <li><strong>Rapid Processing:</strong> Millisecond analysis of millions of data points that would take humans weeks.</li>
+                        <li><strong>Objective Consistency:</strong> Eliminates human emotional bias, fatigue, and the "hungry judge" effect.</li>
+                        <li><strong>Predictive Power:</strong> Forecasts risks before they occur (e.g., predicting a supply chain break).</li>
+                        <li><strong>Scalability:</strong> Allows one human operator to manage global networks or thousands of patient files.</li>
+                    </ul>
+                </div>
+                <div class="content-card-small">
+                    <h4>Disadvantages</h4>
+                    <ul>
+                        <li><strong>The "Black Box":</strong> Complex neural networks can make it hard for humans to understand the "why."</li>
+                        <li><strong>Algorithmic Bias:</strong> Risks repeating human prejudices found in the historical training data.</li>
+                        <li><strong>Automation Bias:</strong> Users may stop double-checking the AI's logic, leading to critical errors.</li>
+                        <li><strong>Security Risks:</strong> Sophisticated data poisoning can trick an AI into making dangerous recommendations.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>The Feedback Loop: Human-in-the-Loop (HITL)</h2>
+            <p>The most advanced organizations in 2026 do not let AI make decisions alone. Instead, they use a <strong>HITL</strong> model where the AI provides a "confidence score." If the confidence is below 95%, the decision is automatically escalated to a human expert for review.</p>
+
+            <div class="img-container">
+                <a href="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200" target="image_gallery">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Human AI Interface">
+                </a>
+            </div>
+
+            <h2>Real-World Industry Applications</h2>
+            <p>Decision support is no longer a luxury; it is a necessity for survival in fast-paced global markets. Here is how various sectors use it today:</p>
+            
+            <div class="example-box">
+                <strong>🏥 Healthcare:</strong> AI DSS now monitors patient vitals in ICUs in real-time, predicting sepsis or cardiac arrest up to 6 hours before symptoms appear, allowing doctors to intervene early and save lives.
+            </div>
+            <div class="example-box">
+                <strong>💳 Finance:</strong> High-frequency trading systems use DSS to scan global news feeds in 40 languages, adjusting portfolios instantly based on geopolitical shifts or sudden market movements.
+            </div>
+            <div class="example-box">
+                <strong>🚚 Logistics:</strong> Autonomous shipping networks use DSS to reroute cargo mid-ocean based on predicted weather delays, port strikes, or fuel efficiency models, saving billions in operational costs.
+            </div>
+
+            <h2>The Future: Ethical Guardrails</h2>
+            <p>As we move toward 2030, the focus is shifting from "how much can AI decide" to "how should AI decide." New regulations require DSS to have "Explainability" (XAI) features, ensuring that any AI recommendation can be audited by a human for fairness and safety. This ensures that even as tools become more complex, humans remain the ultimate moral compass for technology.</p>
+
+            <p>Research consistently shows that the most successful outcomes occur through these integrated designs. While AI reduces errors in data-heavy tasks, human oversight handles the ethical dilemmas, exceptions, and "black swan" events that data alone cannot predict.</p>
+        </div>
+    </main>
+</div>
+
+<a href="#top" id="scrollTopBtn" title="Go to top">↑</a>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="overview-human-ai-collaboration.html">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="human-vs-artificial-intelligence.html">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p><strong>Follow Us:</strong></p>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display:flex;align-items:center;gap:10px;color:white;text-decoration:none;">
+                        <span class="icon-box">f</span>
+                        <span>Strativ.com</span>
+                    </a>
+                </div>
+                <p style="margin-top: 10px;"><strong>Email:</strong></p>
+                <div class="contact-item">
+                    <a href="mailto:strativ018@gmail.com" style="display:flex;align-items:center;gap:10px;color:white;text-decoration:none;">
+                        <span class="icon-box">✉</span>
+                        <span>strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-bar">
+        <p>© 2026 STRATIV. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
