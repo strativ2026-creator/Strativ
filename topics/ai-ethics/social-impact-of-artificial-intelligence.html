@@ -16,6 +16,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; 
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     color: #003049;
@@ -511,8 +515,8 @@ footer {
     #scrollTopBtn { bottom: 18px; right: 18px; }
 }
 
+/* ===== SCROLL TO TOP BUTTON ===== */
 #scrollTopBtn {
-    display: none; 
     position: fixed; 
     bottom: 30px; 
     right: 30px; 
@@ -520,6 +524,7 @@ footer {
     background-color: #03045E; 
     color: white; 
     text-decoration: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%; 
@@ -534,6 +539,7 @@ footer {
 #scrollTopBtn:hover {
     background-color: #0077B6; 
 }
+
 </style>
 </head>
 
@@ -738,16 +744,16 @@ footer {
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
-                        <a href="../../topics/Emerging_AI_Careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="../../topics/future-workforce-skills/collaboration-skills.html">Future Skills</a><br>
-                        <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
                     </div>
                     <div>
-                        <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Collaboration</a><br>
-                        <a href="../../topics/ai-ethics/overview-ai-ethics.html">Ethics</a><br>
-                        <a href="../../topics/future-outlook-ai/ai-driven-world.html">Future Outlook</a>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -779,23 +785,6 @@ footer {
 </footer>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
-
-<script>
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("scrollTopBtn").style.display = "flex";
-    } else {
-        document.getElementById("scrollTopBtn").style.display = "none";
-    }
-}
-
-document.getElementById("scrollTopBtn").addEventListener("click", function(e) {
-    e.preventDefault();
-    window.scrollTo({top: 0, behavior: 'smooth'});
-});
-</script>
 
 </body>
 </html>
