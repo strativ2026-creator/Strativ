@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRATIV | Collaboration Skills in the AI Era</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET & BASE ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; line-height: 1.6; }
+
+/* ===== HEADER ===== */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
+.logo img { width: 40px; height: 40px; }
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
+
+/* DROPDOWN STYLES */
+.dropdown { position: relative; }
+.dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.dropdown-menu a { padding: 12px 15px; display: block; }
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
+
+/* ===== PAGE LAYOUT ===== */
+.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
+
+/* STICKY SIDEBAR */
+.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
+.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; }
+.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+/* Highlight current page */
+.sidebar a.active { background: #eaeaea; color: #0077B6; font-weight: bold; }
+
+/* MAIN CONTENT */
+.main { display: flex; flex-direction: column; gap: 25px; }
+.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; }
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
+.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; }
+
+.about, .card { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.about h2, .card h4 { font-family: Georgia, serif; color: #03045E; margin-bottom: 15px; }
+.card h4 { font-size: 20px; }
+.about p, .card p, .card ul { font-size: 14px; color: #6D6D6D; margin-bottom: 10px; }
+.card ul { margin-left: 20px; }
+.card li { margin-bottom: 8px; }
+
+/* Table Styles */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.data-table th, .data-table td { padding: 12px 15px; border: 1px solid #e2e8f0; text-align: left; font-size: 14px; }
+.data-table th { background: #03045E; color: #fff; font-family: Georgia, serif; font-weight: normal; }
+.data-table td { color: #6D6D6D; }
+.data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+.references-list { font-size: 12px !important; word-break: break-word; }
+.references-list a { color: #0077B6; text-decoration: none; }
+.references-list a:hover { text-decoration: underline; }
+
+/* ===== NAVY FOOTER ===== */
+footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
+.f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+@media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+        STRATIV
+    </div>
+
+    <nav>
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <a href="../../index.html#topics">Topics ▾</a>
+            <div class="dropdown-menu">
+                <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
+                <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                <a href="../../topics/Emerging_AI_Careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Human + AI</a>
+                <a href="../../topics/future-workforce-skills/collaboration-skills.html">Skills</a>
+                <a href="../../topics/ai-ethics/overview-ai-ethics.html">Ethics</a>
+                <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                <a href="../../topics/future-outlook-ai/ai-driven-world.html">Future</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Resources ▾</a>
+            <div class="dropdown-menu">
+                <a href="#">Case Studies</a>
+                <a href="#">Data & Reports</a>
+            </div>
+        </div>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="page">
+    <aside class="sidebar">
+        <h3>AI WORKPLACE</h3>
+        <a href="ai.html">Introduction AI Workplace</a>
+        <a href="#">History of Artificial Intelligence</a>
+        <a href="#">AI Tools Used in the Workplace</a>
+        <a href="#">AI for Workplace Productivity</a>
+        <a href="#">AI in Workplace Communication</a>
+        <a href="#">AI for Data Analysis</a>
+        <a href="#">AI in Marketing</a>
+        <a href="#">AI and Remote Work</a>
+        <a href="human-oversight-in-ai-systems.html">Human Oversight in AI Systems</a>
+        <a href="workplace-ai-integration.html">Workplace AI Integration</a>
+        <a href="innovation-skills.html">Innovation Skills in the AI Era</a>
+        <a href="collaboration-skills.html" class="active">Collaboration Skills in the AI Era</a>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Collaboration and Teamwork banner">
+            <h1>Collaboration Skills in the AI Era</h1>
+        </div>
+
+        <div class="about">
+            <h2>Definition and Core Concept</h2>
+            <p><strong>Definition:</strong> The ability of individuals to work effectively with both human teammates and AI agents to achieve shared organizational goals.</p>
+            <p><strong>The "Collective Intelligence" Model:</strong> In this model, AI is treated as a "synthetic team member." True collaboration occurs when the AI handles data-heavy lifting and administrative coordination, while humans provide the creative vision, high-stakes negotiation, and emotional intelligence.</p>
+        </div>
+
+        <div class="card">
+            <h4>How AI-Enhanced Collaboration Helps</h4>
+            <ul>
+                <li><strong>Eliminating Meeting Friction:</strong> AI tools can act as silent observers in meetings, instantly generating transcripts, identifying action items, and syncing calendars across global time zones.</li>
+                <li><strong>Unbiased Idea Meritocracy:</strong> AI can be used to "blind" brainstorm sessions, stripping away names and seniority from suggestions so that ideas are judged on their quality rather than who said them.</li>
+                <li><strong>Cross-Functional Translation:</strong> AI can act as a bridge between technical and non-technical teams, translating complex "dev-speak" into business-ready summaries, ensuring everyone stays on the same page.</li>
+                <li><strong>Real-Time Conflict Resolution:</strong> Advanced sentiment analysis tools can flag when a digital team's communication (on Slack or Teams) is becoming tense or toxic, allowing leaders to intervene before morale drops.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Implementation Strategies</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Skill Type</th>
+                        <th>Description</th>
+                        <th>Key Human Behavior</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Human-to-Human (H2H)</strong></td>
+                        <td>Building trust, empathy, and psychological safety within the team.</td>
+                        <td>Emotional Intelligence & Active Listening</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Human-to-AI (H2A)</strong></td>
+                        <td>The ability to "prompt" or direct an AI to assist the team effectively.</td>
+                        <td>Precision Communication & Logic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI-Mediated (AIM)</strong></td>
+                        <td>Using AI tools to facilitate smoother human interactions.</td>
+                        <td>Strategic Tool Adoption</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h4>Major Issues Addressed by Collaboration Skills</h4>
+            <ul>
+                <li><strong>The "Silo" Effect:</strong> AI-integrated collaboration tools automatically pull relevant data from different departments, forcing a "whole-of-company" view that prevents teams from working in isolation.</li>
+                <li><strong>Cognitive Load Reduction:</strong> By offloading "coordination overhead" (scheduling, searching for files, documenting notes) to AI, teams can spend more energy on actual problem-solving.</li>
+                <li><strong>Asynchronous Alignment:</strong> For global teams, AI ensures that a teammate in London can wake up and get a perfect "state of the union" summary of what the team in Singapore decided overnight.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Real-World Example: AI in Creative Agencies</h4>
+            <p><strong>The Scenario:</strong> A global advertising firm uses Generative AI (like Midjourney or DALL-E) during live client brainstorming sessions.</p>
+            <p><strong>The Problem:</strong> Initially, designers felt threatened, and clients were overwhelmed by too many options. The "human" element of the collaboration—the art of persuasion and curation—was lost in a sea of AI-generated images.</p>
+            <p><strong>The Collaboration Fix:</strong> The agency shifted to using AI only for "rapid prototyping." The human designers now act as the Creative Directors of the AI. They use their collaborative skills to interpret the client's vague emotions and "steer" the AI toward a specific vision. This reduced the time from "idea" to "final pitch" by 60% without losing the human touch.</p>
+        </div>
+
+        <div class="card">
+            <h4>Emerging Debates in Collaboration</h4>
+            <ul>
+                <li><strong>The "De-Humanization" Risk:</strong> If we rely on AI to summarize all our interactions, do we lose the subtle nuances—the tone of voice, the hesitation, the excitement—that actually build trust between colleagues?</li>
+                <li><strong>Algorithmic Groupthink:</strong> If a team relies on the same AI tool for suggestions, there is a risk that all their solutions will start to look and sound the same, killing original, "out-of-the-box" thinking.</li>
+                <li><strong>The Transparency Gap:</strong> Should a teammate disclose when their contribution to a group project was 90% AI-generated? Modern collaboration requires new "etiquette" rules regarding AI transparency to maintain team integrity.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>References</h4>
+            <ul class="references-list">
+                <li>Breslow, L. (2025). The future of teamwork: Why human-AI collaboration requires more empathy, not less. <em>MIT Sloan Management Review</em>. <a href="https://sloanreview.mit.edu/article/the-future-of-teamwork/" target="_blank">https://sloanreview.mit.edu/article/the-future-of-teamwork/</a></li>
+                <li>De Cremer, D., & Kasparov, G. (2026). AI should augment human intelligence, not replace it. <em>Harvard Business Review</em>. <a href="https://hbr.org/2021/03/ai-should-augment-human-intelligence-not-replace-it" target="_blank">https://hbr.org/2021/03/ai-should-augment-human-intelligence-not-replace-it</a></li>
+                <li>Neeley, T. (2026). Remote work and the AI revolution: Managing global teams in the age of automation. <em>Digital Data Design Institute at Harvard</em>.</li>
+                <li>World Economic Forum. (2025). The future of jobs report: Emerging skills for the AI-driven economy. <a href="https://www.weforum.org/reports/the-future-of-jobs-report-2025/" target="_blank">https://www.weforum.org/reports/the-future-of-jobs-report-2025/</a></li>
+            </ul>
+        </div>
+    </main>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="ai.html">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Ethics</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span><span> Strativ.com</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
