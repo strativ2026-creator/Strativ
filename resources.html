@@ -52,20 +52,50 @@ header {
 }
 
 nav {
-    display: flex;
-    gap: 30px;
-}
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
 
-nav a {
-    text-decoration: none;
-    color: #003049;
-    font-weight: 600;
-    font-size: 14px;
-}
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
 
-nav a:hover {
-    color: #0077B6;
-}
+      nav a:hover {
+        color: #0077b6;
+      }
+
+      /* DROPDOWN STYLES */
+      .nav-dropdown {
+        position: relative;
+      }
+
+      .nav-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.3s ease;
+      }
+
+      .nav-dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
+
+      .nav-dropdown:hover .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
 
 .dropdown {
     position: relative;
