@@ -23,6 +23,82 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: #F8FAFC;
     color: #003049;
+    scroll-behavior: smooth;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045e;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077b6;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* ===== LAYOUT ===== */
@@ -31,8 +107,46 @@ body {
     grid-template-columns: 260px 1fr;
     gap: 30px;
     padding: 120px 6% 60px;
+    align-items: start;
 }
 
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar-header {
+    background: #03045e;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar-menu a:hover {
+    background: #f1f5f9;
+    color: #0077b6;
+}
+
+.sidebar-menu a.active {
+    background: #eaeaea;
+    color: #0077b6;
+}
 
 /* ===== MAIN ===== */
 .main {
@@ -43,7 +157,7 @@ body {
 
 /* ===== BANNER ===== */
 .banner {
-    height: 300px;
+    height: 320px;
     border-radius: 12px;
     overflow: hidden;
     position: relative;
@@ -60,73 +174,93 @@ body {
     position: absolute;
     inset: 0;
     background: rgba(3,4,94,0.5);
+    pointer-events: none;
 }
 
 .banner-text {
     position: absolute;
-    bottom: 25px;
-    left: 25px;
+    bottom: 30px;
+    left: 30px;
     color: #fff;
     font-family: Georgia, serif;
-    font-size: 36px;
+    font-size: 38px;
     z-index: 2;
+    pointer-events: none;
 }
 
 /* ===== CARD ===== */
 .card {
     background: #fff;
-    padding: 30px;
+    padding: 35px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
 }
 
 .card h2 {
     font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 15px;
+    color: #03045e;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 26px;
+    position: relative;
+    padding-left: 12px;
+}
+
+.card h2:first-child {
+    margin-top: 0;
+}
+
+.card h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background: #0077b6;
+    border-radius: 3px;
 }
 
 .card h3 {
-    color: #0077B6;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-family: Georgia, serif;
+    color: #0077b6;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 20px;
 }
 
 .card p {
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.8;
     color: #475569;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+    text-align: justify;
 }
 
-/* ===== GRID ===== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.card ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
-/* ===== BUTTON ===== */
-.button {
-    margin-top: 10px;
-    background: #03045E;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+.card li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 8px;
 }
 
-.button:hover {
-    background: #0077B6;
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 25px 0;
 }
 
-.extra-card {
-    margin: 0 40px 20px 40px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.author {
+    margin-top: 40px;
+    font-size: 13px;
+    color: #94a3b8;
+    text-align: right;
 }
 
 #scrollTopBtn {
@@ -152,10 +286,123 @@ body {
 #scrollTopBtn:hover {
     background-color: #0077B6; 
 }
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045e;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045e;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px;
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1;
+    margin-top: -6px;
+}
+
+.f-col p,
+.f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045e;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-links-group {
+        gap: 30px;
+    }
+}
+
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header>
   <div class="logo">
@@ -225,157 +472,110 @@ body {
 <div class="main">
 
     <div class="banner">
-        <img src="../../images/strativ_images/aiEng.png" alt="AI Careers">
+        <img src="../../images/strativ_images/aiEng.png" alt="Machine Learning Engineer Career">
         <div class="banner-text">Machine Learning Engineer</div>
     </div>
 
-    <!-- INTRO -->
     <div class="card">
-        <h2>Machine Learning Engineer</h2>
-        <p>
-            Machine learning engineers are responsible for building artificial intelligence systems. This branch of AI focuses on creating models trained on data that can predict and adapt to outcomes.
-        </p>
-        <p>
-            According to the World Economic Forum, AI and machine learning specialists are among the fastest-growing careers, with significant global demand expected in the coming years.
-        </p>
-    </div>
+    <h2 id="overview">The Architects of Artificial Intelligence</h2>
+    <p>
+        If Data Scientists are the detectives uncovering hidden patterns, **Machine Learning (ML) Engineers** are the architects building the machinery that acts on those patterns. They bridge the gap between theoretical data science and production-ready software engineering.
+    </p>
 
-    <div class="grid">
+    <h2 id="comparison">ML Engineer vs. Data Scientist</h2>
+    <p>While their roles overlap, the focus of their daily output differs significantly:</p>
+    
+    <table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; background: #fff; border: 1px solid #e2e8f0;">
+        <thead>
+            <tr style="background: #03045e; color: #fff; text-align: left;">
+                <th style="padding: 12px; border: 1px solid #e2e8f0;">Feature</th>
+                <th style="padding: 12px; border: 1px solid #e2e8f0;">Data Scientist</th>
+                <th style="padding: 12px; border: 1px solid #e2e8f0;">ML Engineer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 12px; border: 1px solid #e2e8f0; font-weight: 600;">Primary Goal</td>
+                <td style="padding: 12px; border: 1px solid #e2e8f0;">Extracting insights & business value.</td>
+                <td style="padding: 12px; border: 1px solid #e2e8f0;">Building & deploying scalable systems.</td>
+            </tr>
+            <tr style="background: #f8fafc;">
+                <td style="padding: 12px; border: 1px solid #e2e8f0; font-weight: 600;">Core Toolset</td>
+                <td style="padding: 12px; border: 1px solid #e2e8f0;">Statistics, R, SQL, Tableau.</td>
+                <td style="padding: 12px; border: 1px solid #e2e8f0;">Python, PyTorch, Docker, Kubernetes.</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; border: 1px solid #e2e8f0; font-weight: 600;">Main Output</td>
+                <td style="padding: 12px; border: 1px solid #e2e8f0;">Reports, visualizations, and prototypes.</td>
+                <td style="padding: 12px; border: 1px solid #e2e8f0;">Live, production-grade AI applications.</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <!-- WHAT IS ML -->
-        <div class="card">
-            <h2>What is Machine Learning?</h2>
-            <p>
-                Machine learning is a field of artificial intelligence that allows systems to learn from data and improve over time, similar to how humans learn from experience.
-            </p>
+    <h2 id="tech-stack">The ML Engineering Tech Stack</h2>
+    <p>To operate at a high level, engineers must master a specialized ecosystem of tools:</p>
 
-            <p>
-                It is widely used in technologies such as facial recognition, video surveillance, recommendation systems, and targeted advertising.
-            </p>
-        </div>
+    <table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; border: 1px solid #e2e8f0;">
+        <tr style="background: #03045e; color: white;">
+            <th style="padding: 12px; text-align: left;">Category</th>
+            <th style="padding: 12px; text-align: left;">Essential Tools</th>
+        </tr>
+        <tr>
+            <td style="padding: 12px; border: 1px solid #e2e8f0; font-weight: 600;">Deep Learning</td>
+            <td style="padding: 12px; border: 1px solid #e2e8f0;">PyTorch, TensorFlow, Keras</td>
+        </tr>
+        <tr style="background: #f8fafc;">
+            <td style="padding: 12px; border: 1px solid #e2e8f0; font-weight: 600;">Deployment (MLOps)</td>
+            <td style="padding: 12px; border: 1px solid #e2e8f0;">Docker, Kubernetes, MLflow, Kubeflow</td>
+        </tr>
+        <tr>
+            <td style="padding: 12px; border: 1px solid #e2e8f0; font-weight: 600;">Data Processing</td>
+            <td style="padding: 12px; border: 1px solid #e2e8f0;">Pandas, NumPy, Apache Spark, SQL</td>
+        </tr>
+        <tr style="background: #f8fafc;">
+            <td style="padding: 12px; border: 1px solid #e2e8f0; font-weight: 600;">Cloud Platforms</td>
+            <td style="padding: 12px; border: 1px solid #e2e8f0;">AWS SageMaker, Google Vertex AI, Azure ML</td>
+        </tr>
+    </table>
 
-        <!-- REAL WORLD -->
-        <div class="card">
-            <h2>Where It’s Used</h2>
-            <ul>
-                <li>Social media platforms for targeted ads</li>
-                <li>Online shopping recommendations</li>
-                <li>Smartphone facial recognition</li>
-                <li>Customer behavior analysis</li>
-                <li>Marketing and personalization systems</li>
-            </ul>
-        </div>
+    <h2 id="roadmap">How to Transition (The Roadmap)</h2>
+    <p>Becoming an ML Engineer is a journey of "Engineering-First." Follow this structured progression:</p>
+    
+    <h3>Phase 1: Foundations (0-6 Months)</h3>
+    <ul>
+        <li>Master <strong>Python</strong> (including OOP and testing).</li>
+        <li>Understand <strong>Calculus and Linear Algebra</strong> (focus on gradients and matrices).</li>
+        <li>Learn <strong>SQL</strong> for data extraction.</li>
+    </ul>
 
-        <!-- ROLE -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>What Machine Learning Engineers Do</h2>
+    <h3>Phase 2: Modeling (6-12 Months)</h3>
+    <ul>
+        <li>Learn Classical ML (Linear/Logistic Regression, Random Forests).</li>
+        <li>Deep dive into <strong>Neural Networks</strong> and Deep Learning.</li>
+        <li>Study Natural Language Processing (NLP) or Computer Vision.</li>
+    </ul>
 
-            <p>
-                Machine learning engineers design, build, and maintain AI systems. They work closely with data scientists and other engineers to turn models into real-world applications.
-            </p>
+    <h3>Phase 3: Deployment (12+ Months)</h3>
+    <ul>
+        <li>Learn to wrap models in APIs (FastAPI).</li>
+        <li>Master <strong>CI/CD pipelines</strong> for automated retraining.</li>
+        <li>Build a portfolio showing a model running in a live cloud environment.</li>
+    </ul>
 
-            <ul>
-                <li>Implement machine learning algorithms</li>
-                <li>Run experiments and test AI systems</li>
-                <li>Design and develop ML models</li>
-                <li>Perform statistical analysis</li>
-                <li>Improve and maintain existing systems</li>
-                <li>Collaborate with data science teams</li>
-            </ul>
-        </div>
+    <h2 id="career-outlook">Global Demand & Salary</h2>
+    <p>
+        Because this role requires a rare blend of **Senior Software Engineering** and **Advanced Mathematics**, compensation is among the highest in the tech world. In 2026, ML Engineering continues to lead in job security as every industry—from finance to medicine—seeks to automate decision-making.
+    </p>
 
-        <!-- SKILLS -->
-        <div class="card">
-            <h2>Core Skills</h2>
-            <ul>
-                <li>Programming</li>
-                <li>Mathematics</li>
-                <li>Data science fundamentals</li>
-                <li>Machine learning techniques</li>
-            </ul>
-        </div>
+    <img src="../../images/strativ_images/future.jpg" alt="Machine Learning Future Trends">
 
-        <!-- EXPERIENCE -->
-        <div class="card">
-            <h2>Getting Experience</h2>
-            <ul>
-                <li>Start in roles like software developer</li>
-                <li>Work as a data scientist or engineer</li>
-                <li>Gain hands-on AI and ML experience</li>
-                <li>Build real-world projects</li>
-            </ul>
-        </div>
-
-        <!-- ROADMAP -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>How to Become a Machine Learning Engineer</h2>
-
-            <h3>1. Get a Relevant Degree</h3>
-            <p>Study computer science, statistics, or a related field.</p>
-
-            <ul>
-                <li>Programming</li>
-                <li>Mathematics</li>
-                <li>Data science</li>
-            </ul>
-
-            <h3>2. Gain Work Experience</h3>
-            <p>
-                Start in entry-level roles such as software developer, data scientist, or software engineer to build practical experience.
-            </p>
-
-            <h3>3. Build Machine Learning Skills</h3>
-            <ul>
-                <li>Practice through projects</li>
-                <li>Learn the full ML pipeline</li>
-                <li>Stay updated with new trends</li>
-                <li>Network with professionals</li>
-            </ul>
-
-            <h3>4. Optional: Advanced Degree</h3>
-            <p>A master’s degree can improve opportunities and deepen expertise.</p>
-        </div>
-
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>Challenges in Machine Learning</h2>
-
-            <p>
-                While machine learning offers powerful capabilities, it also comes with challenges that engineers must carefully manage.
-            </p>
-
-            <ul>
-                <li>Handling large and messy datasets</li>
-                <li>Avoiding bias and ensuring fair predictions</li>
-                <li>Preventing overfitting and improving model accuracy</li>
-                <li>Deploying models efficiently into real-world systems</li>
-                <li>Keeping up with rapidly evolving technologies</li>
-            </ul>
-
-            <p>
-                Overcoming these challenges is a key part of the job and helps machine learning engineers build reliable and effective AI systems.
-            </p>
-        </div>
-
-        <!-- FUTURE -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>Career Outlook</h2>
-
-            <p>
-                Machine learning engineering is one of the fastest-growing careers in technology. As more industries adopt AI, demand for skilled professionals continues to rise.
-            </p>
-
-            <p>
-                This career offers strong growth, high salaries, and opportunities to work on cutting-edge innovations shaping the future.
-            </p>
-
-            <img src="../../images/strativ_images/future.jpg" style="width:100%; margin-top:15px; border-radius:10px;" alt="ML Future">
-        </div>
-
-    </div>
+    <p class="author">Written by: Abordo, Jana Sayrielle G.</p>
+</div>
 
 </div>
     
 </div>
+
 <footer>
     <div class="footer-container">
         <div class="footer-brand">

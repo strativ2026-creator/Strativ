@@ -1,210 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strativ | Careers Summary</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="../../favicon.png" />
-<link rel="stylesheet" href="../../css/style.css">
-
-<style>
-
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: #F8FAFC;
-    color: #003049;
-}
-
-/* ===== LAYOUT ===== */
-.container {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 30px;
-    padding: 120px 6% 60px;
-}
-
-
-/* ===== MAIN ===== */
-.main {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-/* ===== BANNER ===== */
-.banner {
-    height: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-}
-
-.banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(3,4,94,0.5);
-}
-
-.banner-text {
-    position: absolute;
-    bottom: 25px;
-    left: 25px;
-    color: #fff;
-    font-family: Georgia, serif;
-    font-size: 36px;
-    z-index: 2;
-}
-
-/* ===== CARD ===== */
-.card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
-
-.card h2 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    color: #0077B6;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #475569;
-    margin-bottom: 12px;
-}
-
-/* ===== GRID ===== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-/* ===== BUTTON ===== */
-.button {
-    margin-top: 10px;
-    background: #03045E;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.button:hover {
-    background: #0077B6;
-}
-
-.extra-card {
-    margin: 0 40px 20px 40px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
-}
-
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">
-    <img
-      src="../../images/logo/logo.jpg"
-      alt="Strativ Corporate Logo"
-      title="STRATIV - Navigating the Future of Human-AI Collaboration"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strativ | Careers Summary</title>
+    <link rel="icon" type="image/png" href="../../favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
+      rel="stylesheet"
     />
-    STRATIV
-  </div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  <nav>
-    <a href="../../index.html" title="Go to Homepage">Home</a>
+      html {
+        scroll-behavior: smooth;
+      }
 
-    <div class="dropdown">
-      <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
-      <div class="dropdown-menu">
-        <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
-        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-        <a href="../emerging-ai-careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-        <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
-        <a href="../future-workforce-skills/">Skills</a>
-        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-        <a href="../future-outlook-ai/">Future</a>
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+        background: #f8fafc;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 6%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #03045e;
+      }
+
+      .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      nav {
+        display: flex;
+        gap: 30px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      nav a:hover {
+        color: #0077b6;
+      }
+
+      /* DROPDOWN STYLES */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.3s ease;
+      }
+
+      .dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* ===== PAGE LAYOUT ===== */
+      .page {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 30px;
+        padding: 120px 6% 60px;
+        align-items: start;
+      }
+
+      /* STICKY SIDEBAR */
+      .sidebar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
+      }
+
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px 10px 0 0;
+        text-transform: uppercase;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
+
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .inner-hero {
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .inner-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .inner-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.5);
+        pointer-events: none;
+      }
+
+      .inner-hero h1 {
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 38px;
+        bottom: 30px;
+        left: 30px;
+        pointer-events: none;
+      }
+
+      /* ARTICLE CONTENT STYLES */
+      .article-section {
+        background: #fff;
+        padding: 35px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .article-section h2 {
+        font-family: Georgia, serif;
+        color: #03045e;
+        margin-bottom: 20px;
+        font-size: 26px;
+        position: relative;
+        padding-left: 12px;
+      }
+
+      /* Line design */
+      .article-section h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 100%;
+        background: #0077b6;
+        border-radius: 3px;
+      }
+
+      .article-section h3 {
+        font-family: Georgia, serif;
+        color: #0077b6;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        font-size: 20px;
+      }
+
+      .article-section p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 15px;
+      }
+
+      .article-section ul {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .article-section li {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 8px;
+      }
+
+      .article-section strong {
+        color: #03045e;
+      }
+
+      p {
+        text-align: justify;
+      }
+
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        background-color: #03045e;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #0077b6;
+      }
+      
+      /* ===== NAVY FOOTER ===== */
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        flex: 1;
+      }
+
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
+
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+      }
+
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
+
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
+
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
+
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .copyright-bar {
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      @media (max-width: 1100px) {
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
+      }
+
+      .full-width-image {
+        width: 100%;
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .full-width-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .full-width-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.2);
+        pointer-events: none;
+      }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+      }
+
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-top: 20px;
+      }
+
+      .card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      }
+
+      .card-icon {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      .card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+        margin-top: 0;
+        color: #0077b6;
+      }
+
+      .card p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      cite {
+        display: block;
+        text-align: center;
+        font-style: italic;
+        font-weight: 500;
+        color: #4a5568;
+        font-size: 1.1rem;
+        margin: 50px auto 0 auto;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+
+      .ai-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+      }
+
+      .ai-table th,
+      .ai-table td {
+        padding: 14px 18px;
+        border: 1px solid #e2e8f0;
+        text-align: left;
+        font-size: 15px;
+      }
+
+      .ai-table thead {
+        background-color: #03045e;
+        color: #ffffff;
+        font-family: Georgia, serif;
+        font-weight: 700;
+      }
+
+      .ai-table tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+
+      .ai-table tbody tr:nth-child(even) {
+        background-color: #f1f5f9;
+      }
+
+      .impact-list {
+        display: grid;
+        gap: 12px;
+        margin: 20px 0;
+      }
+
+      .impact-item {
+        background: #f8fafc;
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-size: 15px;
+        color: #003049;
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <header>
+      <div class="logo">
+        <img
+          src="../../images/logo/logo.jpg"
+          alt="Strativ Corporate Logo"
+          title="STRATIV - Navigating the Future of Human-AI Collaboration"
+        />
+        STRATIV
       </div>
-    </div>
 
-    <div class="dropdown">
-      <a href="../../resources.html" title="View Resources">Resources ▾</a>
-      <div class="dropdown-menu">
-        <a href="../../resources/external-links.html">External Links</a>
-        <a href="../../resources/icons-images.html">Icons & Images</a>
-        <a href="../../resources/data-reports.html">Data & Reports</a>
-        <a href="../../resources/case-studies.html">Case Studies</a>
-      </div>
-    </div>
+      <nav>
+        <a href="../../index.html" title="Go to Homepage">Home</a>
 
-    <a href="../../about.html" title="About Strativ">About</a>
-    <a href="../../contact.html" title="Contact Us">Contact</a>
-  </nav>
-</header>
+        <div class="dropdown">
+          <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
+            <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+            <a href="../emerging-ai-careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+            <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+            <a href="../future-workforce-skills/">Skills</a>
+            <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+            <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+            <a href="../future-outlook-ai/">Future</a>
+          </div>
+        </div>
 
-<div class="container">
+        <div class="dropdown">
+          <a href="../../resources.html" title="View Resources">Resources ▾</a>
+          <div class="dropdown-menu">
+            <a href="../../resources/external-links.html">External Links</a>
+            <a href="../../resources/icons-images.html">Icons & Images</a>
+            <a href="../../resources/data-reports.html">Data & Reports</a>
+            <a href="../../resources/case-studies.html">Case Studies</a>
+          </div>
+        </div>
 
-<div class="sidebar">
-    <div class="sidebar-header"><strong>Emerging AI Careers</strong></div>
+        <a href="../../about.html" title="About Strativ">About</a>
+        <a href="../../contact.html" title="Contact Us">Contact</a>
+      </nav>
+    </header>
 
-    <div class="sidebar-menu">
+    <div class="page">
+      <aside class="sidebar">
+        <h3>Emerging AI Careers</h3>
         <a href="overview-of-emerging-ai-careers.html">Overview of Emerging AI Careers</a>
         <a href="ai-engineer.html">AI Engineer</a>
         <a href="data-scientist.html">Data Scientist</a>
@@ -217,203 +570,224 @@ body {
         <a href="ai-trainer.html">AI Trainer</a>
         <a href="ai-consultant.html">AI Business Consultant</a>
         <a href="careers-summary.html" class="active">Careers in Artificial Intelligence Summary</a>
-    </div>
-</div>
+      </aside>
 
-<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+      <main class="main">
+        <div class="inner-hero">
+          <a href="../../images/strativ_images/aiEng.png" target="image_viewer">
+            <img
+              src="../../images/strativ_images/aiEng.png"
+              alt="AI Careers Banner"
+              title="AI Careers Banner"
+            />
+          </a>
+          <h1>Careers in Artificial Intelligence</h1>
+        </div>
 
-<div class="main">
-
-    <div class="banner">
-        <img src="../../images/strativ_images/aiEng.png" alt="AI Careers">
-        <div class="banner-text">Careers in Artificial Intelligence</div>
-    </div>
-
-    <!-- INTRO -->
-    <div class="card">
-        <h2>Careers in Artificial Intelligence</h2>
-        <p>
+        <div class="article-section">
+          <h2 id="overview">Overview</h2>
+          <p>
             Artificial Intelligence careers are rapidly growing as AI becomes more integrated into everyday life and business systems. These roles focus on building, improving, and managing intelligent systems that can learn, analyze data, and make decisions.
-        </p>
+          </p>
+
+          <br>
+          <h2 id="roles">Key AI Roles</h2>
+          <div class="cards-container">
+            <div class="card">
+              <div class="card-icon">⚙️</div>
+              <h3>AI Engineer</h3>
+              <p>Builds and deploys AI systems such as chatbots, recommendation engines, and automation tools.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">📊</div>
+              <h3>Data Scientist</h3>
+              <p>Analyzes large datasets to extract insights using statistics, visualization, and machine learning techniques.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">⚖️</div>
+              <h3>AI Ethics Specialist</h3>
+              <p>Ensures AI systems are fair, transparent, and responsible while addressing bias, privacy, and societal impact.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">🧠</div>
+              <h3>Machine Learning Engineer</h3>
+              <p>Designs, trains, and optimizes models that allow systems to learn from data and improve performance over time.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">📋</div>
+              <h3>AI Product Manager</h3>
+              <p>Bridges business and technical teams by defining AI product goals and ensuring solutions meet user needs.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">✍️</div>
+              <h3>Prompt Engineer</h3>
+              <p>Designs and improves prompts to help AI systems generate accurate, structured, and useful responses.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">🔬</div>
+              <h3>AI Research Scientist</h3>
+              <p>Focuses on creating new AI models, algorithms, and technologies through research and experimentation.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">🤖</div>
+              <h3>Robotics Engineer</h3>
+              <p>Designs, builds, and programs robots by combining mechanical systems, electronics, and artificial intelligence.</p>
+            </div>
+          </div>
+
+          <br><br><br>
+          <h2 id="industries">Where AI Is Used</h2>
+          <p>
+            AI is used across almost every industry, making it one of the most versatile and in-demand fields today.
+          </p>
+          <table class="ai-table">
+            <thead>
+              <tr>
+                <th>Industry</th>
+                <th>Applications</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Healthcare</strong></td>
+                <td>Disease detection and medical imaging</td>
+              </tr>
+              <tr>
+                <td><strong>Finance</strong></td>
+                <td>Fraud detection and risk analysis</td>
+              </tr>
+              <tr>
+                <td><strong>Transportation</strong></td>
+                <td>Autonomous vehicles and traffic systems</td>
+              </tr>
+              <tr>
+                <td><strong>Entertainment & E-commerce</strong></td>
+                <td>Recommendation systems and personalization</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br><br>
+          <h2 id="skills">Essential Skills</h2>
+          <h3>Technical Skills</h3>
+          <div class="impact-list">
+            <div class="impact-item"><strong>Programming:</strong> Python and foundational coding concepts</div>
+            <div class="impact-item"><strong>Core Logic:</strong> Data structures and algorithms</div>
+            <div class="impact-item"><strong>Tools:</strong> Machine Learning frameworks</div>
+            <div class="impact-item"><strong>Analysis:</strong> Data analysis and statistics</div>
+          </div>
+
+          <h3>Soft Skills</h3>
+          <div class="impact-list">
+            <div class="impact-item"><strong>Critical thinking:</strong> Evaluating outputs and systemic logic</div>
+            <div class="impact-item"><strong>Communication:</strong> Bridging technical and non-technical concepts</div>
+            <div class="impact-item"><strong>Problem-solving:</strong> Addressing complex bottlenecks in models</div>
+            <div class="impact-item"><strong>Adaptability:</strong> Continuous learning in a fast-paced field</div>
+          </div>
+
+          <br><br>
+          <h2 id="outlook">Overall Outlook</h2>
+          <p>
+            Careers in Artificial Intelligence offer strong job growth, competitive opportunities, and the chance to work on cutting-edge technology that shapes the future. As AI continues to evolve, new roles and specializations will keep emerging, making it a dynamic and future-proof career path.
+          </p>
+
+          <div class="full-width-image">
+            <a href="../../images/strativ_images/future.jpg" target="image_viewer">
+              <img
+                src="../../images/strativ_images/future.jpg"
+                alt="AI Careers Future"
+                title="AI Careers Future"
+              />
+            </a>
+          </div>
+
+          <cite>
+            “The artificial intelligence industry is not just creating new technology; it is establishing an entirely new landscape of career opportunities.”
+          </cite>
+        </div>
+
+        <p class="author">Written by: Strativ Content Team</p>
+      </main>
     </div>
 
-    <div class="grid">
+    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
 
-        <!-- AI ENGINEER -->
-        <div class="card">
-            <h2>AI Engineer</h2>
-            <p>
-                Builds and deploys AI systems such as chatbots, recommendation engines, and automation tools.
-            </p>
-        </div>
-
-        <!-- DATA SCIENTIST -->
-        <div class="card">
-            <h2>Data Scientist</h2>
-            <p>
-                Analyzes large datasets to extract insights using statistics, visualization, and machine learning techniques.
-            </p>
-        </div>
-
-        <!-- AI ETHICS SPECIALIST -->
-        <div class="card">
-            <h2>AI Ethics Specialist</h2>
-            <p>
-                Ensures AI systems are fair, transparent, and responsible while addressing bias, privacy, and societal impact.
-            </p>
-        </div>
-
-        <!-- MACHINE LEARNING ENGINEER -->
-        <div class="card">
-            <h2>Machine Learning Engineer</h2>
-            <p>
-                Designs, trains, and optimizes models that allow systems to learn from data and improve performance over time.
-            </p>
-        </div>
-
-        <!-- AI PRODUCT MANAGER -->
-        <div class="card">
-            <h2>AI Product Manager</h2>
-            <p>
-                Bridges business and technical teams by defining AI product goals and ensuring solutions meet user needs.
-            </p>
-        </div>
-
-        <!-- PROMPT ENGINEER -->
-        <div class="card">
-            <h2>Prompt Engineer</h2>
-            <p>
-                Designs and improves prompts to help AI systems generate accurate, structured, and useful responses.
-            </p>
-        </div>
-
-        <!-- AI RESEARCH SCIENTIST -->
-        <div class="card">
-            <h2>AI Research Scientist</h2>
-            <p>
-                Focuses on creating new AI models, algorithms, and technologies through research and experimentation.
-            </p>
-        </div>
-
-        <!-- ROBOTICS ENGINEER -->
-        <div class="card">
-            <h2>Robotics Engineer</h2>
-            <p>
-                Designs, builds, and programs robots by combining mechanical systems, electronics, and artificial intelligence.
-            </p>
-        </div>
-
-        <!-- INDUSTRIES -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>Where AI Is Used</h2>
-
-            <ul>
-                <li><strong>Healthcare</strong> – disease detection and medical imaging</li>
-                <li><strong>Finance</strong> – fraud detection and risk analysis</li>
-                <li><strong>Transportation</strong> – autonomous vehicles and traffic systems</li>
-                <li><strong>Entertainment & E-commerce</strong> – recommendation systems and personalization</li>
-            </ul>
-
-            <p>
-                AI is used across almost every industry, making it one of the most versatile and in-demand fields today.
-            </p>
-        </div>
-
-        <!-- SKILLS -->
-        <div class="card">
-            <h2>Technical Skills</h2>
-            <ul>
-                <li>Python and programming fundamentals</li>
-                <li>Data structures and algorithms</li>
-                <li>Machine Learning frameworks</li>
-                <li>Data analysis and statistics</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>Soft Skills</h2>
-            <ul>
-                <li>Critical thinking</li>
-                <li>Communication</li>
-                <li>Problem-solving</li>
-                <li>Continuous learning</li>
-            </ul>
-        </div>
-
-        <!-- FINAL -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>Overall</h2>
-
-            <p>
-                Careers in Artificial Intelligence offer strong job growth, competitive opportunities, and the chance to work on cutting-edge technology that shapes the future.
-            </p>
-
-            <p>
-                As AI continues to evolve, new roles and specializations will keep emerging, making it a dynamic and future-proof career path.
-            </p>
-
-            <img src="../../images/strativ_images/future.jpg" style="width:100%; margin-top:15px; border-radius:10px;" alt="AI Careers Future">
-        </div>
-
-    </div>
-
-</div>
-    
-</div>
-<footer>
-    <div class="footer-container">
+    <footer>
+      <div class="footer-container">
         <div class="footer-brand">
-            <div class="footer-logo-blocks">
-                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-            </div>
-            <div class="mission-text">
-                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
-            </div>
+          <div class="footer-logo-blocks">
+            <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+          </div>
+          <div class="mission-text">
+            <p>
+              Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.
+            </p>
+          </div>
         </div>
 
         <div class="footer-links-group">
-            <div class="f-col">
-                <h4>Quick Links</h4>
-                <div class="quick-links-grid">
-                    <div>
-                        <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a><br>
-                        <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="">Future Skills</a><br>
-                        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                    </div>
-                    <div>
-                        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br>
-                        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br>
-                        <a href="">Future Outlook</a>
-                    </div>
-                </div>
+          <div class="f-col">
+            <h4>Quick Links</h4>
+            <div class="quick-links-grid">
+              <div>
+                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a><br />
+                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br />
+                <a href="">Future Skills</a><br />
+                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+              </div>
+              <div>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br />
+                <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br />
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
+                <a href="">Future Outlook</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-col">
+            <h4>Contact Info</h4>
+            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
+
+            <div class="contact-item">
+              <a
+                href="https://facebook.com/strativ"
+                target="_blank"
+                style="display: flex; align-items: center; gap: 10px"
+                title="Follow us on Facebook"
+              >
+                <span class="icon-box">f</span>
+                <span>Strativ.com</span>
+              </a>
             </div>
 
-            <div class="f-col">
-                <h4>Contact Info</h4>
-                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
-                <div class="contact-item">
-                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;" title="Follow us on Facebook">
-                        <span class="icon-box">f</span>
-                        <span> Strativ.com</span>
-                    </a>
-                </div>
-                
-                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
-                <div class="contact-item">
-                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;" title="Email Us">
-                        <span class="icon-box">✉</span>
-                        <span>Strativ018@gmail.com</span>
-                    </a>
-                </div>
+            <p style="margin-top: 10px; margin-bottom: 8px">
+              <strong>Email:</strong>
+            </p>
+
+            <div class="contact-item">
+              <a
+                href="mailto:Strativ018@gmail.com"
+                style="display: flex; align-items: center; gap: 10px"
+                title="Email Us"
+              >
+                <span class="icon-box">✉</span>
+                <span>Strativ018@gmail.com</span>
+              </a>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="copyright-bar">
+      <div class="copyright-bar">
         <p>© 2026 University of the East. All rights reserved.</p>
-    </div>
-</footer>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>

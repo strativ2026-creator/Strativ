@@ -1,400 +1,772 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strativ | AI Ethics Specialist</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="../../favicon.png" />
-<link rel="stylesheet" href="../../css/style.css">
-
-<style>
-
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: #F8FAFC;
-    color: #003049;
-}
-
-/* ===== LAYOUT ===== */
-.container {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 30px;
-    padding: 120px 6% 60px;
-}
-
-
-/* ===== MAIN ===== */
-.main {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-/* ===== BANNER ===== */
-.banner {
-    height: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-}
-
-.banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(3,4,94,0.5);
-}
-
-.banner-text {
-    position: absolute;
-    bottom: 25px;
-    left: 25px;
-    color: #fff;
-    font-family: Georgia, serif;
-    font-size: 36px;
-    z-index: 2;
-}
-
-/* ===== CARD ===== */
-.card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
-
-.card h2 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    color: #0077B6;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #475569;
-    margin-bottom: 12px;
-}
-
-/* ===== GRID ===== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-/* ===== BUTTON ===== */
-.button {
-    margin-top: 10px;
-    background: #03045E;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.button:hover {
-    background: #0077B6;
-}
-
-.extra-card {
-    margin: 0 40px 20px 40px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
-}
-
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">
-    <img
-      src="../../images/logo/logo.jpg"
-      alt="Strativ Corporate Logo"
-      title="STRATIV - Navigating the Future of Human-AI Collaboration"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STRATIV | AI Ethics Specialist</title>
+    <link rel="icon" type="image/png" href="../../favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
+      rel="stylesheet"
     />
-    STRATIV
-  </div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  <nav>
-    <a href="../../index.html" title="Go to Homepage">Home</a>
+      html {
+        scroll-behavior: smooth;
+      }
 
-    <div class="dropdown">
-      <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
-      <div class="dropdown-menu">
-        <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
-        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-        <a href="../emerging-ai-careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-        <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
-        <a href="../future-workforce-skills/">Skills</a>
-        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-        <a href="../future-outlook-ai/">Future</a>
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+        background: #f8fafc;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 6%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #03045e;
+      }
+
+      .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      nav {
+        display: flex;
+        gap: 30px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      nav a:hover {
+        color: #0077b6;
+      }
+
+      /* DROPDOWN STYLES */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.3s ease;
+      }
+
+      .dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* ===== PAGE LAYOUT ===== */
+      .page {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 30px;
+        padding: 120px 6% 60px;
+        align-items: start;
+      }
+
+      /* STICKY SIDEBAR */
+      .sidebar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
+      }
+
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px 10px 0 0;
+        text-transform: uppercase;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
+
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .inner-hero {
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .inner-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .inner-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.5);
+        pointer-events: none;
+      }
+
+      .inner-hero h1 {
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 38px;
+        bottom: 30px;
+        left: 30px;
+        pointer-events: none;
+      }
+
+      /* ARTICLE CONTENT STYLES */
+      .article-section {
+        background: #fff;
+        padding: 35px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .article-section h2 {
+        font-family: Georgia, serif;
+        color: #03045e;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        font-size: 26px;
+        position: relative;
+        padding-left: 12px;
+      }
+
+      .article-section h2:first-child {
+        margin-top: 0;
+      }
+
+      /* Line design */
+      .article-section h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 100%;
+        background: #0077b6;
+        border-radius: 3px;
+      }
+
+      .article-section h3 {
+        font-family: Georgia, serif;
+        color: #0077b6;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        font-size: 20px;
+      }
+
+      .article-section p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .article-section ul {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .article-section li {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 8px;
+      }
+
+      .article-section strong {
+        color: #03045e;
+      }
+
+      .content-img {
+        width: 100%;
+        height: auto;
+        margin: 25px 0;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .image-link {
+        display: block;
+        text-decoration: none;
+      }
+
+      p {
+        text-align: justify;
+      }
+
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        background-color: #03045e;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #0077b6;
+      }
+      
+      /* ===== NAVY FOOTER ===== */
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        flex: 1;
+      }
+
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
+
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+        color: #ffffff; /* Override default p color for footer */
+        text-align: left;
+      }
+
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
+
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
+
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+        text-align: left;
+      }
+
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .copyright-bar {
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      @media (max-width: 1100px) {
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
+      }
+
+      .full-width-image {
+        width: 100%;
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .full-width-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .full-width-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.2);
+        pointer-events: none;
+      }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+      }
+
+      /* ===== TABLE STYLES ===== */
+      .ai-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+      }
+
+      .ai-table th,
+      .ai-table td {
+        padding: 14px 18px;
+        border: 1px solid #e2e8f0;
+        text-align: left;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .ai-table thead {
+        background-color: #03045e;
+        color: #ffffff;
+        font-family: Georgia, serif;
+        font-weight: 700;
+      }
+
+      .ai-table tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+
+      .ai-table tbody tr:nth-child(even) {
+        background-color: #f1f5f9;
+      }
+      
+      .ai-table tbody td strong {
+        color: #03045e;
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <header>
+      <div class="logo">
+        <img
+          src="../../images/logo/logo.jpg"
+          alt="Strativ Corporate Logo"
+          title="Strativ Logo"
+        />
+        STRATIV
       </div>
+
+      <nav>
+        <a href="../../index.html" title="Go to Homepage">Home</a>
+        <div class="dropdown">
+          <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
+          <div class="dropdown-menu">
+            <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
+            <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+            <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+            <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+            <a href="">Future Skills</a>
+            <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+            <a href="../students/overview.html">Students</a>
+            <a href="../future/overview.html">Future</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="../../resources.html" title="View Resources">Resources ▾</a>
+          <div class="dropdown-menu">
+            <a href="../../resources/external-links.html">External Links</a>
+            <a href="../../resources/icons-images.html">Icons & Images</a>
+            <a href="../../resources/data-reports.html">Data & Reports</a>
+            <a href="../../resources/case-studies.html">Case Studies</a>
+          </div>
+        </div>
+        <a href="../../about.html" title="About Strativ">About</a>
+        <a href="../../contact.html" title="Contact Us">Contact</a>
+      </nav>
+    </header>
+
+    <div class="page">
+      <aside class="sidebar">
+        <h3>Emerging AI Careers</h3>
+        <a href="overview-of-emerging-ai-careers.html" title="overview of emerging AI careers">Overview of Emerging AI Careers</a>
+        <a href="ai-engineer.html" title="AI Engineer">AI Engineer</a>
+        <a href="data-scientist.html" title="Data Scientist">Data Scientist</a>
+        <a href="ai-ethics-specialist.html" title="AI Ethics Specialist" class="active">AI Ethics Specialist</a>
+        <a href="machine-learning-engineer.html" title="Machine Learning Engineer">Machine Learning Engineer</a>
+        <a href="ai-product-manager.html" title="AI Product Manager">AI Product Manager</a>
+        <a href="prompt-engineer.html" title="Prompt Engineers">Prompt Engineer</a>
+        <a href="ai-research-specialist.html" title="AI Research Scientist">AI Research Scientist</a>
+        <a href="robotics-engineer.html" title="Robotics Engineer">Robotics Engineer</a>
+        <a href="ai-trainer.html" title="AI Trainer">AI Trainer</a>
+        <a href="ai-consultant.html" title="AI Business Consultant">AI Business Consultant</a>
+        <a href="careers-summary.html" title="Careers in Artificial Intelligence Summary">Careers in Artificial Intelligence Summary</a>
+      </aside>
+
+      <main class="main">
+        <div class="inner-hero">
+          <a href="../../images/strativ_images/aiEng.png" target="image_viewer">
+            <img
+              src="../../images/strativ_images/aiEng.png"
+              alt="AI Ethics Specialist Banner"
+              title="AI Ethics Specialist Banner"
+            />
+          </a>
+          <h1>AI Ethics Specialist</h1>
+        </div>
+
+        <div class="article-section">
+          <h2 id="overview">Understanding the Role of an AI Ethics Specialist</h2>
+          <p>
+            An <strong>AI Ethics Specialist</strong> focuses on the moral, legal, and social impact of artificial intelligence. They ensure that AI systems are fair, transparent, and aligned with human values, helping organizations avoid harmful consequences and build responsible technology.
+          </p>
+
+          <h2 id="why-ethics-matter">Why Ethics Matter in AI</h2>
+          <p>
+            AI systems can influence important decisions in areas like healthcare, finance, and employment. Without proper oversight, these systems may reinforce bias or make harmful decisions.
+          </p>
+          <p>
+            Since AI is still evolving and not fully regulated, companies must take responsibility for ensuring their systems are ethical, fair, and safe for users.
+          </p>
+
+          <h2 id="key-concerns">Key Ethical Concerns</h2>
+          <table class="ai-table">
+            <thead>
+              <tr>
+                <th>Ethical Issue</th>
+                <th>Description & Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Discriminatory Biases</strong></td>
+                <td>AI models making decisions that unfairly disadvantage specific demographics or reinforce stereotypes.</td>
+              </tr>
+              <tr>
+                <td><strong>Plagiarism & Misuse</strong></td>
+                <td>Generating or using content without proper attribution or right of usage.</td>
+              </tr>
+              <tr>
+                <td><strong>Intellectual Property</strong></td>
+                <td>Violations concerning the ownership of data used to train AI and the outputs it creates.</td>
+              </tr>
+              <tr>
+                <td><strong>Misinformation</strong></td>
+                <td>The spread of fake outputs, deepfakes, and artificial "hallucinations" presented as fact.</td>
+              </tr>
+              <tr>
+                <td><strong>Privacy & Surveillance</strong></td>
+                <td>Risks associated with mass data collection, tracking, and unauthorized use of personal information.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="what-they-do">What AI Ethics Specialists Do</h2>
+          <p>
+            AI ethicists guide organizations in building responsible AI systems. They analyze risks, create ethical frameworks, and ensure systems follow proper standards throughout development.
+          </p>
+          <ul>
+            <li>Review AI systems before deployment</li>
+            <li>Create ethical guidelines and compliance processes</li>
+            <li>Work with engineers to integrate ethical boundaries</li>
+            <li>Advise leadership on risks and solutions</li>
+            <li>Educate teams about responsible AI practices</li>
+          </ul>
+
+          <h2 id="skills">Required Skills</h2>
+          <table class="ai-table">
+            <thead>
+              <tr>
+                <th>Technical Skills</th>
+                <th>Workplace Skills</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Understanding of AI technologies & machine learning</td>
+                <td>Strong written and verbal communication</td>
+              </tr>
+              <tr>
+                <td>Basic computer science and data analysis knowledge</td>
+                <td>Collaboration across technical and non-technical teams</td>
+              </tr>
+              <tr>
+                <td>Framework and governance policy development</td>
+                <td>Critical thinking and analytical problem-solving</td>
+              </tr>
+              <tr>
+                <td>Public speaking, auditing, and structured reporting</td>
+                <td>Ethical decision-making and empathy</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="how-to-become">How to Become an AI Ethics Specialist</h2>
+          <p>
+            This is a multidisciplinary career that combines technology, law, and ethics. There is no single path, but most professionals build diverse experience.
+          </p>
+          <table class="ai-table">
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Action Item</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Build a Foundation</strong></td>
+                <td>Study related fields such as computer science, law, sociology, or philosophy.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Understand AI</strong></td>
+                <td>Learn how AI systems, algorithms, and neural networks operate on a foundational level.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Learn Policy</strong></td>
+                <td>Develop knowledge in technology ethics, data privacy laws, and compliance frameworks.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Gain Experience</strong></td>
+                <td>Work across different industries to see how tech policies are implemented in the real world.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Stay Engaged</strong></td>
+                <td>Join AI ethics communities, attend conferences, and stay updated with rapid regulatory changes.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="future">The Future of AI Ethics</h2>
+          <p>
+            AI ethics is a rapidly growing field as technology continues to expand into everyday life. Organizations increasingly need professionals who can ensure responsible innovation.
+          </p>
+          <p>
+            As AI becomes more powerful, AI ethics specialists will play a critical role in shaping policies, protecting users, and guiding the future of technology.
+          </p>
+
+          <div class="full-width-image">
+            <a href="../../images/strativ_images/future.jpg" target="image_viewer">
+              <img
+                src="../../images/strativ_images/future.jpg"
+                alt="AI Ethics Future"
+                title="AI Ethics Future"
+              />
+            </a>
+          </div>
+        </div>
+
+        <p class="author">Written by: Strativ Content Team</p>
+      </main>
     </div>
 
-    <div class="dropdown">
-      <a href="../../resources.html" title="View Resources">Resources ▾</a>
-      <div class="dropdown-menu">
-        <a href="../../resources/external-links.html">External Links</a>
-        <a href="../../resources/icons-images.html">Icons & Images</a>
-        <a href="../../resources/data-reports.html">Data & Reports</a>
-        <a href="../../resources/case-studies.html">Case Studies</a>
-      </div>
-    </div>
+    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
 
-    <a href="../../about.html" title="About Strativ">About</a>
-    <a href="../../contact.html" title="Contact Us">Contact</a>
-  </nav>
-</header>
-
-<div class="container">
-
-<div class="sidebar">
-    <div class="sidebar-header"><strong>Emerging AI Careers</strong></div>
-
-    <div class="sidebar-menu">
-        <a href="overview-of-emerging-ai-careers.html">Overview of Emerging AI Careers</a>
-        <a href="ai-engineer.html">AI Engineer</a>
-        <a href="data-scientist.html">Data Scientist</a>
-        <a href="ai-ethics-specialist.html" class="active">AI Ethics Specialist</a>
-        <a href="machine-learning-engineer.html">Machine Learning Engineer</a>
-        <a href="ai-product-manager.html">AI Product Manager</a>
-        <a href="prompt-engineer.html">Prompt Engineer</a>
-        <a href="ai-research-specialist.html">AI Research Scientist</a>
-        <a href="robotics-engineer.html">Robotics Engineer</a>
-        <a href="ai-trainer.html">AI Trainer</a>
-        <a href="ai-consultant.html">AI Business Consultant</a>
-        <a href="careers-summary.html">Careers in Artificial Intelligence Summary</a>
-    </div>
-</div>
-
-<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
-
-<div class="main">
-
-    <div class="banner">
-        <img src="../../images/strativ_images/aiEng.png" alt="AI Careers">
-        <div class="banner-text">AI Ethics Specialist</div>
-    </div>
-
-    <!-- INTRO -->
-    <div class="card">
-        <p>
-            An AI Ethics Specialist focuses on the moral, legal, and social impact of artificial intelligence. They ensure that AI systems are fair, transparent, and aligned with human values, helping organizations avoid harmful consequences and build responsible technology.
-        </p>
-    </div>
-
-    <div class="grid">
-
-        <!-- WHY ETHICS -->
-        <div class="card">
-            <h2>Why Ethics Matter in AI</h2>
-            <p>
-                AI systems can influence important decisions in areas like healthcare, finance, and employment. Without proper oversight, these systems may reinforce bias or make harmful decisions.
-            </p>
-            <p>
-                Since AI is still evolving and not fully regulated, companies must take responsibility for ensuring their systems are ethical, fair, and safe for users.
-            </p>
-        </div>
-
-        <!-- CONCERNS -->
-        <div class="card">
-            <h2>Key Ethical Concerns</h2>
-            <ul>
-                <li>Discriminatory biases in AI decisions</li>
-                <li>Plagiarism and misuse of content</li>
-                <li>Intellectual property violations</li>
-                <li>Misinformation and fake outputs</li>
-                <li>Privacy and surveillance risks</li>
-            </ul>
-        </div>
-
-        <!-- ROLE -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>What AI Ethics Specialists Do</h2>
-
-            <p>
-                AI ethicists guide organizations in building responsible AI systems. They analyze risks, create ethical frameworks, and ensure systems follow proper standards throughout development.
-            </p>
-
-            <ul>
-                <li>Review AI systems before deployment</li>
-                <li>Create ethical guidelines and compliance processes</li>
-                <li>Work with engineers to integrate ethical boundaries</li>
-                <li>Advise leadership on risks and solutions</li>
-                <li>Educate teams about responsible AI practices</li>
-            </ul>
-        </div>
-
-        <!-- SKILLS -->
-        <div class="card">
-            <h2>Technical Skills</h2>
-            <ul>
-                <li>Understanding of AI technologies</li>
-                <li>Basic computer science knowledge</li>
-                <li>Framework and policy development</li>
-                <li>Public speaking and reporting</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>Workplace Skills</h2>
-            <ul>
-                <li>Strong communication skills</li>
-                <li>Collaboration across teams</li>
-                <li>Critical and analytical thinking</li>
-                <li>Ethical decision-making</li>
-            </ul>
-        </div>
-
-        <!-- CAREER PATH -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>How to Become an AI Ethics Specialist</h2>
-
-            <p>
-                This is a multidisciplinary career that combines technology, law, and ethics. There is no single path, but most professionals build diverse experience.
-            </p>
-
-            <h3>Common Steps:</h3>
-            <ul>
-                <li>Study fields like computer science, law, or philosophy</li>
-                <li>Learn how AI systems work</li>
-                <li>Develop knowledge in ethics and policy</li>
-                <li>Gain experience across different industries</li>
-                <li>Build communication and public speaking skills</li>
-            </ul>
-
-            <p>
-                Joining AI communities, attending conferences, and staying updated with trends are also important for growth in this field.
-            </p>
-        </div>
-
-        <!-- FUTURE -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>The Future of AI Ethics</h2>
-
-            <p>
-                AI ethics is a rapidly growing field as technology continues to expand into everyday life. Organizations increasingly need professionals who can ensure responsible innovation.
-            </p>
-
-            <p>
-                As AI becomes more powerful, AI ethics specialists will play a critical role in shaping policies, protecting users, and guiding the future of technology.
-            </p>
-
-            <img src="../../images/strativ_images/future.jpg" style="width:100%; margin-top:15px; border-radius:10px;" alt="AI Ethics Future">
-        </div>
-
-    </div>
-
-</div>
-    
-</div>
-<footer>
-    <div class="footer-container">
+    <footer>
+      <div class="footer-container">
         <div class="footer-brand">
-            <div class="footer-logo-blocks">
-                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-            </div>
-            <div class="mission-text">
-                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
-            </div>
+          <div class="footer-logo-blocks">
+            <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+          </div>
+          <div class="mission-text">
+            <p>
+              Navigating the future of human-AI collaboration in the workforce.
+              A comprehensive guide to automation and emerging careers.
+            </p>
+          </div>
         </div>
 
         <div class="footer-links-group">
-            <div class="f-col">
-                <h4>Quick Links</h4>
-                <div class="quick-links-grid">
-                    <div>
-                        <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a><br>
-                        <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="">Future Skills</a><br>
-                        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                    </div>
-                    <div>
-                        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br>
-                        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br>
-                        <a href="">Future Outlook</a>
-                    </div>
-                </div>
+          <div class="f-col">
+            <h4>Quick Links</h4>
+            <div class="quick-links-grid">
+              <div>
+                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a><br />
+                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br />
+                <a href="../future-workforce-skills/overview-future-workforce-skills.html">Future Skills</a><br />
+                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+              </div>
+              <div>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br />
+                <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br />
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
+                <a href="../future-outlook-ai/">Future Outlook</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-col">
+            <h4>Contact Info</h4>
+            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
+
+            <div class="contact-item">
+              <a
+                href="https://www.facebook.com/profile.php?id=61580704943031"
+                target="_blank"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">f</span>
+                <span>Strativ.com</span>
+              </a>
             </div>
 
-            <div class="f-col">
-                <h4>Contact Info</h4>
-                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
-                <div class="contact-item">
-                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;" title="Follow us on Facebook">
-                        <span class="icon-box">f</span>
-                        <span> Strativ.com</span>
-                    </a>
-                </div>
-                
-                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
-                <div class="contact-item">
-                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;" title="Email Us">
-                        <span class="icon-box">✉</span>
-                        <span>Strativ018@gmail.com</span>
-                    </a>
-                </div>
+            <p style="margin-top: 10px; margin-bottom: 8px">
+              <strong>Email:</strong>
+            </p>
+
+            <div class="contact-item">
+              <a
+                href="mailto:strativ018@gmail.com"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">✉</span>
+                <span>strativ018@gmail.com</span>
+              </a>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="copyright-bar">
-        <p>© 2026 University of the East. All rights reserved.</p>
-    </div>
-</footer>
-</body>
+      <div class="copyright-bar">
+        <p>© 2026 STRATIV. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>

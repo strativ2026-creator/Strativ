@@ -23,6 +23,82 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: #F8FAFC;
     color: #003049;
+    scroll-behavior: smooth;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045e;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077b6;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* ===== LAYOUT ===== */
@@ -31,8 +107,46 @@ body {
     grid-template-columns: 260px 1fr;
     gap: 30px;
     padding: 120px 6% 60px;
+    align-items: start;
 }
 
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar-header {
+    background: #03045e;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar-menu a:hover {
+    background: #f1f5f9;
+    color: #0077b6;
+}
+
+.sidebar-menu a.active {
+    background: #eaeaea;
+    color: #0077b6;
+}
 
 /* ===== MAIN ===== */
 .main {
@@ -43,7 +157,7 @@ body {
 
 /* ===== BANNER ===== */
 .banner {
-    height: 300px;
+    height: 320px;
     border-radius: 12px;
     overflow: hidden;
     position: relative;
@@ -60,43 +174,120 @@ body {
     position: absolute;
     inset: 0;
     background: rgba(3,4,94,0.5);
+    pointer-events: none;
 }
 
 .banner-text {
     position: absolute;
-    bottom: 25px;
-    left: 25px;
+    bottom: 30px;
+    left: 30px;
     color: #fff;
     font-family: Georgia, serif;
-    font-size: 36px;
+    font-size: 38px;
     z-index: 2;
+    pointer-events: none;
 }
 
 /* ===== CARD ===== */
 .card {
     background: #fff;
-    padding: 30px;
+    padding: 35px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
 }
 
 .card h2 {
     font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 15px;
+    color: #03045e;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 26px;
+    position: relative;
+    padding-left: 12px;
 }
 
-.card h3 {
-    color: #0077B6;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.card h2:first-child {
+    margin-top: 0;
+}
+
+.card h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background: #0077b6;
+    border-radius: 3px;
 }
 
 .card p {
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.8;
     color: #475569;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.card ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.card li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+/* ===== TABLES ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 15px;
+    text-align: left;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #03045e;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+td {
+    color: #475569;
+    line-height: 1.6;
+}
+
+tr:last-of-type td {
+    border-bottom: none;
+}
+
+tr:nth-of-type(even) {
+    background-color: #f8fafc;
+}
+
+tr:hover td {
+    background-color: #f1f5f9;
 }
 
 /* ===== GRID ===== */
@@ -104,29 +295,6 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-}
-
-/* ===== BUTTON ===== */
-.button {
-    margin-top: 10px;
-    background: #03045E;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.button:hover {
-    background: #0077B6;
-}
-
-.extra-card {
-    margin: 0 40px 20px 40px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 #scrollTopBtn {
@@ -152,10 +320,125 @@ body {
 #scrollTopBtn:hover {
     background-color: #0077B6; 
 }
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045e;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045e;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px;
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1;
+    margin-top: -6px;
+}
+
+.f-col p,
+.f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045e;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-links-group {
+        gap: 30px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header>
   <div class="logo">
@@ -229,96 +512,112 @@ body {
         <div class="banner-text">Robotics Engineer</div>
     </div>
 
-    <!-- INTRO -->
     <div class="card">
-        <h2>Robotics Engineer</h2>
+        <h2>Role Overview</h2>
         <p>
             A Robotics Engineer designs, builds, programs, and maintains robots—machines that can perform tasks automatically or with minimal human control. These systems are used in industries such as manufacturing, healthcare, space exploration, and everyday services.
         </p>
         <p>
             Robotics engineering combines Mechanical Engineering, Electrical Engineering, and Computer Science, along with AI concepts like Machine Learning for smarter and adaptive robots.
         </p>
-    </div>
 
-    <div class="grid">
+        <h2>Types of Robots</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Robot Category</th>
+                    <th>Applications & Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Industrial Robots</strong></td>
+                    <td>Factory automation, heavy-duty welding, and assembly line production.</td>
+                </tr>
+                <tr>
+                    <td><strong>Medical Robots</strong></td>
+                    <td>Surgical assistance, precise incisions, and healthcare support systems.</td>
+                </tr>
+                <tr>
+                    <td><strong>Service Robots</strong></td>
+                    <td>Customer service, hospitality (hotels/restaurants), and home assistance.</td>
+                </tr>
+                <tr>
+                    <td><strong>Autonomous Robots</strong></td>
+                    <td>Delivery drones, self-driving vehicles, and automated exploration rovers.</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <!-- WHAT THEY DO -->
-        <div class="card">
-            <h2>What Robotics Engineers Do</h2>
-            <ul>
-                <li>Design robot structures and mechanical systems</li>
-                <li>Build and assemble robotic machines</li>
-                <li>Program robots to perform tasks</li>
-                <li>Integrate sensors, cameras, and control systems</li>
-                <li>Test and troubleshoot performance issues</li>
-                <li>Improve efficiency, safety, and accuracy</li>
-            </ul>
-        </div>
+        <h2>Skills Needed</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Skill Area</th>
+                    <th>Specific Requirements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Foundation</strong></td>
+                    <td>Strong knowledge of mathematics, physics, and core engineering principles.</td>
+                </tr>
+                <tr>
+                    <td><strong>Programming</strong></td>
+                    <td>Proficiency in languages such as Python, C++, or Java.</td>
+                </tr>
+                <tr>
+                    <td><strong>Hardware & Electronics</strong></td>
+                    <td>Understanding of sensor systems, microcontrollers, and circuit integration.</td>
+                </tr>
+                <tr>
+                    <td><strong>Artificial Intelligence</strong></td>
+                    <td>Familiarity with Computer Vision, Machine Learning, and adaptive controls.</td>
+                </tr>
+                <tr>
+                    <td><strong>Soft Skills</strong></td>
+                    <td>High-level problem-solving, critical thinking, and teamwork capabilities.</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <!-- TYPES -->
-        <div class="card">
-            <h2>Types of Robots</h2>
-            <ul>
-                <li><strong>Industrial Robots</strong> – factory automation (welding, assembly)</li>
-                <li><strong>Medical Robots</strong> – surgical and healthcare assistance</li>
-                <li><strong>Service Robots</strong> – hotels, homes, customer service</li>
-                <li><strong>Autonomous Robots</strong> – drones and self-driving systems</li>
-            </ul>
-        </div>
+        <h2>What They Do</h2>
+        <ul>
+            <li>Design robot structures and mechanical systems</li>
+            <li>Build and assemble robotic machines</li>
+            <li>Program robots to perform tasks</li>
+            <li>Integrate sensors, cameras, and control systems</li>
+            <li>Test and troubleshoot performance issues</li>
+            <li>Improve efficiency, safety, and accuracy</li>
+        </ul>
 
-        <!-- SKILLS -->
-        <div class="card">
-            <h2>Skills Needed</h2>
-            <ul>
-                <li>Strong engineering and math knowledge</li>
-                <li>Programming (Python, C++, etc.)</li>
-                <li>Electronics and sensor systems</li>
-                <li>Problem-solving and critical thinking</li>
-                <li>AI concepts like Computer Vision</li>
-            </ul>
-        </div>
+        <h2>Why It Matters</h2>
+        <p>
+            Robotics engineers help automate tasks that are dangerous, repetitive, or require high precision. Robots improve safety and productivity by handling work in environments where humans may be at risk or where accuracy is critical.
+        </p>
 
-        <!-- WHY IT MATTERS -->
-        <div class="card">
-            <h2>Why It Matters</h2>
-            <p>
-                Robotics engineers help automate tasks that are dangerous, repetitive, or require high precision. Robots improve safety and productivity by handling work in environments where humans may be at risk or where accuracy is critical.
-            </p>
-        </div>
+        <h2>Impact of Robotics Engineering</h2>
+        <p>
+            Robotics is transforming industries by improving efficiency, reducing human risk, and enabling innovation in fields like healthcare, manufacturing, and exploration.
+        </p>
+        <p>
+            For example, robots can assist in complex surgeries, explore space environments, or automate factory production lines with high precision.
+        </p>
 
-        <!-- FULL WIDTH IMPACT -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>Impact of Robotics Engineering</h2>
-
-            <p>
-                Robotics is transforming industries by improving efficiency, reducing human risk, and enabling innovation in fields like healthcare, manufacturing, and exploration.
-            </p>
-
-            <p>
-                For example, robots can assist in complex surgeries, explore space environments, or automate factory production lines with high precision.
-            </p>
-        </div>
-
-        <!-- FINAL -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>Overall</h2>
-
-            <p>
-                Robotics engineering is a rapidly growing field that blends hardware and software. It allows engineers to create intelligent machines that can assist or replace human effort in various real-world applications.
-            </p>
-
-            <p>
-                This career offers opportunities to work on advanced technology and contribute to the future of automation and AI-driven systems.
-            </p>
-
-            <img src="../../images/strativ_images/future.jpg" style="width:100%; margin-top:15px; border-radius:10px;" alt="Robotics Engineering Future">
-        </div>
-
+        <h2>Overall Summary</h2>
+        <p>
+            Robotics engineering is a rapidly growing field that blends hardware and software. It allows engineers to create intelligent machines that can assist or replace human effort in various real-world applications.
+        </p>
+        <p>
+            This career offers opportunities to work on advanced technology and contribute to the future of automation and AI-driven systems.
+        </p>
+        <img src="../../images/strativ_images/future.jpg" alt="Robotics Engineering Future">
     </div>
 
 </div>
     
 </div>
+
 <footer>
     <div class="footer-container">
         <div class="footer-brand">

@@ -23,6 +23,82 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: #F8FAFC;
     color: #003049;
+    scroll-behavior: smooth;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #03045e;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003049;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #0077b6;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* ===== LAYOUT ===== */
@@ -31,8 +107,46 @@ body {
     grid-template-columns: 260px 1fr;
     gap: 30px;
     padding: 120px 6% 60px;
+    align-items: start;
 }
 
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.sidebar-header {
+    background: #03045e;
+    color: #fff;
+    padding: 15px;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #003049;
+    text-decoration: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sidebar-menu a:hover {
+    background: #f1f5f9;
+    color: #0077b6;
+}
+
+.sidebar-menu a.active {
+    background: #eaeaea;
+    color: #0077b6;
+}
 
 /* ===== MAIN ===== */
 .main {
@@ -43,7 +157,7 @@ body {
 
 /* ===== BANNER ===== */
 .banner {
-    height: 300px;
+    height: 320px;
     border-radius: 12px;
     overflow: hidden;
     position: relative;
@@ -60,73 +174,86 @@ body {
     position: absolute;
     inset: 0;
     background: rgba(3,4,94,0.5);
+    pointer-events: none;
 }
 
 .banner-text {
     position: absolute;
-    bottom: 25px;
-    left: 25px;
+    bottom: 30px;
+    left: 30px;
     color: #fff;
     font-family: Georgia, serif;
-    font-size: 36px;
+    font-size: 38px;
     z-index: 2;
+    pointer-events: none;
 }
 
 /* ===== CARD ===== */
 .card {
     background: #fff;
-    padding: 30px;
+    padding: 35px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
 }
 
 .card h2 {
     font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 15px;
+    color: #03045e;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 26px;
+    position: relative;
+    padding-left: 12px;
+}
+
+.card h2:first-child {
+    margin-top: 0;
+}
+
+.card h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background: #0077b6;
+    border-radius: 3px;
 }
 
 .card h3 {
-    color: #0077B6;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-family: Georgia, serif;
+    color: #0077b6;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 20px;
 }
 
 .card p {
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.8;
     color: #475569;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+    text-align: justify;
 }
 
-/* ===== GRID ===== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.card ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
-/* ===== BUTTON ===== */
-.button {
-    margin-top: 10px;
-    background: #03045E;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+.card li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 8px;
 }
 
-.button:hover {
-    background: #0077B6;
-}
-
-.extra-card {
-    margin: 0 40px 20px 40px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 25px 0;
 }
 
 #scrollTopBtn {
@@ -152,10 +279,122 @@ body {
 #scrollTopBtn:hover {
     background-color: #0077B6; 
 }
+
+/* ===== NAVY FOOTER ===== */
+footer {
+    background: #03045e;
+    color: #ffffff;
+    padding: 40px 6% 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+}
+
+.footer-logo-blocks {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-blocks span {
+    background: #ffffff;
+    color: #03045e;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.mission-text p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+    max-width: 380px;
+}
+
+.footer-links-group {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    gap: 220px;
+}
+
+.f-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    line-height: 1;
+    margin-top: -6px;
+}
+
+.f-col p,
+.f-col a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    background: #ffffff;
+    color: #03045e;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.copyright-bar {
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-links-group {
+        gap: 30px;
+    }
+}
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header>
   <div class="logo">
@@ -229,129 +468,93 @@ body {
         <div class="banner-text">AI Research Scientist</div>
     </div>
 
-    <!-- INTRO -->
     <div class="card">
-        <h2>AI Research Scientist</h2>
+        <h2 id="overview">Understanding the Role of an AI Research Scientist</h2>
         <p>
             An AI Research Scientist focuses on advancing artificial intelligence by creating new ideas, models, and technologies. Instead of only applying existing tools, they push the boundaries of what AI can achieve through research and innovation.
         </p>
-    </div>
 
-    <div class="grid">
+        <h2 id="core-areas">Core Areas of Work</h2>
+        <ul>
+            <li><strong>Research</strong> – studying new methods and improving AI systems</li>
+            <li><strong>Algorithm Development</strong> – building smarter learning models</li>
+            <li><strong>Collaboration</strong> – working with experts across fields</li>
+            <li><strong>Publication</strong> – sharing findings through research papers</li>
+        </ul>
 
-        <!-- CORE AREAS -->
-        <div class="card">
-            <h2>Core Areas of Work</h2>
-            <ul>
-                <li><strong>Research</strong> – studying new methods and improving AI systems</li>
-                <li><strong>Algorithm Development</strong> – building smarter learning models</li>
-                <li><strong>Collaboration</strong> – working with experts across fields</li>
-                <li><strong>Publication</strong> – sharing findings through research papers</li>
-            </ul>
-        </div>
+        <h2 id="responsibilities">Key Responsibilities</h2>
+        <ul>
+            <li>Develop new AI algorithms and techniques</li>
+            <li>Train and test machine learning models</li>
+            <li>Analyze large datasets for patterns</li>
+            <li>Stay updated with AI research trends</li>
+            <li>Contribute to scientific studies and innovations</li>
+        </ul>
 
-        <!-- RESPONSIBILITIES -->
-        <div class="card">
-            <h2>Key Responsibilities</h2>
-            <ul>
-                <li>Develop new AI algorithms and techniques</li>
-                <li>Train and test machine learning models</li>
-                <li>Analyze large datasets for patterns</li>
-                <li>Stay updated with AI research trends</li>
-                <li>Contribute to scientific studies and innovations</li>
-            </ul>
-        </div>
+        <h2 id="what-they-do">What They Actually Do</h2>
+        <p>
+            AI research scientists design experiments, test new ideas, and build prototypes to solve complex problems. Their work often leads to breakthroughs in how AI systems understand data, language, or images.
+        </p>
+        <p>
+            For example, they might develop systems that detect diseases from medical images or improve how chatbots understand human language.
+        </p>
 
-        <!-- ROLE FULL WIDTH -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>What They Actually Do</h2>
+        <h2 id="technical-skills">Technical Skills</h2>
+        <ul>
+            <li>Programming and algorithm design</li>
+            <li>Mathematics and statistical modeling</li>
+            <li>Machine Learning and Deep Learning</li>
+            <li>Natural Language Processing</li>
+            <li>Big data tools</li>
+        </ul>
 
-            <p>
-                AI research scientists design experiments, test new ideas, and build prototypes to solve complex problems. Their work often leads to breakthroughs in how AI systems understand data, language, or images.
-            </p>
+        <h2 id="workplace-skills">Workplace Skills</h2>
+        <ul>
+            <li>Critical thinking</li>
+            <li>Problem-solving</li>
+            <li>Communication and teamwork</li>
+            <li>Strong research mindset</li>
+        </ul>
 
-            <p>
-                For example, they might develop systems that detect diseases from medical images or improve how chatbots understand human language.
-            </p>
-        </div>
+        <h2 id="education-path">Education & Career Path</h2>
+        <p>
+            Most AI research scientists have strong academic backgrounds and advanced degrees.
+        </p>
+        <ul>
+            <li>Degree in computer science, math, physics, or engineering</li>
+            <li>Master’s degree or PhD (commonly required)</li>
+            <li>Research experience or internships</li>
+            <li>Continuous learning due to fast-changing technology</li>
+        </ul>
 
-        <!-- SKILLS -->
-        <div class="card">
-            <h2>Technical Skills</h2>
-            <ul>
-                <li>Programming and algorithm design</li>
-                <li>Mathematics and statistical modeling</li>
-                <li>Machine Learning and Deep Learning</li>
-                <li>Natural Language Processing</li>
-                <li>Big data tools</li>
-            </ul>
-        </div>
+        <h2 id="where-they-work">Where They Work</h2>
+        <ul>
+            <li>Technology companies</li>
+            <li>Healthcare (medical AI systems)</li>
+            <li>Finance (prediction and fraud detection)</li>
+            <li>Universities and research institutions</li>
+        </ul>
 
-        <div class="card">
-            <h2>Workplace Skills</h2>
-            <ul>
-                <li>Critical thinking</li>
-                <li>Problem-solving</li>
-                <li>Communication and teamwork</li>
-                <li>Strong research mindset</li>
-            </ul>
-        </div>
+        <h2 id="unique-role">What Makes This Role Unique</h2>
+        <p>
+            Unlike other AI roles, research scientists focus on creating new knowledge rather than applying existing tools. They are responsible for major breakthroughs that shape the future of artificial intelligence.
+        </p>
 
-        <!-- EDUCATION -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>Education & Career Path</h2>
+        <h2 id="why-it-matters">Why This Role Matters</h2>
+        <p>
+            AI research scientists are the innovators behind major advancements in technology. Their work helps machines become smarter, more efficient, and capable of solving increasingly complex problems.
+        </p>
+        <p>
+            This role is ideal for individuals who enjoy deep thinking, experimentation, and discovering new ideas that can shape the future of AI.
+        </p>
 
-            <p>
-                Most AI research scientists have strong academic backgrounds and advanced degrees.
-            </p>
-
-            <ul>
-                <li>Degree in computer science, math, physics, or engineering</li>
-                <li>Master’s degree or PhD (commonly required)</li>
-                <li>Research experience or internships</li>
-                <li>Continuous learning due to fast-changing technology</li>
-            </ul>
-        </div>
-
-        <!-- INDUSTRIES -->
-        <div class="card">
-            <h2>Where They Work</h2>
-            <ul>
-                <li>Technology companies</li>
-                <li>Healthcare (medical AI systems)</li>
-                <li>Finance (prediction and fraud detection)</li>
-                <li>Universities and research institutions</li>
-            </ul>
-        </div>
-
-        <!-- UNIQUE SECTION -->
-        <div class="card">
-            <h2>What Makes This Role Unique</h2>
-            <p>
-                Unlike other AI roles, research scientists focus on creating new knowledge rather than applying existing tools. They are responsible for major breakthroughs that shape the future of artificial intelligence.
-            </p>
-        </div>
-
-        <!-- FINAL -->
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>Why This Role Matters</h2>
-
-            <p>
-                AI research scientists are the innovators behind major advancements in technology. Their work helps machines become smarter, more efficient, and capable of solving increasingly complex problems.
-            </p>
-
-            <p>
-                This role is ideal for individuals who enjoy deep thinking, experimentation, and discovering new ideas that can shape the future of AI.
-            </p>
-
-            <img src="../../images/strativ_images/future.jpg" style="width:100%; margin-top:15px; border-radius:10px;" alt="AI Research">
-        </div>
-
+        <img src="../../images/strativ_images/future.jpg" alt="AI Research">
     </div>
 
 </div>
     
 </div>
+
 <footer>
     <div class="footer-container">
         <div class="footer-brand">
