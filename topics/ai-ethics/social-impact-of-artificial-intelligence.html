@@ -11,470 +11,76 @@
 
 <style>
 /* ===== RESET & BASE ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; }
 
-html {
-    scroll-behavior: smooth; 
-}
+/* ===== STRATIV THEME UTILITIES ===== */
+.text-strativ-dark { color: #03045E !important; font-family: Georgia, serif; font-weight: bold; }
+.text-strativ-blue { color: #0077B6 !important; }
+.bg-strativ-dark { background-color: #03045E !important; }
+.bg-strativ-light { background-color: #EFF6FF !important; }
+.border-strativ-dark { border-color: #03045E !important; }
+.border-strativ-blue { border-color: #0077B6 !important; }
+.text-custom-p { font-size: 14px; color: #6D6D6D; line-height: 1.7; }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: #003049;
-    background: #F8FAFC;
-}
+/* BLUE IMAGE TINT */
+.image-blue-tint { filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%); }
 
 /* ===== HEADER ===== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 6%;
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
+.logo img { width: 40px; height: 40px; }
+nav { display: flex; gap: 30px; }
+nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
+nav a:hover { color: #0077B6; }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: Georgia, serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #03045E;
-}
-
-.logo img {
-    width: 40px;
-    height: 40px;
-}
-
-nav {
-    display: flex;
-    gap: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #003049;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #0077B6;
-}
-
-.nav-dropdown {
-    position: relative;
-}
-
-.nav-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    min-width: 220px;
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: opacity 0.3s ease;
-}
-
-.nav-dropdown-menu a {
-    padding: 12px 15px;
-    display: block;
-}
-
-.nav-dropdown:hover .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-}
+/* DROPDOWNS */
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: opacity 0.3s ease; }
+.nav-dropdown-menu a { padding: 12px 15px; display: block; }
+.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
 
 /* ===== PAGE LAYOUT ===== */
-.page {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 30px;
-    padding: 120px 6% 60px;
-    align-items: start;
-}
+.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
 
-.sidebar {
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    position: sticky;
-    top: 100px;
-    z-index: 10;
-}
+/* SIDEBAR */
+.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
+.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; font-weight: bold; }
+.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
+.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
+.sidebar a.active { background: #eaeaea; color: #0077B6; }
 
-.sidebar h3 {
-    background: #03045E;
-    color: #fff;
-    padding: 15px;
-    font-size: 13px;
-    border-radius: 10px 10px 0 0;
-    text-transform: uppercase;
-}
-
-.sidebar a {
-    display: block;
-    padding: 12px 15px;
-    font-size: 14px;
-    color: #003049;
-    text-decoration: none;
-    border-top: 1px solid #e2e8f0;
-}
-
-.sidebar a:hover {
-    background: #f1f5f9;
-    color: #0077B6;
-}
-
-.sidebar a.active {
-    background: #eaeaea;
-    color: #0077B6;
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.inner-hero {
-    height: 320px;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-}
-
-.inner-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.inner-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(3,4,94,0.5);
-}
-
-.inner-hero h1 {
-    position: absolute;
-    z-index: 2;
-    color: #fff;
-    font-family: Georgia, serif;
-    font-size: 38px;
-    bottom: 30px;
-    left: 30px;
-}
-
-.about {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
-
-.about h2 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 10px;
-}
-
-.about p {
-    font-size: 14px;
-    color: #6D6D6D;
-    line-height: 1.7;
-    margin-bottom: 10px;
-}
-
-.about p:last-child {
-    margin-bottom: 0;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    border: 1px solid #e2e8f0;
-}
-
-.card h4 {
-    font-family: Georgia, serif;
-    color: #03045E;
-}
-
-.card p {
-    margin: 10px 0 0;
-    font-size: 14px;
-    color: #6D6D6D;
-    line-height: 1.7;
-}
+/* HERO */
+.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; margin-bottom: 25px; }
+.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
+.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; font-weight: bold; }
 
 /* ===== SHARED EXTRAS ===== */
-.section-label {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #0077B6;
-    margin-bottom: 8px;
-}
-
-.highlight-box {
-    background: #EFF6FF;
-    border-left: 4px solid #0077B6;
-    padding: 16px 20px;
-    border-radius: 0 8px 8px 0;
-    margin: 14px 0 0;
-    font-size: 14px;
-    color: #003049;
-    line-height: 1.7;
-}
-
+.section-label { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0077B6; margin-bottom: 8px; }
+.highlight-box { background: #EFF6FF; border-left: 4px solid #0077B6; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-top: 14px; font-size: 14px; color: #003049; line-height: 1.7; }
 .highlight-box strong { color: #03045E; }
 
-/* ===== PRINCIPLES GRID ===== */
-.principles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.p-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 22px 20px;
-    border: 1px solid #e2e8f0;
-    border-top: 4px solid #03045E;
-}
-
-.p-card h4 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    font-size: 15px;
-    margin-bottom: 10px;
-}
-
-.p-card p {
-    font-size: 13px;
-    color: #6D6D6D;
-    line-height: 1.65;
-    margin: 0;
-}
-
-/* ===== CASE CARDS ===== */
-.case-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 11px;
-}
-
-/* Changed red/yellow theme to STRATIV blue theme */
-.badge-uk { background: #EFF6FF; color: #0077B6; border: 1px solid #0077B6; }
-
-.case-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    border: 1px solid #e2e8f0;
-}
-
-.case-card h4 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    font-size: 17px;
-    margin-bottom: 12px;
-}
-
-.case-card p {
-    font-size: 14px;
-    color: #6D6D6D;
-    line-height: 1.7;
-    margin: 0 0 10px 0;
-}
-
-.case-card p:last-child { margin-bottom: 0; }
-
-/* ===== DEBATE CARDS ===== */
-.debate-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 24px;
-    border: 1px solid #e2e8f0;
-    /* Changed red/orange border to blue theme */
-    border-left: 4px solid #0077B6; 
-}
-
-.debate-card h4 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    font-size: 15px;
-    margin-bottom: 10px;
-}
-
-.debate-card p {
-    font-size: 14px;
-    color: #6D6D6D;
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* References List */
-.references-list { font-size: 12px !important; word-break: break-word; color: #6D6D6D; padding-left: 20px;}
-.references-list li { margin-bottom: 10px; line-height: 1.6;}
-.references-list a { color: #0077B6; text-decoration: none; }
-.references-list a:hover { text-decoration: underline; }
-
 /* ===== FOOTER ===== */
-footer {
-    background: #03045E;
-    color: #ffffff;
-    padding: 40px 6% 30px;
-    font-family: Arial, sans-serif;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-}
-
+footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
+.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
 .footer-brand { flex: 1; }
+.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
+.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
+.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
+.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
+.f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
+.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
+.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255,255,255,0.8); text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
 
-.footer-logo-blocks {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 15px;
-}
-
-.footer-logo-blocks span {
-    background: #ffffff;
-    color: #03045E;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 20px;
-    border-radius: 3px;
-}
-
-.mission-text p {
-    font-size: 18px;
-    line-height: 1.5;
-    font-weight: 500;
-    max-width: 380px;
-}
-
-.footer-links-group {
-    display: flex;
-    flex: 2;
-    justify-content: flex-start;
-    gap: 220px;
-}
-
-.f-col h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    text-decoration: underline;
-    line-height: 1;
-    margin-top: -6px;
-}
-
-.f-col p, .f-col a {
-    font-size: 15px;
-    color: #ffffff;
-    text-decoration: none;
-    line-height: 1.7;
-}
-
-.quick-links-grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px 40px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-}
-
-.icon-box {
-    background: #ffffff;
-    color: #03045E;
-    width: 26px;
-    height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.copyright-bar {
-    margin-top: 30px;
-    padding-top: 20px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1100px) {
-    .footer-container   { flex-direction: column; }
-    .footer-links-group { gap: 30px; }
-    .principles-grid    { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 900px) {
-    .page {
-        grid-template-columns: 1fr;
-        padding: 100px 4% 40px;
-    }
-    .sidebar          { position: static; }
-    .grid             { grid-template-columns: 1fr; }
-    .principles-grid  { grid-template-columns: 1fr; }
-    .inner-hero h1    { font-size: 26px; }
-}
-
-@media (max-width: 600px) {
-    nav { gap: 14px; }
-    nav a { font-size: 12px; }
-}
-
+/* RESPONSIVE */
+@media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
+@media (max-width: 900px) { .page { grid-template-columns: 1fr; padding: 100px 4% 40px; } .sidebar { position: static; } .inner-hero h1 { font-size: 26px; } }
+@media (max-width: 600px) { nav { gap: 14px; } nav a { font-size: 12px; } }
 </style>
 </head>
 
@@ -531,127 +137,143 @@ footer {
         <a href="social-impact-of-artificial-intelligence.html" class="active">Social Impact of Artificial Intelligence</a>
     </aside>
 
-    <main class="main">
+    <main class="d-flex flex-column gap-4">
 
-        <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1000&q=80"
+        <div class="inner-hero m-0">
+            <img class="image-blue-tint" src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1000&q=80"
                  alt="People connected globally via technology"
                  title="Social Impact of AI Banner">
             <h1>Social Impact of Artificial Intelligence</h1>
         </div>
 
-        <div class="about">
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
             <span class="section-label">Core Concept</span>
-            <h2>Definition and Feedback Loop</h2>
-            <p><strong>Definition:</strong> The broad range of effects—both positive and negative—that AI technologies have on the structures of society, including labor markets, wealth distribution, and cultural norms.</p>
-            
+            <h2 class="text-strativ-dark mb-3">Definition and Feedback Loop</h2>
+            <p class="text-custom-p"><strong>Definition:</strong> The broad range of effects—both positive and negative—that AI technologies have on the structures of society, including labor markets, wealth distribution, and cultural norms.</p>
             <div class="highlight-box">
                 <strong>The "Techno-Social" Feedback Loop:</strong> This concept suggests that AI doesn't just "hit" society; society and AI shape each other. As AI changes how we work and communicate, our social expectations change, which in turn influences how the next generation of AI is built.
             </div>
         </div>
 
-        <div class="about">
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
             <span class="section-label">Societal Shifts</span>
-            <h2 style="margin-bottom: 20px;">How AI Reshapes Society</h2>
-            <div class="grid">
-                <div class="card">
-                    <h4>Economic Productivity vs. Concentration</h4>
-                    <p>While AI can grow the global GDP by trillions, there is a risk that this wealth will concentrate in a few "super-star" tech hubs, leaving rural or developing economies behind.</p>
+            <h2 class="text-strativ-dark mb-4">How AI Reshapes Society</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border p-4 shadow-sm bg-light">
+                        <h4 class="text-strativ-dark fs-5 mb-2">Economic Productivity vs. Concentration</h4>
+                        <p class="text-custom-p m-0">While AI can grow the global GDP by trillions, there is a risk that this wealth will concentrate in a few "super-star" tech hubs, leaving rural or developing economies behind.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>The "Lonely AI" Paradox</h4>
-                    <p>AI companions and chatbots can reduce isolation for the elderly or homebound, yet they risk "de-skilling" humans in the art of real-world empathy and conflict resolution.</p>
+                <div class="col-md-6">
+                    <div class="card h-100 border p-4 shadow-sm bg-light">
+                        <h4 class="text-strativ-dark fs-5 mb-2">The "Lonely AI" Paradox</h4>
+                        <p class="text-custom-p m-0">AI companions and chatbots can reduce isolation for the elderly or homebound, yet they risk "de-skilling" humans in the art of real-world empathy and conflict resolution.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>Democratization of Expertise</h4>
-                    <p>AI allows a person with no coding or design skills to build apps or create art, potentially lowering the barrier to entry for the "Creative Economy."</p>
+                <div class="col-md-6">
+                    <div class="card h-100 border p-4 shadow-sm bg-light">
+                        <h4 class="text-strativ-dark fs-5 mb-2">Democratization of Expertise</h4>
+                        <p class="text-custom-p m-0">AI allows a person with no coding or design skills to build apps or create art, potentially lowering the barrier to entry for the "Creative Economy."</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>Algorithmic Social Sorting</h4>
-                    <p>From dating apps to credit scores, AI invisible "ranks" people, creating new social hierarchies based on data points that individuals often cannot see or contest.</p>
+                <div class="col-md-6">
+                    <div class="card h-100 border p-4 shadow-sm bg-light">
+                        <h4 class="text-strativ-dark fs-5 mb-2">Algorithmic Social Sorting</h4>
+                        <p class="text-custom-p m-0">From dating apps to credit scores, AI invisible "ranks" people, creating new social hierarchies based on data points that individuals often cannot see or contest.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="about">
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
             <span class="section-label">Frameworks</span>
-            <h2 style="margin-bottom: 20px;">Implementation Strategies for Social Stability</h2>
-            
+            <h2 class="text-strativ-dark mb-4">Implementation Strategies for Social Stability</h2>
             <div class="table-responsive">
-                <table class="table table-bordered table-striped mt-3 mb-4" style="font-size: 13px;">
+                <table class="table table-bordered table-striped align-middle mb-0" style="font-size: 14px;">
                     <thead class="table-dark">
                         <tr>
-                            <th>Strategy</th>
-                            <th>Goal</th>
-                            <th>Primary Actor</th>
+                            <th class="py-3">Strategy</th>
+                            <th class="py-3">Goal</th>
+                            <th class="py-3">Primary Actor</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Universal Basic Services (UBS)</strong></td>
-                            <td>Providing digital access and education as a right to prevent a "digital underclass."</td>
-                            <td>Governments</td>
+                            <td class="text-strativ-dark fw-bold">Universal Basic Services (UBS)</td>
+                            <td class="text-secondary">Providing digital access and education as a right to prevent a "digital underclass."</td>
+                            <td class="text-secondary">Governments</td>
                         </tr>
                         <tr>
-                            <td><strong>Algorithmic Literacy Programs</strong></td>
-                            <td>Teaching citizens how to identify AI-generated content and understand data privacy.</td>
-                            <td>Educators</td>
+                            <td class="text-strativ-dark fw-bold">Algorithmic Literacy Programs</td>
+                            <td class="text-secondary">Teaching citizens how to identify AI-generated content and understand data privacy.</td>
+                            <td class="text-secondary">Educators</td>
                         </tr>
                         <tr>
-                            <td><strong>Community-Led Design</strong></td>
-                            <td>Including marginalized groups in the "training" phase of AI to ensure it serves diverse needs.</td>
-                            <td>AI Developers</td>
+                            <td class="text-strativ-dark fw-bold">Community-Led Design</td>
+                            <td class="text-secondary">Including marginalized groups in the "training" phase of AI to ensure it serves diverse needs.</td>
+                            <td class="text-secondary">AI Developers</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <div class="about">
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
             <span class="section-label">Challenges</span>
-            <h2 style="margin-bottom: 20px;">Major Issues Addressed by Frameworks</h2>
-            <div class="principles-grid">
-                <div class="p-card">
-                    <h4>The "Post-Work" Future</h4>
-                    <p>As AI automates routine tasks, society must redefine "purpose" beyond 9-to-5 labor. This involves debating shorter work weeks or creative-incentive programs.</p>
+            <h2 class="text-strativ-dark mb-4">Major Issues Addressed by Frameworks</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 border-0 border-top border-4 border-strativ-dark shadow-sm bg-light">
+                        <h4 class="text-strativ-dark fs-6 mb-2">The "Post-Work" Future</h4>
+                        <p class="text-custom-p m-0" style="font-size: 13px;">As AI automates routine tasks, society must redefine "purpose" beyond 9-to-5 labor. This involves debating shorter work weeks or creative-incentive programs.</p>
+                    </div>
                 </div>
-                <div class="p-card">
-                    <h4>Erosion of Truth (Misinformation)</h4>
-                    <p>Deepfakes and AI-generated "fake news" can polarize voters and break down social trust. Impact frameworks focus on Digital Provenance (proving what is real).</p>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 border-0 border-top border-4 border-strativ-dark shadow-sm bg-light">
+                        <h4 class="text-strativ-dark fs-6 mb-2">Erosion of Truth (Misinformation)</h4>
+                        <p class="text-custom-p m-0" style="font-size: 13px;">Deepfakes and AI-generated "fake news" can polarize voters and break down social trust. Impact frameworks focus on Digital Provenance (proving what is real).</p>
+                    </div>
                 </div>
-                <div class="p-card">
-                    <h4>Cultural Homogenization</h4>
-                    <p>Because large AI models are trained mostly on Western data, they risk "erasing" indigenous languages or non-Western cultural perspectives in their outputs.</p>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 border-0 border-top border-4 border-strativ-dark shadow-sm bg-light">
+                        <h4 class="text-strativ-dark fs-6 mb-2">Cultural Homogenization</h4>
+                        <p class="text-custom-p m-0" style="font-size: 13px;">Because large AI models are trained mostly on Western data, they risk "erasing" indigenous languages or non-Western cultural perspectives in their outputs.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="case-card">
-            <span class="case-badge badge-uk">Real-World Example</span>
-            <h4>AI and the "Gig Economy"</h4>
-            <p><strong>The Scenario:</strong> Ride-sharing and delivery platforms use AI to manage thousands of workers without human managers.</p>
-            <p><strong>The Problem:</strong> The "Algorithm as Boss" created a social crisis where workers felt dehumanized, facing "ghost bookings" or being fired by a bot without any human to appeal to.</p>
-            <p><strong>The Social Fix:</strong> In 2024-2025, several European nations passed "Platform Work Directives," requiring human oversight of algorithmic management. This shifted the social impact from "pure efficiency" back to "worker dignity," ensuring technology supports rather than exploits labor.</p>
+        <div class="card p-4 border shadow-sm">
+            <div>
+                <span class="badge border border-strativ-blue text-strativ-blue bg-strativ-light text-uppercase mb-3 px-3 py-2 rounded-pill">Real-World Example</span>
+            </div>
+            <h4 class="text-strativ-dark mb-3">AI and the "Gig Economy"</h4>
+            <p class="text-custom-p"><strong>The Scenario:</strong> Ride-sharing and delivery platforms use AI to manage thousands of workers without human managers.</p>
+            <p class="text-custom-p"><strong>The Problem:</strong> The "Algorithm as Boss" created a social crisis where workers felt dehumanized, facing "ghost bookings" or being fired by a bot without any human to appeal to.</p>
+            <p class="text-custom-p mb-0"><strong>The Social Fix:</strong> In 2024-2025, several European nations passed "Platform Work Directives," requiring human oversight of algorithmic management. This shifted the social impact from "pure efficiency" back to "worker dignity," ensuring technology supports rather than exploits labor.</p>
         </div>
 
-        <div class="about">
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
             <span class="section-label">Future Outlook</span>
-            <h2 style="margin-bottom: 20px;">Emerging Debates in Social Impact</h2>
-            <div class="grid" style="grid-template-columns: 1fr;">
-                <div class="debate-card">
-                    <h4>AI and Loneliness</h4>
-                    <p>Is a relationship with an AI "real"? As "AI partners" become common, sociologists are debating if this will help the loneliness epidemic or make it worse by replacing human effort with "perfect" programmed responses.</p>
-                </div>
-                <div class="debate-card">
-                    <h4>The Carbon Social Cost</h4>
-                    <p>The environmental cost of training AI is a social issue. Should a community’s water and energy be used to power data centers that serve global corporations?</p>
-                </div>
-                <div class="debate-card">
-                    <h4>Generational Divide</h4>
-                    <p>We are seeing a "split" between those who grew up with AI (the "AI Natives") and older generations, creating new tensions in how we define truth, work, and art.</p>
-                </div>
+            <h2 class="text-strativ-dark mb-4">Emerging Debates in Social Impact</h2>
+            
+            <div class="card p-4 border-0 border-start border-4 border-strativ-blue shadow-sm bg-light mb-3">
+                <h4 class="text-strativ-dark fs-6 mb-2">AI and Loneliness</h4>
+                <p class="text-custom-p m-0">Is a relationship with an AI "real"? As "AI partners" become common, sociologists are debating if this will help the loneliness epidemic or make it worse by replacing human effort with "perfect" programmed responses.</p>
+            </div>
+            
+            <div class="card p-4 border-0 border-start border-4 border-strativ-blue shadow-sm bg-light mb-3">
+                <h4 class="text-strativ-dark fs-6 mb-2">The Carbon Social Cost</h4>
+                <p class="text-custom-p m-0">The environmental cost of training AI is a social issue. Should a community’s water and energy be used to power data centers that serve global corporations?</p>
+            </div>
+            
+            <div class="card p-4 border-0 border-start border-4 border-strativ-blue shadow-sm bg-light">
+                <h4 class="text-strativ-dark fs-6 mb-2">Generational Divide</h4>
+                <p class="text-custom-p m-0">We are seeing a "split" between those who grew up with AI (the "AI Natives") and older generations, creating new tensions in how we define truth, work, and art.</p>
             </div>
         </div>
+
     </main>
 </div>
 
@@ -711,10 +333,10 @@ footer {
     </div>
 </footer>
 
-<a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+<a href="#top" id="scrollTopBtn" class="btn btn-primary bg-strativ-dark border-white position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
     ↑
 </a>
 
 <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>
