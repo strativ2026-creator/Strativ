@@ -1,319 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRATIV | AI and Human Rights</title>
-<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI and Human Rights | STRATIV AI Frontier</title>
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet" />
 
-<style>
-/* ===== RESET & BASE ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; }
+    <style>
+      /* ===== RESET & BASE ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-/* ===== STRATIV THEME UTILITIES ===== */
-.text-strativ-dark { color: #03045E !important; font-family: Georgia, serif; font-weight: bold; }
-.text-strativ-blue { color: #0077B6 !important; }
-.bg-strativ-dark { background-color: #03045E !important; }
-.bg-strativ-light { background-color: #EFF6FF !important; }
-.border-strativ-dark { border-color: #03045E !important; }
-.border-strativ-blue { border-color: #0077B6 !important; }
-.text-custom-p { font-size: 14px; color: #6D6D6D; line-height: 1.7; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-/* BLUE IMAGE TINT */
-.image-blue-tint { filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%); }
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+        background: #f8fafc;
+      }
 
-/* CUSTOM STRATIV TABLE COLORING */
-.table-strativ { border: 1px solid #0077B6 !important; border-radius: 8px; overflow: hidden; }
-.table-strativ thead th { background-color: #03045E !important; color: #ffffff !important; border-bottom: none; font-weight: bold; }
-.table-strativ tbody tr:nth-child(odd) td { background-color: #ffffff !important; }
-.table-strativ tbody tr:nth-child(even) td { background-color: #EFF6FF !important; }
-.table-strativ tbody td { border-color: #cce4f2 !important; color: #003049 !important; }
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 6%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
 
-/* ===== HEADER ===== */
-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
-.logo img { width: 40px; height: 40px; }
-nav { display: flex; gap: 30px; }
-nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
-nav a:hover { color: #0077B6; }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #03045e;
+      }
 
-/* DROPDOWNS */
-.nav-dropdown { position: relative; }
-.nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: opacity 0.3s ease; }
-.nav-dropdown-menu a { padding: 12px 15px; display: block; }
-.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+      .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
 
-/* ===== PAGE LAYOUT ===== */
-.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
+      nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
 
-/* SIDEBAR */
-.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
-.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; font-weight: bold; }
-.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
-.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
-.sidebar a.active { background: #eaeaea; color: #0077B6; }
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
 
-/* HERO */
-.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; margin-bottom: 25px; }
-.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
-.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
-.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; font-weight: bold; }
+      nav a:hover {
+        color: #0077b6;
+      }
 
-/* ===== SHARED EXTRAS ===== */
-.section-label { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0077B6; margin-bottom: 8px; }
-.highlight-box { background: #EFF6FF; border-left: 4px solid #0077B6; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-top: 14px; font-size: 14px; color: #003049; line-height: 1.7; }
-.highlight-box strong { color: #03045E; }
+      /* DROPDOWN STYLES */
+      .nav-dropdown {
+        position: relative;
+      }
 
-/* ===== FOOTER ===== */
-footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
-.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
-.footer-brand { flex: 1; }
-.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
-.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
-.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
-.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
-.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
-.f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
-.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
-.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
-.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255,255,255,0.8); text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+      .nav-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.3s ease;
+      }
 
-/* RESPONSIVE */
-@media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
-@media (max-width: 900px) { .page { grid-template-columns: 1fr; padding: 100px 4% 40px; } .sidebar { position: static; } .inner-hero h1 { font-size: 26px; } }
-@media (max-width: 600px) { nav { gap: 14px; } nav a { font-size: 12px; } }
+      .nav-dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
 
-.author {
-    margin-top: 60px;
-    font-size: 13px;
-    color: #94a3b8;
-    text-align: right;
-    }
+      .nav-dropdown:hover .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
 
-</style>
+      /* ===== PAGE LAYOUT ===== */
+      .page {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 30px;
+        padding: 120px 6% 60px;
+        align-items: start;
+      }
+
+      /* STICKY SIDEBAR */
+      .sidebar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
+      }
+
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px 10px 0 0;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
+
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .inner-hero {
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .inner-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .inner-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.5);
+        pointer-events: none;
+      }
+
+      .inner-hero h1 {
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 38px;
+        bottom: 30px;
+        left: 30px;
+        pointer-events: none;
+        font-weight: bold;
+      }
+
+      /* ARTICLE CONTENT STYLES */
+      .article-section {
+        background: #fff;
+        padding: 35px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .article-section h2 {
+        font-family: Georgia, serif;
+        color: #03045e;
+        margin-bottom: 20px;
+        font-size: 26px;
+        font-weight: bold;
+        border-bottom: 2px solid #0077B6;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-top: 30px;
+      }
+
+      .article-section h2:first-of-type {
+        margin-top: 0;
+      }
+
+      .article-section h3 {
+        font-family: Georgia, serif;
+        color: #0077b6;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .article-section p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .article-section ul, .article-section ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .article-section li {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 8px;
+      }
+
+      .article-section a {
+        color: #0077b6;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .article-section a:hover {
+        text-decoration: underline;
+      }
+
+      .article-section strong {
+        color: #03045e;
+      }
+
+      /* References specific */
+      .references-list {
+        font-size: 13px !important;
+        word-break: break-word;
+      }
+      .references-list li {
+        font-size: 13px !important;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        flex: 1;
+      }
+
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
+
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+        color: #ffffff;
+      }
+
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
+
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
+
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
+
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .copyright-bar {
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      @media (max-width: 1100px) {
+        .page {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          display: none;
+        }
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
+      }
+    </style>
 </head>
 
 <body id="top">
-
-<header id="top">
-    <div class="logo">
-        <img src="../../images/logo/logo.jpg" alt="STRATIV logo">
+    <header>
+      <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo" />
         STRATIV
-    </div>
-    <nav>
-        <a href="../../index.html">Home</a>
+      </div>
+
+      <nav>
+        <a href="../../index.html" title="Go to Homepage">Home</a>
         <div class="nav-dropdown">
-            <a href="../../index.html#topics">Topics ▾</a>
-            <div class="nav-dropdown-menu">
-                <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
-                <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <a href="../../topics/Emerging_AI_Careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-                <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Human + AI</a>
-                <a href="../../topics/future-workforce-skills/collaboration-skills.html">Skills</a>
-                <a href="../../topics/ai-ethics/overview-ai-ethics.html">Ethics</a>
-                <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                <a href="../../topics/future-outlook-ai/ai-driven-world.html">Future</a>
-            </div>
+          <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
+            <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+            <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+            <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+            <a href="../future-workforce-skills/overview-future-workforce-skills.html">Skills</a>
+            <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+            <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
+          </div>
         </div>
         <div class="nav-dropdown">
-            <a href="../../resources.html">Resources ▾</a>
-            <div class="nav-dropdown-menu">
-                <a href="../../resources/external-links.html">External Links</a>
-                <a href="../../resources/icons-images.html">Icons &amp; Images</a>
-                <a href="../../resources/data-reports.html">Data &amp; Reports</a>
-                <a href="../../resources/case-studies.html">Case Studies</a>
-            </div>
+          <a href="../../resources.html" title="View Resources">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="../../resources/external-links.html">External Links</a>
+            <a href="../../resources/icons-images.html">Icons & Images</a>
+            <a href="../../resources/data-reports.html">Data & Reports</a>
+            <a href="../../resources/case-studies.html">Case Studies</a>
+          </div>
         </div>
-        <a href="../../about.html">About</a>
-        <a href="../../contact.html">Contact</a>
-    </nav>
-</header>
+        <a href="../../about.html" title="About Strativ">About</a>
+        <a href="../../contact.html" title="Contact Us">Contact</a>
+      </nav>
+    </header>
 
-<div class="page">
-    <aside class="sidebar">
-        <h3>AI Ethics &amp; Social Issues</h3>
-        <a href="overview-ai-ethics.html">Overview of AI Ethics</a>
-        <a href="ai-bias.html">AI Bias and Fairness</a>
-        <a href="privacy-security-issue.html">Privacy and Security Issues</a>
-        <a href="job-displacement.html">Job Displacement by AI</a>
-        <a href="responsible-ai.html">Responsible AI Development</a>
-        <a href="ethics-summary.html">Ethics Summary</a>
-        <a href="algorithm-transparency.html">Algorithm Transparency</a>
-        <a href="ai-regulation.html">AI Regulation and Policies</a>
-        <a href="ai-accountability.html">AI Accountability</a>
-        <a href="ethical-ai-design.html">Ethical AI Design</a>
-        <a href="ai-and-human-rights.html" class="active">AI and Human Rights</a>
-        <a href="social-impact-of-artificial-intelligence.html">Social Impact of Artificial Intelligence</a>
-    </aside>
+    <div class="page">
+      <aside class="sidebar">
+        <h3>AI Ethics & Social Issues</h3>
+        <a href="overview-ai-ethics.html" title="Overview of AI Ethics">Overview of AI Ethics</a>
+        <a href="ai-bias.html" title="AI Bias and Fairness">AI Bias and Fairness</a>
+        <a href="privacy-security-issue.html" title="Privacy and Security Issues">Privacy and Security Issues</a>
+        <a href="job-displacement.html" title="Job Displacement by AI">Job Displacement by AI</a>
+        <a href="responsible-ai.html" title="Responsible AI Development">Responsible AI Development</a>
+        <a href="ethics-summary.html" title="Ethics Summary">Ethics Summary</a>
+        <a href="algorithm-transparency.html" title="Algorithm Transparency">Algorithm Transparency</a>
+        <a href="ai-regulation.html" title="AI Regulation and Policies">AI Regulation and Policies</a>
+        <a href="ai-accountability.html" title="AI Accountability">AI Accountability</a>
+        <a href="ethical-ai-design.html" title="Ethical AI Design">Ethical AI Design</a>
+        <a href="ai-and-human-rights.html" class="active" title="AI and Human Rights">AI and Human Rights</a>
+        <a href="social-impact-of-artificial-intelligence.html" title="Social Impact of Artificial Intelligence">Social Impact of AI</a>
+      </aside>
 
-    <main class="d-flex flex-column gap-4">
-
-        <div class="inner-hero m-0">
-             <img class="image-blue-tint" src="../../images/ai-ethics-images/ai-and-human-rights.JPG"
-                 alt="Scales of justice or human rights imagery representing AI and human rights"
-                 title="AI and Human Rights Banner">
+      <main class="main">
+        <div class="inner-hero">
+            <img src="../../images/ai-ethics-images/ai-and-human-rights.JPG" alt="Scales of justice or human rights imagery representing AI and human rights" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
             <h1>AI and Human Rights</h1>
         </div>
 
-        <div class="bg-white p-4 rounded-3 border shadow-sm">
-            <span class="section-label">Core Issue</span>
-            <h2 class="text-strativ-dark mb-3">The Intersection of AI and Fundamental Rights</h2>
-            <p class="text-custom-p">Artificial Intelligence holds tremendous potential to improve living standards, healthcare, and education globally. However, if deployed without stringent ethical safeguards, AI systems can pose severe risks to fundamental human rights, including privacy, freedom of expression, and the right to non-discrimination.</p>
-            <p class="text-custom-p">Ensuring that AI respects human rights requires more than just technical accountability; it demands integrating established international human rights frameworks into the entire lifecycle of AI development and deployment.</p>
+        <div class="article-section">
+            <h2>The Intersection of AI and Fundamental Rights</h2>
+            <p>Artificial Intelligence holds tremendous potential to improve living standards, healthcare, and education globally. However, if deployed without stringent ethical safeguards, AI systems can pose severe risks to fundamental human rights, including privacy, freedom of expression, and the right to non-discrimination.</p>
+            <p>Ensuring that AI respects human rights requires more than just technical accountability; it demands integrating established international human rights frameworks into the entire lifecycle of AI development and deployment.</p>
             
-            <div class="highlight-box">
-                <strong>Key Takeaway:</strong> Human rights should not be an afterthought in AI development. The Universal Declaration of Human Rights (UDHR) provides a universally accepted foundation for evaluating and guiding the social impact of AI technologies.
+            <div class="p-3 mb-4" style="border-left: 4px solid #0077B6; background: #f0f7ff; border-radius: 0 8px 8px 0;">
+                <strong style="display: block; margin-bottom: 5px;">Key Takeaway:</strong> 
+                Human rights should not be an afterthought in AI development. The Universal Declaration of Human Rights (UDHR) provides a universally accepted foundation for evaluating and guiding the social impact of AI technologies.
             </div>
-        </div>
 
-        <div class="bg-white p-4 rounded-3 border shadow-sm">
-            <span class="section-label">Impact Areas</span>
-            <h2 class="text-strativ-dark mb-4">Rights Most Affected by AI</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 p-4 border-0 border-top border-4 border-strativ-dark shadow-sm bg-light">
-                        <span class="fs-2 mb-2 d-block">👁️</span>
-                        <h4 class="text-strativ-dark fs-6 mb-2">Right to Privacy</h4>
-                        <p class="text-custom-p m-0" style="font-size: 13px;">Mass surveillance, facial recognition, and pervasive data collection by AI systems constantly threaten individual privacy and anonymity.</p>
+            <h2>Rights Most Affected by AI</h2>
+            <div class="row g-4 my-4">
+                <div class="col-md-4 mb-3">
+                    <div class="p-4 bg-light border rounded h-100 shadow-sm text-center">
+                        <span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">👁️</span>
+                        <h4 class="mb-3" style="color: #03045E; font-size: 18px; font-weight: bold;">Right to Privacy</h4>
+                        <p style="font-size: 14px; text-align: center; margin: 0;">Mass surveillance, facial recognition, and pervasive data collection by AI systems constantly threaten individual privacy and anonymity.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 p-4 border-0 border-top border-4 border-strativ-dark shadow-sm bg-light">
-                        <span class="fs-2 mb-2 d-block">⚖️</span>
-                        <h4 class="text-strativ-dark fs-6 mb-2">Non-Discrimination</h4>
-                        <p class="text-custom-p m-0" style="font-size: 13px;">Algorithmic bias in hiring, lending, and criminal justice can automate and amplify historical inequalities, violating equal protection rights.</p>
+                <div class="col-md-4 mb-3">
+                    <div class="p-4 bg-light border rounded h-100 shadow-sm text-center">
+                        <span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">⚖️</span>
+                        <h4 class="mb-3" style="color: #03045E; font-size: 18px; font-weight: bold;">Non-Discrimination</h4>
+                        <p style="font-size: 14px; text-align: center; margin: 0;">Algorithmic bias in hiring, lending, and criminal justice can automate and amplify historical inequalities, violating equal protection rights.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 p-4 border-0 border-top border-4 border-strativ-dark shadow-sm bg-light">
-                        <span class="fs-2 mb-2 d-block">🗣️</span>
-                        <h4 class="text-strativ-dark fs-6 mb-2">Freedom of Expression</h4>
-                        <p class="text-custom-p m-0" style="font-size: 13px;">Automated content moderation and algorithmic filtering can inadvertently censor legitimate speech or, conversely, amplify harmful disinformation.</p>
+                <div class="col-md-4 mb-3">
+                    <div class="p-4 bg-light border rounded h-100 shadow-sm text-center">
+                        <span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">🗣️</span>
+                        <h4 class="mb-3" style="color: #03045E; font-size: 18px; font-weight: bold;">Freedom of Expression</h4>
+                        <p style="font-size: 14px; text-align: center; margin: 0;">Automated content moderation and algorithmic filtering can inadvertently censor legitimate speech or, conversely, amplify harmful disinformation.</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <blockquote class="bg-strativ-light border-start border-4 border-strativ-dark p-4 rounded-end m-0 text-strativ-dark shadow-sm" style="font-style: italic; font-size: 15px; line-height: 1.7;">
-            "The same technologies that empower citizens to organize and speak out are also being used to surveil, suppress, and manipulate them. We must anchor AI development in the bedrock of international human rights law."
-            <cite class="d-block mt-3 text-strativ-blue text-uppercase fw-bold" style="font-size: 12px; font-style: normal; letter-spacing: 0.5px;">— UN Office of the High Commissioner for Human Rights</cite>
-        </blockquote>
+            <div class="p-4 bg-light border shadow-sm rounded my-4" style="border-left: 5px solid #03045E !important;">
+                <p style="font-style: italic; font-size: 16px; line-height: 1.7; color: #03045E; margin-bottom: 15px;">
+                    "The same technologies that empower citizens to organize and speak out are also being used to surveil, suppress, and manipulate them. We must anchor AI development in the bedrock of international human rights law."
+                </p>
+                <p style="color: #0077B6; font-size: 13px; font-weight: bold; text-transform: uppercase; margin: 0; letter-spacing: 0.5px;">
+                    — UN Office of the High Commissioner for Human Rights
+                </p>
+            </div>
 
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card h-100 p-4 border shadow-sm">
-                    <h4 class="text-strativ-dark fs-5 mb-3">Threats to Liberty and Security</h4>
-                    <p class="text-custom-p m-0">Predictive policing algorithms and automated welfare distribution systems have been shown to falsely accuse individuals or wrongfully deny them life-saving benefits. When machines make high-stakes decisions without a human-in-the-loop, the right to due process is severely compromised.</p>
+            <h2>Challenges and Opportunities</h2>
+            <div class="row my-4">
+                <div class="col-md-6 mb-3">
+                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
+                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E;">Threats to Liberty and Security</h4>
+                        <p class="mb-0">Predictive policing algorithms and automated welfare distribution systems have been shown to falsely accuse individuals or wrongfully deny them life-saving benefits. When machines make high-stakes decisions without a human-in-the-loop, the right to due process is severely compromised.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
+                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E;">Empowering Human Rights</h4>
+                        <p class="mb-0">Conversely, AI can be a powerful tool for human rights defenders. Machine learning is actively used to analyze satellite imagery to uncover human rights abuses, process natural language to document war crimes, and optimize resource allocation during humanitarian crises.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card h-100 p-4 border shadow-sm">
-                    <h4 class="text-strativ-dark fs-5 mb-3">Empowering Human Rights</h4>
-                    <p class="text-custom-p m-0">Conversely, AI can be a powerful tool for human rights defenders. Machine learning is actively used to analyze satellite imagery to uncover human rights abuses, process natural language to document war crimes, and optimize resource allocation during humanitarian crises.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="bg-white p-4 rounded-3 border shadow-sm">
-            <span class="section-label">Global Standards</span>
-            <h2 class="text-strativ-dark mb-4">Human Rights Frameworks for AI</h2>
-            
-            <div class="table-responsive">
-                <table class="table table-strativ align-middle mb-0" style="font-size: 14px;">
-                    <thead>
+            <h2>Human Rights Frameworks for AI</h2>
+            <div class="table-responsive my-4">
+                <table class="table table-bordered table-striped mb-0">
+                    <thead style="background-color: #03045E; color: #ffffff;">
                         <tr>
-                            <th class="py-3 px-4">Framework / Organization</th>
-                            <th class="py-3 px-4">Core Focus Regarding AI</th>
+                            <th class="py-3 px-4 text-white">Framework / Organization</th>
+                            <th class="py-3 px-4 text-white">Core Focus Regarding AI</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-strativ-dark fw-bold px-4">UN Guiding Principles on Business & Human Rights</td>
+                            <td class="fw-bold px-4" style="color: #03045E;">UN Guiding Principles on Business & Human Rights</td>
                             <td class="px-4">Requires tech companies to conduct due diligence to identify, prevent, and mitigate adverse human rights impacts of their AI products.</td>
                         </tr>
                         <tr>
-                            <td class="text-strativ-dark fw-bold px-4">Council of Europe</td>
+                            <td class="fw-bold px-4" style="color: #03045E;">Council of Europe</td>
                             <td class="px-4">Drafting legally binding instruments to ensure AI systems are designed and used in line with human rights, democracy, and the rule of law.</td>
                         </tr>
                         <tr>
-                            <td class="text-strativ-dark fw-bold px-4">EU AI Act</td>
+                            <td class="fw-bold px-4" style="color: #03045E;">EU AI Act</td>
                             <td class="px-4">Categorizes AI by risk level, outright banning systems that pose an "unacceptable risk" to fundamental rights (e.g., social scoring).</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            <p style="margin-top: 60px; font-size: 13px; color: #94a3b8; text-align: right;"><em>Written by: Agunod, Miguel Sid A.</em></p>
         </div>
+      </main>
+    </div>
 
-    </main>
-</div>
-
-<footer>
-    <p class="author">Written by: Agunod, Miguel Sid A.</p>
-    <div class="footer-container">
+    <footer>
+      <div class="footer-container">
         <div class="footer-brand">
-            <div class="footer-logo-blocks">
-                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-            </div>
-            <div class="mission-text">
-                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
-            </div>
+          <div class="footer-logo-blocks">
+            <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+          </div>
+          <div class="mission-text">
+            <p>
+              Navigating the future of human-AI collaboration in the workforce.
+              A comprehensive guide to automation and emerging careers.
+            </p>
+          </div>
         </div>
 
         <div class="footer-links-group">
-            <div class="f-col">
-                <h4>Quick Links</h4>
-                <div class="quick-links-grid">
-                    <div>
-                        <a href="#">AI Workplace</a><br>
-                        <a href="#">Emerging Careers</a><br>
-                        <a href="#">Future Skills</a><br>
-                        <a href="#">Students</a>
-                    </div>
-                    <div>
-                        <a href="#">Jobs at Risk</a><br>
-                        <a href="#">Collaboration</a><br>
-                        <a href="#">Ethics</a><br>
-                        <a href="#">Future Outlook</a>
-                    </div>
-                </div>
+          <div class="f-col">
+            <h4>Quick Links</h4>
+            <div class="quick-links-grid">
+              <div>
+                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
+                <br>
+                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <br>
+                <a href="../future-workforce-skills/overview-future-workforce-skills.html ">Future Skills</a>
+                <br>
+                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+              </div>
+              <div>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                <br>
+                <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a>
+                <br>
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+                <br>
+                <a href="../future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-col">
+            <h4>Contact Info</h4>
+            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
+
+            <div class="contact-item">
+              <a
+                href="https://www.facebook.com/profile.php?id=61580704943031"
+                target="_blank"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">f</span>
+                <span>Strativ.com</span>
+              </a>
             </div>
 
-            <div class="f-col">
-                <h4>Contact Info</h4>
-                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
-                <div class="contact-item">
-                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                        <span class="icon-box">f</span>
-                        <span> Strativ.com</span>
-                    </a>
-                </div>
-                
-                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
-                <div class="contact-item">
-                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
-                        <span class="icon-box">✉</span>
-                        <span>Strativ018@gmail.com</span>
-                    </a>
-                </div>
+            <p style="margin-top: 10px; margin-bottom: 8px">
+              <strong>Email:</strong>
+            </p>
+
+            <div class="contact-item">
+              <a
+                href="mailto:strativ018@gmail.com"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">✉</span>
+                <span>strativ018@gmail.com</span>
+              </a>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="copyright-bar">
-        <p>© 2026 University of the East. All rights reserved.</p>
-    </div>
-</footer>
-
-<a href="#top" id="scrollTopBtn" class="btn btn-primary bg-strativ-dark border-white position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+      <div class="copyright-bar">
+        <p>© 2026 STRATIV. All rights reserved.</p>
+      </div>
+    </footer>
+    
+    <a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
     ↑
-</a>
-
-<script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
+    </a>
+    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
