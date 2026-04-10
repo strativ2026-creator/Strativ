@@ -42,7 +42,7 @@
         z-index: 1000;
       }
 
-      .logo {
+      .logo a {
         display: flex;
         align-items: center;
         gap: 12px;
@@ -50,6 +50,7 @@
         font-size: 24px;
         font-weight: bold;
         color: #03045e;
+        text-decoration: none;
       }
 
       .logo img {
@@ -163,6 +164,12 @@
         border-radius: 12px;
         overflow: hidden;
         position: relative;
+      }
+
+      .inner-hero a {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .inner-hero img {
@@ -400,12 +407,14 @@
 <body id="top">
     <header>
       <div class="logo">
-        <img
-          src="../../images/logo/logo.jpg"
-          alt="Strativ Corporate Logo"
-          title="Strativ Logo"
-        />
-        STRATIV
+        <a href="../../index.html" target="_blank" title="Go to Homepage">
+            <img
+              src="../../images/logo/logo.jpg"
+              alt="Strativ Corporate Logo"
+              title="Strativ Logo"
+            />
+            STRATIV
+        </a>
       </div>
 
       <nav>
@@ -456,7 +465,9 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1000&q=80" alt="Futuristic connected city representing an AI-driven world" title="AI-Driven World Hero Image" target="image_viewer" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            <a href="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1000&q=80" target="image_viewer" title="View Full Image">
+                <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1000&q=80" alt="Futuristic connected city representing an AI-driven world" title="AI-Driven World Hero Image">
+            </a>
             <h1>The AI-Driven World</h1>
         </div>
 
@@ -466,13 +477,9 @@
             <p><strong>The "Autonomous Infrastructure" Model:</strong> In an AI-driven world, the environment becomes "responsive." Buildings, roads, and energy systems don't just exist; they actively sense human needs and environmental changes, adjusting in real-time to optimize for efficiency and safety.</p>
 
             <div class="d-block text-center my-4">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80" alt="Connected circuits and digital city infrastructure" title="Click different areas to navigate" class="img-fluid border border-5 border-dark rounded mx-auto d-block" usemap="#infrastructureMap" target="image_viewer"
-                 title="AI-Driven World Infrastructure Map"               />
-                
-                <map name="infrastructureMap">
-                    <area shape="rect" coords="0,0,500,667" href="#how-it-operates" alt="How an AI-Driven World Operates" title="Jump to: How it Operates">
-                    <area shape="rect" coords="500,0,1000,667" href="#key-pillars" alt="Key Pillars of a Global AI Society" title="Jump to: Key Pillars">
-                </map>
+              <a href="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80" target="image_viewer" title="View Full Image">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80" alt="Connected circuits and digital city infrastructure" title="AI-Driven World Infrastructure" class="img-fluid border border-5 border-dark rounded mx-auto d-block" usemap="#infrastructureMap">
+              </a>
             </div>
 
             <h3 id="how-it-operates">How an AI-Driven World Operates</h3>
@@ -542,7 +549,6 @@
             </ul>
 
 <p style="margin-top: 60px; font-size: 13px; color: #94a3b8; text-align: right;"><em>Written by: Andrada, Troy Winter T.</em></p>        </div>
-        </div>
       </main>
     </div>
 

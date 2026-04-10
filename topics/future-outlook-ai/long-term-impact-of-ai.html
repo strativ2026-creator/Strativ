@@ -50,6 +50,7 @@
         font-size: 24px;
         font-weight: bold;
         color: #03045e;
+        text-decoration: none; /* Added to prevent link underline */
       }
 
       .logo img {
@@ -163,6 +164,13 @@
         border-radius: 12px;
         overflow: hidden;
         position: relative;
+      }
+
+      /* Added so the hero image link functions correctly in the layout */
+      .inner-hero a {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .inner-hero img {
@@ -395,10 +403,10 @@
 
 <body id="top">
     <header>
-      <div class="logo">
+      <a href="../../index.html" class="logo" title="Go to Homepage">
         <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo" />
         STRATIV
-      </div>
+      </a>
 
       <nav>
         <a href="../../index.html" title="Go to Homepage">Home</a>
@@ -448,7 +456,9 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Futuristic view of Earth and space representing long-term impact"target="image_viewer" title="Long-Term Impact of AI Hero Image" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            <a href="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" target="image_viewer" title="View full image">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Futuristic view of Earth and space representing long-term impact" title="Long-Term Impact of AI Hero Image" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            </a>
             <h1>Long-Term Impact of Artificial Intelligence</h1>
         </div>
 
