@@ -299,30 +299,6 @@ tr:hover td {
     gap: 20px;
 }
 
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
-}
-
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
-}
-
 /* ===== NAVY FOOTER ===== */
 footer {
     background: #03045e;
@@ -512,14 +488,16 @@ footer {
     </div>
 </div>
 
-<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+<a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">↑</a>
 
 <div class="main">
 
     <div class="banner">
-        <img src="../../images/strativ_images/aiEng.png" alt="AI Careers">
-        <div class="banner-text">Robotics Engineer</div>
-    </div>
+    <a href="../../images/strativ_images/robot1.jpg" target="image_viewer">
+        <img src="../../images/strativ_images/robot1.jpg" title="Robotics Engineer" alt="Robotics Engineer Career">
+    </a>
+    <div class="banner-text">Robotics Engineer</div>
+</div>
 
     <div class="card">
         <h2>Role Overview</h2>
@@ -620,7 +598,11 @@ footer {
         <p>
             This career offers opportunities to work on advanced technology and contribute to the future of automation and AI-driven systems.
         </p>
-        <img src="../../images/strativ_images/future.jpg" alt="Robotics Engineering Future">
+
+        <a href="../../images/strativ_images/robot2.png" target="image_viewer">
+        <img src="../../images/strativ_images/robot2.png" title="Robotics Engineering Future" alt="Robotics Engineering Future">
+        </a>
+
     </div>
     <p class="author">Written by: Agunod, Miguel Sid A.</p>
 </div>
