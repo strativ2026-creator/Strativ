@@ -68,6 +68,7 @@ nav a:hover { color: #0077B6; }
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
+    display: block !important; /* Fix for Bootstrap hiding the menu */
 }
 .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; }
 .dropdown-menu a { display: block; padding: 12px; border-bottom: 1px solid #f1f5f9; text-decoration: none; color: #003049; font-size: 14px; font-weight: 600; }
@@ -111,8 +112,6 @@ nav a:hover { color: #0077B6; }
 }
 
 .sidebar a { color: #003049; }
-
-/* Updated: active-page is no longer bold (font-weight: 400) */
 .sidebar span.active-page { background: #f1f5f9; color: #0077B6; font-weight: 400; cursor: default; }
 
 /* MAIN CONTENT */
@@ -141,6 +140,7 @@ nav a:hover { color: #0077B6; }
 .section h2 { font-family: Georgia, serif; color: #03045E; margin-bottom: 20px; font-size: 28px; border-bottom: 2px solid #0077B6; display: inline-block; padding-bottom: 5px; }
 .section h3 { color: #03045E; margin: 35px 0 15px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
 .section p { font-size: 16px; color: #475569; margin-bottom: 15px; text-align: justify; }
+.section strong { color: #003049; font-weight: 600; }
 
 /* CONTENT SPECIFIC TO THIS PAGE */
 .side-img-box { float: right; width: 300px; margin: 10px 0 20px 30px; text-align: center; }
@@ -260,9 +260,9 @@ footer {
 
         <div class="section">
             <h2>Redefining Work Through Collaboration</h2>
-            <p>At STRATIV, we define Human-AI Collaboration as the intentional design of workflows where biological intuition meets computational scale. In the 2026 economy, the most successful organizations are those that have moved past the "replacement anxiety" of the 2010s and transitioned into a "synergy model." This involves delegating high-volume data analysis and iterative tasks to AI, while reserving high-stakes decision-making and empathetic communication for human experts.</p>
+            <p>At STRATIV, we define Human-AI Collaboration as the <strong>intentional design</strong> of workflows where <strong>biological intuition meets computational scale</strong>. In the 2026 economy, the most successful organizations are those that have moved past the "replacement anxiety" of the 2010s and transitioned into a <strong>"synergy model."</strong> This involves delegating high-volume data analysis and iterative tasks to AI, while reserving high-stakes decision-making and empathetic communication for human experts.</p>
 
-            <p>This collaborative approach fundamentally changes the nature of productivity. Instead of a linear progression of tasks, we see a recursive loop. AI identifies a pattern; the human interprets the social or ethical context of that pattern; the AI then generates a solution based on that context. This is not just automation; it is the augmentation of human capability to an unprecedented degree.</p>
+            <p>This collaborative approach fundamentally changes the nature of productivity. Instead of a linear progression of tasks, we see a <strong>recursive loop</strong>. AI identifies a pattern; the human interprets the social or ethical context of that pattern; the AI then generates a solution based on that context. This is not just automation; it is the <strong>augmentation of human capability</strong> to an unprecedented degree.</p>
 
             <div class="stats-row">
                 <div class="stat-box"><h4>40%</h4><p>Productivity Gain</p></div>
@@ -275,29 +275,31 @@ footer {
             <h3>1. The Era of Symbolic Logic (1950 - 1980)</h3>
             <div class="side-img-box">
                 <div class="img-card-wrapper">
-                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=600" alt="Vintage Computer Logic">
+                    <a href="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=1600" target="image_viewer" style="display: block; text-decoration: none;">
+                        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=600" alt="Vintage Computer Logic">
+                    </a>
                 </div>
-                <div class="caption">Fig 1.1: Early logic boards represented the "top-down" era of AI.</div>
             </div>
-            <p>The journey began with Alan Turing and the pioneers of symbolic AI. During these three decades, collaboration was limited by the "top-down" nature of programming. Humans had to write every specific rule for a computer to follow. If a task was too complex to be reduced to an "if-then" statement, the machine failed. This meant that while computers could help with advanced mathematics, they could not collaborate on creative or nuanced workplace tasks.</p>
+            <p>The journey began with Alan Turing and the pioneers of symbolic AI. During these three decades, collaboration was limited by the <strong>"top-down"</strong> nature of programming. Humans had to write every specific rule for a computer to follow. If a task was too complex to be reduced to an "if-then" statement, the machine failed. This meant that while computers could help with advanced mathematics, they could not collaborate on creative or nuanced workplace tasks.</p>
 
             <h3>2. Expert Systems and Decision Support (1980 - 2000)</h3>
-            <p>As microchips became ubiquitous, AI moved from the lab to the office. The development of "Expert Systems" allowed professionals to use AI as a digital encyclopedia that could analyze specific variables. For instance, in geology or finance, AI could flag anomalies that a human eye might miss. This was the first true evidence of a partnership, though the AI remained a passive tool rather than an active participant in problem-solving.</p>
+            <p>As microchips became ubiquitous, AI moved from the lab to the office. The development of <strong>"Expert Systems"</strong> allowed professionals to use AI as a digital encyclopedia that could analyze specific variables. For instance, in geology or finance, AI could flag anomalies that a human eye might miss. This was the <strong>first true evidence of a partnership</strong>, though the AI remained a passive tool rather than an active participant in problem-solving.</p>
 
             <h3>3. The Machine Learning Explosion (2010 - 2022)</h3>
             <div class="side-img-box">
                 <div class="img-card-wrapper">
-                    <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=600" alt="Data Streams">
+                    <a href="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=1600" target="image_viewer" style="display: block; text-decoration: none;">
+                        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=600" alt="Data Streams">
+                    </a>
                 </div>
-                <div class="caption">Fig 1.2: Big Data became the fuel for modern neural networks.</div>
             </div>
-            <p>The dawn of the internet provided the massive datasets required for neural networks to function. Collaboration entered the "Predictive Phase." AI systems like IBM’s Watson proved that machines could process natural language and surface insights from unstructured data. Humans began collaborating with AI to optimize supply chains, predict consumer behavior, and detect diseases at stages invisible to the human eye. The AI became a world-class research assistant.</p>
+            <p>The dawn of the internet provided the massive datasets required for neural networks to function. Collaboration entered the <strong>"Predictive Phase."</strong> AI systems like IBM’s Watson proved that machines could process natural language and surface insights from unstructured data. Humans began collaborating with AI to optimize supply chains, predict consumer behavior, and detect diseases at stages invisible to the human eye. The AI became a <strong>world-class research assistant</strong>.</p>
 
             <h3>4. Generative Symbiosis (Present Day - 2026)</h3>
-            <p>We are now in the age of dialogue. The current phase of collaboration is "Multimodal." We don't just ask AI for data; we collaborate on the creation of assets, code, and strategy. In 2026, AI acts as a creative sounding board. A software engineer might write a core function, and the AI will suggest three different ways to optimize it for security. An architect might sketch a floorplan, and the AI will generate structural variations that minimize carbon footprint. This constant feedback loop is the STRATIV Frontier.</p>
+            <p>We are now in the age of dialogue. The current phase of collaboration is <strong>"Multimodal."</strong> We don't just ask AI for data; we collaborate on the creation of assets, code, and strategy. In 2026, AI acts as a <strong>creative sounding board</strong>. A software engineer might write a core function, and the AI will suggest three different ways to optimize it for security. An architect might sketch a floorplan, and the AI will generate structural variations that minimize carbon footprint. This constant feedback loop is the STRATIV Frontier.</p>
 
             <h2>Looking Ahead</h2>
-            <p>As we continue to integrate these systems, the value of "Human-Centric" skills like leadership, ethics, and empathy will only increase. At STRATIV, we believe the future belongs to those who view AI as their most powerful teammate, not their replacement.</p>
+            <p>As we continue to integrate these systems, the value of <strong>"Human-Centric" skills</strong> like leadership, ethics, and empathy will only increase. At STRATIV, we believe the future belongs to those who view AI as their most powerful teammate, not their replacement.</p>
         </div>
 
         <p class="author">Written by:Bayran, Kimi Benedict T.</p>
