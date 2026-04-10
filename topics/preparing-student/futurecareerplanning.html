@@ -168,6 +168,12 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      /* Added hover effect for clickable image */
+      .inner-hero img:hover {
+        transform: scale(1.02);
       }
 
       .inner-hero::after {
@@ -273,12 +279,12 @@
         padding: 40px 6% 30px;
         font-family: Arial, sans-serif;
       }
-.author {
-    margin-top: 60px;
-    font-size: 13px;
-    color: #94a3b8;
-    text-align: left;
-    }
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+      }
 
       .footer-container {
         display: flex;
@@ -448,7 +454,9 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="../../images/preparing-student-images/futurecareer.jpg" alt="Person planning career future on a laptop" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            <a href="../../images/preparing-student-images/futurecareer.jpg" target="_blank" title="Click to view full image">
+                <img src="../../images/preparing-student-images/futurecareer.jpg" alt="Person planning career future on a laptop" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            </a>
             <h1>Future Career Planning</h1>
         </div>
 
@@ -587,13 +595,12 @@
                 <li>Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep learning. MIT Press.</li>
                 <li>Arrieta, A. B., et al. (2020). Explainable artificial intelligence (XAI). <a href="https://doi.org/10.1016/j.inffus.2019.12.012" target="_blank">https://doi.org/10.1016/j.inffus.2019.12.012</a></li>
             </ul>
-<p class="author">Written by: Andrada Troy Winter T.</p>
+            <p class="author">Written by: Andrada Troy Winter T.</p>
         </div>
       </main>
     </div>
 
     <footer>
-      
       <div class="footer-container">
         <div class="footer-brand">
           <div class="footer-logo-blocks">
@@ -637,11 +644,7 @@
             <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
 
             <div class="contact-item">
-              <a
-                href="https://www.facebook.com/profile.php?id=61580704943031"
-                target="_blank"
-                style="display: flex; align-items: center; gap: 10px"
-              >
+              <a href="https://www.facebook.com/profile.php?id=61580704943031" target="_blank" style="display: flex; align-items: center; gap: 10px">
                 <span class="icon-box">f</span>
                 <span>Strativ.com</span>
               </a>
@@ -652,10 +655,7 @@
             </p>
 
             <div class="contact-item">
-              <a
-                href="mailto:strativ018@gmail.com"
-                style="display: flex; align-items: center; gap: 10px"
-              >
+              <a href="mailto:strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px">
                 <span class="icon-box">✉</span>
                 <span>strativ018@gmail.com</span>
               </a>

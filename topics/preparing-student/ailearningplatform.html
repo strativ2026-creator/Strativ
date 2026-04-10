@@ -174,6 +174,12 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      /* Hover effect for the clickable image */
+      .inner-hero img:hover {
+        transform: scale(1.02);
       }
 
       .inner-hero::after {
@@ -448,7 +454,9 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="../../images/preparing-student-images/ailearningplat.jpg" alt="Person learning online with laptop" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            <a href="../../images/preparing-student-images/ailearningplat.jpg" target="_blank" title="Click to view full image">
+                <img src="../../images/preparing-student-images/ailearningplat.jpg" alt="Person learning online with laptop" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            </a>
             <h1>AI Learning Platforms</h1>
         </div>
 

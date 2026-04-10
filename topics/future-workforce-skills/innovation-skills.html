@@ -157,17 +157,26 @@
         gap: 25px;
       }
 
+      /* HERO IMAGE FIXES */
       .inner-hero {
         height: 320px;
         border-radius: 12px;
         overflow: hidden;
         position: relative;
+        background: #000; /* fallback */
+      }
+
+      .inner-hero > a {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .inner-hero img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: cover; /* Ensures it fills the container proportionally */
+        display: block;
       }
 
       .inner-hero::after {
@@ -188,6 +197,7 @@
         left: 30px;
         pointer-events: none;
         font-weight: bold;
+        margin: 0;
       }
 
       /* ARTICLE CONTENT STYLES */
@@ -255,6 +265,25 @@
 
       .article-section strong {
         color: #03045e;
+      }
+
+      /* IN-ARTICLE IMAGE FIXES */
+      .article-img-wrapper {
+        display: block;
+        width: 100%;
+        max-height: 380px; /* Prevents images from becoming overwhelmingly huge */
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      }
+
+      .article-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        max-height: 380px;
+        object-fit: cover; /* Crops cleanly to fit the max-height */
+        display: block;
       }
 
       /* References specific */
@@ -451,9 +480,10 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Innovation and AI banner" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            <a href="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" target="image-viewer">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Innovation and AI banner" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            </a>
             <h1>Innovation Skills in the AI Era</h1>
-            <a href="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" target="image-viewer" style="position: absolute; inset: 0; z-index: 10; cursor: pointer; display: block; width: 100%; height: 100%;"></a>
         </div>
 
         <div class="article-section">
@@ -466,9 +496,9 @@
             </div>
 
             <h2>How AI-Driven Innovation Helps</h2>
-            <div class="my-4">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="img-fluid border border-5 border-light rounded mx-auto d-block shadow-sm mb-4" style="max-height: 400px; width: 100%; object-fit: cover;" alt="AI Ideation Process Diagram">
-            </div>
+            <a href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" target="image-viewer" class="article-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="AI Ideation Process Diagram">
+            </a>
             <ul>
                 <li><strong>Infinite Ideation (The End of "Blank Page" Syndrome):</strong> AI can generate hundreds of product concepts, marketing angles, or architectural designs in seconds, allowing humans to move immediately to the high-value task of selection and refinement.</li>
                 <li><strong>Rapid Prototyping:</strong> AI-integrated tools (like 3D modeling AI or code generators) allow innovators to build "Minimum Viable Products" (MVPs) in days rather than months, drastically reducing the cost of failure.</li>
@@ -482,8 +512,8 @@
             <div class="row my-4">
                 <div class="col-md-4 mb-3">
                     <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="cursor: pointer; display: block;">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Prompt Engineering" style="height: 160px; object-fit: cover;">
+                        <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Prompt Engineering" style="height: 180px; object-fit: cover; width: 100%;">
                         </a>
                         <div class="card-body bg-light border border-top-0 rounded-bottom">
                             <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Prompt Engineering</h4>
@@ -493,8 +523,8 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="cursor: pointer; display: block;">
-                            <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Curation and Judgment" style="height: 160px; object-fit: cover;">
+                        <a href="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;">
+                            <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Curation and Judgment" style="height: 180px; object-fit: cover; width: 100%;">
                         </a>
                         <div class="card-body bg-light border border-top-0 rounded-bottom">
                             <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Curation & Judgment</h4>
@@ -504,8 +534,8 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="cursor: pointer; display: block;">
-                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Iterative Refinement" style="height: 160px; object-fit: cover;">
+                        <a href="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Iterative Refinement" style="height: 180px; object-fit: cover; width: 100%;">
                         </a>
                         <div class="card-body bg-light border border-top-0 rounded-bottom">
                             <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Iterative Refinement</h4>
@@ -516,9 +546,9 @@
             </div>
 
             <h2>Major Issues Addressed by Innovation Skills</h2>
-            <div class="my-4">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="img-fluid border border-5 border-light rounded mx-auto d-block shadow-sm mb-4" style="max-height: 400px; width: 100%; object-fit: cover;" alt="Innovation Pipeline Cost Reduction">
-            </div>
+            <a href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" target="image-viewer" class="article-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Innovation Pipeline Cost Reduction">
+            </a>
             <ul>
                 <li><strong>The High Cost of R&D:</strong> Traditionally, innovation required massive budgets. AI democratizes innovation, allowing small startups to compete with giant corporations in research and design.</li>
                 <li><strong>Overcoming Human Bias:</strong> Humans tend to stick to what has worked before. AI can be prompted to be "intentionally radical," forcing innovators to consider non-traditional solutions.</li>
@@ -527,9 +557,9 @@
 
             <div class="p-4 bg-light border shadow-sm rounded my-5" style="border-left: 5px solid #0077B6 !important;">
                 <h4 style="color: #03045E; margin-bottom: 15px;">Real-World Example: Generative Design in Aerospace</h4>
-                <div class="my-3 text-center">
-                    <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-sm" style="max-height: 300px; width: 100%; object-fit: cover;" alt="NASA Generative Design Parts">
-                </div>
+                <a href="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" target="image-viewer" class="article-img-wrapper" style="margin: 20px auto;">
+                    <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" alt="NASA Generative Design Parts">
+                </a>
                 <p><strong>The Scenario:</strong> Engineers at NASA and Airbus used AI "Generative Design" to create hardware for space missions.</p>
                 <p><strong>The Problem:</strong> Traditional human-designed parts were heavy and used standard geometric shapes that weren't optimized for weight or stress.</p>
                 <p class="mb-0"><strong>The Innovation Fix:</strong> Engineers set "constraints" (weight, strength, material) and let the AI "grow" the part. The result looked organic—like a bone or a tree branch. These AI-designed parts were 45% lighter and stronger than anything a human could have drawn manually, proving that the modern innovator's job is to set the goals, not the lines.</p>

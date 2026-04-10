@@ -157,17 +157,26 @@
         gap: 25px;
       }
 
+      /* HERO IMAGE FIXES */
       .inner-hero {
         height: 320px;
         border-radius: 12px;
         overflow: hidden;
         position: relative;
+        background: #000; /* fallback */
+      }
+
+      .inner-hero > a {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .inner-hero img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: cover; /* Ensures it fills the container proportionally */
+        display: block;
       }
 
       .inner-hero::after {
@@ -188,6 +197,7 @@
         left: 30px;
         pointer-events: none;
         font-weight: bold;
+        margin: 0;
       }
 
       /* ARTICLE CONTENT STYLES */
@@ -255,6 +265,25 @@
 
       .article-section strong {
         color: #03045e;
+      }
+
+      /* IN-ARTICLE IMAGE FIXES */
+      .article-img-wrapper {
+        display: block;
+        width: 100%;
+        max-height: 380px; /* Prevents images from becoming overwhelmingly huge */
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 20px 0;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      }
+
+      .article-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        max-height: 380px;
+        object-fit: cover; /* Crops cleanly to fit the max-height */
+        display: block;
       }
 
       /* References specific */
@@ -397,7 +426,7 @@
 <body id="top">
     <header>
       <div class="logo">
-        <a href="../../images/logo/logo.jpg" target="_blank">
+        <a href="../../images/logo/logo.jpg" target="image-viewer">
             <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo" />
         </a>
         STRATIV
@@ -451,10 +480,10 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Team collaborating with AI concept" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            <a href="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" target="image-viewer">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Collaboration Hero" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            </a>
             <h1>Collaboration Skills in the AI Era</h1>
-
-            <a href="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" target="_blank" style="position: absolute; inset: 0; z-index: 10; cursor: pointer;"></a>
         </div>
 
         <div class="article-section">
@@ -467,9 +496,9 @@
             </div>
 
             <h2>How AI-Enhanced Collaboration Helps</h2>
-            <div class="my-4">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" class="img-fluid border border-5 border-light rounded mx-auto d-block shadow-sm mb-4" style="max-height: 400px; width: 100%; object-fit: cover;" alt="Modern business meeting with AI tools">
-            </div>
+            <a href="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80" target="image-viewer" class="article-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80" alt="Team collaborating with technology">
+            </a>
             <ul>
                 <li><strong>Eliminating Meeting Friction:</strong> AI tools can act as silent observers in meetings, instantly generating transcripts, identifying action items, and syncing calendars across global time zones.</li>
                 <li><strong>Unbiased Idea Meritocracy:</strong> AI can be used to "blind" brainstorm sessions, stripping away names and seniority from suggestions so that ideas are judged on their quality rather than who said them.</li>
@@ -483,8 +512,8 @@
             <div class="row my-4">
                 <div class="col-md-4 mb-3">
                     <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="cursor: pointer; display: block;">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Human to Human Collaboration" style="height: 160px; object-fit: cover;">
+                        <a href="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Human to Human Collaboration" style="height: 180px; object-fit: cover; width: 100%;">
                         </a>
                         <div class="card-body bg-light border border-top-0 rounded-bottom">
                             <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Human-to-Human (H2H)</h4>
@@ -494,8 +523,8 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="cursor: pointer; display: block;">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Human to AI Collaboration" style="height: 160px; object-fit: cover;">
+                        <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Human to AI Collaboration" style="height: 180px; object-fit: cover; width: 100%;">
                         </a>
                         <div class="card-body bg-light border border-top-0 rounded-bottom">
                             <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Human-to-AI (H2A)</h4>
@@ -505,8 +534,8 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="cursor: pointer; display: block;">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="AI Mediated Collaboration" style="height: 160px; object-fit: cover;">
+                        <a href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="AI Mediated Collaboration" style="height: 180px; object-fit: cover; width: 100%;">
                         </a>
                         <div class="card-body bg-light border border-top-0 rounded-bottom">
                             <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">AI-Mediated (AIM)</h4>
@@ -517,9 +546,9 @@
             </div>
 
             <h2>Major Issues Addressed by Collaboration Skills</h2>
-            <div class="my-4">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" class="img-fluid border border-5 border-light rounded mx-auto d-block shadow-sm mb-4" style="max-height: 400px; width: 100%; object-fit: cover;" alt="Team planning and overcoming silos">
-            </div>
+            <a href="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" target="image-viewer" class="article-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Team fixing issues">
+            </a>
             <ul>
                 <li><strong>The "Silo" Effect:</strong> AI-integrated collaboration tools automatically pull relevant data from different departments, forcing a "whole-of-company" view that prevents teams from working in isolation.</li>
                 <li><strong>Cognitive Load Reduction:</strong> By offloading "coordination overhead" (scheduling, searching for files, documenting notes) to AI, teams can spend more energy on actual problem-solving.</li>
@@ -528,9 +557,9 @@
 
             <div class="p-4 bg-light border shadow-sm rounded my-5" style="border-left: 5px solid #0077B6 !important;">
                 <h4 style="color: #03045E; margin-bottom: 15px;">Real-World Example: AI in Creative Agencies</h4>
-                <div class="my-3 text-center">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-sm" style="max-height: 300px; width: 100%; object-fit: cover;" alt="Creative agency team working together">
-                </div>
+                <a href="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=80" target="image-viewer" class="article-img-wrapper" style="margin: 20px auto;">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=80" alt="Creative Agency Work">
+                </a>
                 <p><strong>The Scenario:</strong> A global advertising firm uses Generative AI (like Midjourney or DALL-E) during live client brainstorming sessions.</p>
                 <p><strong>The Problem:</strong> Initially, designers felt threatened, and clients were overwhelmed by too many options. The "human" element of the collaboration—the art of persuasion and curation—was lost in a sea of AI-generated images.</p>
                 <p class="mb-0"><strong>The Collaboration Fix:</strong> The agency shifted to using AI only for "rapid prototyping." The human designers now act as the Creative Directors of the AI. They use their collaborative skills to interpret the client's vague emotions and "steer" the AI toward a specific vision. This reduced the time from "idea" to "final pitch" by 60% without losing the human touch.</p>
