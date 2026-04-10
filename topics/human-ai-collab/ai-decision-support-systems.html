@@ -231,6 +231,24 @@
         text-align: justify;
       }
 
+      .author-byline {
+        font-size: 14px;
+        color: #64748b;
+        font-style: italic;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e2e8f0;
+        text-align: right;
+      }
+
+      /* NEW AUTHOR STYLES - INCREASED SPECIFICITY TO OVERRIDE JUSTIFY */
+      .article-section p.author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+      }
+
       .article-section ul, .article-section ol {
         margin-left: 20px;
         margin-bottom: 20px;
@@ -442,13 +460,16 @@
 
       <main class="main">
         <div class="inner-hero">
-            <a href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" target="_blank">
+            <a href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" target="view_tab">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600" alt="Decision Support Systems" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
             </a>
             <h1>AI Decision Support Systems</h1>
         </div>
 
         <div class="article-section">
+            <div class="author-byline">
+            </div>
+
             <p>An AI Decision Support System (DSS) is an integrated computer-based framework that utilizes advanced machine learning algorithms, data mining, and predictive modeling to assist humans in making complex, non-routine decisions. In 2026, these systems have evolved from simple "help" tools to essential "cognitive partners."</p>
             
             <div class="p-3 mb-4" style="border-left: 4px solid #0077B6; background: #f0f7ff; border-radius: 0 8px 8px 0;">
@@ -460,7 +481,7 @@
             <p>The journey from basic calculators to autonomous decision agents has occurred in several distinct technological waves. Each era solved a specific problem while introducing new complexities.</p>
 
             <div class="my-4">
-                <a href="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200" target="_blank">
+                <a href="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200" target="view_tab">
                     <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" class="img-fluid border border-5 border-light rounded mx-auto d-block shadow-sm mb-4" style="max-height: 400px; width: 100%; object-fit: cover;" alt="Tech Evolution">
                 </a>
             </div>
@@ -502,7 +523,7 @@
             <p>The most advanced organizations in 2026 do not let AI make decisions alone. Instead, they use a <strong>HITL</strong> model where the AI provides a "confidence score." If the confidence is below 95%, the decision is automatically escalated to a human expert for review.</p>
 
             <div class="my-4">
-                <a href="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200" target="_blank">
+                <a href="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200" target="view_tab">
                     <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" class="img-fluid border border-5 border-light rounded mx-auto d-block shadow-sm mb-4" style="max-height: 400px; width: 100%; object-fit: cover;" alt="Human AI Interface">
                 </a>
             </div>
@@ -524,6 +545,8 @@
             <p>As we move toward 2030, the focus is shifting from "how much can AI decide" to "how should AI decide." New regulations require DSS to have "Explainability" (XAI) features, ensuring that any AI recommendation can be audited by a human for fairness and safety. This ensures that even as tools become more complex, humans remain the ultimate moral compass for technology.</p>
 
             <p>Research consistently shows that the most successful outcomes occur through these integrated designs. While AI reduces errors in data-heavy tasks, human oversight handles the ethical dilemmas, exceptions, and "black swan" events that data alone cannot predict.</p>
+            
+            <p class="author">Written by: Bayran, Kimi Benedict T.</p>
         </div>
       </main>
     </div>

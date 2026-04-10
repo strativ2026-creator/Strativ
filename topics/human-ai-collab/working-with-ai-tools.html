@@ -256,6 +256,16 @@
       .article-section strong {
         color: #03045e;
       }
+      
+      /* CLICKABLE IMAGE STYLES */
+      .article-image-link {
+        display: block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .article-image-link:hover {
+        transform: scale(1.02);
+      }
 
       /* References specific */
       .references-list {
@@ -266,12 +276,24 @@
         font-size: 13px !important;
       }
 
+      /* Author specific */
+      .author {
+        margin-top: 60px;
+        font-size: 10px;
+        color: #94a3b8;
+        text-align: right !important; /* Ensured right alignment */
+        display: block;
+        width: 100%;
+        float: right; /* Added float to push it entirely to the right edge */
+      }
+
       /* ===== FOOTER ===== */
       footer {
         background: #03045e;
         color: #ffffff;
         padding: 40px 6% 30px;
         font-family: Arial, sans-serif;
+        clear: both; /* Added clear to prevent footer layout breaks from floating elements above */
       }
 
       .footer-container {
@@ -384,6 +406,13 @@
           gap: 30px;
         }
       }
+      @media (max-width: 768px) {
+        .article-image-link {
+          float: none !important;
+          margin-left: 0 !important;
+          max-width: 100% !important;
+        }
+      }
     </style>
 </head>
 
@@ -442,20 +471,23 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600" alt="AI Tools" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            <a href="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600" target="view_tab" title="Click to view full image" style="display: block; width: 100%; height: 100%;">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600" alt="AI Tools" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            </a>
             <h1>Working with AI Tools</h1>
         </div>
 
-        <div class="article-section">
+        <div class="article-section clearfix">
             <p>In 2026, proficiency in AI tools has become as fundamental as basic literacy. These tools serve as extensions of human capability, transforming how we research, create, and optimize our professional workflows.</p>
 
             <h2>Evolution of Professional Productivity</h2>
+            
+            <a href="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" target="view_tab" class="article-image-link float-md-end ms-md-4 mb-4 mt-2" style="width: 100%; max-width: 350px;" title="Click to view full image">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" class="img-fluid border border-5 border-light rounded shadow-sm" style="width: 100%; object-fit: cover;" alt="Network History">
+            </a>
+
             <p>The history of tool usage in the workplace has undergone four massive shifts. Understanding where we came from helps define where we are headed in this AI-driven era.</p>
             
-            <div class="my-4">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" class="img-fluid border border-5 border-light rounded mx-auto d-block shadow-sm mb-4" style="max-height: 400px; width: 100%; object-fit: cover;" alt="Network History">
-            </div>
-
             <h3>Chronological Milestones</h3>
             <ul>
                 <li><strong>1. The Manual Era (Pre-1980s):</strong> Calculations and drafting were physical tasks. Productivity was limited by the speed of the human hand.</li>
@@ -463,6 +495,8 @@
                 <li><strong>3. The Cloud & Mobile Era (2010-2022):</strong> Information became ubiquitous. Collaboration happened in real-time across the globe.</li>
                 <li><strong>4. The Intelligence Era (2023-Present):</strong> Tools now process, summarize, and create. The "user" has become an "orchestrator," managing a suite of intelligent agents.</li>
             </ul>
+
+            <div class="clearfix"></div>
 
             <h2>Primary Categories of AI Tools</h2>
             <div class="row my-4">
@@ -489,6 +523,11 @@
             </div>
 
             <h2>The Art of Prompt Engineering</h2>
+            
+            <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200" target="view_tab" class="article-image-link float-md-end ms-md-4 mb-4 mt-2" style="width: 100%; max-width: 350px;" title="Click to view full image">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" class="img-fluid border border-5 border-light rounded shadow-sm" style="width: 100%; object-fit: cover;" alt="Generative AI Art">
+            </a>
+
             <p>The bridge between human intent and AI execution is the <strong>Prompt</strong>. Mastering this involves providing clear context, constraints, and personas to the machine.</p>
 
             <div class="p-4 mb-3" style="border-left: 4px solid #0077B6; background: #f0f7ff; border-radius: 0 8px 8px 0;">
@@ -500,9 +539,7 @@
                 "Act as a Senior Financial Analyst. Write a 500-word executive summary for a board of directors regarding the ROI of integrating Generative AI in customer service." (Result: Tailored, high-impact intelligence).
             </div>
 
-            <div class="my-4">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" class="img-fluid border border-5 border-light rounded mx-auto d-block shadow-sm mb-4" style="max-height: 400px; width: 100%; object-fit: cover;" alt="Generative AI Art">
-            </div>
+            <div class="clearfix"></div>
 
             <h2>Tool Interoperability and Ecosystems</h2>
             <p>Modern workflows rarely rely on a single AI. Instead, they utilize <strong>AI Chains</strong>—where the output of one tool (like a data scraper) becomes the input for another (like an LLM analyzer).</p>
@@ -517,6 +554,8 @@
                 <li><strong>Step 2: Generation (AI)</strong> — The tool handles the labor-intensive drafting or data processing.</li>
                 <li><strong>Step 3: Curation (Human)</strong> — You fact-check, edit for brand voice, and apply ethical oversight.</li>
             </ul>
+
+            <p class="author text-end float-end">Written by: Bayran, Kimi Benedict T.</p>
         </div>
       </main>
     </div>
@@ -567,7 +606,7 @@
             <div class="contact-item">
               <a
                 href="https://www.facebook.com/profile.php?id=61580704943031"
-                target="_blank"
+                target="view_tab"
                 style="display: flex; align-items: center; gap: 10px"
               >
                 <span class="icon-box">f</span>
