@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Strativ | Machine Learning Engineer</title>
 
+<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="../../favicon.png" />
-<link rel="stylesheet" href="../../css/style.css">
 
 <style>
 
@@ -99,10 +99,11 @@ nav a:hover {
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
+    display: block;
 }
 
 /* ===== LAYOUT ===== */
-.container {
+.page {
     display: grid;
     grid-template-columns: 260px 1fr;
     gap: 30px;
@@ -186,6 +187,7 @@ nav a:hover {
     font-size: 38px;
     z-index: 2;
     pointer-events: none;
+    font-weight: bold;
 }
 
 /* ===== CARD ===== */
@@ -446,7 +448,7 @@ footer {
   </nav>
 </header>
 
-<div class="container">
+<div class="page">
 
 <div class="sidebar">
     <div class="sidebar-header"><strong>Emerging AI Careers</strong></div>
@@ -459,7 +461,7 @@ footer {
         <a href="machine-learning-engineer.html" class="active">Machine Learning Engineer</a>
         <a href="ai-product-manager.html">AI Product Manager</a>
         <a href="prompt-engineer.html">Prompt Engineer</a>
-        <a href="ai-research-specialist.html">AI Research Scientist</a>
+        <a href="ai-research-scientist.html">AI Research Scientist</a>
         <a href="robotics-engineer.html">Robotics Engineer</a>
         <a href="ai-trainer.html">AI Trainer</a>
         <a href="ai-consultant.html">AI Business Consultant</a>

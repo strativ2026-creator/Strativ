@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Strativ | AI Engineer</title>
+
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="icon" type="image/png" href="../../favicon.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
@@ -103,6 +105,7 @@
       .dropdown:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
+        display: block;
       }
 
       /* ===== PAGE LAYOUT ===== */
@@ -122,6 +125,7 @@
         position: sticky;
         top: 100px;
         z-index: 10;
+        height: 645px;
       }
 
       .sidebar h3 {
@@ -131,6 +135,8 @@
         font-size: 13px;
         border-radius: 10px 10px 0 0;
         text-transform: uppercase;
+        margin: 0;
+        font-weight: bold;
       }
 
       .sidebar a {
@@ -188,6 +194,7 @@
         bottom: 30px;
         left: 30px;
         pointer-events: none;
+        font-weight: bold;
       }
 
       /* ARTICLE CONTENT STYLES */
@@ -235,24 +242,88 @@
         margin-bottom: 15px;
       }
 
-      .article-section ul {
-        margin-left: 20px;
-        margin-bottom: 20px;
-      }
-
-      .article-section li {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #475569;
-        margin-bottom: 8px;
-      }
-
-      .article-section strong {
-        color: #03045e;
-      }
-
       p {
         text-align: justify;
+      }
+
+      /* ===== NEW AI-TRAINER STYLES ===== */
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 25px;
+        margin-top: 20px;
+      }
+
+      .card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      }
+
+      .card-icon {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      
+      .card h3 {
+        font-size: 16px; 
+        margin-bottom: 8px;
+        margin-top: 0;
+        color: #0077b6;
+      }
+
+      .card p {
+          font-size: 14px; 
+          line-height: 1.6; 
+      }
+
+      .ai-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+      }
+
+      .ai-table th,
+      .ai-table td {
+        padding: 14px 18px;
+        border: 1px solid #e2e8f0;
+        text-align: left;
+        font-size: 15px;
+      }
+
+      .ai-table thead {
+        background-color: #03045e;
+        color: #ffffff;
+        font-family: Georgia, serif;
+        font-weight: 700;
+      }
+
+      .ai-table tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+
+      .ai-table tbody tr:nth-child(even) {
+        background-color: #f1f5f9;
+      }
+
+      /* Workforce Impact List */
+      .impact-list {
+        display: grid;
+        gap: 12px;
+        margin: 20px 0;
+      }
+
+      .impact-item {
+        background: #f8fafc;
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-size: 15px;
+        color: #003049;
       }
 
       #scrollTopBtn {
@@ -421,20 +492,6 @@
         color: #94a3b8;
         text-align: right;
       }
-
-      .impact-list {
-        display: grid;
-        gap: 12px;
-        margin: 20px 0;
-      }
-
-      .impact-item {
-        background: #f8fafc;
-        padding: 12px 15px;
-        border-radius: 8px;
-        font-size: 15px;
-        color: #003049;
-      }
     </style>
   </head>
 
@@ -491,7 +548,7 @@
         <a href="machine-learning-engineer.html">Machine Learning Engineer</a>
         <a href="ai-product-manager.html">AI Product Manager</a>
         <a href="prompt-engineer.html">Prompt Engineer</a>
-        <a href="ai-research-specialist.html">AI Research Scientist</a>
+        <a href="ai-research-scientist.html">AI Research Scientist</a>
         <a href="robotics-engineer.html">Robotics Engineer</a>
         <a href="ai-trainer.html">AI Trainer</a>
         <a href="ai-consultant.html">AI Business Consultant</a>
@@ -519,31 +576,69 @@
           <br>
           <h2 id="what-they-do">What AI Engineers Actually Do</h2>
           <p>
-            AI engineers follow a step-by-step process to build useful AI systems. They begin by understanding a problem—such as predicting user behavior, detecting fraud, or creating chatbots—and deciding if AI is the right solution and what type of model to use.
+            AI engineers follow a step-by-step process to build useful AI systems. The table below outlines their primary workflow from identifying the right solutions to maintaining active models.
           </p>
-          <p>
-            A large part of their work involves handling data. Since real-world data is often messy or incomplete, they clean, organize, and sometimes label it so the model can learn effectively. Good data is essential for accurate results.
-          </p>
-          <p>
-            They then move on to model development, where they use machine learning techniques like neural networks or decision trees and train them using tools such as TensorFlow or PyTorch. After training, they evaluate the model by testing it on new data and improving it if needed.
-          </p>
-          <p>
-            Once the model performs well, it is deployed into real systems like apps or websites. Finally, AI engineers maintain the system by monitoring performance and updating the model over time to keep it accurate as data changes.
-          </p>
+          
+          <table class="ai-table">
+            <thead>
+              <tr>
+                <th>Engineering Phase</th>
+                <th>Core Responsibility</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Problem Scoping</td>
+                <td>Understanding a problem (like fraud detection or predicting behavior) and deciding what type of AI model is the right solution.</td>
+              </tr>
+              <tr>
+                <td>Data Handling</td>
+                <td>Cleaning, organizing, and labeling messy or incomplete real-world data so models can learn effectively.</td>
+              </tr>
+              <tr>
+                <td>Model Development</td>
+                <td>Training neural networks or decision trees using machine learning techniques and tools such as TensorFlow or PyTorch.</td>
+              </tr>
+              <tr>
+                <td>Deployment &amp; Maintenance</td>
+                <td>Deploying well-performing models into real systems (apps/websites) and continuously updating them to keep them accurate.</td>
+              </tr>
+            </tbody>
+          </table>
 
           <br>
           <h2 id="use-cases">Real-World Use Cases</h2>
           <p>
             AI engineers build systems used in everyday technology:
           </p>
-          <ul>
-            <li><strong>Conversational AI:</strong> like ChatGPT, which understands and responds to human language</li>
-            <li><strong>Recommendation systems:</strong> used by platforms like Netflix to suggest movies or shows</li>
-            <li><strong>Autonomous driving:</strong> and AI systems developed by companies like Tesla</li>
-            <li><strong>Everyday Tools:</strong> Spam filters, voice assistants, fraud detection systems, and image recognition tools</li>
-          </ul>
+          
+          <div class="cards-container">
+            <div class="card">
+              <div class="card-icon">💬</div>
+              <h3>Conversational AI</h3>
+              <p>Like ChatGPT, systems designed to understand and respond accurately to human language.</p>
+            </div>
 
-          <br>
+            <div class="card">
+              <div class="card-icon">🎬</div>
+              <h3>Recommendation</h3>
+              <p>Used by platforms like Netflix to suggest relevant movies, shows, and content to users.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">🚗</div>
+              <h3>Autonomous Driving</h3>
+              <p>Advanced AI self-driving systems developed by automotive companies like Tesla.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">🛠️</div>
+              <h3>Everyday Tools</h3>
+              <p>Spam filters, voice assistants, fraud detection systems, and image recognition software.</p>
+            </div>
+          </div>
+
+          <br><br>
           <h2 id="skills">Skills Required</h2>
           <p>
             To become an AI engineer, you need a mix of technical skills:
@@ -574,6 +669,7 @@
               />
             </a>
           </div>
+
         </div>
 
         <p class="author">Written by: Agunod, Miguel Sid A.</p>
