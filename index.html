@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STRATIV | AI Frontier</title>
 <link rel="icon" type="image/png" href="favicon.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 
 <!--Abordo, Jana Sayrielle G. -->
 
@@ -73,34 +73,6 @@ nav {
         color: #0077b6;
       }
 
-      /* DROPDOWN STYLES */
-      .nav-dropdown {
-        position: relative;
-      }
-
-      .nav-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        min-width: 220px;
-        opacity: 0;
-        visibility: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: opacity 0.3s ease;
-      }
-
-      .nav-dropdown-menu a {
-        padding: 12px 15px;
-        display: block;
-      }
-
-      .nav-dropdown:hover .nav-dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-      }
 
 .dropdown {
     position: relative;
@@ -162,7 +134,7 @@ nav {
     z-index: 0;
 }
 
-.hero-overlay {
+.hero-overlay  {
     position: absolute;
     top: 0;
     left: 0;
@@ -230,12 +202,6 @@ nav {
     color: #03045E;
 }
 
-/* 4-COLUMN GRID */
-.topics-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
 
 /* CARD */
 .card {
@@ -371,35 +337,13 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
-}
-
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
-}
-
 /* RESPONSIVE */
+
 @media (max-width: 1100px) {
     .footer-container { flex-direction: column; }
     .footer-links-group { gap: 30px; }
 }
+
 </style>
 </head>
 <body>
@@ -443,60 +387,146 @@ footer {
 </header>
 
 <!-- HERO -->
+ <a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+    ↑
+</a>
 <section class="hero">
-    <img src="images/banners/home-banner.jpg"AI Hero" class="hero-img">
+    <img src="images/banners/home-banner.jpg" alt="AI Hero" class="hero-img">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-        <h1>Navigating the AI Frontier <br>Defining the Workforce of Tomorrow</h1>
+        <h1><strong>Navigating the AI Frontier <br>Defining the Workforce of Tomorrow</strong></h1>
         <p>Artificial Intelligence is rapidly transforming the way people work across the world. Explore how AI reshapes industries, job opportunities, and the essential skills for the workforce of tomorrow.</p>
         <a href="#topics" class="cta-btn">EXPLORE NOW</a>
     </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="py-5 bg-white">
+  <div class="container-fluid px-5 mt-5"">
+
+    <div class="row align-items-center mb-5 g-4">
+
+      <div class="col-lg-4 text-center">
+        <img src="images/banners/robot-thinking.png" alt="Robot in between a Chip and a Brain" title="This is an image of a Robot in between a Chip and a Brain"
+             class="rounded-circle"
+             style="max-width: 400px;">
+      </div>
+
+
+      <div class="col-lg-8">
+        <h3 class="fs-1" style="font-family: Georgia, serif; color:#03045E;">
+          What is <strong>STRATIV</strong> all about?
+        </h3>
+
+        <p class="mt-4 text-secondary fs-6" style="line-height:1.7;text-align: justify;">
+          STRATIV is a forward-thinking platform dedicated to exploring how artificial intelligence is transforming the modern workforce. Our goal is to simplify complex ideas and make them accessible, helping individuals understand the impact of AI on jobs, industries, and future opportunities
+        </p>
+        <div class="row g-4">
+
+      <div class="col-lg-4">
+        <div class="mt-3 p-4 border rounded shadow-sm h-100" style="border-color:#03045E !important;">
+          <h5 class="fw-bold" style="font-family: Georgia, serif; color:#03045E;">Our Mission</h5>
+          <p class="text-secondary mb-0">
+            To educate and guide individuals in navigating the evolving landscape of AI and work.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="mt-3 p-4 border rounded shadow-sm h-100" style="border-color:#03045E !important;">          <h5 class="fw-bold" style="font-family: Georgia, serif; color:#03045E;">Our Vision</h5>
+          <p class="text-secondary mb-0">
+            A future where humans and AI collaborate seamlessly to create smarter, more meaningful work.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="mt-3 p-4 border rounded shadow-sm h-100" style="border-color:#03045E !important;">
+          <h5 class="fw-bold" style="font-family: Georgia, serif; color:#03045E;">Our Focus</h5>
+          <p class="text-secondary mb-0">
+            Delivering insights on AI trends, career shifts, and the skills needed for tomorrow.
+          </p>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 <!-- TOPICS -->
 <section class="topics" id="topics">
-    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
-    <h2>TOPICS OVERVIEW</h2>
-    <div class="topics-grid">
-        <div class="card">
-            <h3>AI in the Workplace</h3>
-            <p>Improving productivity and reshaping industries.</p>
-            <a href="topics/introduction-ai-workplace/workplace-overview.html">LEARN MORE</a>
-        </div>
-        <div class="card">
-            <h3>Jobs at Risk</h3>
-            <p>Automation affects finance and manufacturing.</p>
-            <a href="topics/jobs-at-risk/overview-jobs-at-risk.html">LEARN MORE</a>
-        </div>
-        <div class="card">
-            <h3>Emerging Careers</h3>
-            <p>AI Engineers and Data Scientists are rising.</p>
-            <a href="topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">LEARN MORE</a>
-        </div>
-        <div class="card">
-            <h3>Human + AI</h3>
-            <p>Collaboration between humans and machines.</p>
-            <a href="topics/human-ai-collab/overview-human-ai-collab.html">LEARN MORE</a>
-        </div>
-        <div class="card">
-            <h3>Future Skills</h3>
-            <p>Critical thinking and AI literacy are key.</p>
-            <a href="topics/future-workforce-skills">LEARN MORE</a>
-        </div>
-        <div class="card">
-            <h3>AI Ethics</h3>
-            <p>Privacy, bias, and accountability challenges.</p>
-            <a href="topics/ai-ethics/overview-ai-ethics.html">LEARN MORE</a>
-        </div>
-        <div class="card">
-            <h3>Preparing Students</h3>
-            <p>Preparing for AI-driven careers.</p>
-            <a href="topics/preparing-student/overviewofpreparingstudentsai.html">LEARN MORE</a>
-        </div>
-        <div class="card">
-            <h3>Future Outlook</h3>
-            <p>What the workforce will look like in 2040.</p>
-            <a href="topics/future-outlook-ai/">LEARN MORE</a>
+    <h2 class="fw-bold">TOPICS OVERVIEW</h2>
+
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <h3 class="fw-bold">AI in the Workplace</h3>
+                    <p>Improving productivity and reshaping industries.</p>
+                    <a class="btn btn-primary w-100" href="topics/introduction-ai-workplace/workplace-overview.html">LEARN MORE</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <h3 class="fw-bold">Jobs at Risk</h3>
+                    <p>Automation affects finance and manufacturing.</p>
+                    <a class="btn btn-primary w-100" href="topics/jobs-at-risk/overview-jobs-at-risk.html">LEARN MORE</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <h3 class="fw-bold">Emerging Careers</h3>
+                    <p>AI Engineers and Data Scientists are rising.</p>
+                    <a class="btn btn-primary w-100" href="topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">LEARN MORE</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <h3 class="fw-bold">Human + AI</h3>
+                    <p>Collaboration between humans and machines.</p>
+                    <a class="btn btn-primary w-100" href="topics/human-ai-collab/overview-human-ai-collab.html">LEARN MORE</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <h3 class="fw-bold">Future Skills</h3>
+                    <p>Critical thinking and AI literacy are key.</p>
+                    <a class="btn btn-primary w-100" href="topics/future-workforce-skills">LEARN MORE</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <h3 class="fw-bold">AI Ethics</h3>
+                    <p>Privacy, bias, and accountability challenges.</p>
+                    <a class="btn btn-primary w-100" href="topics/ai-ethics/overview-ai-ethics.html">LEARN MORE</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <h3 class="fw-bold">Preparing Students</h3>
+                    <p>Preparing for AI-driven careers.</p>
+                    <a class="btn btn-primary w-100" href="topics/preparing-student/overviewofpreparingstudentsai.html">LEARN MORE</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100">
+                    <h3 class="fw-bold">Future Outlook</h3>
+                    <p>What the workforce will look like in 2040.</p>
+                    <a class="btn btn-primary w-100" href="topics/future-outlook-ai/">LEARN MORE</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -515,7 +545,7 @@ footer {
 
         <div class="footer-links-group">
             <div class="f-col">
-                <h4>Quick Links</h4>
+                <h4 class="fw-bold">Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
                         <a href="topics/introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a><br>
@@ -559,6 +589,6 @@ footer {
         <p>© 2026 STRATIV. All rights reserved.</p>
     </div>
 </footer>
-
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
