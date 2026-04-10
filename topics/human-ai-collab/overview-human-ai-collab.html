@@ -1,298 +1,600 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRATIV | Overview of Human AI Collaboration</title>
-<link rel="icon" type="image/png" href="../../images/icons/favicon.png">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview of Human AI Collaboration | STRATIV AI Frontier</title>
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet" />
 
-<style>
-/* ===== RESET & BASE ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAFC; }
+    <style>
+      /* ===== RESET & BASE ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-/* ===== STRATIV THEME UTILITIES ===== */
-.text-strativ-dark { color: #03045E !important; font-family: Georgia, serif; font-weight: bold; }
-.text-strativ-blue { color: #0077B6 !important; }
-.bg-strativ-dark { background-color: #03045E !important; }
-.bg-strativ-light { background-color: #EFF6FF !important; }
-.border-strativ-dark { border-color: #03045E !important; }
-.border-strativ-blue { border-color: #0077B6 !important; }
-.text-custom-p { font-size: 14px; color: #6D6D6D; line-height: 1.7; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-/* BLUE IMAGE TINT */
-.image-blue-tint { filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%); }
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+        background: #f8fafc;
+      }
 
-/* CUSTOM STRATIV TABLE COLORING */
-.table-strativ { border: 1px solid #0077B6 !important; border-radius: 8px; overflow: hidden; }
-.table-strativ thead th { background-color: #03045E !important; color: #ffffff !important; border-bottom: none; font-weight: bold; }
-.table-strativ tbody tr:nth-child(odd) td { background-color: #ffffff !important; }
-.table-strativ tbody tr:nth-child(even) td { background-color: #EFF6FF !important; }
-.table-strativ tbody td { border-color: #cce4f2 !important; color: #003049 !important; }
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 6%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
 
-/* ===== HEADER ===== */
-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-.logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
-.logo img { width: 40px; height: 40px; }
-nav { display: flex; gap: 30px; }
-nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
-nav a:hover { color: #0077B6; }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #03045e;
+      }
 
-/* DROPDOWNS */
-.nav-dropdown { position: relative; }
-.nav-dropdown-menu { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px; opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: opacity 0.3s ease; }
-.nav-dropdown-menu a { padding: 12px 15px; display: block; }
-.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+      .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
 
-/* ===== PAGE LAYOUT ===== */
-.page { display: grid; grid-template-columns: 260px 1fr; gap: 30px; padding: 120px 6% 60px; align-items: start; }
+      nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
 
-/* SIDEBAR */
-.sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; position: sticky; top: 100px; z-index: 10; }
-.sidebar h3 { background: #03045E; color: #fff; padding: 15px; font-size: 13px; border-radius: 10px 10px 0 0; text-transform: uppercase; font-weight: bold; }
-.sidebar a { display: block; padding: 12px 15px; font-size: 14px; color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0; }
-.sidebar a:hover { background: #f1f5f9; color: #0077B6; }
-.sidebar a.active { background: #eaeaea; color: #0077B6; }
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
 
-/* HERO */
-.inner-hero { height: 320px; border-radius: 12px; overflow: hidden; position: relative; margin-bottom: 25px; }
-.inner-hero img { width: 100%; height: 100%; object-fit: cover; }
-.inner-hero::after { content: ""; position: absolute; inset: 0; background: rgba(3,4,94,0.5); }
-.inner-hero h1 { position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif; font-size: 38px; bottom: 30px; left: 30px; font-weight: bold; }
+      nav a:hover {
+        color: #0077b6;
+      }
 
-/* ===== SHARED EXTRAS ===== */
-.section-label { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0077B6; margin-bottom: 8px; }
-.highlight-box { background: #EFF6FF; border-left: 4px solid #0077B6; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-top: 14px; font-size: 14px; color: #003049; line-height: 1.7; }
-.highlight-box strong { color: #03045E; }
+      /* DROPDOWN STYLES */
+      .nav-dropdown {
+        position: relative;
+      }
 
-/* ===== FOOTER ===== */
-footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
-.footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
-.footer-brand { flex: 1; }
-.footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
-.footer-logo-blocks span { background: #ffffff; color: #03045E; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px; }
-.mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; }
-.footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
-.f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
-.f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
-.quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
-.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.icon-box { background: #ffffff; color: #03045E; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px; }
-.copyright-bar { margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255,255,255,0.8); text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+      .nav-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.3s ease;
+      }
 
-/* RESPONSIVE */
-@media (max-width: 1100px) { .footer-container { flex-direction: column; } .footer-links-group { gap: 30px; } }
-@media (max-width: 900px) { .page { grid-template-columns: 1fr; padding: 100px 4% 40px; } .sidebar { position: static; } .inner-hero h1 { font-size: 26px; } }
-@media (max-width: 600px) { nav { gap: 14px; } nav a { font-size: 12px; } }
-</style>
+      .nav-dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
+
+      .nav-dropdown:hover .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* ===== PAGE LAYOUT ===== */
+      .page {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 30px;
+        padding: 120px 6% 60px;
+        align-items: start;
+      }
+
+      /* STICKY SIDEBAR */
+      .sidebar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
+      }
+
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px 10px 0 0;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
+
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .inner-hero {
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .inner-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .inner-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.5);
+        pointer-events: none;
+      }
+
+      .inner-hero h1 {
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 38px;
+        bottom: 30px;
+        left: 30px;
+        pointer-events: none;
+        font-weight: bold;
+      }
+
+      /* ARTICLE CONTENT STYLES */
+      .article-section {
+        background: #fff;
+        padding: 35px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .article-section h2 {
+        font-family: Georgia, serif;
+        color: #03045e;
+        margin-bottom: 20px;
+        font-size: 26px;
+        font-weight: bold;
+        border-bottom: 2px solid #0077B6;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-top: 30px;
+      }
+
+      .article-section h2:first-of-type {
+        margin-top: 0;
+      }
+
+      .article-section h3 {
+        font-family: Georgia, serif;
+        color: #0077b6;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .article-section p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .article-section ul, .article-section ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .article-section li {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 8px;
+      }
+
+      .article-section a {
+        color: #0077b6;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .article-section a:hover {
+        text-decoration: underline;
+      }
+
+      .article-section strong {
+        color: #03045e;
+      }
+
+      /* References specific */
+      .references-list {
+        font-size: 13px !important;
+        word-break: break-word;
+      }
+      .references-list li {
+        font-size: 13px !important;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        flex: 1;
+      }
+
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
+
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+        color: #ffffff;
+      }
+
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
+
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
+
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
+
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .copyright-bar {
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      @media (max-width: 1100px) {
+        .page {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          display: none;
+        }
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
+      }
+    </style>
 </head>
 
 <body id="top">
-
-<header>
-    <div class="logo">
-        <img src="../../images/logo/logo.jpg" alt="STRATIV logo">
+    <header>
+      <div class="logo">
+        <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo" />
         STRATIV
-    </div>
-    <nav>
-        <a href="../../index.html">Home</a>
-        <div class="nav-dropdown">
-            <a href="../../index.html#topics">Topics ▾</a>
-            <div class="nav-dropdown-menu">
-                <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
-                <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <a href="../../topics/Emerging_AI_Careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-                <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Human + AI</a>
-                <a href="../../topics/future-workforce-skills/collaboration-skills.html">Skills</a>
-                <a href="../../topics/ai-ethics/overview-ai-ethics.html">Ethics</a>
-                <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                <a href="../../topics/future-outlook-ai/ai-driven-world.html">Future</a>
-            </div>
-        </div>
-        <div class="nav-dropdown">
-            <a href="../../resources.html">Resources ▾</a>
-            <div class="nav-dropdown-menu">
-                <a href="../../resources/external-links.html">External Links</a>
-                <a href="../../resources/icons-images.html">Icons &amp; Images</a>
-                <a href="../../resources/data-reports.html">Data &amp; Reports</a>
-                <a href="../../resources/case-studies.html">Case Studies</a>
-            </div>
-        </div>
-        <a href="../../about.html">About</a>
-        <a href="../../contact.html">Contact</a>
-    </nav>
-</header>
+      </div>
 
-<div class="page">
-    <aside class="sidebar">
+      <nav>
+        <a href="../../index.html" title="Go to Homepage">Home</a>
+        <div class="nav-dropdown">
+          <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
+            <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+            <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+            <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+            <a href="../future-workforce-skills/">Skills</a>
+            <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+            <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="../../resources.html" title="View Resources">Resources ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="../../resources/external-links.html">External Links</a>
+            <a href="../../resources/icons-images.html">Icons & Images</a>
+            <a href="../../resources/data-reports.html">Data & Reports</a>
+            <a href="../../resources/case-studies.html">Case Studies</a>
+          </div>
+        </div>
+        <a href="../../about.html" title="About Strativ">About</a>
+        <a href="../../contact.html" title="Contact Us">Contact</a>
+      </nav>
+    </header>
+
+    <div class="page">
+      <aside class="sidebar">
         <h3>Human AI Collaboration</h3>
-        <a href="overview-human-ai-collab.html" class="active">Overview of Human AI Collaboration</a>
-        <a href="human-vs-artificial-intelligence.html">Human vs Artificial Intelligence</a>
-        <a href="working-with-ai-tools.html">Working with AI Tools</a>
-        <a href="ai-decision-support-systems.html">AI Decision Support Systems</a>
-        <a href="creativity-with-artificial-intelligence.html">Creativity with AI</a>
-        <a href="ai-assisted-design.html">AI Assisted Design</a>
-        <a href="ai-in-teamwork.html">AI in Teamwork</a>
-        <a href="ai-decision-partnership.html">AI Decision Partnership</a>
-        <a href="ai-creative-collaboration.html">AI Creative Collaboration</a>
-        <a href="human-oversight-in-ai-systems.html">Human Oversight in AI Systems</a>
-        <a href="workplace-ai-integration.html">Workplace AI Integration</a>
-        <a href="collaboration-summary.html">Collaboration Summary</a>
-    </aside>
+        <a href="overview-human-ai-collab.html" class="active" title="Overview of Human AI Collaboration">Overview of Human AI Collaboration</a>
+        <a href="human-vs-artificial-intelligence.html" title="Human vs Artificial Intelligence">Human vs Artificial Intelligence</a>
+        <a href="working-with-ai-tools.html" title="Working with AI Tools">Working with AI Tools</a>
+        <a href="ai-decision-support-systems.html" title="AI Decision Support Systems">AI Decision Support Systems</a>
+        <a href="creativity-with-artificial-intelligence.html" title="Creativity with AI">Creativity with AI</a>
+        <a href="ai-assisted-design.html" title="AI Assisted Design">AI Assisted Design</a>
+        <a href="ai-in-teamwork.html" title="AI in Teamwork">AI in Teamwork</a>
+        <a href="ai-decision-partnership.html" title="AI Decision Partnership">AI Decision Partnership</a>
+        <a href="ai-creative-collaboration.html" title="AI Creative Collaboration">AI Creative Collaboration</a>
+        <a href="human-oversight-in-ai-systems.html" title="Human Oversight in AI Systems">Human Oversight in AI Systems</a>
+        <a href="workplace-ai-integration.html" title="Workplace AI Integration">Workplace AI Integration</a>
+        <a href="collaboration-summary.html" title="Collaboration Summary">Collaboration Summary</a>
+      </aside>
 
-    <main class="d-flex flex-column gap-4">
-
-        <div class="inner-hero m-0">
-            <img class="image-blue-tint" src="../../images/human-ai-collab-images/overviewpic1.png"
-                 alt="Robot and Human Hands"
-                 title="Human AI Collaboration Banner">
-            <h1>HUMAN AI COLLABORATION</h1>
+      <main class="main">
+        <div class="inner-hero">
+            <a href="../../images/human-ai-collab-images/overviewpic1.png" target="_blank">
+                <img src="../../images/human-ai-collab-images/overviewpic1.png" alt="Robot and Human Hands" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            </a>
+            <h1>Human AI Collaboration</h1>
         </div>
 
-        <div class="bg-white p-4 rounded-3 border shadow-sm">
-            <span class="section-label">Core Concept</span>
-            <h2 class="text-strativ-dark mb-3">Redefining Work Through Collaboration</h2>
-            <p class="text-custom-p">At STRATIV, we define Human-AI Collaboration as the <strong>intentional design</strong> of workflows where <strong>biological intuition meets computational scale</strong>. In the 2026 economy, the most successful organizations are those that have moved past the "replacement anxiety" of the 2010s and transitioned into a <strong>"synergy model."</strong></p>
+        <div class="article-section">
+            <h2>Redefining Work Through Collaboration</h2>
+            <p>At STRATIV, we define Human-AI Collaboration as the <strong>intentional design</strong> of workflows where <strong>biological intuition meets computational scale</strong>. In the 2026 economy, the most successful organizations are those that have moved past the "replacement anxiety" of the 2010s and transitioned into a <strong>"synergy model."</strong></p>
             
-            <div class="highlight-box">
-                <strong>The "Synergy Model":</strong> This involves delegating high-volume data analysis and iterative tasks to AI, while reserving high-stakes decision-making and empathetic communication for human experts.
+            <div class="p-3 mb-3" style="border-left: 4px solid #0077B6; background: #f0f7ff; border-radius: 0 8px 8px 0;">
+                <strong style="display: block; margin-bottom: 5px;">The "Synergy Model":</strong> This involves delegating high-volume data analysis and iterative tasks to AI, while reserving high-stakes decision-making and empathetic communication for human experts.
             </div>
-            
-            <p class="text-custom-p mt-3 mb-0">This collaborative approach fundamentally changes the nature of productivity. Instead of a linear progression of tasks, we see a <strong>recursive loop</strong>. AI identifies a pattern; the human interprets the social or ethical context of that pattern; the AI then generates a solution based on that context. This is not just automation; it is the <strong>augmentation of human capability</strong> to an unprecedented degree.</p>
-        </div>
 
-        <div class="bg-white p-4 rounded-3 border shadow-sm">
-            <span class="section-label">Impact</span>
-            <h2 class="text-strativ-dark mb-4">The Collaborative Pivot</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <div class="card h-100 border p-4 shadow-sm bg-light">
-                        <h4 class="text-strativ-dark fs-1 mb-2">40%</h4>
-                        <p class="text-custom-p m-0 fw-bold text-uppercase text-strativ-blue">Productivity Gain</p>
+            <p>This collaborative approach fundamentally changes the nature of productivity. Instead of a linear progression of tasks, we see a <strong>recursive loop</strong>. AI identifies a pattern; the human interprets the social or ethical context of that pattern; the AI then generates a solution based on that context. This is not just automation; it is the <strong>augmentation of human capability</strong> to an unprecedented degree.</p>
+
+            <h2>The Collaborative Pivot</h2>
+            <div class="row text-center my-4">
+                <div class="col-md-4 mb-3">
+                    <div class="p-4 bg-light border rounded h-100 shadow-sm d-flex flex-column justify-content-center">
+                        <h4 style="color: #03045E; font-family: Georgia, serif; font-size: 2.2rem; font-weight: bold; margin-bottom: 10px;">40%</h4>
+                        <p style="color: #0077B6; font-size: 13px; font-weight: bold; text-transform: uppercase; margin: 0; letter-spacing: 0.5px;">Productivity Gain</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border p-4 shadow-sm bg-light">
-                        <h4 class="text-strativ-dark fs-1 mb-2">2026</h4>
-                        <p class="text-custom-p m-0 fw-bold text-uppercase text-strativ-blue">The Collaborative Pivot</p>
+                <div class="col-md-4 mb-3">
+                    <div class="p-4 bg-light border rounded h-100 shadow-sm d-flex flex-column justify-content-center">
+                        <h4 style="color: #03045E; font-family: Georgia, serif; font-size: 2.2rem; font-weight: bold; margin-bottom: 10px;">2026</h4>
+                        <p style="color: #0077B6; font-size: 13px; font-weight: bold; text-transform: uppercase; margin: 0; letter-spacing: 0.5px;">The Collaborative Pivot</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border p-4 shadow-sm bg-light">
-                        <h4 class="text-strativ-dark fs-1 mb-2">$13T</h4>
-                        <p class="text-custom-p m-0 fw-bold text-uppercase text-strativ-blue">Market Value</p>
+                <div class="col-md-4 mb-3">
+                    <div class="p-4 bg-light border rounded h-100 shadow-sm d-flex flex-column justify-content-center">
+                        <h4 style="color: #03045E; font-family: Georgia, serif; font-size: 2.2rem; font-weight: bold; margin-bottom: 10px;">$13T</h4>
+                        <p style="color: #0077B6; font-size: 13px; font-weight: bold; text-transform: uppercase; margin: 0; letter-spacing: 0.5px;">Market Value</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="bg-white p-4 rounded-3 border shadow-sm">
-            <span class="section-label">Evolution</span>
-            <h2 class="text-strativ-dark mb-4">A Detailed Historical Trajectory</h2>
+            <h2>A Detailed Historical Trajectory</h2>
             
-            <div class="card p-4 border-0 border-start border-4 border-strativ-dark shadow-sm bg-light mb-4">
+            <div class="p-4 bg-light border rounded shadow-sm mb-4" style="border-left: 5px solid #03045E !important;">
                 <div class="clearfix">
                     <img src="../../images/human-ai-collab-images/overviewpic2.png" class="float-md-end mb-3 ms-md-4 rounded shadow-sm" style="width: 250px;" alt="Vintage Computer Logic">
-                    <h4 class="text-strativ-dark fs-5 mb-2">1. The Era of Symbolic Logic (1950 - 1980)</h4>
-                    <p class="text-custom-p m-0">The journey began with Alan Turing and the pioneers of symbolic AI. During these three decades, collaboration was limited by the <strong>"top-down"</strong> nature of programming. Humans had to write every specific rule for a computer to follow. If a task was too complex to be reduced to an "if-then" statement, the machine failed. This meant that while computers could help with advanced mathematics, they could not collaborate on creative or nuanced workplace tasks.</p>
+                    <h3 style="margin-top: 0; color: #03045E; font-size: 18px;">1. The Era of Symbolic Logic (1950 - 1980)</h3>
+                    <p style="margin-bottom: 0;">The journey began with Alan Turing and the pioneers of symbolic AI. During these three decades, collaboration was limited by the <strong>"top-down"</strong> nature of programming. Humans had to write every specific rule for a computer to follow. If a task was too complex to be reduced to an "if-then" statement, the machine failed. This meant that while computers could help with advanced mathematics, they could not collaborate on creative or nuanced workplace tasks.</p>
                 </div>
             </div>
             
-            <div class="card p-4 border-0 border-start border-4 border-strativ-blue shadow-sm bg-light mb-4">
-                <h4 class="text-strativ-dark fs-5 mb-2">2. Expert Systems and Decision Support (1980 - 2000)</h4>
-                <p class="text-custom-p m-0">As microchips became ubiquitous, AI moved from the lab to the office. The development of <strong>"Expert Systems"</strong> allowed professionals to use AI as a digital encyclopedia that could analyze specific variables. For instance, in geology or finance, AI could flag anomalies that a human eye might miss. This was the <strong>first true evidence of a partnership</strong>, though the AI remained a passive tool rather than an active participant in problem-solving.</p>
+            <div class="p-4 bg-light border rounded shadow-sm mb-4" style="border-left: 5px solid #0077B6 !important;">
+                <h3 style="margin-top: 0; color: #03045E; font-size: 18px;">2. Expert Systems and Decision Support (1980 - 2000)</h3>
+                <p style="margin-bottom: 0;">As microchips became ubiquitous, AI moved from the lab to the office. The development of <strong>"Expert Systems"</strong> allowed professionals to use AI as a digital encyclopedia that could analyze specific variables. For instance, in geology or finance, AI could flag anomalies that a human eye might miss. This was the <strong>first true evidence of a partnership</strong>, though the AI remained a passive tool rather than an active participant in problem-solving.</p>
             </div>
             
-            <div class="card p-4 border-0 border-start border-4 border-strativ-dark shadow-sm bg-light mb-4">
+            <div class="p-4 bg-light border rounded shadow-sm mb-4" style="border-left: 5px solid #03045E !important;">
                 <div class="clearfix">
                     <img src="../../images/human-ai-collab-images/overviewpic3.png" class="float-md-end mb-3 ms-md-4 rounded shadow-sm" style="width: 250px;" alt="Data Streams">
-                    <h4 class="text-strativ-dark fs-5 mb-2">3. The Machine Learning Explosion (2010 - 2022)</h4>
-                    <p class="text-custom-p m-0">The dawn of the internet provided the massive datasets required for neural networks to function. Collaboration entered the <strong>"Predictive Phase."</strong> AI systems like IBM’s Watson proved that machines could process natural language and surface insights from unstructured data. Humans began collaborating with AI to optimize supply chains, predict consumer behavior, and detect diseases at stages invisible to the human eye. The AI became a <strong>world-class research assistant</strong>.</p>
+                    <h3 style="margin-top: 0; color: #03045E; font-size: 18px;">3. The Machine Learning Explosion (2010 - 2022)</h3>
+                    <p style="margin-bottom: 0;">The dawn of the internet provided the massive datasets required for neural networks to function. Collaboration entered the <strong>"Predictive Phase."</strong> AI systems like IBM’s Watson proved that machines could process natural language and surface insights from unstructured data. Humans began collaborating with AI to optimize supply chains, predict consumer behavior, and detect diseases at stages invisible to the human eye. The AI became a <strong>world-class research assistant</strong>.</p>
                 </div>
             </div>
             
-            <div class="card p-4 border-0 border-start border-4 border-strativ-blue shadow-sm bg-light">
-                <h4 class="text-strativ-dark fs-5 mb-2">4. Generative Symbiosis (Present Day - 2026)</h4>
-                <p class="text-custom-p m-0">We are now in the age of dialogue. The current phase of collaboration is <strong>"Multimodal."</strong> We don't just ask AI for data; we collaborate on the creation of assets, code, and strategy. In 2026, AI acts as a <strong>creative sounding board</strong>. A software engineer might write a core function, and the AI will suggest three different ways to optimize it for security. An architect might sketch a floorplan, and the AI will generate structural variations that minimize carbon footprint. This constant feedback loop is the STRATIV Frontier.</p>
+            <div class="p-4 bg-light border rounded shadow-sm mb-4" style="border-left: 5px solid #0077B6 !important;">
+                <h3 style="margin-top: 0; color: #03045E; font-size: 18px;">4. Generative Symbiosis (Present Day - 2026)</h3>
+                <p style="margin-bottom: 0;">We are now in the age of dialogue. The current phase of collaboration is <strong>"Multimodal."</strong> We don't just ask AI for data; we collaborate on the creation of assets, code, and strategy. In 2026, AI acts as a <strong>creative sounding board</strong>. A software engineer might write a core function, and the AI will suggest three different ways to optimize it for security. An architect might sketch a floorplan, and the AI will generate structural variations that minimize carbon footprint. This constant feedback loop is the STRATIV Frontier.</p>
             </div>
+
+            <h2>Looking Ahead</h2>
+            <p>As we continue to integrate these systems, the value of <strong>"Human-Centric" skills</strong> like leadership, ethics, and empathy will only increase. At STRATIV, we believe the future belongs to those who view AI as their most powerful teammate, not their replacement.</p>
+
+            <p style="margin-top: 40px; font-size: 13px; color: #94a3b8; text-align: right;"><em>Written by: Bayran, Kimi Benedict T.</em></p>
         </div>
+      </main>
+    </div>
 
-        <div class="card p-4 border shadow-sm">
-            <div>
-                <span class="badge border border-strativ-blue text-strativ-blue bg-strativ-light text-uppercase mb-3 px-3 py-2 rounded-pill">Future Outlook</span>
-            </div>
-            <h4 class="text-strativ-dark mb-3">Looking Ahead</h4>
-            <p class="text-custom-p">As we continue to integrate these systems, the value of <strong>"Human-Centric" skills</strong> like leadership, ethics, and empathy will only increase. At STRATIV, we believe the future belongs to those who view AI as their most powerful teammate, not their replacement.</p>
-            <p class="text-end text-custom-p mt-4 mb-0" style="font-size: 13px;"><em>Written by: Bayran, Kimi Benedict T.</em></p>
-        </div>
-
-    </main>
-</div>
-
-<footer>
-    <div class="footer-container">
+    <footer>
+      <div class="footer-container">
         <div class="footer-brand">
-            <div class="footer-logo-blocks">
-                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-            </div>
-            <div class="mission-text">
-                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
-            </div>
+          <div class="footer-logo-blocks">
+            <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+          </div>
+          <div class="mission-text">
+            <p>
+              Navigating the future of human-AI collaboration in the workforce.
+              A comprehensive guide to automation and emerging careers.
+            </p>
+          </div>
         </div>
 
         <div class="footer-links-group">
-            <div class="f-col">
-                <h4>Quick Links</h4>
-                <div class="quick-links-grid">
-                    <div>
-                        <a href="../../topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a><br>
-                        <a href="../../topics/Emerging_AI_Careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="../../topics/future-workforce-skills/collaboration-skills.html">Future Skills</a><br>
-                        <a href="../../topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                    </div>
-                    <div>
-                        <a href="../../topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../../topics/human-ai-collab-kimi/overview-human-ai.html">Collaboration</a><br>
-                        <a href="../../topics/ai-ethics/overview-ai-ethics.html">Ethics</a><br>
-                        <a href="../../topics/future-outlook-ai/ai-driven-world.html">Future Outlook</a>
-                    </div>
-                </div>
+          <div class="f-col">
+            <h4>Quick Links</h4>
+            <div class="quick-links-grid">
+              <div>
+                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
+                <br>
+                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <br>
+                <a href="../future-workforce-skills/overview-future-workforce-skills.html ">Future Skills</a>
+                <br>
+                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+              </div>
+              <div>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                <br>
+                <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a>
+                <br>
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+                <br>
+                <a href="../future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-col">
+            <h4>Contact Info</h4>
+            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
+
+            <div class="contact-item">
+              <a
+                href="https://www.facebook.com/profile.php?id=61580704943031"
+                target="_blank"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">f</span>
+                <span>Strativ.com</span>
+              </a>
             </div>
 
-            <div class="f-col">
-                <h4>Contact Info</h4>
-                <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
-                <div class="contact-item">
-                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
-                        <span class="icon-box">f</span>
-                        <span> Strativ.com</span>
-                    </a>
-                </div>
-                
-                <p style="margin-top: 10px; margin-bottom: 8px;"><strong>Email:</strong></p>
-                <div class="contact-item">
-                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
-                        <span class="icon-box">✉</span>
-                        <span>Strativ018@gmail.com</span>
-                    </a>
-                </div>
+            <p style="margin-top: 10px; margin-bottom: 8px">
+              <strong>Email:</strong>
+            </p>
+
+            <div class="contact-item">
+              <a
+                href="mailto:strativ018@gmail.com"
+                style="display: flex; align-items: center; gap: 10px"
+              >
+                <span class="icon-box">✉</span>
+                <span>strativ018@gmail.com</span>
+              </a>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="copyright-bar">
+      <div class="copyright-bar">
         <p>© 2026 STRATIV. All rights reserved.</p>
-    </div>
-</footer>
-
-<a href="#top" id="scrollTopBtn" class="btn btn-primary bg-strativ-dark border-white position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+      </div>
+    </footer>
+    
+    <a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
     ↑
-</a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </a>
+    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
