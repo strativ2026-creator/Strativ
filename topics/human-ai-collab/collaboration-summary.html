@@ -1,136 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Collaboration Summary | STRATIV AI Frontier</title>
     <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       /* ===== RESET & BASE ===== */
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body { font-family: "Montserrat", sans-serif; color: #003049; background: #f8fafc; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+        background: #f8fafc;
+      }
 
       /* ===== HEADER ===== */
       header {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0;
-        position: fixed; width: 100%; top: 0; z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 6%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
       }
+
       .logo {
-        display: flex; align-items: center; gap: 12px;
-        font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045e;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #03045e;
       }
-      .logo img { width: 40px; height: 40px; object-fit: contain; }
-      nav { display: flex; gap: 30px; align-items: center; }
-      nav a { text-decoration: none; color: #003049; font-weight: 600; font-size: 14px; }
-      nav a:hover { color: #0077b6; }
+
+      .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      nav a:hover {
+        color: #0077b6;
+      }
 
       /* DROPDOWN STYLES */
-      .nav-dropdown { position: relative; }
+      .nav-dropdown {
+        position: relative;
+      }
+
       .nav-dropdown-menu {
-        position: absolute; top: 100%; left: 0; background: #fff;
-        border: 1px solid #e2e8f0; border-radius: 6px; min-width: 220px;
-        opacity: 0; visibility: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition: opacity 0.3s ease;
       }
-      .nav-dropdown-menu a { padding: 12px 15px; display: block; }
-      .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; }
+
+      .nav-dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
+
+      .nav-dropdown:hover .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+      }
 
       /* ===== PAGE LAYOUT ===== */
       .page {
-        display: grid; grid-template-columns: 260px 1fr; gap: 30px;
-        padding: 120px 6% 60px; align-items: start;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 30px;
+        padding: 120px 6% 60px;
+        align-items: start;
       }
 
       /* STICKY SIDEBAR */
       .sidebar {
-        background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
-        position: sticky; top: 100px; z-index: 10;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
       }
-      .sidebar h3 {
-        background: #03045e; color: #fff; padding: 15px; font-size: 13px;
-        border-radius: 10px 10px 0 0; text-transform: uppercase; font-weight: bold;
-      }
-      .sidebar a {
-        display: block; padding: 12px 15px; font-size: 14px;
-        color: #003049; text-decoration: none; border-top: 1px solid #e2e8f0;
-      }
-      .sidebar a:hover { background: #f1f5f9; color: #0077b6; }
-      .sidebar a.active { background: #eaeaea; color: #0077b6; }
 
-      .main { display: flex; flex-direction: column; gap: 25px; }
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px 10px 0 0;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
+
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
 
       .inner-hero {
-        height: 320px; border-radius: 12px; overflow: hidden; position: relative;
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
       }
-      .inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+
+      .inner-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
       .inner-hero::after {
-        content: ""; position: absolute; inset: 0; background: rgba(3, 4, 94, 0.5); pointer-events: none;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.5);
+        pointer-events: none;
       }
+
       .inner-hero h1 {
-        position: absolute; z-index: 2; color: #fff; font-family: Georgia, serif;
-        font-size: 38px; bottom: 30px; left: 30px; pointer-events: none; font-weight: bold;
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 38px;
+        bottom: 30px;
+        left: 30px;
+        pointer-events: none;
+        font-weight: bold;
       }
 
       /* ARTICLE CONTENT STYLES */
       .article-section {
-        background: #fff; padding: 35px; border-radius: 12px; border: 1px solid #e2e8f0;
+        background: #fff;
+        padding: 35px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
       }
-      .article-section h2 {
-        font-family: Georgia, serif; color: #03045e; margin-bottom: 20px;
-        font-size: 26px; font-weight: bold; border-bottom: 2px solid #0077B6;
-        display: inline-block; padding-bottom: 5px; margin-top: 30px;
-      }
-      .article-section h2:first-of-type { margin-top: 0; }
-      .article-section h3 {
-        font-family: Georgia, serif; color: #0077b6; margin-top: 25px;
-        margin-bottom: 12px; font-size: 20px; font-weight: bold;
-      }
-      .article-section p { font-size: 15px; line-height: 1.8; color: #475569; margin-bottom: 15px; text-align: justify; }
-      .article-section ul, .article-section ol { margin-left: 20px; margin-bottom: 20px; }
-      .article-section li { font-size: 15px; line-height: 1.8; color: #475569; margin-bottom: 8px; }
 
-      footer { background: #03045e; color: #ffffff; padding: 40px 6% 30px; font-family: Arial, sans-serif; }
-      .footer-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
-      .footer-brand { flex: 1; }
-      .footer-logo-blocks { display: flex; gap: 4px; margin-bottom: 15px; }
+      .article-section h2 {
+        font-family: Georgia, serif;
+        color: #03045e;
+        margin-bottom: 20px;
+        font-size: 26px;
+        font-weight: bold;
+        border-bottom: 2px solid #0077B6;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-top: 30px;
+      }
+
+      .article-section h2:first-of-type {
+        margin-top: 0;
+      }
+
+      .article-section h3 {
+        font-family: Georgia, serif;
+        color: #0077b6;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .article-section p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .article-section ul, 
+      .article-section ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .article-section li {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 8px;
+      }
+
+      /* UPDATED AUTHOR CLASS FOR HIGHER SPECIFICITY */
+      .article-section p.author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        flex: 1;
+      }
+
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
+
       .footer-logo-blocks span {
-        background: #ffffff; color: #03045e; width: 36px; height: 36px; display: flex;
-        align-items: center; justify-content: center; font-weight: 900; font-size: 20px; border-radius: 3px;
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
       }
-      .mission-text p { font-size: 18px; line-height: 1.5; font-weight: 500; max-width: 380px; color: #ffffff; }
-      .footer-links-group { display: flex; flex: 2; justify-content: flex-start; gap: 220px; }
-      .f-col h4 { font-size: 18px; margin-bottom: 15px; text-decoration: underline; line-height: 1; margin-top: -6px; }
-      .f-col p, .f-col a { font-size: 15px; color: #ffffff; text-decoration: none; line-height: 1.7; }
-      .quick-links-grid { display: grid; grid-template-columns: auto auto; gap: 10px 40px; }
-      .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+        color: #ffffff;
+      }
+
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
+
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
+
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
+
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
       .icon-box {
-        background: #ffffff; color: #03045e; width: 26px; height: 26px; display: flex;
-        align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; font-size: 14px;
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
       }
+
       .copyright-bar {
-        margin-top: 30px; padding-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.8);
-        text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       @media (max-width: 1100px) {
-        .page { grid-template-columns: 1fr; }
-        .sidebar { display: none; }
-        .footer-container { flex-direction: column; }
-        .footer-links-group { gap: 30px; }
+        .page {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          display: none;
+        }
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
       }
     </style>
-</head>
+  </head>
 
-<body id="top">
+  <body id="top">
     <header>
       <div class="logo">
-        <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo" />
+        <img
+          src="../../images/logo/logo.jpg"
+          alt="Strativ Corporate Logo"
+          title="Strativ Logo"
+          onclick="window.open(this.src, 'view_tab');"
+          style="cursor: pointer;"
+        />
         STRATIV
       </div>
 
@@ -182,44 +440,59 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600" alt="Collaboration Summary Hero" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
-            <h1>Collaboration Summary</h1>
+          <a href="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600" target="image_viewer">
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600"
+              alt="Collaboration Summary Hero"
+              style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%); cursor: pointer;"
+              onclick="window.open(this.src, 'view_tab');"
+            />
+          </a>
+          <h1>Collaboration Summary</h1>
         </div>
 
         <div class="article-section">
-            <h2>Defining the Hybrid Workforce</h2>
-            <p>The STRATIV model of collaboration is built on a simple yet profound division of labor. We recognize that while silicon excels at high-speed computation, pattern recognition across petabytes of data, and 24/7 consistency, the human spirit remains the only source of genuine empathy, moral judgment, and "out-of-the-box" creative disruption.</p>
+          <h2>Defining the Hybrid Workforce</h2>
+          <p>
+            The STRATIV model of collaboration is built on a simple yet profound division of labor. We recognize that while silicon excels at high-speed computation, pattern recognition across petabytes of data, and 24/7 consistency, the human spirit remains the only source of genuine empathy, moral judgment, and "out-of-the-box" creative disruption.
+          </p>
 
-            <div class="row my-4">
-                <div class="col-md-6 mb-3">
-                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
-                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 18px; font-weight: bold;">The Human Advantage</h4>
-                        <ul class="mb-0">
-                            <li><strong>Moral Agency:</strong> Determining the "Why" behind the "What."</li>
-                            <li><strong>Soft Skills:</strong> Negotiation, mentorship, and emotional resonance.</li>
-                            <li><strong>Abstract Intuition:</strong> Making leaps of logic that data cannot predict.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
-                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 18px; font-weight: bold;">The Machine Advantage</h4>
-                        <ul class="mb-0">
-                            <li><strong>Infinite Memory:</strong> Accessing every data point in an instant.</li>
-                            <li><strong>Precision Execution:</strong> Operating without fatigue or bias.</li>
-                            <li><strong>Rapid Variation:</strong> Generating hundreds of prototypes in seconds.</li>
-                        </ul>
-                    </div>
-                </div>
+          <div class="row my-4">
+            <div class="col-md-6 mb-3">
+              <div class="p-4 bg-light border rounded h-100 shadow-sm">
+                <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 18px; font-weight: bold;">The Human Advantage</h4>
+                <ul class="mb-0">
+                  <li><strong>Moral Agency:</strong> Determining the "Why" behind the "What."</li>
+                  <li><strong>Soft Skills:</strong> Negotiation, mentorship, and emotional resonance.</li>
+                  <li><strong>Abstract Intuition:</strong> Making leaps of logic that data cannot predict.</li>
+                </ul>
+              </div>
             </div>
-
-            <div class="p-4 bg-light border shadow-sm rounded my-5" style="border-left: 5px solid #0077B6 !important;">
-                <h4 style="color: #03045E; margin-bottom: 15px;">The Path Forward</h4>
-                <p>The transition into an AI-integrated workplace requires a shift in mindset. We must stop asking "What jobs will AI take?" and start asking "What new heights can we reach when AI handles the mundane?" The integration of AI is not a replacement of the human worker, but an evolution of the human capability. AI literacy is no longer a niche skill for computer scientists; it is a foundational requirement for modern employability, much like reading and writing. The professionals who thrive will be those who view their AI counterparts not as competitors, but as the wind in their sails—allowing them to reach horizons that were previously unreachable.</p>
+            <div class="col-md-6 mb-3">
+              <div class="p-4 bg-light border rounded h-100 shadow-sm">
+                <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 18px; font-weight: bold;">The Machine Advantage</h4>
+                <ul class="mb-0">
+                  <li><strong>Infinite Memory:</strong> Accessing every data point in an instant.</li>
+                  <li><strong>Precision Execution:</strong> Operating without fatigue or bias.</li>
+                  <li><strong>Rapid Variation:</strong> Generating hundreds of prototypes in seconds.</li>
+                </ul>
+              </div>
             </div>
+          </div>
 
-            <h2>Final Conclusions</h2>
-            <p>Our journey through the STRATIV AI Frontier leads us to one inescapable conclusion: <strong>The future is human-led, but machine-supported.</strong> By mastering tools, implementing decision partnerships, and ensuring rigorous human oversight, we can build a collaborative economy that is more efficient, creative, and humane than any era that preceded it.</p>
+          <div class="p-4 bg-light border shadow-sm rounded my-5" style="border-left: 5px solid #0077B6 !important;">
+            <h4 style="color: #03045E; margin-bottom: 15px;">The Path Forward</h4>
+            <p>
+              The transition into an AI-integrated workplace requires a shift in mindset. We must stop asking "What jobs will AI take?" and start asking "What new heights can we reach when AI handles the mundane?" The integration of AI is not a replacement of the human worker, but an evolution of the human capability. AI literacy is no longer a niche skill for computer scientists; it is a foundational requirement for modern employability, much like reading and writing. The professionals who thrive will be those who view their AI counterparts not as competitors, but as the wind in their sails—allowing them to reach horizons that were previously unreachable.
+            </p>
+          </div>
+
+          <h2>Final Conclusions</h2>
+          <p>
+            Our journey through the STRATIV AI Frontier leads us to one inescapable conclusion: <strong>The future is human-led, but machine-supported.</strong> By mastering tools, implementing decision partnerships, and ensuring rigorous human oversight, we can build a collaborative economy that is more efficient, creative, and humane than any era that preceded it.
+          </p>
+          
+          <p class="author">Written by: Bayran, Kimi Benedict T.</p>
         </div>
       </main>
     </div>
@@ -228,10 +501,14 @@
       <div class="footer-container">
         <div class="footer-brand">
           <div class="footer-logo-blocks">
-            <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            <span>S</span><span>T</span><span>R</span><span>A</span
+            ><span>T</span><span>I</span><span>V</span>
           </div>
           <div class="mission-text">
-            <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            <p>
+              Navigating the future of human-AI collaboration in the workforce.
+              A comprehensive guide to automation and emerging careers.
+            </p>
           </div>
         </div>
 
@@ -296,8 +573,10 @@
         <p>© 2026 STRATIV. All rights reserved.</p>
       </div>
     </footer>
-    
-    <a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">↑</a>
+
+    <a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+    ↑
+    </a>
     <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>
