@@ -27,6 +27,13 @@ body { font-family: 'Montserrat', sans-serif; color: #003049; background: #F8FAF
 /* BLUE IMAGE TINT */
 .image-blue-tint { filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%); }
 
+/* CUSTOM STRATIV TABLE COLORING */
+.table-strativ { border: 1px solid #0077B6 !important; border-radius: 8px; overflow: hidden; }
+.table-strativ thead th { background-color: #03045E !important; color: #ffffff !important; border-bottom: none; font-weight: bold; }
+.table-strativ tbody tr:nth-child(odd) td { background-color: #ffffff !important; }
+.table-strativ tbody tr:nth-child(even) td { background-color: #EFF6FF !important; }
+.table-strativ tbody td { border-color: #cce4f2 !important; color: #003049 !important; }
+
 /* ===== HEADER ===== */
 header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: fixed; width: 100%; top: 0; z-index: 1000; }
 .logo { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #03045E; }
@@ -210,25 +217,25 @@ footer { background: #03045E; color: #ffffff; padding: 40px 6% 30px; font-family
             <h2 class="text-strativ-dark mb-4">Human Rights Frameworks for AI</h2>
             
             <div class="table-responsive">
-                <table class="table table-bordered table-striped align-middle mb-0" style="font-size: 14px;">
-                    <thead class="table-dark">
+                <table class="table table-strativ align-middle mb-0" style="font-size: 14px;">
+                    <thead>
                         <tr>
-                            <th class="py-3">Framework / Organization</th>
-                            <th class="py-3">Core Focus Regarding AI</th>
+                            <th class="py-3 px-4">Framework / Organization</th>
+                            <th class="py-3 px-4">Core Focus Regarding AI</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-strativ-dark fw-bold">UN Guiding Principles on Business & Human Rights</td>
-                            <td class="text-secondary">Requires tech companies to conduct due diligence to identify, prevent, and mitigate adverse human rights impacts of their AI products.</td>
+                            <td class="text-strativ-dark fw-bold px-4">UN Guiding Principles on Business & Human Rights</td>
+                            <td class="px-4">Requires tech companies to conduct due diligence to identify, prevent, and mitigate adverse human rights impacts of their AI products.</td>
                         </tr>
                         <tr>
-                            <td class="text-strativ-dark fw-bold">Council of Europe</td>
-                            <td class="text-secondary">Drafting legally binding instruments to ensure AI systems are designed and used in line with human rights, democracy, and the rule of law.</td>
+                            <td class="text-strativ-dark fw-bold px-4">Council of Europe</td>
+                            <td class="px-4">Drafting legally binding instruments to ensure AI systems are designed and used in line with human rights, democracy, and the rule of law.</td>
                         </tr>
                         <tr>
-                            <td class="text-strativ-dark fw-bold">EU AI Act</td>
-                            <td class="text-secondary">Categorizes AI by risk level, outright banning systems that pose an "unacceptable risk" to fundamental rights (e.g., social scoring).</td>
+                            <td class="text-strativ-dark fw-bold px-4">EU AI Act</td>
+                            <td class="px-4">Categorizes AI by risk level, outright banning systems that pose an "unacceptable risk" to fundamental rights (e.g., social scoring).</td>
                         </tr>
                     </tbody>
                 </table>
