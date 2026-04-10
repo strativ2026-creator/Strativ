@@ -5,157 +5,452 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Strativ | AI Careers Overview</title>
 
+<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="../../favicon.png" />
 <link rel="stylesheet" href="../../css/style.css">
 
 <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+      html {
+        scroll-behavior: smooth;
+      }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: #F8FAFC;
-    color: #003049;
-}
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #003049;
+        background: #f8fafc;
+      }
 
-/* ===== LAYOUT ===== */
-.container {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 30px;
-    padding: 120px 6% 60px;
-}
+      /* ===== HEADER ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 6%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
 
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #03045e;
+      }
 
-/* ===== MAIN ===== */
-.main {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
+      .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
 
-/* ===== BANNER ===== */
-.banner {
-    height: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-}
+      nav {
+        display: flex;
+        gap: 30px;
+      }
 
-.banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+      nav a {
+        text-decoration: none;
+        color: #003049;
+        font-weight: 600;
+        font-size: 14px;
+      }
 
-.banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(3,4,94,0.5);
-}
+      nav a:hover {
+        color: #0077b6;
+      }
 
-.banner-text {
-    position: absolute;
-    bottom: 25px;
-    left: 25px;
-    color: #fff;
-    font-family: Georgia, serif;
-    font-size: 36px;
-    z-index: 2;
-}
+      /* DROPDOWN STYLES */
+      .dropdown {
+        position: relative;
+      }
 
-/* ===== CARD ===== */
-.card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.3s ease;
+      }
 
-.card h2 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 15px;
-}
+      .dropdown-menu a {
+        padding: 12px 15px;
+        display: block;
+      }
 
-.card h3 {
-    color: #0077B6;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        display: block;
+      }
 
-.card p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #475569;
-    margin-bottom: 12px;
-}
+      /* ===== PAGE LAYOUT ===== */
+      /* Changed from .container to .page to avoid Bootstrap conflicts */
+      .page {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 30px;
+        padding: 120px 6% 60px;
+        align-items: start;
+        max-width: 100%;
+      }
 
-/* ===== GRID ===== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
+      /* STICKY SIDEBAR */
+      .sidebar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
+        height: 645px;
+      }
 
-/* ===== BUTTON ===== */
-.button {
-    margin-top: 10px;
-    background: #03045E;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px 10px 0 0;
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: bold;
+      }
 
-.button:hover {
-    background: #0077B6;
-}
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
 
-.extra-card {
-    margin: 0 40px 20px 40px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
 
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
-}
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+      }
 
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
-}
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      /* ===== HERO BANNER ===== */
+      .inner-hero {
+        height: 320px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .inner-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .inner-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(3, 4, 94, 0.5);
+        pointer-events: none;
+      }
+
+      .inner-hero h1 {
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 38px;
+        bottom: 30px;
+        left: 30px;
+        pointer-events: none;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      /* ARTICLE CONTENT STYLES */
+      .article-section {
+        background: #fff;
+        padding: 35px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .article-section h2 {
+        font-family: Georgia, serif;
+        color: #03045e;
+        margin-bottom: 20px;
+        font-size: 26px;
+        position: relative;
+        padding-left: 12px;
+        margin-top: 0;
+      }
+
+      /* Line design */
+      .article-section h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 100%;
+        background: #0077b6;
+        border-radius: 3px;
+      }
+
+      .article-section p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .article-section ul {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .article-section li {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #475569;
+        margin-bottom: 8px;
+      }
+
+      /* ===== OVERVIEW CARDS (Renamed to avoid Bootstrap) ===== */
+      .careers-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+
+      .career-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .career-card h3 {
+        font-family: Georgia, serif;
+        font-size: 20px;
+        margin-bottom: 12px;
+        margin-top: 0;
+        color: #03045e;
+        width: 100%;
+      }
+
+      .career-card p {
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: #475569;
+        margin-bottom: 25px;
+        flex-grow: 1;
+      }
+
+      .btn-learn {
+        background: #03045e;
+        color: #ffffff;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: background 0.3s ease;
+        margin-top: auto; 
+      }
+
+      .btn-learn:hover {
+        background: #0077b6;
+        color: #ffffff;
+      }
+
+      /* ===== SCROLL TOP ===== */
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        background-color: #03045e;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #0077b6;
+      }
+      
+      /* ===== NAVY FOOTER ===== */
+      footer {
+        background: #03045e;
+        color: #ffffff;
+        padding: 40px 6% 30px;
+        font-family: Arial, sans-serif;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        flex: 1;
+      }
+
+      .footer-logo-blocks {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo-blocks span {
+        background: #ffffff;
+        color: #03045e;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 20px;
+        border-radius: 3px;
+      }
+
+      .mission-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 500;
+        max-width: 380px;
+        color: #ffffff;
+      }
+
+      .footer-links-group {
+        display: flex;
+        flex: 2;
+        justify-content: flex-start;
+        gap: 220px;
+      }
+
+      .f-col h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        line-height: 1;
+        margin-top: -6px;
+      }
+
+      .f-col p,
+      .f-col a {
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;
+        line-height: 1.7;
+      }
+
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px 40px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .icon-box {
+        background: #ffffff;
+        color: #03045e;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .copyright-bar {
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      @media (max-width: 1100px) {
+        .footer-container {
+          flex-direction: column;
+        }
+        .footer-links-group {
+          gap: 30px;
+        }
+        .careers-grid {
+            grid-template-columns: 1fr;
+        }
+        .page {
+            grid-template-columns: 1fr;
+        }
+        .sidebar {
+            position: relative;
+            top: 0;
+        }
+      }
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header>
   <div class="logo">
@@ -199,12 +494,10 @@ body {
   </nav>
 </header>
 
-<div class="container">
+<div class="page">
 
-<div class="sidebar">
-    <div class="sidebar-header"><strong>Emerging AI Careers</strong></div>
-
-    <div class="sidebar-menu">
+    <aside class="sidebar">
+        <h3><strong>Emerging AI Careers</strong></h3>
         <a href="overview-of-emerging-ai-careers.html" class="active">Overview of Emerging AI Careers</a>
         <a href="ai-engineer.html">AI Engineer</a>
         <a href="data-scientist.html">Data Scientist</a>
@@ -212,78 +505,82 @@ body {
         <a href="machine-learning-engineer.html">Machine Learning Engineer</a>
         <a href="ai-product-manager.html">AI Product Manager</a>
         <a href="prompt-engineer.html">Prompt Engineer</a>
-        <a href="ai-research-specialist.html">AI Research Scientist</a>
+        <a href="ai-research-scientist.html">AI Research Scientist</a>
         <a href="robotics-engineer.html">Robotics Engineer</a>
         <a href="ai-trainer.html">AI Trainer</a>
         <a href="ai-consultant.html">AI Business Consultant</a>
         <a href="careers-summary.html">Careers in Artificial Intelligence Summary</a>
-    </div>
+    </aside>
+
+    <main class="main">
+        <div class="inner-hero">
+            <img src="../../images/strativ_images/overview.jpg" alt="AI Careers Banner">
+            <h1>Emerging AI Careers</h1>
+        </div>
+
+        <div class="article-section">
+            <h2>Overview of the AI Job Market</h2>
+            <p>
+                Artificial Intelligence is no longer just a theoretical concept confined to research labs; it is actively reshaping the global economy and creating a wide range of new career opportunities across every major industry. As businesses rush to integrate automation, machine learning, and generative models into their workflows, the demand for specialized talent has skyrocketed.
+            </p>
+            <p>
+                The modern AI workforce requires a diverse ecosystem of professionals. While deep technical roles remain critical, there is an equally strong demand for individuals who can bridge the gap between human needs and machine capabilities. This evolving landscape is broadly categorized into three core areas:
+            </p>
+            
+            <ul>
+                <li><strong>Builders & Architects:</strong> The engineers, developers, and scientists who design, train, and deploy the underlying algorithms (e.g., Machine Learning Engineers, Data Scientists, Robotics Engineers).</li>
+                <li><strong>Strategists & Translators:</strong> Professionals who align AI capabilities with business goals, user experiences, and practical workflows (e.g., AI Product Managers, Prompt Engineers, AI Business Consultants).</li>
+                <li><strong>Guardians & Overseers:</strong> Specialists dedicated to ensuring AI is used safely, securely, and fairly, mitigating bias and protecting privacy (e.g., AI Ethics Specialists, AI Trainers).</li>
+            </ul>
+
+            <p>
+                Whether your background is in heavy computer science, linguistics, product management, or philosophy, the AI revolution is creating a path for you. Explore the cards below to understand the distinct responsibilities, skills, and impact of the key roles driving the future of human-AI collaboration.
+            </p>
+        </div>
+
+        <div class="careers-grid">
+            <div class="career-card">
+                <h3>AI Engineer</h3>
+                <p>Build, test, and deploy artificial intelligence models into production environments. AI Engineers ensure that intelligent systems run efficiently and scale to meet organizational needs.</p>
+                <a href="ai-engineer.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>Data Scientist</h3>
+                <p>Analyze complex data sets to extract actionable insights. Data Scientists utilize statistical methods and machine learning algorithms to help businesses make data-driven decisions.</p>
+                <a href="data-scientist.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>AI Ethics Specialist</h3>
+                <p>Ensure that artificial intelligence systems are developed and deployed responsibly. This role focuses on mitigating bias, ensuring transparency, and protecting user privacy.</p>
+                <a href="ai-ethics-specialist.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>Machine Learning Engineer</h3>
+                <p>Design and create the AI algorithms capable of learning and making predictions. This role bridges the gap between software engineering and data science.</p>
+                <a href="machine-learning-engineer.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>AI Product Manager</h3>
+                <p>Lead the cross-functional development of AI-powered products. AI Product Managers align technical capabilities with user needs and business objectives.</p>
+                <a href="ai-product-manager.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>Prompt Engineer</h3>
+                <p>Design and refine the text inputs used to communicate with large language models, optimizing the accuracy and usefulness of the AI's generated outputs.</p>
+                <a href="prompt-engineer.html" class="btn-learn">Learn More</a>
+            </div>
+        </div>
+    </main>
+
 </div>
 
 <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
 
-<div class="main">
-
-    <div class="banner">
-        <img src="../../images/strativ_images/overview.jpg" alt="AI Careers">
-        <div class="banner-text">Emerging AI Careers</div>
-    </div>
-
-    <!-- OVERVIEW CARD -->
-    <div class="card">
-        <h2>Overview</h2>
-
-        <p>
-            Artificial Intelligence is creating a wide range of new career opportunities across industries.
-            From developing intelligent systems to ensuring ethical AI use, these roles are shaping the
-            future of work. Each career path contributes uniquely to how AI is designed, implemented,
-            and managed in real-world environments.
-        </p>
-    </div>
-
-    <!-- GRID SECTION -->
-    <div class="grid">
-
-        <div class="card">
-            <h2>Career Highlights</h2>
-
-            <p>
-                The field of Artificial Intelligence offers many career paths across development, data, ethics, and product design. Technical roles like AI and Machine Learning Engineers build intelligent systems, while Data Scientists analyze data to support decisions.
-            </p>
-
-            <p>
-                Non-technical roles such as AI Ethics Specialists and AI Product Managers focus on responsible development and user-centered AI solutions. Emerging jobs like Prompt Engineers, along with AI Researchers and Robotics Engineers, continue to expand AI capabilities.
-            </p>
-
-            <p>
-                Overall, these careers work together to drive innovation and responsible use of AI across industries.
-            </p>
-        </div>
-
-        <!-- NEW CARD: Future of AI Careers -->
-        <div class="card">
-            <h2>Future of AI Careers</h2>
-
-            <p>
-                As AI advances, careers will become more specialized, especially in areas like healthcare AI and quantum computing. Professionals will need to keep learning and adapting to new technologies.
-
-                Interdisciplinary collaboration in fields like ethics, psychology, and computer science will be increasingly important for responsible AI development.
-            </p>
-
-            <p>
-                Soft skills such as critical thinking, creativity, and emotional intelligence will also play a key role.
-            </p>
-
-            <p>
-                Overall, AI careers will continue to grow and evolve with many new opportunities.
-            </p>
-        </div>
-
-    </div>
-
-</div>
-    
-</div>
 <footer>
     <div class="footer-container">
         <div class="footer-brand">
@@ -339,5 +636,6 @@ body {
         <p>© 2026 University of the East. All rights reserved.</p>
     </div>
 </footer>
+
 </body>
 </html>
