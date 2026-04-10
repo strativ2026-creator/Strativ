@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STRATIV | Challenges of AI in the Workplace</title>
 <link rel="icon" type="image/png" href="../../favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
 
 <style>
 /* ===== RESET & BASE ===== */
@@ -17,7 +19,7 @@
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 body {
@@ -43,7 +45,7 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-family: Georgia, serif;
     font-size: 24px;
     font-weight: bold;
@@ -53,11 +55,13 @@ header {
 .logo img {
     width: 40px;
     height: 40px;
+    object-fit: contain;
 }
 
 nav {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 nav a, nav span.drop-title {
@@ -92,6 +96,7 @@ nav span.drop-title {
     visibility: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: opacity 0.3s ease;
+    display: block; 
 }
 
 .dropdown-menu a {
@@ -107,13 +112,13 @@ nav span.drop-title {
 /* ===== PAGE LAYOUT ===== */
 .page {
     display: grid;
-    grid-template-columns: 260px 1fr; 
+    grid-template-columns: 240px 1fr; 
     gap: 30px;
-    padding: 120px 6% 60px;
+    padding: 100px 6% 60px; 
     align-items: start;
 }
 
-/* STICKY SIDEBAR */
+/* ===== STICKY SIDEBAR ===== */
 .sidebar {
     background: #fff;
     border: 1px solid #e2e8f0;
@@ -121,26 +126,26 @@ nav span.drop-title {
     position: sticky;
     top: 100px;
     z-index: 10;
-    overflow: hidden;
 }
 
 .sidebar h3 {
     background: #03045E;
     color: #fff;
-    padding: 15px;
-    font-size: 13px;
+    padding: 12px 15px;
+    font-weight: bold;
+    font-size: 12px;
     border-radius: 10px 10px 0 0;
     text-transform: uppercase;
+    margin-bottom: 0;
 }
 
 .sidebar a {
     display: block;
-    padding: 12px 15px;
-    font-size: 14px;
+    padding: 9px 15px;
+    font-size: 13px;
     color: #003049;
     text-decoration: none;
     border-top: 1px solid #e2e8f0;
-    transition: background 0.2s ease;
 }
 
 .sidebar a:hover {
@@ -148,12 +153,12 @@ nav span.drop-title {
     color: #0077B6;
 }
 
-/* CORRECTED: Active Sidebar Link with "Taskbar" */
 .sidebar a.active { 
     background: #ebebeb; 
     color: #0077B6; 
 }
 
+/* ===== MAIN CONTENT ===== */
 .main {
     display: flex;
     flex-direction: column;
@@ -177,7 +182,7 @@ nav span.drop-title {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(3,4,94,0.6);
+    background: rgba(3,4,94,0.5);
     pointer-events: none;
 }
 
@@ -192,22 +197,27 @@ nav span.drop-title {
     pointer-events: none;
 }
 
-/* ARTICLE CONTENT STYLES */
-.article-section {
+/* ===== TYPOGRAPHY & SECTIONS ===== */
+.content-section {
     background: #fff;
     padding: 35px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
 }
 
-.article-section h2 {
+.content-section h2 {
     font-family: Georgia, serif;
     color: #03045E;
     margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 26px;
 }
 
-.article-section h3 {
+.content-section h2:first-child {
+    margin-top: 0;
+}
+
+.content-section h3 {
     font-family: Georgia, serif;
     color: #0077B6;
     margin-top: 25px;
@@ -215,33 +225,22 @@ nav span.drop-title {
     font-size: 20px;
 }
 
-.article-section p {
-    font-size: 15px;
+.content-section p, .content-section li {
+    font-size: 16px;
     line-height: 1.8;
     color: #475569;
-    margin-bottom: 15px;
-}
-
-.article-section ul {
-    margin-left: 20px;
     margin-bottom: 20px;
 }
 
-.article-section li {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #475569;
-    margin-bottom: 8px;
+.content-section ul {
+    margin-left: 20px;
+    margin-bottom: 25px;
 }
 
-.article-section strong {
-    color: #003049;
-}
-
-/* IMAGE LINKS */
+/* ===== IMAGE STYLES ===== */
 .image-link {
     display: block;
-    margin: 20px 0;
+    margin: 25px 0;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -253,39 +252,75 @@ nav span.drop-title {
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    opacity: 0.85; 
-    transition: opacity 0.3s ease;
+    opacity: 0.95;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .image-link:hover .content-img {
-    opacity: 1; 
+    opacity: 1;
 }
 
-/* ===== SCROLL TO TOP BUTTON ===== */
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: background-color 0.3s;
+/* ===== DATA TABLE ===== */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 35px;
 }
 
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    text-align: left;
 }
 
-/* ===== NAVY FOOTER ===== */
+.custom-table th, .custom-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.custom-table th {
+    background: #f1f5f9;
+    color: #03045E;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.custom-table td {
+    font-size: 15px;
+    color: #475569;
+    vertical-align: middle;
+}
+
+.custom-table tr:last-child td {
+    border-bottom: none;
+}
+
+.custom-table tr:hover {
+    background: #f8fafc;
+}
+
+.task-cell {
+    font-weight: bold;
+    color: #003049;
+    width: 20%;
+}
+
+.before-cell {
+    width: 40%;
+    border-right: 1px dashed #cbd5e1;
+}
+
+.after-cell {
+    width: 40%;
+    color: #0284c7;
+    font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
 footer {
     background: #03045E;
     color: #ffffff;
@@ -300,9 +335,7 @@ footer {
     gap: 40px;
 }
 
-.footer-brand {
-    flex: 1;
-}
+.footer-brand { flex: 1; }
 
 .footer-logo-blocks {
     display: flex;
@@ -397,30 +430,18 @@ footer {
     header { flex-direction: column; gap: 15px; padding: 15px 5%; }
     nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
     .page { grid-template-columns: 1fr; padding: 130px 5% 40px; gap: 20px; }
-    .sidebar { position: static; border-radius: 8px; }
+    .sidebar { position: static; border-radius: 8px; width: 100%; }
     .inner-hero { height: 200px; }
     .inner-hero h1 { font-size: 28px; bottom: 20px; left: 20px; }
-    .article-section { padding: 20px; }
     .footer-links-group { flex-direction: column; gap: 30px; }
     .quick-links-grid { grid-template-columns: 1fr; }
-}
-
-/* ===== MOBILE RESPONSIVENESS ===== */
-@media (max-width: 768px) {
-    header { flex-direction: column; gap: 15px; padding: 15px 5%; }
-    nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .page { grid-template-columns: 1fr; padding: 130px 5% 40px; gap: 20px; }
-    .sidebar { position: static; border-radius: 8px; }
-    .inner-hero { height: 200px; }
-    .inner-hero h1 { font-size: 28px; bottom: 20px; left: 20px; }
-    .article-section { padding: 20px; }
-    .footer-links-group { flex-direction: column; gap: 30px; }
-    .quick-links-grid { grid-template-columns: 1fr; }
+    .custom-table th, .custom-table td { font-size: 13px; padding: 10px; }
 }
 </style>
 </head>
 
-<body id="top"> 
+<body id="top">
+
 <header>
     <div class="logo">
         <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo">
@@ -429,38 +450,34 @@ footer {
 
     <nav>
         <a href="../../index.html" title="Go to Homepage">Home</a>
-
         <div class="dropdown">
             <span class="drop-title">Topics ▾</span>
             <div class="dropdown-menu">
                 <a href="overview-introduction-ai-workplace.html">AI Workplace</a>
-                <a href="#">Jobs at Risk</a>
-                <a href="#">Emerging Careers</a>
-                <a href="#">Human + AI</a>
-                <a href="#">Skills</a>
-                <a href="#">Ethics</a>
-                <a href="#">Students</a>
-                <a href="#">Future</a>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+                <a href="../future-workforce-skills/">Skills</a>
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
             </div>
         </div>
-
         <div class="dropdown">
             <span class="drop-title">Resources ▾</span>
             <div class="dropdown-menu">
-                <a href="#">External Links</a>
-                <a href="#">Icons & Images</a>
-                <a href="#">Data & Reports</a>
-                <a href="#">Case Studies</a>
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
             </div>
         </div>
-
         <a href="../../about.html" title="About Strativ">About</a>
         <a href="../../contact.html" title="Contact Us">Contact</a>
     </nav>
 </header>
 
 <div class="page">
-    
     <aside class="sidebar">
         <h3>AI WORKPLACE</h3>
         <a href="overview-introduction-ai-workplace.html" title="Introduction AI Workplace">Introduction AI Workplace</a>
@@ -472,50 +489,78 @@ footer {
         <a href="ai-marketing.html" title="AI in Marketing">AI in Marketing</a>
         <a href="ai-remote.html" title="AI and Remote Work">AI and Remote Work</a>
         <a href="ai-benefits.html" title="Benefits of AI in the Workplace">Benefits of AI in the Workplace</a>
-        <a href="challenges-of-ai.html" class="active" title="Challenges of AI in the Workplace">Challenges of AI in the Workplace</a>
+        <a href="ai-challenges.html" class="active" title="Challenges of AI in the Workplace">Challenges of AI in the Workplace</a>
         <a href="ai-case-studies.html" title="AI Case Studies in Companies">AI Case Studies in Companies</a>
         <a href="ai-summary.html" title="Summary of AI in the Workplace">Summary of AI in the Workplace</a>
     </aside>
 
     <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Abstract digital network representing the complexities of technology" title="Challenges of AI Hero Banner">
-            <h1>Challenges of AI in the Workplace</h1>
+            <a href="images/challengeheader.png" target="_blank" style="display: block; width: 100%; height: 100%;">
+                <img src="images/challengeheader.png" title="Challenges of AI in the Workplace" alt="Global technology network over the earth representing wide-scale implementation challenges">
+                <h1>Challenges of AI in the Workplace</h1>
+            </a>
         </div>
 
-        <div class="article-section">
-            <h2>Navigating the Complexities of AI Integration</h2>
-            <p>While the benefits of Artificial Intelligence are vast, the transition to an AI-driven workplace is not without significant hurdles. Companies rushing to implement new technologies often run into complex ethical, technical, and human-centric challenges. Understanding these roadblocks is crucial for any organization hoping to adopt AI responsibly.</p>
-            
-            <h3>1. Job Displacement and Workforce Anxiety</h3>
-            <p>The most immediate and highly publicized challenge is the fear of job loss. Even though AI creates new roles (like prompt engineers and AI ethicists), the transition period causes intense anxiety among current employees whose daily tasks are highly automatable.</p>
-            <p>When leadership fails to communicate transparently about how AI will be used, it destroys morale and trust. Employees may view the technology as an adversary rather than a tool, leading to poor adoption rates and internal resistance.</p>
+        <div class="content-section">
+            <h2>Navigating the Complexities of Automation</h2>
+            <p>While Artificial Intelligence offers incredible benefits, integrating it into the workplace is not without significant hurdles. Organizations must navigate a complex web of technical, ethical, and cultural challenges to ensure AI is implemented responsibly, effectively, and without alienating their workforce.</p>
 
-            <a href="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=2400&q=80" target="image_viewer" class="image-link">
-                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80" alt="Person looking stressed in front of a laptop" title="Click to view Workplace Stress image in a separate tab" class="content-img">
+            <a href="images/intro2.png" target="_blank" class="image-link">
+                <img src="images/intro2.png" alt="Colleagues in an intense discussion at work, representing change management and workforce adaptation" title="Click to view full image" class="content-img">
             </a>
 
-            <h3>2. Algorithmic Bias and Lack of Transparency</h3>
-            <p>AI models are only as good as the data they are trained on. If historical data contains human biases—whether regarding gender, race, or age—the AI will unknowingly replicate and scale those biases.</p>
-            <ul>
-                <li><strong>Hiring and HR:</strong> Several high-profile companies have had to scrap AI recruiting tools after discovering the algorithms were penalizing female candidates or minority groups because the system was trained on decades of male-dominated hiring data.</li>
-                <li><strong>The "Black Box" Problem:</strong> Many advanced machine learning models arrive at conclusions through processes too complex for humans to easily trace. If an AI denies a loan or flags an employee for poor performance, companies must be able to explain <em>why</em>, or risk severe legal and ethical backlash.</li>
-            </ul>
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
 
-            <h3>3. Data Privacy and Security Risks</h3>
-            <p>AI systems require massive amounts of data to function efficiently. In a workplace context, this often means feeding proprietary company data, client information, and employee records into third-party AI tools (like ChatGPT or specialized corporate software).</p>
-            <p>If not properly secured, this creates a massive vulnerability. Employees unknowingly pasting sensitive code or confidential financial reports into a public AI prompt can result in devastating data leaks. Maintaining strict Data Loss Prevention (DLP) protocols while still allowing employees to leverage AI is a delicate balancing act for IT departments.</p>
+            <h2>Common Workplace Challenges & Mitigations</h2>
+            <p>The following table outlines several of the most pressing challenges organizations face during AI integration, alongside strategies to mitigate those risks.</p>
 
-            <a href="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=2400&q=80" target="image_viewer" class="image-link">
-                <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=1200&q=80" 
-                    alt="Cybersecurity concept with a padlock overlay on digital data" 
-                    title="Click to view Data Security image in a separate tab" 
-                    class="content-img">
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Area of Concern</th>
+                            <th>The Challenge</th>
+                            <th>Mitigation Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="task-cell">Data Privacy & Security</td>
+                            <td class="before-cell">Feeding sensitive corporate or customer data into external, cloud-based AI models can lead to catastrophic data breaches or IP leaks.</td>
+                            <td class="after-cell">Implementing closed-loop, enterprise-grade AI systems, data anonymization, and strict internal data governance policies.</td>
+                        </tr>
+                        <tr>
+                            <td class="task-cell">Algorithmic Bias</td>
+                            <td class="before-cell">AI models trained on flawed historical data can inherit and amplify human biases in critical areas like hiring, lending, or performance evaluations.</td>
+                            <td class="after-cell">Conducting regular algorithmic auditing and deliberately utilizing diverse, highly representative training datasets.</td>
+                        </tr>
+                        <tr>
+                            <td class="task-cell">Implementation Costs</td>
+                            <td class="before-cell">Building, training, and deploying custom AI solutions requires massive upfront financial investment and continuous maintenance.</td>
+                            <td class="after-cell">Starting with off-the-shelf SaaS AI tools to prove ROI before investing in expensive, bespoke computing infrastructure.</td>
+                        </tr>
+                        <tr>
+                            <td class="task-cell">Change Management</td>
+                            <td class="before-cell">Widespread employee resistance stemming from a fear of job displacement or general unfamiliarity with new, complex tools.</td>
+                            <td class="after-cell">Transparent leadership communication, emphasizing AI as an augmentation tool, and providing extensive, hands-on training.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
+
+            <h3>1. The "Black Box" Problem</h3>
+            <p>Many advanced AI systems, particularly deep learning neural networks, operate as a "black box." This means that even their own developers cannot fully explain how the AI arrived at a specific conclusion or prediction. In heavily regulated industries like healthcare, law, or finance, this lack of explainability poses a severe regulatory and trust issue. If an AI denies a customer a loan or suggests a medical diagnosis, human operators must be able to justify the reasoning behind that output.</p>
+
+            <a href="images/challenge2.png" target="_blank" class="image-link">
+                <img src="images/challenge2.png" alt="Complex lines of code on a dark screen representing the black box nature of algorithms" title="Click to view full image" class="content-img">
             </a>
 
-            <h3>4. Implementation Costs and the Skills Gap</h3>
-            <p>Finally, there is a stark gap between wanting AI and knowing how to use it. Licensing enterprise-grade AI software, upgrading legacy IT infrastructure to support it, and ensuring cybersecurity compliance requires a massive upfront financial investment.</p>
-            <p>Furthermore, there is a global shortage of talent capable of implementing and managing these systems safely. Companies must choose between a highly competitive hiring market for AI specialists or spending significant time and resources upskilling their current workforce.</p>
+            <h3>2. Over-Reliance and the Loss of Human Judgment</h3>
+            <p>As AI tools become increasingly integrated into daily workflows, there is a genuine risk of cognitive offloading—a phenomenon where employees blindly trust AI outputs without applying critical thinking. Maintaining human oversight, often called the "human-in-the-loop" approach, is essential. Humans must remain actively engaged to catch algorithmic hallucinations, correct contextual errors, and make the nuanced, empathetic decisions that AI cannot yet comprehend.</p>
+
         </div>
     </main>
 </div>
@@ -536,16 +581,16 @@ footer {
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="#">AI Workplace</a><br>
-                        <a href="#">Emerging Careers</a><br>
-                        <a href="#">Future Skills</a><br>
-                        <a href="#">Students</a>
+                        <a href="overview-introduction-ai-workplace.html">AI Workplace</a><br>
+                        <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
+                        <a href="../future-workforce-skills">Future Skills</a><br>
+                        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
                     </div>
                     <div>
-                        <a href="#">Jobs at Risk</a><br>
-                        <a href="#">Collaboration</a><br>
-                        <a href="#">Ethics</a><br>
-                        <a href="#">Future Outlook</a>
+                        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
+                        <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br>
+                        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br>
+                        <a href="../future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -573,10 +618,14 @@ footer {
 
     <div class="copyright-bar">
         <p>© 2026 University of the East. All rights reserved.</p>
+        <p>Author: <strong>Gabriel Tristan L. Camilo</strong></p>
     </div>
 </footer>
 
-<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+<a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+    ↑
+</a>
+<script src="../../js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

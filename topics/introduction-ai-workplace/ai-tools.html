@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STRATIV | AI Tools in the Workplace</title>
+<title>STRATIV | AI Tools Used in the Workplace</title>
 <link rel="icon" type="image/png" href="../../favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
 
 <style>
 /* ===== RESET & BASE ===== */
@@ -17,7 +19,7 @@
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 body {
@@ -43,7 +45,7 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-family: Georgia, serif;
     font-size: 24px;
     font-weight: bold;
@@ -53,11 +55,13 @@ header {
 .logo img {
     width: 40px;
     height: 40px;
+    object-fit: contain;
 }
 
 nav {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 nav a, nav span.drop-title {
@@ -72,7 +76,7 @@ nav a:hover, nav span.drop-title:hover {
 }
 
 nav span.drop-title {
-    cursor: default; /* Prevents it from looking like a clickable link */
+    cursor: default;
 }
 
 /* DROPDOWN STYLES */
@@ -92,6 +96,7 @@ nav span.drop-title {
     visibility: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: opacity 0.3s ease;
+    display: block; 
 }
 
 .dropdown-menu a {
@@ -107,13 +112,13 @@ nav span.drop-title {
 /* ===== PAGE LAYOUT ===== */
 .page {
     display: grid;
-    grid-template-columns: 260px 1fr; 
+    grid-template-columns: 240px 1fr; 
     gap: 30px;
-    padding: 120px 6% 60px;
+    padding: 100px 6% 60px; 
     align-items: start;
 }
 
-/* STICKY SIDEBAR */
+/* ===== STICKY SIDEBAR ===== */
 .sidebar {
     background: #fff;
     border: 1px solid #e2e8f0;
@@ -126,16 +131,18 @@ nav span.drop-title {
 .sidebar h3 {
     background: #03045E;
     color: #fff;
-    padding: 15px;
-    font-size: 13px;
+    padding: 12px 15px;
+    font-weight: bold;
+    font-size: 12px;
     border-radius: 10px 10px 0 0;
     text-transform: uppercase;
+    margin-bottom: 0;
 }
 
 .sidebar a {
     display: block;
-    padding: 12px 15px;
-    font-size: 14px;
+    padding: 9px 15px;
+    font-size: 13px;
     color: #003049;
     text-decoration: none;
     border-top: 1px solid #e2e8f0;
@@ -151,6 +158,7 @@ nav span.drop-title {
     color: #0077B6; 
 }
 
+/* ===== MAIN CONTENT ===== */
 .main {
     display: flex;
     flex-direction: column;
@@ -174,7 +182,7 @@ nav span.drop-title {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(3,4,94,0.6);
+    background: rgba(3,4,94,0.5);
     pointer-events: none;
 }
 
@@ -189,101 +197,127 @@ nav span.drop-title {
     pointer-events: none;
 }
 
-/* ARTICLE CONTENT STYLES */
-.article-section {
+/* ===== TYPOGRAPHY & SECTIONS ===== */
+.content-section {
     background: #fff;
     padding: 35px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
 }
 
-.article-section h2 {
+.content-section h2 {
     font-family: Georgia, serif;
     color: #03045E;
     margin-bottom: 20px;
     font-size: 26px;
 }
 
-.article-section h3 {
-    font-family: Georgia, serif;
-    color: #0077B6;
-    margin-top: 25px;
-    margin-bottom: 12px;
-    font-size: 20px;
-}
-
-.article-section p {
-    font-size: 15px;
+.content-section p {
+    font-size: 16px;
     line-height: 1.8;
     color: #475569;
-    margin-bottom: 15px;
-}
-
-.article-section ul {
-    margin-left: 20px;
     margin-bottom: 20px;
 }
 
-.article-section li {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #475569;
-    margin-bottom: 8px;
+/* ===== GRID CARDS (DESIGN ENHANCEMENT) ===== */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-.article-section strong {
-    color: #003049;
-}
-
-/* IMAGE LINKS */
-.image-link {
-    display: block;
-    margin: 20px 0;
+.tool-card {
+    background: #F8FAFC;
+    padding: 25px;
     border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #0077B6;
+    transition: transform 0.2s ease;
 }
 
-.content-img {
+.tool-card:hover {
+    transform: translateY(-3px);
+}
+
+.tool-card h3 {
+    color: #03045E;
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.tool-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* ===== DATA TABLE (DESIGN ENHANCEMENT) ===== */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.custom-table {
     width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    opacity: 0.85; 
-    transition: opacity 0.3s ease;
+    border-collapse: collapse;
+    background: #fff;
+    text-align: left;
 }
 
-.image-link:hover .content-img {
-    opacity: 1; 
+.custom-table th, .custom-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-/* ===== SCROLL TO TOP BUTTON ===== */
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
+.custom-table th {
+    background: #f1f5f9;
+    color: #03045E;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.custom-table td {
+    font-size: 15px;
+    color: #475569;
+    vertical-align: middle;
+}
+
+.custom-table tr:last-child td {
+    border-bottom: none;
+}
+
+.custom-table tr:hover {
+    background: #f8fafc;
+}
+
+.tool-name {
+    font-weight: bold;
+    color: #003049;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
+    gap: 10px;
 }
 
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-/* ===== NAVY FOOTER ===== */
+.badge-writing { background: #e0f2fe; color: #0284c7; }
+.badge-coding { background: #dcfce7; color: #166534; }
+.badge-design { background: #fce7f3; color: #be185d; }
+.badge-data { background: #fef08a; color: #854d0e; }
+
+/* ===== FOOTER ===== */
 footer {
     background: #03045E;
     color: #ffffff;
@@ -298,9 +332,7 @@ footer {
     gap: 40px;
 }
 
-.footer-brand {
-    flex: 1;
-}
+.footer-brand { flex: 1; }
 
 .footer-logo-blocks {
     display: flex;
@@ -395,17 +427,17 @@ footer {
     header { flex-direction: column; gap: 15px; padding: 15px 5%; }
     nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
     .page { grid-template-columns: 1fr; padding: 130px 5% 40px; gap: 20px; }
-    .sidebar { position: static; border-radius: 8px; }
+    .sidebar { position: static; border-radius: 8px; width: 100%; }
     .inner-hero { height: 200px; }
     .inner-hero h1 { font-size: 28px; bottom: 20px; left: 20px; }
-    .article-section { padding: 20px; }
     .footer-links-group { flex-direction: column; gap: 30px; }
     .quick-links-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 
-<body id="top"> 
+<body id="top">
+
 <header>
     <div class="logo">
         <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo">
@@ -414,31 +446,28 @@ footer {
 
     <nav>
         <a href="../../index.html" title="Go to Homepage">Home</a>
-
         <div class="dropdown">
             <span class="drop-title">Topics ▾</span>
             <div class="dropdown-menu">
                 <a href="overview-introduction-ai-workplace.html">AI Workplace</a>
-                <a href="#">Jobs at Risk</a>
-                <a href="#">Emerging Careers</a>
-                <a href="#">Human + AI</a>
-                <a href="#">Skills</a>
-                <a href="#">Ethics</a>
-                <a href="#">Students</a>
-                <a href="#">Future</a>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+                <a href="../future-workforce-skills/">Skills</a>
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
             </div>
         </div>
-
         <div class="dropdown">
             <span class="drop-title">Resources ▾</span>
             <div class="dropdown-menu">
-                <a href="#">External Links</a>
-                <a href="#">Icons & Images</a>
-                <a href="#">Data & Reports</a>
-                <a href="#">Case Studies</a>
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
             </div>
         </div>
-
         <a href="../../about.html" title="About Strativ">About</a>
         <a href="../../contact.html" title="Contact Us">Contact</a>
     </nav>
@@ -463,44 +492,89 @@ footer {
 
     <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Futuristic interface showing various AI processing modules" title="AI Tools Hero Banner">
-            <h1>AI Tools Used in the Workplace</h1>
+            <a href="images/toolsheader.png" target="_blank" style="display: block; width: 100%; height: 100%;">
+                <img src="images/toolsheader.png" title="AI Tools Used in the Workplace" alt="Modern computer dashboard displaying data analytics and software interfaces">
+                <h1>AI Tools in the Workplace</h1>
+            </a>
         </div>
 
-        <div class="article-section">
-            <h2>The Digital Toolbox of the Future</h2>
-            <p>Today's workplace is powered by a diverse ecosystem of Artificial Intelligence tools designed to handle everything from complex coding to creative design. These tools are no longer reserved for tech giants; they are being integrated into small businesses and large enterprises alike to streamline workflows and unlock new levels of creativity.</p>
+        <div class="content-section">
+            <h2>The New Software Stack</h2>
+            <p>The modern workplace is rapidly shifting from traditional software to AI-integrated platforms. Whether it's drafting emails, generating complex code, analyzing spreadsheets, or creating marketing assets, there is now an AI tool designed to augment almost every professional task.</p>
             
-            <h3>1. Generative AI & Content Creation</h3>
-            <p>Generative AI has seen the most rapid adoption in the workplace. Tools like <strong>ChatGPT</strong>, <strong>Claude</strong>, and <strong>Google Gemini</strong> act as sophisticated writing assistants, capable of drafting emails, summarizing long reports, and even brainstorming business strategies. For visual content, platforms like <strong>Midjourney</strong> and <strong>Canva Magic Studio</strong> allow non-designers to create professional-grade imagery in seconds.</p>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Text & Writing</h3>
+                    <p>Large Language Models (LLMs) that can draft reports, summarize long meeting transcripts, and write professional emails in seconds.</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Code Generation</h3>
+                    <p>AI assistants integrated directly into code editors to suggest entire functions, debug errors, and translate between programming languages.</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Visual Design</h3>
+                    <p>Generative image and video tools that allow marketers and designers to prototype visual concepts using simple text prompts.</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Data Analytics</h3>
+                    <p>Advanced machine learning tools that can clean datasets, identify hidden trends, and generate visual charts without requiring complex formulas.</p>
+                </div>
+            </div>
 
-            <a href="https://images.unsplash.com/photo-1664575602276-acd073f104c1?auto=format&fit=crop&w=2400&q=80" target="image_viewer" class="image-link">
-                <img src="https://images.unsplash.com/photo-1664575602276-acd073f104c1?auto=format&fit=crop&w=1200&q=80" alt="Person using AI to generate digital content on a laptop" title="Click to view Generative AI image in a separate tab" class="content-img">
-            </a>
+            <h2>Popular Workplace AI Platforms</h2>
+            <p>Below is a breakdown of some of the most widely adopted AI tools currently transforming enterprise and freelance workflows.</p>
 
-            <h3>2. Administrative & Productivity Assistants</h3>
-            <p>AI is drastically reducing the "work about work." Intelligent scheduling tools like <strong>Reclaim.ai</strong> and <strong>Motion</strong> use algorithms to automatically block time for deep work and meetings. Additionally, AI transcription services such as <strong>Otter.ai</strong> or <strong>Fireflies.ai</strong> record and summarize meetings, ensuring that team members can focus on the conversation rather than taking notes.</p>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Software / Tool</th>
+                            <th>Category</th>
+                            <th>Primary Workplace Use Case</th>
+                            <th>Accessibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tool-name">ChatGPT (OpenAI)</td>
+                            <td><span class="badge badge-writing">Writing & Logic</span></td>
+                            <td>Drafting emails, brainstorming strategies, and summarizing large documents.</td>
+                            <td>Freemium / Enterprise</td>
+                        </tr>
+                        <tr>
+                            <td class="tool-name">GitHub Copilot</td>
+                            <td><span class="badge badge-coding">Programming</span></td>
+                            <td>Real-time code autocompletion and bug detection for software engineers.</td>
+                            <td>Paid Subscription</td>
+                        </tr>
+                        <tr>
+                            <td class="tool-name">Midjourney</td>
+                            <td><span class="badge badge-design">Visual Design</span></td>
+                            <td>Generating high-quality concept art, marketing visuals, and storyboards.</td>
+                            <td>Paid Subscription</td>
+                        </tr>
+                        <tr>
+                            <td class="tool-name">Microsoft Copilot</td>
+                            <td><span class="badge badge-data">General Productivity</span></td>
+                            <td>Deeply integrated into Excel for data analysis and PowerPoint for slide generation.</td>
+                            <td>Enterprise Add-on</td>
+                        </tr>
+                        <tr>
+                            <td class="tool-name">Notion AI</td>
+                            <td><span class="badge badge-writing">Project Management</span></td>
+                            <td>Organizing task lists, generating project briefs, and formatting wiki pages automatically.</td>
+                            <td>Freemium</td>
+                        </tr>
+                        <tr>
+                            <td class="tool-name">Tableau AI</td>
+                            <td><span class="badge badge-data">Data Analytics</span></td>
+                            <td>Translating natural language questions into complex data visualizations and dashboards.</td>
+                            <td>Enterprise</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <h3>3. Data Analysis & Business Intelligence</h3>
-            <p>Modern businesses generate more data than humans can manually process. AI-driven platforms like <strong>Tableau</strong> and <strong>Microsoft Power BI</strong> now include "natural language querying," allowing users to ask questions like "What were our top-selling products in Q3?" and receive instant visual charts. This democratizes data, allowing every department to make informed decisions.</p>
-
-            <a href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2400&q=80" target="image_viewer" class="image-link">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" 
-                    alt="A laptop screen displaying colorful business growth charts and data analytics" 
-                    title="Click to view full size Data Analytics Dashboard in a separate tab" 
-                    class="content-img">
-            </a>
-
-            <h3>4. Industry-Specific AI Tools</h3>
-            <p>Beyond general productivity, AI is specializing in niche fields:</p>
-            <ul>
-                <li><strong>Software Development:</strong> <em>GitHub Copilot</em> helps developers write code faster by suggesting entire blocks of logic in real-time.</li>
-                <li><strong>Customer Support:</strong> <em>Intercom</em> and <em>Zendesk</em> use AI chatbots to resolve common customer queries without human intervention.</li>
-                <li><strong>Human Resources:</strong> Tools like <em>Eightfold.ai</em> help recruiters match the best candidates to open roles by analyzing skills and potential rather than just keywords.</li>
-            </ul>
-
-            <h3>Choosing the Right Tools</h3>
-            <p>While the market is flooded with AI solutions, successful integration requires a strategic approach. Organizations must evaluate tools based on data security, ease of use, and how well they integrate with existing software like Slack, Microsoft Teams, or Google Workspace. The goal is not to adopt AI for its own sake, but to solve specific friction points in the daily workflow.</p>
         </div>
     </main>
 </div>
@@ -521,16 +595,16 @@ footer {
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="#">AI Workplace</a><br>
-                        <a href="#">Emerging Careers</a><br>
-                        <a href="#">Future Skills</a><br>
-                        <a href="#">Students</a>
+                        <a href="overview-introduction-ai-workplace.html">AI Workplace</a><br>
+                        <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
+                        <a href="../future-workforce-skills">Future Skills</a><br>
+                        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
                     </div>
                     <div>
-                        <a href="#">Jobs at Risk</a><br>
-                        <a href="#">Collaboration</a><br>
-                        <a href="#">Ethics</a><br>
-                        <a href="#">Future Outlook</a>
+                        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
+                        <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br>
+                        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br>
+                        <a href="../future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -558,10 +632,14 @@ footer {
 
     <div class="copyright-bar">
         <p>© 2026 University of the East. All rights reserved.</p>
+        <p>Author: <strong>Gabriel Tristan L. Camilo</strong></p>
     </div>
 </footer>
 
-<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+<a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+    ↑
+</a>
+<script src="../../js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
