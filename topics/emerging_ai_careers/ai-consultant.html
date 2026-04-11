@@ -122,20 +122,30 @@
         border: 1px solid #e2e8f0;
         border-radius: 6px;
         min-width: 220px;
+
+        display: none; 
         opacity: 0;
         visibility: hidden;
+        transform: translateY(5px);
+
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: opacity 0.3s ease;
+        transition: all 0.25s ease;
+      }
+
+      /* SHOW ON HOVER */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0);
       }
 
       .dropdown-menu a {
+        font-weight: 600;
+        color: #003049;
         padding: 12px 15px;
         display: block;
-      }
-
-      .dropdown:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
+        border-bottom: #4a5568;
       }
 
       /* ===== PAGE LAYOUT ===== */
@@ -820,7 +830,7 @@
 
         <div class="footer-links-group">
           <div class="f-col">
-            <h4>Quick Links</h4>
+            <h4 class="fw-bold">Quick Links</h4>
             <div class="quick-links-grid">
               <div>
                 <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
@@ -852,7 +862,7 @@
           </div>
 
           <div class="f-col">
-            <h4>Contact Info</h4>
+            <h4 class="fw-bold">Contact Info</h4>
             <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
 
             <div class="contact-item">
