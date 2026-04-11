@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRATIV | Soft Skills for the Future</title>
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #003049;
+            background: #F8FAFC;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #03045E;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #003049;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #0077B6;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .dropdown-menu a {
+            padding: 12px 15px;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Page layout - Matching your specific sidebar layout */
+        .page {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 30px;
+            padding: 120px 6% 60px;
+            align-items: start;
+        }
+
+        /* Sidebar - Your specific "Floating Box" style */
+        .sidebar {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar h3 {
+            background: #03045E;
+            color: #fff;
+            padding: 15px;
+            font-size: 13px;
+            border-radius: 10px 10px 0 0;
+            text-transform: uppercase;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #003049;
+            text-decoration: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .sidebar a:hover {
+            background: #f1f5f9;
+            color: #0077B6;
+        }
+
+        .sidebar a.active {
+            background: #eaeaea;
+            color: #0077B6;
+        }
+
+        /* Main content */
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .inner-hero {
+            height: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .inner-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(3,4,94,0.5);
+        }
+
+        .inner-hero h1 {
+            position: absolute;
+            z-index: 2;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 38px;
+            bottom: 30px;
+            left: 30px;
+        }
+
+        /* Content Container */
+        .about {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .about h2 {
+            font-family: Georgia, serif;
+            color: #03045E;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            margin-bottom: 25px; 
+            line-height: 1.8; /* Slightly more line height for readability */
+            color: #334155;
+            text-align: justify;
+        }
+
+
+        .story-container {
+            margin: 45px 0 !important;
+            gap: 40px !important;
+        }
+
+        /* Highlight box for emphasis */
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 5px solid #0077B6;
+            margin: 50px 0;
+            padding: 35px; /* More internal padding */
+            border-radius: 0 8px 8px 0;
+            
+        }
+
+        .highlight-box h3 {
+            color: #03045E;
+            margin-bottom: 10px;
+            font-family: Georgia, serif;
+        }
+
+        /* Content Modules */
+        .content-module {
+            margin-top: 60px; /* Increased from 40px to separate topics clearly */
+            margin-bottom: 20px;
+        }
+
+        .content-module h3 {
+            font-family: Georgia, serif;
+            color: #03045E;
+            font-size: 24px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+
+
+        /* Skill Grid */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 25px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-card h4 {
+            color: #0077B6;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 0;
+        }
+
+        .image-placeholder {
+            width: 100%; /* Spans the full width of the text container */
+            max-width: 900px; /* Increased width for a cinematic landscape look */
+            height: 350px; /* Fixed height to force a wide rectangular shape */
+            margin: 40px auto; 
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover; /* This is key: it crops the top/bottom to fit the wide shape */
+            object-position: center 20%; /* Adjusts the crop to focus on faces/hands */
+        }
+
+        /* Footer Styles from Reference */
+        footer {
+            background: #03045E;
+            color: #fff;
+            padding: 40px 6% 30px;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            flex: 1;
+        }
+
+        .footer-logo-blocks {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-blocks span {
+            background: #fff;
+            color: #03045E;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            border-radius: 3px;
+        }
+
+        .mission-text p {
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 500;
+            max-width: 380px;
+        }
+
+        .footer-links-group {
+            display: flex;
+            flex: 2;
+            justify-content: flex-start;
+            gap: 220px;
+        }
+
+        .f-col h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-decoration: underline;
+            line-height: 1;
+            margin-top: -6px;
+        }
+
+        .f-col p, .f-col a {
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            line-height: 1.7;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .icon-box {
+            background: #fff;
+            color: #03045E;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .copyright-bar {
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+
+                /* --- MASTERY BANNERS (Strategic Leadership & EQ) --- */
+        .mastery-banner {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: linear-gradient(90deg, #03045E 0%, #0077B6 100%); /* Default gradient */
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .mastery-icon {
+            font-size: 35px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .mastery-content h4 {
+            font-family: 'Georgia', serif;
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .mastery-content p {
+            font-size: 15px;
+            margin: 0;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+
+        .section-spacer {
+            height: 60px;
+        }
+
+        
+        /* --- INFLUENCE BANNERS (Vinh, Simon, Robert) --- */
+        .influence-section {
+            margin-top: 40px;
+        }
+
+        .influence-banner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #03045E; /* Base color for Vinh */
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .influence-banner:hover {
+            transform: translateX(10px); /* Subtle slide effect on hover */
+        }
+
+        .influence-img {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .influence-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .influence-content h4 {
+            font-family: 'Georgia', serif;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #90E0EF; /* Light blue accent for names */
+        }
+
+        .influence-content p {
+            font-size: 14px;
+            font-style: italic;
+            margin: 0;
+            line-height: 1.4;
+            color: white;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .mastery-banner, .influence-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+            STRATIV
+        </div>
+
+        <nav>
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <a href="../../index.html#topics">Topics ▾</a>
+                <div class="dropdown-menu">
+                    <a href="ai.html">AI Workplace</a>
+                    <a href="#">Jobs at Risk</a>
+                    <a href="#">Emerging Careers</a>
+                    <a href="#">Human + AI</a>
+                    <a href="#">Skills</a>
+                    <a href="#">Ethics</a>
+                    <a href="#">Students</a>
+                    <a href="#">Future</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../../resources.html">Resources ▾</a>
+                <div class="dropdown-menu">
+                    <a href="../../resources/external-links.html">External Links</a>
+                    <a href="../../resources/icons-images.html">Icons & Images</a>
+                    <a href="../../resources/data-reports.html">Data & Reports</a>
+                    <a href="../../resources/case-studies.html">Case Studies</a>
+                </div>
+            </div>
+            <a href="../../about.html">About</a>
+            <a href="../../contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="page">
+        <aside class="sidebar">
+            <h3>AI WORKPLACE</h3>
+            <a href="overview-future-skills.html">Future workforce skills</a>
+            <a href="technical-skills-future.html">Technical Skills for the Future</a>
+            <a href="#" class="active">Soft Skills</a>
+            <a href="digital-literacy.html">Digital Literacy</a>
+            <a href="lifelong-learning.html">Lifelong Learning</a>
+            <a href="critical-thinking-skills.html">Critical Thinking Skills</a>
+            <a href="problem-solving-skills.html">Problem Solving Skills</a>
+            <a href="adaptability-skills.html">Adaptability Skills</a>
+            <a href="#">Technology Awareness</a>
+            <a href="innovation-skills.html">Innovation Skills</a>
+            <a href="collaboration-skills.html">Collaboration Skills</a>
+            <a href="#">Skills Summary</a>
+        </aside>
+
+        <main class="main">
+            <div class="inner-hero">
+                <img src="../images/soft-skills-cover.jpg" alt="Soft Skills Banner">
+                <h1>Soft Skills</h1>
+            </div>
+
+            <div class="about">
+                <h2>The Most Lucrative Skillset: Why "Soft" is the New "Hard"</h2>
+                <p>In a future driven by automation and artificial intelligence, the most valuable professional assets are no longer just technical—they are <strong>human-centric.</strong> As AI begins to handle the heavy lifting of coding and data processing, the ability to lead, empathize, and communicate becomes the ultimate multiplier for success. While a machine can process billions of data points in a second, it cannot understand the nuances of a client's hesitation or the cultural complexities of a global team.</p>
+
+                <p>The term "soft skills" is often a misnomer; in reality, these are <strong>power skills.</strong> They are the durable abilities that remain relevant even when specific software or programming languages become obsolete. In the modern workforce, your technical expertise (hard skills) acts as your entry ticket, but your interpersonal effectiveness (soft skills) determines your career ceiling.</p>
+
+                <div class="highlight-box">
+                    <h3>The Developer's Fallacy</h3>
+                    <p>Modern professionals often make the mistake of underestimating soft skills, focusing entirely on technical mastery. However, the professional reality is stark: <strong>Even the smartest person is not better than a mediocre technician who is excellent at speaking and explaining.</strong> Technical brilliance is wasted if you cannot align a team, manage a stakeholder, or articulate the <em>value</em> of your work to those who hold the budget.</p>
+                </div>
+
+
+                <section class="content-module">
+                    <h3>A Tale of Two Architects: The Performance Gap</h3>
+                    <p>Imagine two Senior Software Architects: <strong>Alex</strong> and <strong>Sarah</strong>. Both have fifteen years of experience, both are masters of cloud infrastructure, and both can debug a complex system in their sleep. On paper, they are identical. In reality, their career trajectories look entirely different.</p>
+
+                <div class="story-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
+                    <div class="story-box" style="padding: 20px; border: 1px dashed #cbd5e1; border-radius: 8px;">
+                        <h4 style="color: #03045E; margin-bottom: 10px;">The Pure Technician (Alex)</h4>
+                        <p style="font-style: italic; font-size: 14px;">"Alex is the smartest person in the room, but he’s also the hardest to talk to."</p>
+                        <p style="font-size: 14px; margin-top: 10px;">When a project hits a snag, Alex sends a 2,000-word technical email. He wins every argument on logic, but he leaves his team feeling belittled. Stakeholders stop asking for his input because they don't understand his jargon. Despite his brilliance, Alex has been in the same role for five years.</p>
+                    </div>
+                    <div class="story-box" style="padding: 20px; border: 1px solid #0077B6; background: #f8fafc; border-radius: 8px;">
+                        <h4 style="color: #0077B6; margin-bottom: 10px;">The Strategic Communicator (Sarah)</h4>
+                        <p style="font-style: italic; font-size: 14px;">"Sarah doesn't just build systems; she builds the consensus to launch them."</p>
+                        <p style="font-size: 14px; margin-top: 10px;">When the same snag hits Sarah's project, she calls a 10-minute huddle. She translates the technical risk into a "business risk" that the CEO understands. She listens to the junior dev's concerns, making them feel valued. Sarah was recently promoted to VP of Engineering, not because she codes faster than Alex, but because she manages the <em>human</em> layer of the stack.</p>
+                    </div>
+                </div>
+                <p>This story isn't just a hypothetical; it's the daily reality of the modern workplace. In the age of AI, "Alex" is replaceable by a sophisticated LLM. "Sarah" is not. Sarah possesses the **contextual intelligence** that machines lack—the ability to read the room, handle egos, and inspire a collective vision.</p>
+                </section>
+
+
+                <section class="content-module">
+                    <h3>Deep Dive: Essential Soft Skills for 2026 and Beyond</h3>
+                    
+                    <div class="skill-grid">
+                        <div class="skill-card">
+                            <h4>Communication & Storytelling</h4>
+                            <p>It is no longer enough to "know your stuff." You must be able to translate technical architecture into business outcomes. Storytelling is the ability to frame data and projects in a way that resonates emotionally with stakeholders. Being able to explain "why" a project matters is often more lucrative than just knowing "how" to build it.</p>
+                        </div>
+                        <div class="skill-card">
+                            <h4>Emotional Intelligence (EQ)</h4>
+                            <p>EQ involves self-awareness, empathy, and social regulation. In a high-pressure environment, the ability to navigate team friction and build psychological safety is paramount. High EQ leads to more successful product launches and lower team turnover than technical skill alone. It is the glue that holds high-performing teams together.</p>
+                        </div>
+                        <div class="skill-card">
+                            <h4>Critical Thinking & Synthesis</h4>
+                            <p>AI can provide answers, but humans must ask the right questions. Critical thinking in the AI era means being able to look at AI-generated output, identify biases, and synthesize that information into a strategic plan. It’s about seeing the "big picture" that the algorithm might miss.</p>
+                        </div>
+                        <div class="skill-card">
+                            <h4>Adaptive Leadership</h4>
+                            <p>Modern leadership isn't about giving orders; it's about guiding a team through constant technological shifts. Adaptive leaders are comfortable with ambiguity and focus on empowering their team members to experiment and fail safely. They manage the people writing the code, not just the code itself.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-module">
+                    <h3>The ROI of Interpersonal Excellence</h3>
+                    <p>When you combine technical competence with interpersonal excellence, you become an "Indispensable Professional." In a world where AI can generate code or reports in seconds, the person who can verify that work, explain it to a client, and lead a team to implement it is the person who commands the highest value in the market. This is known as the <strong>Multiplier Effect</strong>—your soft skills increase the value of every hard skill you possess.</p>
+                    
+                    <figure class="image-placeholder">
+                        <img src="../../images/negotiation.jpg" alt="Two professionals shaking hands, symbolizing successful negotiation and a locked professional partnership.">
+                        <figcaption>[Diagram: The Multiplier Effect - How Soft Skills Exponentially Increase Technical Value]</figcaption>
+                    </figure>
+                </section>
+
+
+                <section class="content-module">
+                    <h3>Practical Tips for Soft Skill Mastery</h3>
+                    <p>Soft skills are like muscles; they require consistent exercise. Unlike a certificate in Python or Java, you don't "finish" learning communication. Here are actionable tips to improve your professional standing:</p>
+                    
+                    <ul style="margin-left: 20px; color: #334155; margin-bottom: 20px;">
+                        <li><strong>Practice "Active Listening":</strong> In your next meeting, try to summarize what the other person said before you give your rebuttal. This ensures you’ve understood the core of their concern.</li>
+                        <li><strong>Develop a "User-First" Mindset:</strong> Whether you are writing code or a business proposal, always ask: "How will the end-user feel when they interact with this?"</li>
+                        <li><strong>Seek Feedback Early:</strong> Don't wait for annual reviews. Ask colleagues, "How could I have handled that presentation more effectively?"</li>
+                        <li><strong>Master the "Elevator Pitch":</strong> Be able to explain your current project to someone outside your department in 30 seconds or less without using technical jargon.</li>
+                    </ul>
+                </section>
+
+                <section class="content-module">
+                    
+                <h3>The "Power Skill" Masterclass: 5 Rules for 2026</h3>
+                <p>If you want to transition from a technical worker to a strategic leader, you must follow these five rules of engagement in the AI-augmented workplace:</p>
+
+                <div style="margin-top: 20px;">
+                    <div style="margin-bottom: 25px;">
+                        <strong style="color: #03045E; font-size: 18px;">1. The 80/20 Rule of Communication</strong>
+                        <p>Spend 80% of your time listening and 20% speaking. In a world of noise, the person who truly listens becomes the most influential person in the room. When you do speak, ensure your words solve a problem rather than just stating a fact.</p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <strong style="color: #03045E; font-size: 18px;">2. Radical Radical Empathy</strong>
+                        <p>Empathy is often mistaken for "niceness." In business, empathy is a <strong>data-gathering tool</strong>. It allows you to predict how a client will react to a price hike or how a team will respond to a deadline. It is the ultimate competitive intelligence.</p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <strong style="color: #03045E; font-size: 18px;">3. Conflict as a Creative Tool</strong>
+                        <p>Don't avoid "difficult" conversations; master them. The most innovative ideas often come from the friction between two opposing viewpoints. Learn to facilitate these disagreements so they lead to better products rather than broken relationships.</p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <strong style="color: #03045E; font-size: 18px;">4. Personal Branding & Ethics</strong>
+                        <p>As AI handles more output, your "Personal Brand"—your reputation for integrity and judgment—becomes your currency. In a sea of AI-generated content, humans will crave <strong>authenticity</strong>. Be the person whose word is more reliable than an algorithm.</p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <strong style="color: #03045E; font-size: 18px;">5. Contextual Thinking</strong>
+                        <p>Always ask: "How does this piece of code/data affect the company's bottom line?" The ability to connect your daily tasks to the organization's 5-year mission is what separates a "hand" from a "brain."</p>
+                    </div>
+                </div>
+            </section>
+
+
+            
+            <section class="content-module">
+            <div class="mastery-banner">
+                <div class="mastery-icon">⚖️</div>
+                <div class="mastery-content">
+                    <h4>Masters of Strategic Leadership</h4>
+                    <p>Leading through ambiguity and aligning technological advancement with the long-term ethical and financial goals of the organization.</p>
+                </div>
+            </div>
+
+            <div class="mastery-banner" style="background: linear-gradient(90deg, #0077B6 0%, #03045E 100%);">
+                <div class="mastery-icon">🧠</div>
+                <div class="mastery-content">
+                    <h4>Masters of Emotional Intelligence</h4>
+                    <p>Navigating high-stakes team dynamics with self-awareness and empathy to foster a culture of psychological safety and high performance.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="content-module influence-section">
+            <h3>Masters of Communication</h3>
+            <p style="margin-bottom: 30px; color: #334155;">Study these masters to understand how storytelling and influence shape the modern world.</p>
+            
+            <div class="influence-banner">
+                <div class="influence-img">
+                    <img src="../images/vinh-giang.jpg" alt="Vinh Giang">
+                </div>
+                <div class="influence-content">
+                    <h4>Vinh Giang</h4>
+                    <p>"Your voice is an instrument. If you don't learn how to play it, you'll never be heard in a crowded room."</p>
+                </div>
+            </div>
+
+            <div class="influence-banner" style="background: #0077B6;">
+                <div class="influence-img">
+                    <img src="../images/simon-sinek.png" alt="Simon Sinek">
+                </div>
+                <div class="influence-content">
+                    <h4>Simon Sinek</h4>
+                    <p>"People don't buy what you do; they buy why you do it. Leadership is about making people feel safe."</p>
+                </div>
+            </div>
+
+            <div class="influence-banner" style="background: #023E8A;">
+                <div class="influence-img">
+                    <img src="../images/robert-greene.jpg" alt="Robert Greene">
+                </div>
+                <div class="influence-content">
+                    <h4>Robert Greene</h4>
+                    <p>"The ability to observe others without judgment is the ultimate form of social power and strategy."</p>
+                </div>
+            </div>
+        </section>
+
+
+                <section class="content-module">
+                    <h3>The Future: Human-AI Collaboration</h3>
+                    <p>As we move toward 2030, the most successful workers will be those who use soft skills to bridge the gap between AI capabilities and human needs. We are entering an era of "Augmented Intelligence," where your ability to collaborate—not just with humans, but with AI agents—will define your career trajectory. This requires a high level of <strong>Cognitive Flexibility</strong>, the ability to switch between different thinking styles and adapt to new digital workflows on the fly.</p>
+
+                    <div class="highlight-box" style="background: #03045E; color: white;">
+                        <p style="color: white; margin-bottom: 0;"><strong>Final Thought:</strong> Code has a shelf life; the ability to influence, understand, and lead people is a timeless, recession-proof skill. Invest in your humanity as much as you invest in your technology.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-blocks">
+                    <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+                </div>
+                <div class="mission-text">
+                    <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+                </div>
+            </div>
+
+            <div class="footer-links-group">
+                <div class="f-col">
+                    <h4>Quick Links</h4>
+                    <div class="quick-links-grid">
+                        <div>
+                            <a href="#">AI Workplace</a><br>
+                            <a href="#">Emerging Careers</a><br>
+                            <a href="#">Future Skills</a><br>
+                            <a href="#">Students</a>
+                        </div>
+                        <div>
+                            <a href="#">Jobs at Risk</a><br>
+                            <a href="#">Collaboration</a><br>
+                            <a href="#">Ethics</a><br>
+                            <a href="#">Future Outlook</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                            <span class="icon-box">f</span>
+                            <span> Strativ.com</span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                            <span class="icon-box">✉</span>
+                            <span>Strativ018@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright-bar">
+            <p>© 2026 University of the East. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
