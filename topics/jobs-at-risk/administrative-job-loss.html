@@ -536,16 +536,39 @@
         padding-right: 105px;
       }
 
-      /* FORCE DROPDOWN HOVER (override Bootstrap) */
-      .dropdown:hover .dropdown-menu {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
+      /* DROPDOWN STYLES (CLEAN VERSION) */
+      .dropdown {
+        position: relative;
+        display: inline-block;
       }
 
-      /* Ensure it's hidden by default */
       .dropdown-menu {
-        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(5px);
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.25s ease;
+      }
+
+      /* Show dropdown */
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        font-weight: 600;
+        color: #003049;
       }
     </style>
   </head>
