@@ -213,9 +213,11 @@ nav a:hover {
     border-radius: 12px;
     padding: 25px;
     border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
 }
 
-.card a:hover {
+.card a.btn:hover {
     background: #0077B6;
 }
 
@@ -228,16 +230,22 @@ nav a:hover {
     margin: 10px 0 15px;
     font-size: 14px;
     color: #6D6D6D;
+    flex-grow: 1;
 }
 
-.card a {
+.card a.btn {
+    display: block;
     padding: 10px 20px;
     background: #03045E;
     color: #fff;
     text-decoration: none;
     border-radius: 6px;
-    display: inline-block;
-    margin-top: 15px;
+    font-weight: 600;
+    margin-top: auto;
+    padding-top: 15px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    width: 100%;
 }
 
 /* ===== NAVY FOOTER ===== */
@@ -450,7 +458,7 @@ footer {
                     <strong>Key concerns:</strong> Algorithmic bias can perpetuate historical inequalities, leading to disparate outcomes based on race, gender, age, or socioeconomic status.<br><br>
                     <strong>Implementation challenges:</strong> Balancing statistical fairness with real-world outcomes; determining what constitutes "fair" in different cultural contexts.
                 </p>
-                <a href="ai-bias.html">Learn More</a>
+                <a href="ai-bias.html" class="btn btn-primary w-100">LEARN MORE</a>
             </div>
             <div class="card">
                 <h4>Accountability</h4>
@@ -459,7 +467,7 @@ footer {
                     <strong>Key concerns:</strong> The "problem of many hands" — when AI systems cause harm, it becomes difficult to attribute responsibility across developers, deployers, users, and the system itself.<br><br>
                     <strong>Implementation:</strong> Establishing liability frameworks, audit trails, and mechanisms for redress.
                 </p>
-                <a href="ai-accountability.html">Learn More</a>
+                <a href="ai-accountability.html" class="btn btn-primary w-100">LEARN MORE</a>
             </div>
             <div class="card">
                 <h4>Transparency</h4>
@@ -468,7 +476,7 @@ footer {
                     <strong>Key concerns:</strong> The "black box" problem of machine learning models, particularly deep neural networks, makes reasoning difficult to explain.<br><br>
                     <strong>Aspects:</strong> Includes explainability, interpretability, and justifiability of design processes.
                 </p>
-                <a href="algorithm-transparency.html">Learn More</a>
+                <a href="algorithm-transparency.html" class="btn btn-primary w-100">LEARN MORE</a>
             </div>
             <div class="card">
                 <h4>Privacy</h4>
@@ -477,7 +485,7 @@ footer {
                     <strong>Key concerns:</strong> AI's data hunger creates tensions between functionality and privacy; risks of surveillance, re-identification, and data misuse.<br><br>
                     <strong>Implementation:</strong> Privacy by design, differential privacy, federated learning, and compliance with regulations like GDPR.
                 </p>
-                <a href="privacy-security-issue.html">Learn More</a>
+                <a href="privacy-security-issue.html" class="btn btn-primary w-100">LEARN MORE</a>
             </div>
             <div class="card" style="grid-column: 1 / -1;">
                 <h4>Explainability</h4>
@@ -486,7 +494,7 @@ footer {
                     <strong>Key concerns:</strong> Without explainability, trust erodes; accountability becomes impossible; users cannot contest harmful decisions.<br><br>
                     <strong>Distinction:</strong> Differs from transparency — transparency is about openness, explainability is about the comprehensibility of reasoning.
                 </p>
-                <a href="algorithm-transparency.html">Learn More</a>
+                <a href="algorithm-transparency.html" class="btn btn-primary w-100">LEARN MORE</a>
             </div>
         </div>
 
