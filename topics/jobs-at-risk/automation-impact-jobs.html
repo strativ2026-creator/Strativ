@@ -15,6 +15,8 @@
     />
     <link rel="stylesheet" href="../../css/style.css" />
 
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+
     <style>
       /* ===== RESET & BASE ===== */
       * {
@@ -66,6 +68,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center; /* 🔥 THIS FIXES THE LINE ISSUE */
       }
 
       nav a {
@@ -153,6 +156,8 @@
         bottom: 30px;
         left: 30px;
         pointer-events: none;
+
+        font-weight: 700;
       }
 
       /* ARTICLE CONTENT STYLES */
@@ -219,6 +224,23 @@
         text-decoration: none;
       }
 
+      .full-width-image {
+        width: 70%;
+        margin: 30px auto;
+      }
+
+      .full-width-image img {
+        width: 85%;
+        height: auto;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .full-width-image {
+          width: 95%;
+        }
+      }
+
       @media (max-width: 1100px) {
         .footer-container {
           flex-direction: column;
@@ -247,8 +269,48 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      /* Bootstrap-enhanced emphasis styles */
+      em {
+        font-style: italic;
+        color: #0077b6;
+        font-weight: 500;
+      }
+
+      .highlight-stat {
+        background: linear-gradient(
+          120deg,
+          rgba(0, 119, 182, 0.1),
+          rgba(3, 4, 94, 0.1)
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -274,18 +336,20 @@
               >Jobs at Risk</a
             >
             <a
-              href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+              href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
               >Emerging Careers</a
             >
             <a href="../human-ai-collab-kimi/overview-human-ai.html"
               >Human + AI</a
             >
-            <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
+            <a href="../future-workforce-skills/overview-future-skills.html"
+              >Skills</a
+            >
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
             <a href="../preparing-student/overviewofpreparingstudentsai.html"
               >Students</a
             >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div>
@@ -379,11 +443,13 @@
             title="Scroll back to top of the page"
             >↑</a
           >
-          <h2 id="understanding">Understanding the Shift</h2>
-          <p>
+          <h2 id="understanding" class="display-6 fw-bold mb-4">
+            Understanding the Shift
+          </h2>
+          <p class="lead fw-normal">
             Automation is no longer just about mechanical arms in factories; it
-            is now about intelligent software systems that can process data,
-            interact with customers, and make complex decisions.
+            is now about <em>intelligent software systems</em> that can process
+            data, interact with customers, and make complex decisions.
           </p>
 
           <div class="full-width-image">
@@ -392,15 +458,20 @@
                 src="../../images/stats/11.jpg"
                 alt="Scale of AI job impact"
                 title="Global Work Automation Projections: Impact of AI and Robotics on Employment by 2030"
+                class="img-fluid rounded"
               />
             </a>
           </div>
 
           <p>
             Current estimates suggest that by 2030, nearly
-            <strong>30% of global work hours</strong> could be automated. This
-            transition doesn't just eliminate roles—it fundamentally changes the
-            nature of the tasks that humans perform daily.
+            <span class="highlight-stat">30% of global work hours</span>
+            could be <em>automated</em>. This transition doesn't just eliminate
+            roles—it
+            <span class="fw-bold"
+              >fundamentally changes the nature of the tasks</span
+            >
+            that humans perform daily.
           </p>
 
           <div class="full-width-image">
@@ -409,62 +480,79 @@
                 src="../../images/stats/12.jpg"
                 alt="Scale of AI job impact"
                 title="Sector-by-Sector Automation Risk Analysis: Which Industries Face Greatest Job Displacement"
+                class="img-fluid rounded"
               />
             </a>
           </div>
 
-          <h2 id="key-areas">Key Areas of Automation</h2>
+          <h2 id="key-areas" class="display-6 fw-bold mb-4 mt-5">
+            Key Areas of Automation
+          </h2>
 
-          <h3>⚙️ Process Automation</h3>
+          <h3 class="h4 fw-bold text-info">⚙️ Process Automation</h3>
           <p>
-            Software robots are handling high-volume, repeatable tasks such as
-            invoicing, payroll, and data entry. This "Robotic Process
-            Automation" (RPA) allows companies to reduce errors and operate at
-            24/7 capacity.
+            <span class="fw-semibold">Software robots</span> are handling
+            <em>high-volume, repeatable tasks</em> such as invoicing, payroll,
+            and data entry. This
+            <span class="fw-bold">"Robotic Process Automation" (RPA)</span>
+            allows companies to reduce errors and operate at 24/7 capacity.
           </p>
 
-          <h3>🤖 Physical Robotics</h3>
+          <h3 class="h4 fw-bold text-info">🤖 Physical Robotics</h3>
           <p>
-            From automated warehouses to robotic surgery, physical automation is
-            becoming more precise. In logistics, robots can now pick and pack
-            items with 99% accuracy, significantly impacting warehouse staffing
-            needs.
+            From <em>automated warehouses</em> to <em>robotic surgery</em>,
+            physical automation is becoming more precise. In logistics, robots
+            can now pick and pack items with
+            <span class="highlight-stat">99% accuracy</span>, significantly
+            impacting warehouse staffing needs.
           </p>
 
-          <h2 id="economic">Economic Consequences</h2>
+          <h2 id="economic" class="display-6 fw-bold mb-4 mt-5">
+            Economic Consequences
+          </h2>
           <p>
-            While automation drives lower prices and higher productivity, it
-            also puts pressure on wages for routine-heavy occupations. The
-            challenge for society is ensuring the wealth generated by automation
-            is distributed fairly through education and social support systems.
+            While automation drives
+            <em>lower prices and higher productivity</em>, it also puts pressure
+            on wages for
+            <span class="fw-semibold">routine-heavy occupations</span>. The
+            challenge for society is
+            <span class="fw-bold"
+              >ensuring the wealth generated by automation is distributed
+              fairly</span
+            >
+            through education and social support systems.
           </p>
 
-          <h3>🏗️ Industrial Resilience</h3>
+          <h3 class="h4 fw-bold text-info">🏗️ Industrial Resilience</h3>
           <p>
-            Industries that embrace automation early often see a "productivity
-            frontier" shift, allowing them to scale in ways previously
-            impossible without massive labor increases.
+            Industries that embrace automation early often see a
+            <em>"productivity frontier" shift</em>, allowing them to scale in
+            ways previously impossible without massive labor increases.
           </p>
 
-          <h3>🔄 Skill Obsolescence</h3>
+          <h3 class="h4 fw-bold text-info">🔄 Skill Obsolescence</h3>
           <p>
-            The "half-life" of skills is shrinking. Workers in automated sectors
-            now need to refresh their technical competencies every 3–5 years to
+            The <span class="fw-semibold">"half-life" of skills</span> is
+            shrinking. Workers in automated sectors now need to
+            <em>refresh their technical competencies every 3–5 years</em> to
             remain relevant in an evolving market.
           </p>
 
           <div class="full-width-image">
             <a href="../../images/stats/13.jpg" target="image_viewer">
               <img
-                src="images/stats/13.jpg"
+                src="../../images/stats/13.jpg"
                 alt="Scale of AI job impact"
                 title="Skills Training and Workforce Development: Meeting the Demands of Automation Age"
+                class="img-fluid rounded"
               />
             </a>
           </div>
         </div>
       </main>
     </div>
+
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
 
     <footer>
       <div class="footer-container">
@@ -475,15 +563,16 @@
           </div>
           <div class="mission-text">
             <p>
-              Navigating the future of human-AI collaboration in the workforce.
-              A comprehensive guide to automation and emerging careers.
+              Navigating the future of <em>human-AI collaboration</em> in the
+              workforce. A <span class="fw-bold">comprehensive guide</span> to
+              automation and emerging careers.
             </p>
           </div>
         </div>
 
         <div class="footer-links-group">
           <div class="f-col">
-            <h4>Quick Links</h4>
+            <h4 class="fw-bold">Quick Links</h4>
             <div class="quick-links-grid">
               <div>
                 <a
@@ -491,10 +580,12 @@
                   >AI Workplace</a
                 ><br />
                 <a
-                  href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+                  href="../emerging_ai_Careers/overview-of-emerging-ai-careers.html"
                   >Emerging Careers</a
                 ><br />
-                <a href="../future-workforce-skills/">Future Skills</a><br />
+                <a href="../future-workforce-skills/overview-future-skills.html"
+                  >Future Skills</a
+                ><br />
                 <a
                   href="../preparing-student/overviewofpreparingstudentsai.html"
                   >Students</a
@@ -508,17 +599,19 @@
                   >Collaboration</a
                 ><br />
                 <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
-                <a href="../future-outlook-ai/">Future Outlook</a>
+                <a href="../future-outlook-ai/overview-of-future-ai.html"
+                  >Future Outlook</a
+                >
               </div>
             </div>
           </div>
 
           <div class="f-col">
-            <h4>Contact Info</h4>
+            <h4 class="fw-bold">Contact Info</h4>
             <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
             <div class="contact-item">
               <a
-                href="https://facebook.com/strativ"
+                href="https://www.facebook.com/profile.php?id=61580704943031"
                 target="_blank"
                 style="display: flex; align-items: center; gap: 10px"
                 title="Follow us on Facebook"

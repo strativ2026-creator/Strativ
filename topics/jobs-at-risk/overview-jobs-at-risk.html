@@ -15,6 +15,7 @@
     />
 
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
 
     <style>
       /* ===== RESET & BASE ===== */
@@ -67,6 +68,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center; /* 🔥 THIS FIXES THE LINE ISSUE */
       }
 
       nav a {
@@ -154,6 +156,8 @@
         bottom: 30px;
         left: 30px;
         pointer-events: none;
+
+        font-weight: 700;
       }
 
       /* ARTICLE CONTENT STYLES */
@@ -274,8 +278,121 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* Youtube Video */
+
+      .full-width-video {
+        width: 100%;
+        height: 400px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .full-width-video iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
+
+      /* ===== BADGE STYLES ===== */
+      .badge {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 13px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+
+      .badge-warning {
+        background-color: #f59e0b;
+        color: #1a1a1a;
+      }
+
+      .badge-danger {
+        background-color: #ef4444;
+        color: #fff;
+      }
+
+      .badge-primary {
+        background-color: #3b82f6;
+        color: #fff;
+      }
+
+      .badge-purple {
+        background-color: #a855f7;
+        color: #fff;
+      }
+
+      .badge-cyan {
+        background-color: #06b6d4;
+        color: #fff;
+      }
+
+      /* DROPDOWN STYLES (CLEAN VERSION) */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(5px);
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.25s ease;
+      }
+
+      /* Show dropdown */
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        font-weight: 600;
+        color: #003049;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -301,18 +418,20 @@
               >Jobs at Risk</a
             >
             <a
-              href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+              href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
               >Emerging Careers</a
             >
             <a href="../human-ai-collab/overview-human-ai-collab.html"
               >Human + AI</a
             >
-            <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
+            <a href="../future-workforce-skills/overview-future-skills.html"
+              >Skills</a
+            >
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
             <a href="../preparing-student/overviewofpreparingstudentsai.html"
               >Students</a
             >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div>
@@ -436,6 +555,27 @@
             that AI excels at.
           </p>
 
+          <div class="full-width-video">
+            <iframe
+              width="1314"
+              height="739"
+              src="https://www.youtube.com/embed/6GaWpvH7k6I"
+              title="Examining which careers are most at-risk for AI impacts"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
           <p><strong>Other Critical Roles:</strong></p>
           <ul>
             <li>
@@ -464,6 +604,27 @@
             vehicles could replace up to 294,000 long-distance truck driving
             jobs in the US.
           </p>
+
+          <div class="full-width-video">
+            <iframe
+              width="1314"
+              height="739"
+              src="https://www.youtube.com/embed/x2KZ6H8p6MM"
+              title="The AI Future of Transportation | How AI is transforming transport and logistics"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
 
           <h3>Retail & Customer-Facing Services</h3>
           <p>
@@ -540,10 +701,12 @@
 
           <p>
             However, there's a catch:
-            <strong
-              >77% of AI-related jobs require master's degrees, and 18% require
-              doctoral degrees.</strong
-            >
+            <strong>
+              <span class="badge badge-purple">77% Masters Degrees</span>
+              77% of AI-related jobs require master's degrees, and
+              <span class="badge badge-cyan">18% Doctorates</span>
+              18% require doctoral degrees.
+            </strong>
           </p>
 
           <h2 id="call-to-action">The Urgent Call to Action</h2>
@@ -566,6 +729,8 @@
       </main>
     </div>
 
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
+
     <footer>
       <div class="footer-container">
         <div class="footer-brand">
@@ -586,16 +751,33 @@
             <h4>Quick Links</h4>
             <div class="quick-links-grid">
               <div>
-                <a href="#">AI Workplace</a><br />
-                <a href="#">Emerging Careers</a><br />
-                <a href="#">Future Skills</a><br />
-                <a href="#">Students</a>
+                <a
+                  href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+                  >AI Workplace</a
+                ><br />
+                <a
+                  href="../emerging_ai_Careers/overview-of-emerging-ai-careers.html"
+                  >Emerging Careers</a
+                ><br />
+                <a href="../future-workforce-skills/overview-future-skills.html"
+                  >Future Skills</a
+                ><br />
+                <a
+                  href="../preparing-student/overviewofpreparingstudentsai.html"
+                  >Students</a
+                >
               </div>
               <div>
-                <a href="#">Jobs at Risk</a><br />
-                <a href="#">Collaboration</a><br />
-                <a href="#">Ethics</a><br />
-                <a href="#">Future Outlook</a>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+                  >Jobs at Risk</a
+                ><br />
+                <a href="../human-ai-collab/overview-human-ai-collab.html"
+                  >Collaboration</a
+                ><br />
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
+                <a href="../future-outlook-ai/overview-of-future-ai.html"
+                  >Future Outlook</a
+                >
               </div>
             </div>
           </div>
@@ -605,7 +787,7 @@
             <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
             <div class="contact-item">
               <a
-                href="https://facebook.com/strativ"
+                href="https://www.facebook.com/profile.php?id=61580704943031"
                 target="_blank"
                 style="display: flex; align-items: center; gap: 10px"
                 title="Follow us on Facebook"

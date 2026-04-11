@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
 
     <style>
       /* ===== RESET & BASE ===== */
@@ -66,6 +67,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center; /* 🔥 THIS FIXES THE LINE ISSUE */
       }
 
       nav a {
@@ -153,6 +155,8 @@
         bottom: 30px;
         left: 30px;
         pointer-events: none;
+
+        font-weight: 700;
       }
 
       /* ARTICLE CONTENT STYLES */
@@ -230,7 +234,7 @@
 
       .full-width-image {
         width: 100%;
-        height: 600px;
+        height: 400px;
         border-radius: 12px;
         overflow: hidden;
         margin: 30px 0;
@@ -271,8 +275,78 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* ===== BADGE STYLES ===== */
+      .badge-stat {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 900;
+        color: #fff;
+        font-size: 14px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      .badge-gold {
+        background: #fbbf24;
+        color: #1f2937;
+      }
+
+      .badge-cyan {
+        background: #06b6d4;
+        color: #fff;
+      }
+
+      .badge-gray {
+        background: #6b7280;
+        color: #fff;
+      }
+
+      .badge-red {
+        background: #ef4444;
+        color: #fff;
+      }
+
+      .badge-blue {
+        background: #3b82f6;
+        color: #fff;
+      }
+
+      .badge-purple {
+        background: #a855f7;
+        color: #fff;
+      }
+
+      .stat-highlight {
+        font-style: italic;
+        color: #0077b6;
+        font-weight: 600;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -298,18 +372,20 @@
               >Jobs at Risk</a
             >
             <a
-              href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+              href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
               >Emerging Careers</a
             >
             <a href="../human-ai-collab/overview-human-ai-collab.html"
               >Human + AI</a
             >
-            <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
+            <a href="../future-workforce-skills/overview-future-skills.html"
+              >Skills</a
+            >
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
             <a href="../preparing-student/overviewofpreparingstudentsai.html"
               >Students</a
             >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div>
@@ -399,6 +475,7 @@
           <a
             href="#top"
             id="scrollTopBtn"
+            class="btn btn-dark"
             title="Scroll back to top of the page"
             >↑</a
           >
@@ -431,9 +508,11 @@
           <h2 id="speed-skill">The Speed of Skill Change is Unprecedented</h2>
           <p>
             The pace of transformation is staggering. The skills needed for work
-            are expected to change by 70% by 2030. Employers anticipate 39% of
-            core skills will change by 2030. We are not just in a cyclical
-            skills shortage but a structural one.
+            are expected to change by 70% by 2030.
+            <span class="badge-stat badge-gold">70% Skills Change by 2030</span>
+            Employers anticipate 39% of core skills will change by 2030.
+            <span class="badge-stat badge-cyan">39% Core Skills</span> We are
+            not just in a cyclical skills shortage but a structural one.
           </p>
           <p>
             Faster skill change in AI-exposed jobs is up from 25% last year,
@@ -452,9 +531,11 @@
           <p>
             In spring 2025, nearly 47 percent of workers across all sectors
             reported using AI tools at least once a month to help them with
-            their work — up from 34 percent the previous year. About one in five
-            workers feel pressured by their employers to use AI, and about three
-            in 10 worry that they're going to fall behind if they don't.
+            their work —
+            <span class="badge-stat badge-blue">47% Using AI Tools</span> up
+            from 34 percent the previous year. About one in five workers feel
+            pressured by their employers to use AI, and about three in 10 worry
+            that they're going to fall behind if they don't.
           </p>
 
           <h2 id="three-categories">Three Categories of Job Transformation</h2>
@@ -508,13 +589,18 @@
           <p>
             Workers who acquire AI skills are seeing significant financial
             rewards. There is a 40% wage premium for AI skills comparing workers
-            in the same job with and without AI skills, up from 25% last year.
-            Every industry analyzed pays wage premiums for AI skills.
+            in the same job with and without AI skills,
+            <span class="badge-stat badge-red">40% Wage Premium</span> up from
+            25% last year. Every industry analyzed pays wage premiums for AI
+            skills.
           </p>
           <p>
             In the United Kingdom and the United States, job postings that
             include a new skill tend to pay about 3 percent more. There's an
             even greater premium for openings with four or more new skills.
+            <span class="badge-stat badge-purple"
+              >+15% Premium (4+ Skills)</span
+            >
             These roles can pay up to 15 percent more in the United Kingdom and
             8.5 percent more in the United States.
           </p>
@@ -647,9 +733,10 @@
           </p>
           <p>
             84% of international employees receive organizational support to
-            learn AI skills, versus just 51% of US employees. This suggests US
-            workers may need to take more personal responsibility for developing
-            AI competencies.
+            learn AI skills,
+            <span class="badge-stat badge-gold">84% International Support</span>
+            versus just 51% of US employees. This suggests US workers may need
+            to take more personal responsibility for developing AI competencies.
           </p>
 
           <h2 id="critical-success">The Critical Success Factors</h2>
@@ -686,6 +773,8 @@
       </main>
     </div>
 
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
+
     <footer>
       <div class="footer-container">
         <div class="footer-brand">
@@ -708,27 +797,46 @@
               <div>
                 <a
                   href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+                  class="btn btn-link btn-sm"
                   >AI Workplace</a
                 ><br />
                 <a
-                  href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+                  href="../emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+                  class="btn btn-link btn-sm"
                   >Emerging Careers</a
                 ><br />
-                <a href="../future-workforce-skills/">Future Skills</a><br />
+                <a
+                  href="../future-workforce-skills/overview-future-skills.html"
+                  class="btn btn-link btn-sm"
+                  >Future Skills</a
+                ><br />
                 <a
                   href="../preparing-student/overviewofpreparingstudentsai.html"
+                  class="btn btn-link btn-sm"
                   >Students</a
                 >
               </div>
               <div>
-                <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+                <a
+                  href="../jobs-at-risk/overview-jobs-at-risk.html"
+                  class="btn btn-link btn-sm"
                   >Jobs at Risk</a
                 ><br />
-                <a href="../human-ai-collab/overview-human-ai-collab.html"
+                <a
+                  href="../human-ai-collab/overview-human-ai-collab.html"
+                  class="btn btn-link btn-sm"
                   >Collaboration</a
                 ><br />
-                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
-                <a href="../future-outlook-ai/">Future Outlook</a>
+                <a
+                  href="../ai-ethics/overview-ai-ethics.html"
+                  class="btn btn-link btn-sm"
+                  >Ethics</a
+                ><br />
+                <a
+                  href="../future-outlook-ai/overview-of-future-ai.html"
+                  class="btn btn-link btn-sm"
+                  >Future Outlook</a
+                >
               </div>
             </div>
           </div>
@@ -738,8 +846,9 @@
             <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
             <div class="contact-item">
               <a
-                href="https://facebook.com/strativ"
+                href="https://www.facebook.com/profile.php?id=61580704943031"
                 target="_blank"
+                class="btn btn-link btn-sm"
                 style="display: flex; align-items: center; gap: 10px"
                 title="Follow us on Facebook"
               >
@@ -754,6 +863,7 @@
             <div class="contact-item">
               <a
                 href="mailto:strativ018@gmail.com"
+                class="btn btn-link btn-sm"
                 style="display: flex; align-items: center; gap: 10px"
                 title="Email Us"
               >

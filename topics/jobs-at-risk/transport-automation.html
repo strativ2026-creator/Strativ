@@ -20,6 +20,7 @@
     />
 
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
 
     <style>
       /* ===== RESET & BASE ===== */
@@ -72,6 +73,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center; /* 🔥 THIS FIXES THE LINE ISSUE */
       }
 
       nav a {
@@ -159,6 +161,8 @@
         bottom: 30px;
         left: 30px;
         pointer-events: none;
+
+        font-weight: 700;
       }
 
       /* ARTICLE CONTENT STYLES */
@@ -277,8 +281,135 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* Youtube Video */
+
+      .full-width-video {
+        width: 100%;
+        height: 400px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .full-width-video iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
+
+      /* ===== BOOTSTRAP BADGES (CUSTOM) ===== */
+      .badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 13px;
+        white-space: nowrap;
+        margin: 0 5px;
+        vertical-align: middle;
+      }
+
+      .badge-warning {
+        background-color: #f59e0b;
+        color: #1e1b4b;
+      }
+
+      .badge-danger {
+        background-color: #ef4444;
+        color: #ffffff;
+      }
+
+      .badge-primary {
+        background-color: #3b82f6;
+        color: #ffffff;
+      }
+
+      .badge-purple {
+        background-color: #a855f7;
+        color: #ffffff;
+      }
+
+      .badge-cyan {
+        background-color: #06b6d4;
+        color: #ffffff;
+      }
+
+      .badge-success {
+        background-color: #10b981;
+        color: #ffffff;
+      }
+
+      .badge-info {
+        background-color: #0ea5e9;
+        color: #ffffff;
+      }
+
+      .badge-pink {
+        background-color: #ec4899;
+        color: #ffffff;
+      }
+
+      /* DROPDOWN STYLES (CLEAN VERSION) */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(5px);
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.25s ease;
+      }
+
+      /* Show dropdown */
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        font-weight: 600;
+        color: #003049;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -304,18 +435,20 @@
               >Jobs at Risk</a
             >
             <a
-              href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+              href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
               >Emerging Careers</a
             >
             <a href="../human-ai-collab/overview-human-ai-collab.html"
               >Human + AI</a
             >
-            <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
+            <a href="../future-workforce-skills/overview-future-skills.html"
+              >Skills</a
+            >
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
             <a href="../preparing-student/overviewofpreparingstudentsai.html"
               >Students</a
             >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div>
@@ -422,19 +555,45 @@
             headlines.
           </p>
 
+          <div class="full-width-video">
+            <iframe
+              width="1314"
+              height="739"
+              src="https://www.youtube.com/embed/s_Ze2o8ixNM"
+              title="Transforming Transportation with AI"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
           <h2 id="market-explosion">The Market Explosion</h2>
           <p>
             The AI transportation market is experiencing explosive growth. The
             global market for artificial intelligence in transportation is
-            estimated to be worth $2.11 billion in 2024 and to increase to $6.51
-            billion by 2031, which is a compound annual growth rate (CAGR) of
-            17.5% from 2024 to 2031.
+            estimated to be worth
+            <span class="badge badge-primary">$2.11 billion in 2024</span> and
+            to increase to
+            <span class="badge badge-success">$6.51 billion by 2031</span>,
+            which is a compound annual growth rate (CAGR) of
+            <span class="badge badge-info">17.5%</span> from 2024 to 2031.
           </p>
           <p>
             The global artificial intelligence in transportation market reached
-            $5.53 billion in 2025. NVIDIA reported its full year automotive
-            revenue increased 21% to $1.1 billion in 2024, driven by AI cockpit
-            and self driving platform adoption.
+            <span class="badge badge-primary">$5.53 billion in 2025</span>.
+            NVIDIA reported its full year automotive revenue increased
+            <span class="badge badge-warning">21%</span> to
+            <span class="badge badge-success">$1.1 billion</span> in 2024,
+            driven by AI cockpit and self driving platform adoption.
           </p>
 
           <h2 id="autonomous-vehicles">
@@ -443,9 +602,9 @@
           <p>
             The reality of autonomous vehicles is far more nuanced than most
             media coverage suggests. According to Statista, there will be almost
-            58 million self driving cars on the road by 2030. This shows that
-            autonomous driving technology is making a lot of progress and
-            becoming a part of daily life.
+            <span class="badge badge-danger">58 million self driving cars</span>
+            on the road by 2030. This shows that autonomous driving technology
+            is making a lot of progress and becoming a part of daily life.
           </p>
           <p>
             However, Autonomous vehicles in 2026 represent a technology at an
@@ -464,16 +623,20 @@
           <p>
             Despite decades of headlines predicting their demise, truck drivers
             face remarkably low automation risk. Heavy and tractor-trailer truck
-            drivers face an overall AI exposure of just 10%—one of the lowest
-            rates among all 500 occupations tracked by AI Changing Work. The
-            automation risk is a mere 10 out of 100, and the core task of
-            driving and delivering cargo has an automation rate of only 5%.
+            drivers face an overall AI exposure of just
+            <span class="badge badge-cyan">10%</span>—one of the lowest rates
+            among all 500 occupations tracked by AI Changing Work. The
+            automation risk is a mere
+            <span class="badge badge-warning">10 out of 100</span>, and the core
+            task of driving and delivering cargo has an automation rate of only
+            <span class="badge badge-info">5%</span>.
           </p>
           <p>
-            The BLS projects +4% growth through 2034, meaning tens of thousands
-            of new trucking jobs are expected to be created, not eliminated. The
-            disconnect between headlines and reality comes down to several
-            factors:
+            The BLS projects
+            <span class="badge badge-success">+4% growth</span> through 2034,
+            meaning tens of thousands of new trucking jobs are expected to be
+            created, not eliminated. The disconnect between headlines and
+            reality comes down to several factors:
           </p>
           <ul>
             <li>
@@ -497,43 +660,66 @@
             </li>
           </ul>
           <p>
-            However, the caveat: The U.S. trucking industry could lose 1.5
-            million professional driving jobs by 2030 as autonomous vehicles
-            advance. At the same time, automation is expected to reduce
-            operating costs per mile by 38% and cut road safety incidents by
-            50%. This represents the long term potential, not the immediate
-            threat.
+            However, the caveat: The U.S. trucking industry could lose
+            <span class="badge badge-danger"
+              >1.5 million professional driving jobs</span
+            >
+            by 2030 as autonomous vehicles advance. At the same time, automation
+            is expected to reduce operating costs per mile by
+            <span class="badge badge-success">38%</span> and cut road safety
+            incidents by <span class="badge badge-success">50%</span>. This
+            represents the long term potential, not the immediate threat.
           </p>
 
           <h2 id="last-mile">Last Mile Delivery: Robots and Drones</h2>
           <p>
             The delivery sector is experiencing the most immediate
             transformation. The autonomous last mile delivery market is set to
-            grow from USD 28.50 billion in 2025 to USD 163.45 billion by 2033
-            (24.4% CAGR). Delivery robots will expand from USD 795.6 million in
-            2025 to USD 3,236.5 million by 2030 (32.4% CAGR). Robots can cut
-            delivery costs by 96%, from about USD 1.60 to USD 0.06.
+            grow from
+            <span class="badge badge-primary">USD 28.50 billion in 2025</span>
+            to
+            <span class="badge badge-success">USD 163.45 billion by 2033</span>
+            (<span class="badge badge-info">24.4% CAGR</span>). Delivery robots
+            will expand from
+            <span class="badge badge-warning">USD 795.6 million in 2025</span>
+            to
+            <span class="badge badge-success">USD 3,236.5 million by 2030</span>
+            (<span class="badge badge-info">32.4% CAGR</span>). Robots can cut
+            delivery costs by <span class="badge badge-danger">96%</span>, from
+            about USD 1.60 to USD 0.06.
           </p>
           <p>
             <strong>Real world deployment:</strong>
           </p>
           <ul>
             <li>
-              Starship's 2,700+ robots completed 9 million autonomous deliveries
-              across 7 countries in 2025. Backed by a USD 50 million investment,
-              the company plans to scale to over 12,000 autonomous robots by
-              2027.
+              Starship's
+              <span class="badge badge-success">2,700+ robots</span> completed
+              <span class="badge badge-warning"
+                >9 million autonomous deliveries</span
+              >
+              across 7 countries in 2025. Backed by a
+              <span class="badge badge-primary">USD 50 million investment</span
+              >, the company plans to scale to over
+              <span class="badge badge-success"
+                >12,000 autonomous robots by 2027</span
+              >.
             </li>
             <li>
-              Wing completed over 500,000 residential deliveries across three
-              continents and plans to expand to an additional 100 Walmart stores
+              Wing completed over
+              <span class="badge badge-success"
+                >500,000 residential deliveries</span
+              >
+              across three continents and plans to expand to an additional
+              <span class="badge badge-warning">100 Walmart stores</span>
               by 2026. Both companies already fulfill thousands of deliveries
               weekly in under 19 minutes, proving drone delivery at scale.
             </li>
           </ul>
           <p>
-            Drone deployment is accelerating: Gartner projects over 1 million
-            drones delivering retail goods by 2026, up from 20,000 today.
+            Drone deployment is accelerating: Gartner projects over
+            <span class="badge badge-info">1 million drones</span> delivering
+            retail goods by 2026, up from 20,000 today.
           </p>
 
           <div class="full-width-image">
@@ -591,34 +777,65 @@
             matching, and appointment scheduling.
           </p>
           <p>
-            C.H. Robinson reported using generative AI agents to complete more
-            than three million shipping related tasks, eliminating repetitive
-            manual work and allowing employees to focus on higher value
-            activities. This represents thousands of white collar jobs being
-            transformed or eliminated.
+            C.H. Robinson reported using generative AI agents to complete
+            <span class="badge badge-success"
+              >more than three million shipping related tasks</span
+            >, eliminating repetitive manual work and allowing employees to
+            focus on higher value activities. This represents thousands of white
+            collar jobs being transformed or eliminated.
           </p>
 
           <h2 id="smart-traffic">Smart Traffic & Congestion Management</h2>
           <p>
             AI is reshaping urban transportation at scale. AI enhances mobility
-            efficiency through smart traffic control, reducing congestion by up
-            to 25 percent in major cities. AI driven route optimization boosts
-            fuel efficiency by up to 15 percent, saving time and reducing
-            emissions for fleets.
+            efficiency through smart traffic control, reducing congestion by
+            <span class="badge badge-info">up to 25 percent</span> in major
+            cities. AI driven route optimization boosts fuel efficiency by
+            <span class="badge badge-cyan">up to 15 percent</span>, saving time
+            and reducing emissions for fleets.
           </p>
           <p>
             These systems reduce the need for traditional traffic management and
             route planning staff.
           </p>
 
+          <div class="full-width-video">
+            <iframe
+              width="1314"
+              height="739"
+              src="https://www.youtube.com/embed/12ESQgIDNV0"
+              title="AI Revolutionizing Transportation : A Deep Dive"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
           <h2 id="safety-benefits">Safety Benefits: The Silver Lining</h2>
           <p>
             Automation brings measurable safety improvements. Autonomous and AI
             assisted systems improve road safety, reducing accident risks by
-            20–30 percent through real time monitoring. For fleets: For fleets,
-            each USD 1 invested in ADAS yields about USD 5.09 in measurable
-            savings from fewer crashes and higher uptime, with front to rear
-            collisions reduced by 49% in real world use.
+            <span class="badge badge-cyan">20–30 percent</span> through real
+            time monitoring. For fleets: For fleets, each
+            <span class="badge badge-primary">USD 1 invested in ADAS</span>
+            yields about
+            <span class="badge badge-success"
+              >USD 5.09 in measurable savings</span
+            >
+            from fewer crashes and higher uptime, with
+            <span class="badge badge-warning"
+              >front to rear collisions reduced by 49%</span
+            >
+            in real world use.
           </p>
 
           <h2 id="emerging-jobs">Emerging Jobs in Transportation</h2>
@@ -647,11 +864,18 @@
           </h2>
           <p>
             Rather than full autonomy, the near term transformation involves AI
-            assisted driving. The ADAS market is set to expand from USD 33.9
-            billion in 2024 to USD 40.78 billion in 2026 and USD 107.11 billion
-            by 2035, indicating a 260% increase in under a decade. By Q1 2025,
-            over two thirds of vehicles sold in Europe included ADAS under the
-            EU General Safety Regulation.
+            assisted driving. The ADAS market is set to expand from
+            <span class="badge badge-primary">USD 33.9 billion in 2024</span> to
+            <span class="badge badge-success">USD 40.78 billion in 2026</span>
+            and
+            <span class="badge badge-danger">USD 107.11 billion by 2035</span>,
+            indicating a <span class="badge badge-info">260% increase</span> in
+            under a decade. By <span class="badge badge-warning">Q1 2025</span>,
+            over
+            <span class="badge badge-cyan"
+              >two thirds of vehicles sold in Europe</span
+            >
+            included ADAS under the EU General Safety Regulation.
           </p>
           <p>
             This represents gradual transformation rather than overnight
@@ -663,9 +887,14 @@
           <p>
             Waymo represents the closest thing to fully operational autonomous
             transportation at scale. Waymo's autonomous vehicles, for example,
-            have logged over 267 million autonomous miles as of the end of 2025.
-            McKinsey projects approximately 15% of new cars will be fully
-            autonomous by 2030.
+            have logged over
+            <span class="badge badge-success"
+              >267 million autonomous miles</span
+            >
+            as of the end of 2025. McKinsey projects approximately
+            <span class="badge badge-warning"
+              >15% of new cars will be fully autonomous by 2030</span
+            >.
           </p>
           <p>
             However, this represents a small fraction of total vehicles and is
@@ -685,7 +914,8 @@
           <h2 id="liability">The Liability Challenge: A Major Barrier</h2>
           <p>
             Unclear liability frameworks are slowing deployment. Liability for
-            autonomous vehicle crashes remains legally unclear as of 2025.
+            autonomous vehicle crashes remains
+            <span class="badge badge-danger">legally unclear as of 2025</span>.
             Potential liable parties include the vehicle manufacturer (if
             hardware defect caused the crash), the software developer (if
             algorithmic error or bug contributed), the fleet operator (if
@@ -715,14 +945,17 @@
           </h2>
           <p>
             According to DAT Freight & Analytics' 2026 Freight Focus report,
-            2025 marked a major turning point for technology adoption. AI,
-            automation, and advanced data tools moved from early experimentation
-            into real world deployment. In 2026, companies that use these tools
-            effectively are expected to gain a competitive advantage, while
-            those that hesitate risk falling behind. Across trucking, AI is no
-            longer optional. In 2026, it is becoming a foundational tool that
-            connects operations, security, maintenance, and future mobility into
-            a more data driven and resilient industry.
+            <span class="badge badge-warning"
+              >2025 marked a major turning point</span
+            >
+            for technology adoption. AI, automation, and advanced data tools
+            moved from early experimentation into real world deployment. In
+            2026, companies that use these tools effectively are expected to
+            gain a competitive advantage, while those that hesitate risk falling
+            behind. Across trucking, AI is no longer optional. In 2026, it is
+            becoming a foundational tool that connects operations, security,
+            maintenance, and future mobility into a more data driven and
+            resilient industry.
           </p>
 
           <h2 id="critical-distinction">The Critical Distinction</h2>
@@ -766,6 +999,8 @@
       </main>
     </div>
 
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
+
     <footer>
       <div class="footer-container">
         <div class="footer-brand">
@@ -786,16 +1021,33 @@
             <h4>Quick Links</h4>
             <div class="quick-links-grid">
               <div>
-                <a href="#">AI Workplace</a><br />
-                <a href="#">Emerging Careers</a><br />
-                <a href="#">Future Skills</a><br />
-                <a href="#">Students</a>
+                <a
+                  href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+                  >AI Workplace</a
+                ><br />
+                <a
+                  href="../emerging_ai_Careers/overview-of-emerging-ai-careers.html"
+                  >Emerging Careers</a
+                ><br />
+                <a href="../future-workforce-skills/overview-future-skills.html"
+                  >Future Skills</a
+                ><br />
+                <a
+                  href="../preparing-student/overviewofpreparingstudentsai.html"
+                  >Students</a
+                >
               </div>
               <div>
-                <a href="#">Jobs at Risk</a><br />
-                <a href="#">Collaboration</a><br />
-                <a href="#">Ethics</a><br />
-                <a href="#">Future Outlook</a>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+                  >Jobs at Risk</a
+                ><br />
+                <a href="../human-ai-collab/overview-human-ai-collab.html"
+                  >Collaboration</a
+                ><br />
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
+                <a href="../future-outlook-ai/overview-of-future-ai.html"
+                  >Future Outlook</a
+                >
               </div>
             </div>
           </div>
@@ -805,7 +1057,7 @@
             <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
             <div class="contact-item">
               <a
-                href="https://facebook.com/strativ"
+                href="https://www.facebook.com/profile.php?id=615807049430312"
                 target="_blank"
                 style="display: flex; align-items: center; gap: 10px"
                 title="Follow Strativ on Facebook"

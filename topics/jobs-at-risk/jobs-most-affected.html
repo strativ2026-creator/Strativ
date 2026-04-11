@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="../../css/style.css" />
 
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+
     <style>
       /* ===== RESET & BASE ===== */
       * {
@@ -67,6 +69,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center;
       }
 
       nav a {
@@ -154,6 +157,8 @@
         bottom: 30px;
         left: 30px;
         pointer-events: none;
+
+        font-weight: 700;
       }
 
       /* ARTICLE CONTENT STYLES */
@@ -253,8 +258,131 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* ===== BADGE STYLES ===== */
+      .badge-stat {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 900;
+        color: #fff;
+        font-size: 14px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      .badge-gold {
+        background: #fbbf24;
+        color: #1f2937;
+      }
+
+      .badge-cyan {
+        background: #06b6d4;
+        color: #fff;
+      }
+
+      .badge-gray {
+        background: #6b7280;
+        color: #fff;
+      }
+
+      .badge-red {
+        background: #ef4444;
+        color: #fff;
+      }
+
+      .badge-blue {
+        background: #3b82f6;
+        color: #fff;
+      }
+
+      .badge-purple {
+        background: #a855f7;
+        color: #fff;
+      }
+
+      .stat-highlight {
+        font-style: italic;
+        color: #0077b6;
+        font-weight: 600;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
+
+      /* Youtube Video */
+
+      .full-width-video {
+        width: 100%;
+        height: 400px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .full-width-video iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      /* DROPDOWN STYLES (CLEAN VERSION) */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        min-width: 220px;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(5px);
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.25s ease;
+      }
+
+      /* Show dropdown */
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        font-weight: 600;
+        color: #003049;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -280,18 +408,20 @@
               >Jobs at Risk</a
             >
             <a
-              href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+              href="../emerging_ai_careers/overview-of-emerging-ai-careers.html"
               >Emerging Careers</a
             >
             <a href="../human-ai-collab/overview-human-ai-collab.html"
               >Human + AI</a
             >
-            <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
+            <a href="../future-workforce-skills/overview-future-skills.html"
+              >Skills</a
+            >
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
             <a href="../preparing-student/overviewofpreparingstudentsai.html"
               >Students</a
             >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div>
@@ -380,6 +510,7 @@
           <a
             href="#top"
             id="scrollTopBtn"
+            class="btn btn-dark"
             title="Scroll back to top of the page"
             >↑</a
           >
@@ -403,17 +534,24 @@
           <ol>
             <li>
               <strong>Data Entry & Processing Clerks</strong><br />
-              69% of data processing tasks could be automated using current
-              technologies according to McKinsey Global Institute. AI could
-              impact more than 95,000 data entry jobs in London alone.
+              <span class="badge-stat badge-cyan">69% Automatable</span> of data
+              processing tasks could be automated using current technologies
+              according to McKinsey Global Institute.
+              <span class="badge-stat badge-gold">95,000 Jobs at Risk</span> AI
+              could impact more than 95,000 data entry jobs in London alone.
             </li>
             <li>
               <strong>Customer Service Representatives</strong><br />
-              Customer service and sales representatives—which make up about 5
+              <span class="badge-stat badge-red">5 Million Jobs</span> in
+              customer service and sales representatives—which make up about 5
               million jobs in the U.S.—will have to compete with AI.
               Self-checkout systems, mobile payment apps and cashier-less stores
               like Amazon Go are redefining retail checkout, with AI set to
-              displace up to 26,000 cashiers in London alone.
+              displace
+              <span class="badge-stat badge-purple"
+                >26,000 Cashiers (London)</span
+              >
+              up to 26,000 cashiers in London alone.
             </li>
             <li>
               <strong>Translators & Interpreters</strong><br />
@@ -432,9 +570,10 @@
             <li>
               <strong>Writers, Editors & Journalists</strong><br />
               While high-level editorial work remains human-led, the more
-              mechanical aspects of editing are becoming fully automated. This
-              widespread use of AI writing tools is predicted to reshape the
-              work of more than 22,000 editors in England's capital. News
+              mechanical aspects of editing are becoming fully automated.
+              <span class="badge-stat badge-blue">22,000 Editors (London)</span>
+              This widespread use of AI writing tools is predicted to reshape
+              the work of more than 22,000 editors in England's capital. News
               analysts, journalists and public relations specialists were also
               listed as jobs with tasks AI can perform effectively.
             </li>
@@ -469,20 +608,30 @@
 
           <h2 id="sector-disruption">Sector-Wide Disruption</h2>
 
-          <h3>Retail: 65% at Risk</h3>
+          <h3>
+            Retail: <span class="badge-stat badge-gold">65% at Risk</span>
+          </h3>
           <p>
             65% of retail jobs face automation by 2025 due to technological
             advances and cost pressures.
           </p>
 
-          <h3>Technology: 92% Transformed</h3>
+          <h3>
+            Technology:
+            <span class="badge-stat badge-red">92% Transformed</span>
+          </h3>
           <p>
             92% of IT jobs will be transformed by AI, hitting mid-level (40%)
-            and entry-level (37%) positions hardest. AI has eliminated 77,999
-            jobs in 2025 alone across 342 tech company layoffs.
+            and entry-level (37%) positions hardest.
+            <span class="badge-stat badge-purple">77,999 Jobs Lost (2025)</span>
+            AI has eliminated 77,999 jobs in 2025 alone across 342 tech company
+            layoffs.
           </p>
 
-          <h3>Manufacturing: 30% Automatable</h3>
+          <h3>
+            Manufacturing:
+            <span class="badge-stat badge-cyan">30% Automatable</span>
+          </h3>
           <p>
             Up to 30% of jobs could be automatable by mid-2030s, with men more
             affected due to autonomous vehicles and machinery.
@@ -496,8 +645,10 @@
 
           <h2 id="displaced-now">Who's Getting Displaced Right Now</h2>
           <p>
-            The impact isn't theoretical. 491 people are losing their jobs to AI
-            every single day in 2025. Major corporations are already acting:
+            The impact isn't theoretical.
+            <span class="badge-stat badge-red">491 Daily Losses</span> 491
+            people are losing their jobs to AI every single day in 2025. Major
+            corporations are already acting:
           </p>
 
           <ul>
@@ -527,25 +678,51 @@
             lower requirements. In other words, your college degree doesn't
             protect you anymore—it may even put you at higher risk.
           </p>
+
+          <div class="full-width-video">
+            <iframe
+              width="1396"
+              height="785"
+              src="https://www.youtube.com/embed/GwEjuhpo26o"
+              title="How AI is Ruining Education For Everyone"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
           <p>
-            40% of white-collar job seekers in 2024 failed to secure interviews
-            while high-paying positions ($96K+) hit decade-low hiring levels.
+            <span class="badge-stat badge-gold">40% No Interviews</span> 40% of
+            white-collar job seekers in 2024 failed to secure interviews while
+            high-paying positions ($96K+) hit decade-low hiring levels.
           </p>
 
           <h2 id="scale">The Scale: 85 Million vs 97 Million</h2>
           <p>
             While the numbers are alarming, there's a nuance that gets lost in
-            headlines. The World Economic Forum (WEF) reports that AI and
-            automation could displace 85 million jobs by 2025, but also create
-            97 million new roles more aligned with the division of labor between
+            headlines. The World Economic Forum (WEF) reports that
+            <span class="badge-stat badge-red">85M Displaced</span> AI and
+            automation could displace 85 million jobs by 2025, but also
+            <span class="badge-stat badge-blue">97M Created</span> create 97
+            million new roles more aligned with the division of labor between
             humans, machines, and algorithms.
           </p>
           <p>
             But here's the catch:
-            <strong
-              >77% of AI jobs require master's degrees, and 18% require doctoral
-              degrees.</strong
-            >
+            <strong>
+              <span class="badge-stat badge-purple">77% Masters Degrees</span>
+              77% of AI jobs require master's degrees, and
+              <span class="badge-stat badge-cyan">18% Doctorates</span> 18%
+              require doctoral degrees.
+            </strong>
             The new jobs being created require far more advanced education than
             the ones being eliminated.
           </p>
@@ -569,15 +746,19 @@
 
           <h2 id="timeline">The Timeline</h2>
           <p>
-            Based on expert predictions, 15-25% of jobs will experience
-            significant disruption by 2025-2027, with 5-10% net job displacement
-            after accounting for new job creation, and entry-level positions
-            facing the highest immediate risk, particularly in white-collar
-            sectors.
+            Based on expert predictions,
+            <span class="badge-stat badge-gold">15-25% Disrupted</span> 15-25%
+            of jobs will experience significant disruption by 2025-2027, with
+            <span class="badge-stat badge-red">5-10% Net Loss</span> 5-10% net
+            job displacement after accounting for new job creation, and
+            entry-level positions facing the highest immediate risk,
+            particularly in white-collar sectors.
           </p>
           <p>
-            This isn't a distant threat. 41% of companies across the globe
-            expect to reduce their workforce by 2030 due to AI automation.
+            This isn't a distant threat.
+            <span class="badge-stat badge-purple">41% Companies</span> 41% of
+            companies across the globe expect to reduce their workforce by 2030
+            due to AI automation.
           </p>
 
           <h2 id="industry-leaders">The Harsh Truth from Industry Leaders</h2>
@@ -592,6 +773,8 @@
         </div>
       </main>
     </div>
+
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
 
     <footer>
       <div class="footer-container">
@@ -618,10 +801,12 @@
                   >AI Workplace</a
                 ><br />
                 <a
-                  href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+                  href="../emerging_ai_Careers/overview-of-emerging-ai-careers.html"
                   >Emerging Careers</a
                 ><br />
-                <a href="../future-workforce-skills/">Future Skills</a><br />
+                <a href="../future-workforce-skills/overview-future-skills.html"
+                  >Future Skills</a
+                ><br />
                 <a
                   href="../preparing-student/overviewofpreparingstudentsai.html"
                   >Students</a
@@ -635,7 +820,9 @@
                   >Collaboration</a
                 ><br />
                 <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
-                <a href="../future-outlook-ai/">Future Outlook</a>
+                <a href="../future-outlook-ai/overview-of-future-ai.html"
+                  >Future Outlook</a
+                >
               </div>
             </div>
           </div>
@@ -645,7 +832,7 @@
             <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
             <div class="contact-item">
               <a
-                href="https://facebook.com/strativ"
+                href="https://www.facebook.com/profile.php?id=61580704943031"
                 target="_blank"
                 style="display: flex; align-items: center; gap: 10px"
                 title="Follow us on Facebook"

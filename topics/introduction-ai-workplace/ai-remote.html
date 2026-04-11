@@ -112,7 +112,7 @@ nav span.drop-title {
 /* ===== PAGE LAYOUT ===== */
 .page {
     display: grid;
-    grid-template-columns: 240px 1fr; 
+    grid-template-columns: 240px 1fr;
     gap: 30px;
     padding: 100px 6% 60px; 
     align-items: start;
@@ -126,6 +126,9 @@ nav span.drop-title {
     position: sticky;
     top: 100px;
     z-index: 10;
+    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
 }
 
 .sidebar h3 {
@@ -192,6 +195,7 @@ nav span.drop-title {
     color: #fff;
     font-family: Georgia, serif;
     font-size: 38px;
+    font-weight: bold;
     bottom: 30px;
     left: 30px;
     pointer-events: none;
@@ -457,15 +461,13 @@ footer {
                 <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
                 <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
                 <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
-                <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
+                <a href="../future-workforce-skills/">Skills</a>
                 <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
                 <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
                 <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
             </div>
         </div>
-        <div>
-            <span class="drop-title">Resources</span>
-        </div>
+        <a href="../../resources.html" title="Resources">Resources</a>
         <a href="../../about.html" title="About Strativ">About</a>
         <a href="../../contact.html" title="Contact Us">Contact</a>
     </nav>
@@ -566,6 +568,7 @@ footer {
 
             <h3>The Future: Flexibility Without Isolation</h3>
             <p>The goal of AI in remote work isn't to micromanage employees or create an Orwellian surveillance state; it is to create a seamless digital infrastructure. By automating the friction of remote logistics, security, and scheduling, AI allows remote workers to enjoy the flexibility of working from anywhere while maintaining the productivity and connection of working in the same room.</p>
+            <p style="margin-top: 60px; font-size: 14px; color: #94a3b8; font-style: italic; text-align: right;">Written by: Camilo, Gabriel Tristan L.</p>
         </div>
     </main>
 </div>
@@ -588,7 +591,7 @@ footer {
                     <div>
                         <a href="overview-introduction-ai-workplace.html">AI Workplace</a><br>
                         <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="../future-workforce-skills">Future Skills</a><br>
+                        <a href="../future-workforce-skills/overview-future-skills.html">Future Skills</a><br>
                         <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
                     </div>
                     <div>
@@ -623,7 +626,6 @@ footer {
 
     <div class="copyright-bar">
         <p>© 2026 University of the East. All rights reserved.</p>
-        <p>Author: <strong>Gabriel Tristan L. Camilo</strong></p>
     </div>
 </footer>
 
