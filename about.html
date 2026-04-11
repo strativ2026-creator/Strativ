@@ -7,15 +7,15 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" src="css/bootstrap.min.css">
-<target="team"></target>
-<!--Abordo, Jana Sayrielle G. -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
 
 <style>
-/* RESET */
+
+html {
+    scroll-behavior: smooth;
+}
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -23,9 +23,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #003049;
     background: #F8FAFC;
+    padding-top: 90px;
 }
 
-/* HEADER (EXACT COPY) */
+/* HEADER (UNCHANGED) */
 header {
     display: flex;
     justify-content: space-between;
@@ -52,7 +53,6 @@ header {
 .logo img {
     width: 40px;
     height: 40px;
-    object-fit: contain;
 }
 
 nav {
@@ -72,43 +72,8 @@ nav {
         color: #0077b6;
       }
 
-      /* DROPDOWN STYLES */
-      .nav-dropdown {
-        position: relative;
-      }
-
-      .nav-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        min-width: 220px;
-        opacity: 0;
-        visibility: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: opacity 0.3s ease;
-      }
-
-      .nav-dropdown-menu a {
-        padding: 12px 15px;
-        display: block;
-      }
-
-      .nav-dropdown:hover .nav-dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-      }
-
 .dropdown {
     position: relative;
-    display: inline-block;
-}
-
-.dropdown a {
-    cursor: pointer;
-    display: inline-block;
 }
 
 .dropdown-menu {
@@ -143,53 +108,35 @@ nav {
     visibility: visible;
 }
 
-/* ABOUT SECTION */
-.about {
-    padding: 140px 6% 100px;
-    max-width: 1100px;
-    margin: auto;
+/* CONTACT SECTION */
+.contact {
+    padding: 60px 6% 100px;
 }
 
-.about h1 {
+.contact h1 {
     font-family: Georgia, serif;
-    font-size: 42px;
+    font-size: 40px;
     color: #03045E;
-    margin-bottom: 20px;
+    text-align: center;
 }
 
-.about p {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #4a4a4a;
-    margin-bottom: 20px;
+.contact p {
+    font-size: 16px;
+    color: #6D6D6D;
+    margin-bottom: 50px;
+    text-align: center;
+
 }
 
-/* GRID SECTION */
-.about-grid {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+.team-anchor img {
+    width: 70%;        
+    max-width: 800px; 
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
 }
-
-.about-card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
-
-.about-card h3 {
-    font-family: Georgia, serif;
-    color: #03045E;
-    margin-bottom: 10px;
-}
-
-.about-card p {
-    font-size: 15px;
-}
-
-/* FOOTER (EXACT COPY) */
+/* ===== NAVY FOOTER (UPGRADED) ===== */
 footer {
     background: #03045E;
     color: #ffffff;
@@ -243,7 +190,6 @@ footer {
 .f-col h4 {
     font-size: 18px;
     margin-bottom: 15px;
-    text-decoration: underline;
 }
 
 .f-col a {
@@ -288,75 +234,16 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ABOUT LOGO */
-.about-logo {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.about-logo img {
-    width: 120px;
-    height: auto;
-}
-
-/* TEAM SECTION */
-.team {
-    margin-top: 80px;
-    text-align: center;
-}
-
-.team h2 {
-    font-family: Georgia, serif;
-    font-size: 32px;
-    color: #03045E;
-    margin-bottom: 20px;
-}
-
-.team img {
-    width: 100%;
-    max-width: 700px;
-    aspect-ratio: 16/9;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 1px solid #e2e8f0;
-}
-
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
-}
-
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
-}
-
 /* RESPONSIVE */
-@media (max-width: 900px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 1100px) {
+    .footer-container { flex-direction: column; }
+    .footer-links-group { gap: 30px; }
 }
 </style>
 </head>
 
-<body>
-<
-<!-- HEADER -->
+<body id="top">
+
 <header>
     <div class="logo">
         <img src="images/logo/logo.jpg" alt="Strativ Logo">
@@ -369,59 +256,128 @@ footer {
         <div class="dropdown">
             <a href="#topics">Topics ▾</a>
             <div class="dropdown-menu">
-                <a href="topics/introduction-ai-workplace/workplace-overview.htmlS">AI Workplace</a>
+                <a href="topics/introduction-ai-workplace/workplace-overview.html">AI Workplace</a>
                 <a href="topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
                 <a href="topics/emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
                 <a href="topics/human-ai-collab/overview.html">Human + AI</a>
-                <a href="topics/future-workforce-skills">Skills</a>
-                <a href="ai-ethics/overview-ai-ethics.html">Ethics</a>
+                <a href="topics/future-workforce-skills/overview-future-skills.html">Skills</a>
+                <a href="topics/ai-ethics/overview-ai-ethics.html">Ethics</a>
                 <a href="topics/preparing-student/overviewofpreparingstudentsai.html">Students</a>
                 <a href="topics/future-outlook-ai/">Future</a>
             </div>
         </div>
 
-        <div>
-            <a href="resources.html">Resources</a>
-        </div>
+        <a href="resources.html">Resources</a>
 
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
+<!-- ABOUT -->
+<section class="contact">
 
-<!-- ABOUT CONTENT -->
-<section class="about">
-    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
-    <h1 style="text-align: center;">About STRATIV</h1>
-    <p>
-        STRATIV is a forward-thinking platform dedicated to exploring how artificial intelligence is transforming the modern workforce. Our goal is to simplify complex ideas and make them accessible, helping individuals understand the impact of AI on jobs, industries, and future opportunities.
-    </p>
+    <h1 class="fw-bold mb-3 text-center">About STRATIV</h1>
+    <p class="text-center">Discover the people, purpose, and passion behind the platform.</p>
 
-    <p>
-        We believe that the future is not about humans versus machines, but humans working alongside AI. STRATIV empowers students, professionals, and curious minds to stay informed, adapt, and thrive in an AI-driven world.
-    </p>
+    <div class="container">
 
-    <div class="about-grid">
-        <div class="about-card">
-            <h3>Our Mission</h3>
-            <p>To educate and guide individuals in navigating the evolving landscape of AI and work.</p>
-        </div>
+        <!-- WHITE CARD -->
+        <div class="contact-form">
 
-        <div class="about-card">
-            <h3>Our Vision</h3>
-            <p>A future where humans and AI collaborate seamlessly to create smarter, more meaningful work.</p>
-        </div>
+            <!-- TOP CARDS -->
+            <div class="row g-4">
 
-        <div class="about-card">
-            <h3>Our Focus</h3>
-            <p>Delivering insights on AI trends, career shifts, and the skills needed for tomorrow.</p>
+                <!-- WHO WE ARE -->
+                <div class="col-md-6">
+                    <div class="p-4 border rounded h-100 shadow-sm">
+                        <h3 class="fw-bold mb-3" style="font-family: Georgia, serif;color: #03045E;">Who We Are</h3>
+                        <p style="line-height: 1.8; text-align: justify;">
+                            STRATIV is a student-driven platform focused on simplifying how artificial intelligence
+                            is shaping the modern workforce. We turn complex ideas into clear, understandable insights
+                            for learners and future professionals.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- WHAT MAKES STRATIV DIFFERENT -->
+                <div class="col-md-6">
+                    <div class="p-4 border rounded h-100 shadow-sm">
+                        <h3 class="fw-bold mb-3" style="font-family: Georgia, serif; color: #03045E;">
+                            What Makes STRATIV Different
+                        </h3>
+
+                        <ul class="ps-3" style="line-height: 1.8; color: #6D6D6D;">
+                            <li>Simplified AI explanations</li>
+                            <li>Real-world industry applications</li>
+                            <li>Student-friendly learning style</li>
+                            <li>Future-focused insights</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SECOND ROW -->
+            <div class="row g-4 mt-1">
+
+                <!-- WHO WE SERVE -->
+                <div class="col-md-6">
+                    <div class="p-4 border rounded h-100 shadow-sm">
+                        <h3 class="fw-bold mb-3" style="font-family: Georgia, serif; color: #03045E;">Who We Serve</h3>
+                        <p style="line-height: 1.8; text-align: justify;">
+                            STRATIV is designed for students, job seekers, and professionals who want to understand
+                            how AI is shaping careers and opportunities in the modern digital world.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- OUR APPROACH -->
+                <div class="col-md-6">
+                    <div class="p-4 border rounded h-100 shadow-sm">
+                        <h3 class="fw-bold mb-3" style="font-family: Georgia, serif; color: #03045E;">Our Approach</h3>
+                        <p style="line-height: 1.8; text-align: justify;">
+                            We combine research, creativity, and collaboration to deliver simple, engaging,
+                            and meaningful AI content for everyone.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TEAM -->
+            <div class="text-center mt-5">
+
+                <a href="images/team/group-pic.png" target="image_viewer" class="team-anchor">
+                    <img src="images/team/group-pic.png" alt="Meet the Team" title="Meet the Team"
+                        class="img-fluid rounded shadow team-img">
+                </a>
+
+                <p class="mt-3 mx-auto"
+                   style="max-width: 850px; line-height: 1.8; text-align: justify;">
+                    STRATIV is a team of passionate students dedicated to making AI knowledge simple,
+                    engaging, and accessible. Each member contributes skills in research, design, writing,
+                    and development to build this platform.
+                </p>
+
+            </div>
+
+            <!-- DARK BLUE BUTTON -->
+            <div class="text-center mt-4">
+
+                <a href="contact.html"
+                   class="btn fw-semibold px-4 p-2"
+                   style="background:#03045E; color:white; border-radius:6px;" title="Click">
+                    Contact Us
+                </a>
+
+            </div>
+
         </div>
     </div>
-    <div class="team">
-    <h2>The Creative Minds Behind STRATIV</h2>
-    <img src="images/team/group-pic.jpg" alt="STRATIV Team" title="STRATIV Team" target = "team">
-</div>
 </section>
+<a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+    ↑
+</a>
 
 <!-- FOOTER -->
 <footer>
@@ -437,7 +393,7 @@ footer {
 
         <div class="footer-links-group">
             <div class="f-col">
-                <h4>Quick Links</h4>
+                <h4 class="fw-bold text-decoration-underline">Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
                         <a href="topics/introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a><br>
@@ -449,13 +405,13 @@ footer {
                         <a href="topics/jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
                         <a href="topics/human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br>
                         <a href="topics/ai-ethics/overview-ai-ethics.html">Ethics</a><br>
-                        <a href="#">Future Outlook</a>
+                        <a href="topics/future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
                     </div>
                 </div>
             </div>
 
             <div class="f-col">
-                <h4>Contact Info</h4>
+                <h4 class="fw-bold text-decoration-underline">Contact Info</h4>
                 <p style="margin-bottom: 8px;"><strong>Follow Us:</strong></p>
                 
                 <div class="contact-item">
@@ -481,6 +437,6 @@ footer {
         <p>© 2026 STRATIV. All rights reserved.</p>
     </div>
 </footer>
-
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
