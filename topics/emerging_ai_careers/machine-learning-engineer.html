@@ -113,48 +113,49 @@ nav a:hover {
 
 /* ===== SIDEBAR ===== */
 .sidebar {
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    position: sticky;
-    top: 100px;
-    z-index: 10;
-}
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
+      }
 
-.sidebar-header {
-    background: #03045e;
-    color: #fff;
-    padding: 15px;
-    font-size: 13px;
-    border-radius: 10px 10px 0 0;
-    text-transform: uppercase;
-}
+      .sidebar h3 {
+        background: #03045e;
+        color: #fff;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 10px 10px 0 0;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
 
-.sidebar-menu a {
-    display: block;
-    padding: 12px 15px;
-    font-size: 14px;
-    color: #003049;
-    text-decoration: none;
-    border-top: 1px solid #e2e8f0;
-}
+      .sidebar a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #003049;
+        text-decoration: none;
+        border-top: 1px solid #e2e8f0;
+      }
 
-.sidebar-menu a:hover {
-    background: #f1f5f9;
-    color: #0077b6;
-}
+      .sidebar a:hover {
+        background: #f1f5f9;
+        color: #0077b6;
+      }
 
-.sidebar-menu a.active {
-    background: #eaeaea;
-    color: #0077b6;
-}
+      .sidebar a.active {
+        background: #eaeaea;
+        color: #0077b6;
+        font-weight: normal; /* Changed from 600 to normal */
+      }
 
-/* ===== MAIN ===== */
-.main {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
 
 /* ===== BANNER ===== */
 .banner {
@@ -421,7 +422,7 @@ footer {
 <div class="page">
 
 <div class="sidebar">
-    <div class="sidebar-header"><strong>Emerging AI Careers</strong></div>
+    <h3>Emerging AI Careers</h3>
 
     <div class="sidebar-menu">
         <a href="overview-of-emerging-ai-careers.html">Overview of Emerging AI Careers</a>
