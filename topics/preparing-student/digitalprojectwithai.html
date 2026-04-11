@@ -225,6 +225,35 @@
       #scrollTopBtn:hover {
         background-color: #0077b6;
       }
+
+      .dropdown {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  min-width: 220px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+
+  transition: all 0.2s ease;
+  z-index: 999;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
     </style>
   </head>
 
