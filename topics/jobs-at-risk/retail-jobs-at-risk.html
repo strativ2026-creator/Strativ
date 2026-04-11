@@ -20,6 +20,7 @@
     />
 
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
 
     <style>
       /* ===== RESET & BASE ===== */
@@ -72,6 +73,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center; /* 🔥 THIS FIXES THE LINE ISSUE */
       }
 
       nav a {
@@ -236,7 +238,7 @@
 
       .full-width-image {
         width: 100%;
-        height: 600px;
+        height: 500px;
         border-radius: 12px;
         overflow: hidden;
         margin: 30px 0;
@@ -277,8 +279,90 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
+
+      /* ===== BADGE STYLES ===== */
+      .badge {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 13px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+
+      .badge-warning {
+        background-color: #f59e0b;
+        color: #1a1a1a;
+      }
+
+      .badge-danger {
+        background-color: #ef4444;
+        color: #fff;
+      }
+
+      .badge-primary {
+        background-color: #3b82f6;
+        color: #fff;
+      }
+
+      .badge-purple {
+        background-color: #a855f7;
+        color: #fff;
+      }
+
+      .badge-cyan {
+        background-color: #06b6d4;
+        color: #fff;
+      }
+
+      .badge-success {
+        background-color: #10b981;
+        color: #fff;
+      }
+
+      /* Emphasis styles for important text */
+      em {
+        font-style: italic;
+        color: #0077b6;
+        font-weight: 600;
+      }
+
+      .highlight-danger {
+        color: #ef4444;
+        font-weight: 600;
+      }
+
+      .highlight-success {
+        color: #10b981;
+        font-weight: 600;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -315,7 +399,7 @@
             <a href="../preparing-student/overviewofpreparingstudentsai.html"
               >Students</a
             >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div class="dropdown">
@@ -420,79 +504,107 @@
           <h2 id="retail-jobs">Retail Jobs at Risk</h2>
           <p>
             Retail stands as one of the industries most profoundly transformed
-            by AI and automation. Unlike abstract future scenarios, the
-            disruption is happening now—visible in every shopping mall and
-            big-box store across the globe. The changes are reshaping both how
-            retail operates and who works in it.
+            by AI and automation.
+            <em
+              >Unlike abstract future scenarios, the disruption is happening
+              now</em
+            >—visible in every shopping mall and big-box store across the globe.
+            The changes are reshaping both how retail operates and who works in
+            it.
           </p>
 
           <h2 id="scale-automation">The Scale of Retail Automation Risk</h2>
           <p>
+            <span class="badge badge-danger">65% Risk by 2025</span>
             65% of retail jobs face automation by 2025 due to technological
             advances and cost pressures. This is largely due to technological
             advancements, rising costs and wages, tight labor markets, and
             reduced consumer spending.
           </p>
           <p>
-            To put this in perspective: Retail accounts for 40% of industries
-            most affected by AI-driven automation, making it second only to
-            manufacturing in terms of transformation scope.
+            To put this in perspective:
+            <em
+              >Retail accounts for 40% of industries most affected by AI-driven
+              automation</em
+            >, making it second only to manufacturing in terms of transformation
+            scope.
           </p>
 
           <h2 id="cashiers">Cashiers: The Hardest Hit</h2>
           <p>
             The most visible transformation is occurring in checkout and
-            point-of-sale positions. Self-checkout systems, mobile payment apps
-            and cashier-less stores like Amazon Go are redefining retail
-            checkout. Human cashiers are increasingly being replaced by
-            automated systems that streamline the entire point-of-sale process.
-            Today, AI has the ability to take care of every part of the
-            transaction, from item detection to payment processing. In London
-            alone, AI is set to displace up to 26,000 cashiers.
+            point-of-sale positions.
+            <strong
+              >Self-checkout systems, mobile payment apps and cashier-less
+              stores like Amazon Go</strong
+            >
+            are redefining retail checkout. Human cashiers are increasingly
+            being replaced by automated systems that streamline the entire
+            point-of-sale process. Today, AI has the ability to take care of
+            every part of the transaction, from item detection to payment
+            processing.
+            <span class="badge badge-warning">26,000 Cashiers at Risk</span> In
+            London alone, AI is set to displace up to 26,000 cashiers.
           </p>
           <p>
-            Specific company implementations show the scale: Walmart's
-            self-checkout expansion could replace 8,000 positions, while Sam's
-            Club's AI verification rollout is projected to eliminate 12,000
-            cashier jobs across its stores.
+            Specific company implementations show the scale:
+            <strong
+              >Walmart's self-checkout expansion could replace 8,000
+              positions</strong
+            >, while
+            <strong
+              >Sam's Club's AI verification rollout is projected to eliminate
+              12,000 cashier jobs</strong
+            >
+            across its stores.
           </p>
 
           <h2 id="tech-drivers">The Technological Drivers</h2>
           <p>
             Multiple AI technologies are converging to automate retail work.
-            Retail and customer service face the most direct AI impact on
-            front-line workers. Automation creates opportunities driven by
-            self-checkout systems, automated inventory management, and
-            AI-powered recommendation engines.
+            <em
+              >Retail and customer service face the most direct AI impact on
+              front-line workers.</em
+            >
+            Automation creates opportunities driven by self-checkout systems,
+            automated inventory management, and AI-powered recommendation
+            engines.
           </p>
           <p>
             From self-checkout machines to AI-powered booking systems,
-            automation is changing how people shop and travel. Grocery stores,
-            airports, and hotels are integrating AI to manage everything from
-            inventory to guest services. Also in hotels, AI concierge bots,
-            facial recognition check-in, and robot-cleaners are being tested to
-            offset labor shortages and rising operational costs.
+            automation is changing how people shop and travel.
+            <strong>Grocery stores, airports, and hotels</strong> are
+            integrating AI to manage everything from inventory to guest
+            services. Also in hotels,
+            <em
+              >AI concierge bots, facial recognition check-in, and
+              robot-cleaners</em
+            >
+            are being tested to offset labor shortages and rising operational
+            costs.
           </p>
 
           <h2 id="jobs-at-risk">The Retail Jobs Most at Risk</h2>
           <ol>
             <li>
-              <strong>Cashiers & Checkout Workers (Highest Risk)</strong> - The
-              most obvious displacement, with self-checkout now accounting for
+              <strong>Cashiers & Checkout Workers (Highest Risk)</strong> -
+              <span class="badge badge-danger">MOST VULNERABLE</span> The most
+              obvious displacement, with self-checkout now accounting for
               significant retail transactions. These roles are being eliminated
               fastest across the industry.
             </li>
             <li>
               <strong>Stock & Inventory Staff</strong> - Retailers are using
-              agentic AI to drive inventory optimization, shelf management,
-              checkout automation and predictive customer experiences. Automated
-              inventory systems are reducing the need for manual stock
-              management.
+              <em>agentic AI to drive inventory optimization</em>, shelf
+              management, checkout automation and predictive customer
+              experiences. Automated inventory systems are reducing the need for
+              manual stock management.
             </li>
             <li>
-              <strong>Customer Service Representatives</strong> - Chatbots and
-              AI-powered customer service systems handle routine inquiries and
-              complaints faster than human representatives.
+              <strong>Customer Service Representatives</strong> -
+              <em>Chatbots and AI-powered customer service systems</em> handle
+              routine inquiries and complaints faster than human
+              representatives.
             </li>
             <li>
               <strong>Retail Supervisors & Floor Managers</strong> - Lower-level
@@ -501,8 +613,8 @@
             </li>
             <li>
               <strong>Warehouse & Distribution Center Workers</strong> -
-              Automation in receiving, sorting, and shipping operations is
-              eliminating positions in retail supply chains.
+              <em>Automation in receiving, sorting, and shipping operations</em>
+              is eliminating positions in retail supply chains.
             </li>
             <li>
               <strong>Sales Associates in Routine Roles</strong> - Associates
@@ -515,88 +627,143 @@
           <p>The impact is not equally distributed across the workforce:</p>
           <ul>
             <li>
-              <strong>Age Factor:</strong> Young workers (22–25 years) are most
-              affected, with employment in AI-exposed roles falling 6–20%, while
-              older workers often see stable or growing employment.
+              <strong>Age Factor:</strong>
+              <span class="badge badge-warning"
+                >Young Workers (22-25) Most Affected</span
+              >
+              Young workers (22–25 years) are most affected, with employment in
+              AI-exposed roles falling 6–20%, while older workers often see
+              stable or growing employment.
             </li>
             <li>
-              <strong>Gender Disparity:</strong> In the U.S., 79% of employed
-              women work in jobs that are at high risk of automation, compared
-              to 58% of men. In high-income countries, jobs most vulnerable to
-              AI-driven task automation make up 9.6% of female employment, which
-              is almost three times the proportion for male jobs (3.2%).
+              <strong>Gender Disparity:</strong>
+              <em
+                >In the U.S., 79% of employed women work in jobs that are at
+                high risk of automation</em
+              >, compared to 58% of men. In high-income countries,
+              <span class="badge badge-danger">9.6% Female vs 3.2% Male</span>
+              jobs most vulnerable to AI-driven task automation make up 9.6% of
+              female employment, which is almost three times the proportion for
+              male jobs (3.2%).
             </li>
             <li>
-              <strong>Skill Level:</strong> Entry-level and less-educated
-              workers in retail face the steepest displacement risk, as their
-              positions are most vulnerable to direct automation.
+              <strong>Skill Level:</strong>
+              <strong>Entry-level and less-educated workers</strong> in retail
+              face the steepest displacement risk, as their positions are most
+              vulnerable to direct automation.
             </li>
           </ul>
 
           <h2 id="transformation">Workforce Transformation Challenges</h2>
           <p>
-            Workforce transformation will become a defining factor in retail,
-            with IDC projecting that by 2028, half of major retailers will
-            deploy advanced tools to close the digital and AI skills gap. It is
-            still unclear what the actual digital and AI skills needed to
-            successfully navigate retail roles as a store associate, store
-            manager or corporate retailer are. It makes more sense to bring
-            people on board who can learn and adapt quickly and arm them with
-            trust than to manage the tech and force employees to conform.
+            <em
+              >Workforce transformation will become a defining factor in
+              retail</em
+            >, with
+            <strong
+              >IDC projecting that by 2028, half of major retailers will deploy
+              advanced tools</strong
+            >
+            to close the digital and AI skills gap. It is still unclear what the
+            actual digital and AI skills needed to successfully navigate retail
+            roles as a store associate, store manager or corporate retailer are.
+            It makes more sense to bring people on board who can learn and adapt
+            quickly and arm them with trust than to manage the tech and force
+            employees to conform.
           </p>
           <p>
-            IDC projects that by 2027, 80% of agentic AI use cases will require
-            real-time, contextual data access pushing retailers toward federated
-            data architectures for greater agility and compliance.
+            <span class="badge badge-primary">2027 Deadline</span> IDC projects
+            that by 2027,
+            <strong
+              >80% of agentic AI use cases will require real-time, contextual
+              data access</strong
+            >
+            pushing retailers toward federated data architectures for greater
+            agility and compliance.
           </p>
 
           <h2 id="turnover">The Retail Turnover Problem</h2>
           <p>
             Even before AI acceleration, retail faced significant workforce
-            challenges. The retail sector's 24.9% turnover rate indicates
-            ongoing workforce instability. But AI tools that reduce repetitive
-            tasks and provide better customer insights may improve job
-            satisfaction for workers who embrace these technologies.
+            challenges.
+            <strong>The retail sector's 24.9% turnover rate</strong> indicates
+            ongoing workforce instability. But
+            <em
+              >AI tools that reduce repetitive tasks and provide better customer
+              insights may improve job satisfaction</em
+            >
+            for workers who embrace these technologies.
           </p>
 
           <h2 id="opportunities">Emerging Opportunities in Retail</h2>
           <p>
-            Despite the displacement, new roles are emerging within transformed
-            retail environments. AI-focused retail roles include: AI inventory
-            management specialists, data analysts interpreting customer
-            behavior, customer experience managers (high-touch relationships),
-            digital transformation coordinators, and omnichannel experience
-            designers.
+            <span class="badge badge-success">New Roles Emerging</span> Despite
+            the displacement, new roles are emerging within transformed retail
+            environments.
+            <strong
+              >AI-focused retail roles include: AI inventory management
+              specialists, data analysts interpreting customer behavior,
+              customer experience managers (high-touch relationships), digital
+              transformation coordinators, and omnichannel experience
+              designers.</strong
+            >
           </p>
           <p>
-            This automation creates opportunities for workers who can manage AI
-            systems, analyze customer data, and provide personalized service
-            that AI cannot replicate.
+            This automation creates opportunities for
+            <em
+              >workers who can manage AI systems, analyze customer data, and
+              provide personalized service that AI cannot replicate.</em
+            >
           </p>
 
           <h2 id="transition">
             Transition Pathways for At-Risk Retail Workers
           </h2>
           <p>
-            <strong>The Path Forward:</strong> Upskilling early helps to
-            "transition more smoothly and confidently into new roles." New roles
-            should focus on specialized support areas, like technical
-            troubleshooting, product training or client onboarding — areas where
-            empathy and product expertise are harder to automate. Workers in
-            these environments bring a valuable understanding of consumer
-            behavior to the table. Digital literacy and adaptability are key to
-            remaining competitive in the retail space.
+            <strong>The Path Forward:</strong>
+            <em
+              >Upskilling early helps to "transition more smoothly and
+              confidently into new roles."</em
+            >
+            New roles should focus on specialized support areas, like
+            <strong
+              >technical troubleshooting, product training or client
+              onboarding</strong
+            >
+            — areas where empathy and product expertise are harder to automate.
+            Workers in these environments bring a valuable understanding of
+            consumer behavior to the table.
+            <em>Digital literacy and adaptability</em> are key to remaining
+            competitive in the retail space.
           </p>
           <p>
             <strong>Critical skills to develop:</strong>
           </p>
           <ul>
-            <li>Customer relationship management</li>
-            <li>Data analytics and interpretation</li>
-            <li>Omnichannel experience design</li>
-            <li>Advanced customer service (for complex issues)</li>
-            <li>Inventory and supply chain analysis</li>
-            <li>Digital tool proficiency</li>
+            <li>
+              <span class="badge badge-cyan">Key Skill</span> Customer
+              relationship management
+            </li>
+            <li>
+              <span class="badge badge-cyan">Key Skill</span> Data analytics and
+              interpretation
+            </li>
+            <li>
+              <span class="badge badge-cyan">Key Skill</span> Omnichannel
+              experience design
+            </li>
+            <li>
+              <span class="badge badge-cyan">Key Skill</span> Advanced customer
+              service (for complex issues)
+            </li>
+            <li>
+              <span class="badge badge-cyan">Key Skill</span> Inventory and
+              supply chain analysis
+            </li>
+            <li>
+              <span class="badge badge-cyan">Key Skill</span> Digital tool
+              proficiency
+            </li>
           </ul>
 
           <div class="full-width-image">
@@ -614,92 +781,112 @@
 
           <h2 id="leading">The Companies Leading the Charge</h2>
           <p>
-            Major retailers are accelerating automation: Amazon Go with fully
-            automated cashier-less stores, Walmart with aggressive self-checkout
-            expansion, Sam's Club with AI verification rollout, and various
+            <strong>Major retailers are accelerating automation:</strong>
+            <em>Amazon Go</em> with fully automated cashier-less stores,
+            <em>Walmart</em> with aggressive self-checkout expansion,
+            <em>Sam's Club</em> with AI verification rollout, and various
             grocers where self-checkout now accounts for significant transaction
             volume.
           </p>
 
           <h2 id="retention">The Critical Retention Issue</h2>
           <p>
-            The transformation emphasizes human-AI collaboration. But here's
-            what the headlines miss: While AI eliminates some roles, it's
-            creating far more new ones for workers who embrace these
-            technologies and develop the right skills.
+            <em>The transformation emphasizes human-AI collaboration.</em> But
+            here's what the headlines miss:
+            <strong
+              >While AI eliminates some roles, it's creating far more new ones
+              for workers who embrace these technologies and develop the right
+              skills.</strong
+            >
           </p>
 
           <h2 id="geographic">Geographic Variation</h2>
           <p>The impact varies by location:</p>
           <ul>
             <li>
-              <strong>Urban centers:</strong> Higher automation adoption due to
-              technology access and higher labor costs
+              <strong>Urban centers:</strong>
+              <em>Higher automation adoption</em> due to technology access and
+              higher labor costs
             </li>
             <li>
-              <strong>Suburban areas:</strong> Mixed adoption depending on
-              company policy and local circumstances
+              <strong>Suburban areas:</strong> <em>Mixed adoption</em> depending
+              on company policy and local circumstances
             </li>
             <li>
-              <strong>Rural areas:</strong> Slower automation due to lower labor
-              replacement incentives and infrastructure challenges
+              <strong>Rural areas:</strong> <em>Slower automation</em> due to
+              lower labor replacement incentives and infrastructure challenges
             </li>
           </ul>
 
           <h2 id="paradox">The Paradox: Efficiency vs. Employment</h2>
           <p>
-            <strong>Convenience:</strong> Self-checkout kiosks can serve more
-            customers in less time without waiting for a cashier.
-            <strong>Personalization:</strong> AI uses customer data to make
-            tailored recommendations, increasing conversion rates.
+            <strong>Convenience:</strong>
+            <em>Self-checkout kiosks can serve more customers in less time</em>
+            without waiting for a cashier. <strong>Personalization:</strong>
+            <em>AI uses customer data to make tailored recommendations</em>,
+            increasing conversion rates.
           </p>
           <p>
-            Yet 41% of companies plan workforce cuts due to AI by 2030. The
-            retail sector is caught between the need for efficiency and the
-            consequences of workforce reduction. Companies that invest in
-            retraining existing workers—like Amazon's $700 million
-            commitment—position themselves better for long-term sustainability
-            and brand reputation.
+            Yet <span class="badge badge-danger">41% Plan Cuts</span>
+            <strong
+              >41% of companies plan workforce cuts due to AI by 2030.</strong
+            >
+            The retail sector is caught between the need for efficiency and the
+            consequences of workforce reduction.
+            <strong>Companies that invest in retraining existing workers</strong
+            >—like <em>Amazon's $700 million commitment</em>—position themselves
+            better for long-term sustainability and brand reputation.
           </p>
 
           <h2 id="bottom-line">The Bottom Line for Retail Workers</h2>
           <p>
-            Retail employment is undergoing fundamental transformation. The
-            traditional pathway—start as a cashier, advance to supervisor,
+            <em>Retail employment is undergoing fundamental transformation.</em>
+            The traditional pathway—start as a cashier, advance to supervisor,
             potentially to management—is disappearing for many. Instead, retail
             workers who survive and thrive will need to:
           </p>
           <ul>
             <li>
-              <strong>Embrace technology</strong> - Learn to work with AI
-              systems, not against them
+              <strong>Embrace technology</strong> -
+              <em>Learn to work with AI systems, not against them</em>
             </li>
             <li>
-              <strong>Develop soft skills</strong> - Emphasize emotional
-              intelligence and customer relationships
+              <strong>Develop soft skills</strong> -
+              <em
+                >Emphasize emotional intelligence and customer relationships</em
+              >
             </li>
             <li>
-              <strong>Gain analytical capability</strong> - Understand data,
-              customer behavior, inventory systems
+              <strong>Gain analytical capability</strong> -
+              <em>Understand data, customer behavior, inventory systems</em>
             </li>
             <li>
-              <strong>Build adaptability</strong> - Be ready to transition
-              multiple times throughout their careers
+              <strong>Build adaptability</strong> -
+              <em
+                >Be ready to transition multiple times throughout their
+                careers</em
+              >
             </li>
             <li>
-              <strong>Pursue upskilling early</strong> - Don't wait for
-              displacement to start learning
+              <strong>Pursue upskilling early</strong> -
+              <em>Don't wait for displacement to start learning</em>
             </li>
           </ul>
           <p>
-            By 2028, half of major retailers will deploy advanced tools to close
-            the digital and AI skills gap. The window for proactive upskilling
-            is closing—retail workers who haven't started developing AI-adjacent
-            skills are falling behind rapidly.
+            <span class="badge badge-warning">Window Closing</span> By 2028,
+            half of major retailers will deploy advanced tools to close the
+            digital and AI skills gap.
+            <strong>The window for proactive upskilling is closing</strong
+            >—<highlight-danger
+              >retail workers who haven't started developing AI-adjacent skills
+              are falling behind rapidly.</highlight-danger
+            >
           </p>
         </div>
       </main>
     </div>
+
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
 
     <footer>
       <div class="footer-container">
@@ -774,7 +961,7 @@
       </div>
 
       <div class="copyright-bar">
-        <p>© 2026 STRAT</p>
+        <p>© 2026 STRATIV. All rights reserved.</p>
       </div>
     </footer>
   </body>

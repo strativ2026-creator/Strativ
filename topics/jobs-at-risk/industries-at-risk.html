@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
 
     <style>
       /* ===== RESET & BASE ===== */
@@ -66,6 +67,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center; /* 🔥 THIS FIXES THE LINE ISSUE */
       }
 
       nav a {
@@ -219,6 +221,18 @@
         text-decoration: none;
       }
 
+      /* BOOTSTRAP INTEGRATION */
+      .article-section em {
+        color: #0077b6;
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      .article-section span {
+        display: inline;
+      }
+
+      /* Responsive adjustments */
       @media (max-width: 1100px) {
         .footer-container {
           flex-direction: column;
@@ -228,13 +242,15 @@
         }
       }
 
+      /* ADJUSTED FULL-WIDTH IMAGE */
       .full-width-image {
-        width: 100%;
-        height: 600px; /* same feel as hero banner */
+        width: 90%;
+        height: 380px;
         border-radius: 12px;
         overflow: hidden;
-        margin: 30px 0;
+        margin: 30px auto;
         position: relative;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
 
       .full-width-image img {
@@ -272,8 +288,35 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      #scrollTopBtn:hover {
+        background-color: #0077b6;
+        transform: scale(1.1);
+      }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -310,7 +353,7 @@
             <a href="../preparing-student/overviewofpreparingstudentsai.html"
               >Students</a
             >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div class="dropdown">
@@ -413,96 +456,137 @@
           <h2 id="industry-risk">Industries at Risk of Automation</h2>
           <p>
             Automation's impact is not evenly distributed across the economy.
-            Some industries are experiencing wholesale transformation, while
-            others remain largely protected. Understanding which sectors face
-            the greatest disruption is critical for workforce planning and
-            career decisions.
+            <span
+              >Some industries are experiencing
+              <em>wholesale transformation</em>, while others remain largely
+              protected.</span
+            >
+            Understanding which sectors face the greatest disruption is critical
+            for workforce planning and career decisions.
           </p>
 
           <h2 id="scale-disruption">The Scale of Industry Disruption</h2>
           <p>
             The World Economic Forum estimates that artificial intelligence will
-            replace 85 million jobs by 2026, with automation handling 34% of
-            tasks and more. A recent Goldman Sachs analysis warns that the total
-            number of jobs AI will replace could be around 300 million worldwide
+            replace <em>85 million jobs by 2026</em>, with automation handling
+            34% of tasks and more. A recent Goldman Sachs analysis warns that
+            the total number of jobs AI will replace could be around
+            <span><em>300 million worldwide</em></span>
             as automation accelerates.
           </p>
           <p>
             But the impact varies dramatically by sector. By 2030, the average
-            simulation shows that some 70% of companies will have embraced the
-            AI revolution and adopted at least one type of AI technology, but
-            less than half will have fully absorbed all five categories.
+            simulation shows that
+            <span
+              >some <em>70% of companies</em> will have embraced the AI
+              revolution and adopted at least one type of AI technology</span
+            >, but less than half will have fully absorbed all five categories.
           </p>
 
-          <h2 id="retail">Retail: The Automation Frontline (65% at Risk)</h2>
+          <h2 id="retail">
+            Retail: The Automation Frontline
+            <span class="badge bg-warning text-dark">(65% at Risk)</span>
+          </h2>
           <p>
-            Retail is experiencing the most visible transformation. 65% of
-            retail jobs could be automated, largely due to technological
-            advancements, rising costs and wages, tight labor markets, and
-            reduced consumer spending.
+            Retail is experiencing the most visible transformation.
+            <em>65% of retail jobs could be automated</em>, largely due to
+            technological advancements, rising costs and wages, tight labor
+            markets, and reduced consumer spending.
           </p>
           <p>
-            As of 2025, 72% of leisure and business travel bookings are made via
-            AI-enhanced systems that provide personalized recommendations,
-            dynamic pricing alerts, and multi-modal travel integration without
-            human assistance. Virtual travel advisors analyze user behavior,
-            preferences, and past travel data to curate seamless experiences
-            across flights, hotels, and excursions. This self-service model
-            drastically reduces the demand for human booking agents and
-            front-desk support roles in agencies and call centers.
+            As of 2025,
+            <span
+              ><em>72% of leisure and business travel bookings</em> are made via
+              AI-enhanced systems</span
+            >
+            that provide personalized recommendations, dynamic pricing alerts,
+            and multi-modal travel integration without human assistance. Virtual
+            travel advisors analyze user behavior, preferences, and past travel
+            data to curate seamless experiences across flights, hotels, and
+            excursions. This self-service model drastically reduces the demand
+            for human booking agents and front-desk support roles in agencies
+            and call centers.
           </p>
 
-          <h2 id="finance">Finance & Banking: One-Third Already Automated</h2>
+          <h2 id="finance">
+            Finance & Banking:
+            <span class="badge bg-info text-white"
+              >One-Third Already Automated</span
+            >
+          </h2>
           <p>
             The financial sector is leading the automation charge. AI is
-            expected to manage over $1.2 trillion in banking assets by 2025. In
-            the highly structured world of banking and finance, AI has made a
-            formidable entrance particularly in transaction processing,
-            compliance checks, fraud detection, and customer personalization.
-            Studies suggest that approximately one-third of transaction-handling
-            roles in financial institutions have already been automated.
+            expected to manage
+            <em>over $1.2 trillion in banking assets by 2025</em>. In the highly
+            structured world of banking and finance, AI has made a formidable
+            entrance particularly in transaction processing, compliance checks,
+            fraud detection, and customer personalization. Studies suggest that
+            <span
+              ><em>approximately one-third of transaction-handling roles</em> in
+              financial institutions have already been automated.</span
+            >
             Robo-advisors automatically adjust investment portfolios based on
             market conditions and client preferences, often outperforming manual
             fund managers in retail banking environments.
           </p>
 
-          <h2 id="legal">Legal Services: 39% of Document Review Automated</h2>
+          <h2 id="legal">
+            Legal Services:
+            <span class="badge bg-secondary"
+              >39% of Document Review Automated</span
+            >
+          </h2>
           <p>
             The legal profession is experiencing rapid transformation from the
-            bottom up. A 2024 legal tech report found that approximately 39% of
-            document review processes in large firms are now AI-assisted. These
-            tools can scan and extract relevant clauses, flag anomalies, and
-            identify precedent cases far faster than junior associates or
-            paralegals. This transformation has led to a decline in demand for
-            legal support staff especially those involved in manual document
-            processing, data entry, or legal research. While experienced lawyers
-            remain indispensable for courtroom advocacy, strategy, and client
-            negotiation, the traditional path of working one's way up from
-            paralegal to associate is becoming less viable.
+            bottom up. A 2024 legal tech report found that
+            <em>approximately 39% of document review processes</em> in large
+            firms are now AI-assisted. These tools can scan and extract relevant
+            clauses, flag anomalies, and identify precedent cases far faster
+            than junior associates or paralegals.
+            <span
+              >This transformation has led to
+              <em>a decline in demand for legal support staff</em> especially
+              those involved in manual document processing, data entry, or legal
+              research.</span
+            >
+            While experienced lawyers remain indispensable for courtroom
+            advocacy, strategy, and client negotiation, the traditional path of
+            working one's way up from paralegal to associate is becoming less
+            viable.
           </p>
 
           <h2 id="customer-service">
-            Customer Service: 80% Automation by 2025
+            Customer Service:
+            <span class="badge bg-danger">80% Automation by 2025</span>
           </h2>
           <p>
             Customer service represents one of the earliest casualties of AI
-            adoption. Medical transcriptionists and customer service
-            representatives are seeing employment projected to decline by 4.7
-            and 5.0 percent, respectively, through 2033, as AI impacts their
-            core tasks.
+            adoption.
+            <span
+              ><em
+                >Medical transcriptionists and customer service representatives
+                are seeing employment projected to decline by 4.7 and 5.0
+                percent, respectively, through 2033</em
+              ></span
+            >, as AI impacts their core tasks.
           </p>
           <p>
             The telemarketing landscape has been redefined by AI-enabled dialers
             and voice bots capable of initiating, managing, and even adapting
-            outbound sales conversations. Studies reveal that as of 2025, around
-            87% of routine outbound calls such as appointment confirmations,
-            surveys, and sales pitching are managed by AI systems. As a result,
-            human telemarketers are increasingly sidelined, especially in
-            entry-level roles.
+            outbound sales conversations. Studies reveal that as of 2025,
+            <em>around 87% of routine outbound calls</em> such as appointment
+            confirmations, surveys, and sales pitching are managed by AI
+            systems.
+            <span
+              >As a result,
+              <em>human telemarketers are increasingly sidelined</em>,
+              especially in entry-level roles.</span
+            >
           </p>
 
           <h2 id="manufacturing">
-            Manufacturing: Robotics & Physical Automation
+            Manufacturing:
+            <span class="badge bg-primary">Robotics & Physical Automation</span>
           </h2>
           <p>
             Manufacturing faces dual threats from both AI and robotics.
@@ -527,23 +611,36 @@
             </a>
           </div>
           <p>
-            Up to 30% of jobs could be automatable by the mid-2030s, with
-            slightly more men being affected in the long run as autonomous
-            vehicles and other machines replace many manual tasks where their
-            share of employment is higher.
+            <span
+              ><em>Up to 30% of jobs</em> could be automatable by the
+              mid-2030s</span
+            >, with slightly more men being affected in the long run as
+            autonomous vehicles and other machines replace many manual tasks
+            where their share of employment is higher.
           </p>
 
-          <h2 id="media">Media & Publishing: $300M+ in Annual Savings</h2>
+          <h2 id="media">
+            Media & Publishing:
+            <span class="badge bg-success">$300M+ in Annual Savings</span>
+          </h2>
           <p>
             The media industry is embracing automation to cut costs
-            dramatically. News automation is projected to save publishers $300
-            million+ annually by 2026. This includes automated article
-            generation, content optimization, and news aggregation traditionally
-            handled by journalists and editors.
+            dramatically.
+            <span
+              ><em
+                >News automation is projected to save publishers $300 million+
+                annually by 2026</em
+              ></span
+            >. This includes automated article generation, content optimization,
+            and news aggregation traditionally handled by journalists and
+            editors.
           </p>
 
           <h2 id="transportation">
-            Transportation & Logistics: 1.5M Trucking Jobs at Risk
+            Transportation & Logistics:
+            <span class="badge bg-warning text-dark"
+              >1.5M Trucking Jobs at Risk</span
+            >
           </h2>
           <p>
             Long-haul transportation faces existential disruption from
@@ -555,8 +652,11 @@
           <h2 id="telecommunications">Telecommunications & Administration</h2>
           <p>
             Routine administrative and telecommunications roles face significant
-            pressure. Automated voice tech increases lead processing speed by
-            over 40%.
+            pressure.
+            <em
+              >Automated voice tech increases lead processing speed by over
+              40%</em
+            >.
           </p>
 
           <div class="full-width-image">
@@ -572,23 +672,38 @@
             </a>
           </div>
 
-          <h2 id="healthcare">Healthcare: Transformation, Not Replacement</h2>
+          <h2 id="healthcare">
+            Healthcare:
+            <span class="badge bg-info text-white"
+              >Transformation, Not Replacement</span
+            >
+          </h2>
           <p>
             Healthcare presents a contrasting picture. Healthcare roles (nurses,
             therapists, aides) are projected to grow as AI augments rather than
-            replaces these jobs; for example, nurse practitioners are projected
-            to grow by 52% from 2023 to 2033, much faster than the average for
-            all occupations.
+            replaces these jobs; for example,
+            <span
+              ><em
+                >nurse practitioners are projected to grow by 52% from 2023 to
+                2033</em
+              ></span
+            >, much faster than the average for all occupations.
           </p>
 
           <h2 id="construction">
-            Construction & Skilled Trades: Protected Zones
+            Construction & Skilled Trades:
+            <span class="badge bg-secondary">Protected Zones</span>
           </h2>
           <p>
             Some industries remain remarkably resistant to automation.
-            Construction and skilled trades are among the least threatened by AI
-            automation. Installation, repair, and maintenance jobs are at lower
-            risk from AI and remain in demand.
+            <span
+              ><em
+                >Construction and skilled trades are among the least threatened
+                by AI automation.</em
+              ></span
+            >
+            Installation, repair, and maintenance jobs are at lower risk from AI
+            and remain in demand.
           </p>
 
           <h2 id="pattern">Pattern: Who's Most Vulnerable</h2>
@@ -596,34 +711,50 @@
             Across sectors, the jobs most exposed to AI include those that
             involve managing people, applying expertise, and social
             interactions, though machines remain unable to match human
-            performance in those areas – at least for now. Jobs that involve
-            managing people, exercising complex judgment, or performing
-            unpredictable physical work remain hard to automate.
+            performance in those areas – <span><em>at least for now</em></span
+            >. Jobs that involve managing people, exercising complex judgment,
+            or performing unpredictable physical work remain hard to automate.
           </p>
           <p>
-            It is crucial to recognize that not every job can be fully
-            automated. AI lacks genuine understanding, common sense, and
-            emotional intelligence. It excels at pattern recognition and
-            following rules, but if a situation falls outside its training data
-            or requires creativity, AI often falters. AI cannot truly replicate
-            the warmth and understanding of a human interaction.
+            It is crucial to recognize that
+            <span><em>not every job can be fully automated</em></span
+            >. AI lacks genuine understanding, common sense, and emotional
+            intelligence. It excels at pattern recognition and following rules,
+            but if a situation falls outside its training data or requires
+            creativity, AI often falters.
+            <span
+              ><em
+                >AI cannot truly replicate the warmth and understanding of a
+                human interaction</em
+              ></span
+            >.
           </p>
 
           <h2 id="acceleration">The Acceleration Ahead</h2>
           <p>
-            In 2025, 88% of organizations reported using AI in at least one
-            business function, up from 78% the previous year. This rise reflects
-            how deeply embedded AI is now in operations and decision making.
+            In 2025,
+            <span
+              ><em>88% of organizations reported using AI</em> in at least one
+              business function</span
+            >, up from 78% the previous year. This rise reflects how deeply
+            embedded AI is now in operations and decision making.
           </p>
           <p>
-            The trajectory is clear: industries with highly structured,
-            data-intensive, repetitive workflows are being automated first.
-            Those requiring human judgment, creativity, physical adaptability,
-            and emotional connection remain largely human-powered for now.
+            The trajectory is clear:
+            <span
+              ><em
+                >industries with highly structured, data-intensive, repetitive
+                workflows are being automated first</em
+              ></span
+            >. Those requiring human judgment, creativity, physical
+            adaptability, and emotional connection remain largely human-powered
+            for now.
           </p>
         </div>
       </main>
     </div>
+
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
 
     <footer>
       <div class="footer-container">
