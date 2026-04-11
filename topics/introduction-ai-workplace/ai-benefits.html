@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STRATIV | Benefits of AI in the Workplace</title>
 <link rel="icon" type="image/png" href="../../favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
 
 <style>
 /* ===== RESET & BASE ===== */
@@ -17,7 +19,7 @@
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 body {
@@ -43,7 +45,7 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-family: Georgia, serif;
     font-size: 24px;
     font-weight: bold;
@@ -53,11 +55,13 @@ header {
 .logo img {
     width: 40px;
     height: 40px;
+    object-fit: contain;
 }
 
 nav {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 nav a, nav span.drop-title {
@@ -92,6 +96,7 @@ nav span.drop-title {
     visibility: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: opacity 0.3s ease;
+    display: block; 
 }
 
 .dropdown-menu a {
@@ -107,13 +112,13 @@ nav span.drop-title {
 /* ===== PAGE LAYOUT ===== */
 .page {
     display: grid;
-    grid-template-columns: 260px 1fr; 
+    grid-template-columns: 240px 1fr; 
     gap: 30px;
-    padding: 120px 6% 60px;
+    padding: 100px 6% 60px; 
     align-items: start;
 }
 
-/* STICKY SIDEBAR */
+/* ===== STICKY SIDEBAR ===== */
 .sidebar {
     background: #fff;
     border: 1px solid #e2e8f0;
@@ -121,26 +126,26 @@ nav span.drop-title {
     position: sticky;
     top: 100px;
     z-index: 10;
-    overflow: hidden;
 }
 
 .sidebar h3 {
     background: #03045E;
     color: #fff;
-    padding: 15px;
-    font-size: 13px;
+    padding: 12px 15px;
+    font-weight: bold;
+    font-size: 12px;
     border-radius: 10px 10px 0 0;
     text-transform: uppercase;
+    margin-bottom: 0;
 }
 
 .sidebar a {
     display: block;
-    padding: 12px 15px;
-    font-size: 14px;
+    padding: 9px 15px;
+    font-size: 13px;
     color: #003049;
     text-decoration: none;
     border-top: 1px solid #e2e8f0;
-    transition: background 0.2s ease;
 }
 
 .sidebar a:hover {
@@ -148,12 +153,12 @@ nav span.drop-title {
     color: #0077B6;
 }
 
-/* Active Sidebar Link (Distinct Gray) */
 .sidebar a.active { 
     background: #ebebeb; 
     color: #0077B6; 
 }
 
+/* ===== MAIN CONTENT ===== */
 .main {
     display: flex;
     flex-direction: column;
@@ -177,7 +182,7 @@ nav span.drop-title {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(3,4,94,0.6);
+    background: rgba(3,4,94,0.5);
     pointer-events: none;
 }
 
@@ -192,22 +197,27 @@ nav span.drop-title {
     pointer-events: none;
 }
 
-/* ARTICLE CONTENT STYLES */
-.article-section {
+/* ===== TYPOGRAPHY & SECTIONS ===== */
+.content-section {
     background: #fff;
     padding: 35px;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
 }
 
-.article-section h2 {
+.content-section h2 {
     font-family: Georgia, serif;
     color: #03045E;
     margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 26px;
 }
 
-.article-section h3 {
+.content-section h2:first-child {
+    margin-top: 0;
+}
+
+.content-section h3 {
     font-family: Georgia, serif;
     color: #0077B6;
     margin-top: 25px;
@@ -215,33 +225,22 @@ nav span.drop-title {
     font-size: 20px;
 }
 
-.article-section p {
-    font-size: 15px;
+.content-section p, .content-section li {
+    font-size: 16px;
     line-height: 1.8;
     color: #475569;
-    margin-bottom: 15px;
-}
-
-.article-section ul {
-    margin-left: 20px;
     margin-bottom: 20px;
 }
 
-.article-section li {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #475569;
-    margin-bottom: 8px;
+.content-section ul {
+    margin-left: 20px;
+    margin-bottom: 25px;
 }
 
-.article-section strong {
-    color: #003049;
-}
-
-/* IMAGE LINKS */
+/* ===== IMAGE STYLES ===== */
 .image-link {
     display: block;
-    margin: 20px 0;
+    margin: 25px 0;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -253,40 +252,75 @@ nav span.drop-title {
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    opacity: 0.85; 
-    transition: opacity 0.3s ease;
+    opacity: 0.95;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .image-link:hover .content-img {
-    opacity: 1; 
+    opacity: 1;
 }
 
-/* ===== SCROLL TO TOP BUTTON ===== */
-#scrollTopBtn {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    background-color: #03045E; 
-    color: white; 
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; 
-    font-size: 20px; 
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border: 1px solid #ffffff;
-    transition: background-color 0.3s;
+/* ===== DATA TABLE ===== */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 35px;
 }
 
-#scrollTopBtn:hover {
-    background-color: #0077B6; 
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    text-align: left;
 }
 
-/* ===== NAVY FOOTER ===== */
+.custom-table th, .custom-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.custom-table th {
+    background: #f1f5f9;
+    color: #03045E;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.custom-table td {
+    font-size: 15px;
+    color: #475569;
+    vertical-align: middle;
+}
+
+.custom-table tr:last-child td {
+    border-bottom: none;
+}
+
+.custom-table tr:hover {
+    background: #f8fafc;
+}
+
+.task-cell {
+    font-weight: bold;
+    color: #003049;
+    width: 20%;
+}
+
+.before-cell {
+    width: 40%;
+    border-right: 1px dashed #cbd5e1;
+}
+
+.after-cell {
+    width: 40%;
+    color: #0284c7;
+    font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
 footer {
     background: #03045E;
     color: #ffffff;
@@ -301,9 +335,7 @@ footer {
     gap: 40px;
 }
 
-.footer-brand {
-    flex: 1;
-}
+.footer-brand { flex: 1; }
 
 .footer-logo-blocks {
     display: flex;
@@ -398,17 +430,18 @@ footer {
     header { flex-direction: column; gap: 15px; padding: 15px 5%; }
     nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
     .page { grid-template-columns: 1fr; padding: 130px 5% 40px; gap: 20px; }
-    .sidebar { position: static; border-radius: 8px; }
+    .sidebar { position: static; border-radius: 8px; width: 100%; }
     .inner-hero { height: 200px; }
     .inner-hero h1 { font-size: 28px; bottom: 20px; left: 20px; }
-    .article-section { padding: 20px; }
     .footer-links-group { flex-direction: column; gap: 30px; }
     .quick-links-grid { grid-template-columns: 1fr; }
+    .custom-table th, .custom-table td { font-size: 13px; padding: 10px; }
 }
 </style>
 </head>
 
-<body id="top"> 
+<body id="top">
+
 <header>
     <div class="logo">
         <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo">
@@ -417,31 +450,22 @@ footer {
 
     <nav>
         <a href="../../index.html" title="Go to Homepage">Home</a>
-
         <div class="dropdown">
             <span class="drop-title">Topics ▾</span>
             <div class="dropdown-menu">
                 <a href="overview-introduction-ai-workplace.html">AI Workplace</a>
                 <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <a href="../ai-ethics/overview-ai-ethics.html">Emerging Careers</a>
-                <a href="../ai-ethics/overview-ai-ethics.html">Human + AI</a>
-                <a href="../ai-ethics/overview-ai-ethics.html">Skills</a>
+                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+                <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
                 <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-                <a href="../ai-ethics/overview-ai-ethics.html">Students</a>
-                <a href="../ai-ethics/overview-ai-ethics.html">Future</a>
+                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
             </div>
         </div>
-
-        <div class="dropdown">
-            <span class="drop-title">Resources ▾</span>
-            <div class="dropdown-menu">
-                <a href="#">External Links</a>
-                <a href="#">Icons & Images</a>
-                <a href="#">Data & Reports</a>
-                <a href="#">Case Studies</a>
-            </div>
+        <div>
+            <span class="drop-title">Resources</span>
         </div>
-
         <a href="../../about.html" title="About Strativ">About</a>
         <a href="../../contact.html" title="Contact Us">Contact</a>
     </nav>
@@ -466,47 +490,83 @@ footer {
 
     <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="A team of professionals high-fiving in a modern office" title="Benefits of AI Hero Banner">
-            <h1>Benefits of AI in the Workplace</h1>
+            <a href="images/benefitheader.png" target="_blank" style="display: block; width: 100%; height: 100%;">
+                <img src="images/benefitheader.png" title="Benefits of AI in the Workplace" alt="Data analytics charts showing growth and success">
+                <h1>Benefits of AI in the Workplace</h1>
+            </a>
         </div>
 
-        <div class="article-section">
-            <h2>A Catalyst for Growth and Innovation</h2>
-            <p>The integration of Artificial Intelligence into the workplace is often met with apprehension, but the reality is that AI serves as a powerful catalyst for positive change. Organizations that successfully adopt AI technologies report not only higher profit margins and operational efficiency but also increased employee satisfaction. By acting as a digital co-pilot, AI allows humans to do what they do best.</p>
+        <div class="content-section">
+            <h2>Unlocking Unprecedented Value</h2>
+            <p>Integrating Artificial Intelligence into a company's infrastructure is no longer just about keeping up with trends; it is a strategic necessity that delivers measurable, transformative benefits. From dramatic cost savings to unlocking entirely new avenues of creativity, AI is proving to be a catalyst for organizational growth across all sectors.</p>
             
-            <h3>1. Automating the Mundane</h3>
-            <p>Perhaps the most immediate benefit of AI is the elimination of repetitive, tedious tasks. Data entry, scheduling, basic email sorting, and document formatting consume countless hours of human capital. Robotic Process Automation (RPA) and AI algorithms can handle these processes in a fraction of the time, virtually eliminating human error.</p>
-            <p><strong>The result:</strong> Employees are no longer bogged down by administrative busywork. Instead, their time and mental energy are freed up to focus on higher-level problem solving, strategy, and creative initiatives that actually drive business value.</p>
+            <h3>1. Exponential Increases in Efficiency and Speed</h3>
+            <p>The most immediate and highly visible benefit of AI is the automation of mundane, repetitive tasks. By handling high-volume data entry, automated scheduling, and routine customer inquiries, AI frees human employees from the "busywork" that eats into productive hours. Processes that used to take days of manual labor can now be executed in minutes, allowing projects to move forward at an unprecedented velocity.</p>
 
-            <a href="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2400&q=80" target="image_viewer" class="image-link">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80" alt="Coworkers collaborating positively while reviewing digital data on a laptop" title="Click to view Workplace Collaboration image in a separate tab" class="content-img">
+            <h3>2. Cost Reduction and Optimization</h3>
+            <p>AI significantly lowers operational costs. By predicting maintenance needs in manufacturing, optimizing supply chain logistics, and reducing errors in financial data, companies save millions. Furthermore, AI chatbots and virtual assistants handle tier-one customer support, allowing businesses to scale their services globally without linearly increasing their payroll overhead.</p>
+
+            <a href="images/commheader.png" target="_blank" class="image-link">
+                <img src="images/commheader.png" alt="Financial charts and business growth concepts" title="Click to view full image" class="content-img">
             </a>
 
-            <h3>2. Data-Driven Decision Making</h3>
-            <p>Human intuition is valuable, but in today's complex business environment, gut feelings must be backed by hard data. AI systems can process massive datasets at a speed and scale impossible for human analysts. Whether it's predicting supply chain disruptions, analyzing consumer trends, or identifying financial risks, AI uncovers hidden patterns and delivers actionable insights.</p>
-            <p>This empowers executives and managers to make faster, more accurate decisions, drastically reducing risk and improving the bottom line.</p>
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
 
-            <h3>3. Enhancing the Employee Experience</h3>
-            <p>AI doesn't just improve the company's output; it can directly improve the lives of the people working there.</p>
+            <h2>Business Outcomes: Before & After AI</h2>
+            <p>To understand the true ROI of Artificial Intelligence, consider how it fundamentally shifts the outcomes of standard business operations.</p>
+
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Business Area</th>
+                            <th>Traditional Approach (Before AI)</th>
+                            <th>AI-Powered Benefit (After AI)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="task-cell">Data Analysis</td>
+                            <td class="before-cell">Analysts spending weeks manually compiling spreadsheets to find historical trends.</td>
+                            <td class="after-cell">Real-time processing of massive datasets, offering instant predictive insights and forecasts.</td>
+                        </tr>
+                        <tr>
+                            <td class="task-cell">Error Reduction</td>
+                            <td class="before-cell">Human fatigue leading to costly typos in legal documents, codebases, or accounting.</td>
+                            <td class="after-cell">Near-zero error rates in repetitive tasks, with AI actively flagging anomalies before they become issues.</td>
+                        </tr>
+                        <tr>
+                            <td class="task-cell">Customer Service</td>
+                            <td class="before-cell">Long hold times, restricted to 9-to-5 operating hours, leading to customer frustration.</td>
+                            <td class="after-cell">24/7 instant resolution for common queries via intelligent, multilingual conversational agents.</td>
+                        </tr>
+                        <tr>
+                            <td class="task-cell">Employee Training</td>
+                            <td class="before-cell">One-size-fits-all training modules that fail to address individual learning gaps.</td>
+                            <td class="after-cell">Adaptive learning platforms that customize training pace and content to the specific user's needs.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0;">
+
+            <h3>3. Enhanced, Data-Driven Decision Making</h3>
+            <p>Humans are prone to cognitive bias; AI is not. By processing vast amounts of structured and unstructured data, AI tools provide executives with objective, holistic views of their market. Whether it's analyzing consumer sentiment across social media or tracking real-time fluctuations in global supply chains, AI equips leaders with the hard facts needed to make confident, strategic pivots.</p>
+
+            <a href="images/benefit2.png" target="_blank" class="image-link">
+                <img src="images/benefit2.png" alt="Team members smiling and shaking hands in a modern office" title="Click to view full image" class="content-img">
+            </a>
+
+            <h3>4. Fostering Human Creativity and Innovation</h3>
+            <p>Perhaps counterintuitively, one of the greatest benefits of AI is that it makes work <em>more</em> human. When an AI tool drafts the initial outline for a report, generates base code, or handles the logistics of scheduling, the human worker's cognitive load is lightened. This allows employees to redirect their energy toward higher-level thinking: complex problem-solving, emotional intelligence, strategic innovation, and building meaningful client relationships.</p>
+
             <ul>
-                <li><strong>Skill Development:</strong> AI-driven learning management systems (LMS) can identify an employee's knowledge gaps and curate personalized training programs to help them advance their careers.</li>
-                <li><strong>Burnout Prevention:</strong> As discussed in our Remote Work section, AI can monitor aggregate workflow data to identify systemic overwork, prompting management to redistribute tasks before employees burn out.</li>
-                <li><strong>Onboarding:</strong> Chatbots serve as a 24/7 HR assistant, guiding new hires through paperwork, answering policy questions, and easing the transition into the company culture.</li>
+                <li><strong>Idea Generation:</strong> Using Generative AI to overcome the "blank page" syndrome by brainstorming dozens of concepts in seconds.</li>
+                <li><strong>Personalized Experiences:</strong> Delivering hyper-targeted marketing campaigns and personalized product recommendations that delight users.</li>
+                <li><strong>Safer Work Environments:</strong> In industrial settings, AI-driven robots handle hazardous tasks, drastically reducing workplace injuries.</li>
             </ul>
 
-            <a href="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=2400&q=80" target="image_viewer" class="image-link">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" 
-                    alt="A smiling woman working comfortably at her desk, representing positive employee experience" 
-                    title="Click to view Employee Satisfaction image in a separate tab" 
-                    class="content-img">
-            </a>
-
-            <h3>4. 24/7 Availability and Customer Satisfaction</h3>
-            <p>In a globalized economy, customers expect instant support regardless of the time zone. AI-powered chatbots and virtual assistants provide immediate, round-the-clock responses to basic customer inquiries. By the time a human representative takes over the conversation during normal business hours, the AI has already collected the necessary context and triaged the issue.</p>
-            <p>This hybrid approach ensures customers feel heard immediately while reserving human empathy and complex problem-solving skills for the issues that truly require them.</p>
-
-            <h3>The Bottom Line</h3>
-            <p>The ultimate benefit of AI in the workplace is <strong>augmentation, not replacement</strong>. By handling the heavy lifting of data processing and routine tasks, AI elevates the role of the human worker, transforming the workplace into an environment where creativity, empathy, and strategic thinking take center stage.</p>
         </div>
     </main>
 </div>
@@ -527,16 +587,16 @@ footer {
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="ai-workplace-overview.html">AI Workplace</a><br>
-                        <a href="#">Emerging Careers</a><br>
-                        <a href="#">Future Skills</a><br>
-                        <a href="#">Students</a>
+                        <a href="overview-introduction-ai-workplace.html">AI Workplace</a><br>
+                        <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
+                        <a href="../future-workforce-skills">Future Skills</a><br>
+                        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
                     </div>
                     <div>
-                        <a href="#">Jobs at Risk</a><br>
-                        <a href="#">Collaboration</a><br>
-                        <a href="#">Ethics</a><br>
-                        <a href="#">Future Outlook</a>
+                        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
+                        <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br>
+                        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br>
+                        <a href="../future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -564,10 +624,14 @@ footer {
 
     <div class="copyright-bar">
         <p>© 2026 University of the East. All rights reserved.</p>
+        <p>Author: <strong>Gabriel Tristan L. Camilo</strong></p>
     </div>
 </footer>
 
-<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+<a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
+    ↑
+</a>
+<script src="../../js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

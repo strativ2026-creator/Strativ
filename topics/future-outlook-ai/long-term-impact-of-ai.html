@@ -50,6 +50,7 @@
         font-size: 24px;
         font-weight: bold;
         color: #03045e;
+        text-decoration: none; /* Added to prevent link underline */
       }
 
       .logo img {
@@ -163,6 +164,13 @@
         border-radius: 12px;
         overflow: hidden;
         position: relative;
+      }
+
+      /* Added so the hero image link functions correctly in the layout */
+      .inner-hero a {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .inner-hero img {
@@ -395,10 +403,10 @@
 
 <body id="top">
     <header>
-      <div class="logo">
+      <a href="../../index.html" class="logo" title="Go to Homepage">
         <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo" />
         STRATIV
-      </div>
+      </a>
 
       <nav>
         <a href="../../index.html" title="Go to Homepage">Home</a>
@@ -409,20 +417,14 @@
             <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
             <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
             <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
-            <a href="../future-workforce-skills/">Skills</a>
+            <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
             <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
             <a href="overview-of-future-ai.html">Future</a>
           </div>
         </div>
-        <div class="nav-dropdown">
-          <a href="../../resources.html" title="View Resources">Resources ▾</a>
-          <div class="nav-dropdown-menu">
-            <a href="../../resources/external-links.html">External Links</a>
-            <a href="../../resources/icons-images.html">Icons & Images</a>
-            <a href="../../resources/data-reports.html">Data & Reports</a>
-            <a href="../../resources/case-studies.html">Case Studies</a>
-          </div>
+        <div>
+          <a href="../../resources.html" title="View Resources">Resources</a>
         </div>
         <a href="../../about.html" title="About Strativ">About</a>
         <a href="../../contact.html" title="Contact Us">Contact</a>
@@ -448,7 +450,9 @@
 
       <main class="main">
         <div class="inner-hero">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Futuristic view of Earth and space representing long-term impact">
+            <a href="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" target="image_viewer" title="View full image">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Futuristic view of Earth and space representing long-term impact" title="Long-Term Impact of AI Hero Image" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
+            </a>
             <h1>Long-Term Impact of Artificial Intelligence</h1>
         </div>
 
@@ -458,7 +462,7 @@
             <p><strong>The "Post-Scarcity" Vision:</strong> A theoretical future where AI and robotics handle all essential production (food, energy, manufacturing), potentially ending poverty and shifting human focus from survival to self-actualization and creative exploration.</p>
 
             <a href="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80" target="image_viewer" class="d-block text-center my-4">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80" alt="Technology changing humanity" title="Click to view full image in a new tab" class="img-fluid border border-5 border-dark rounded mx-auto d-block" />
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80" alt="Technology changing humanity" title="Technology Changing Humanity" class="img-fluid border border-5 border-dark rounded mx-auto d-block" />
             </a>
 
             <h3>How Long-Term AI Integration Reshapes Humanity</h3>
