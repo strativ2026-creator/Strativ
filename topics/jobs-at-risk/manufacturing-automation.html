@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="../../css/style.css" />
 
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+
     <style>
       /* ===== RESET & BASE ===== */
       * {
@@ -67,6 +69,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center; /* 🔥 THIS FIXES THE LINE ISSUE */
       }
 
       nav a {
@@ -169,6 +172,11 @@
         color: #03045e;
         margin-bottom: 20px;
         font-size: 26px;
+        margin-top: 30px;
+      }
+
+      .article-section h2:first-child {
+        margin-top: 0;
       }
 
       .article-section h3 {
@@ -231,7 +239,7 @@
 
       .full-width-image {
         width: 100%;
-        height: 600px;
+        height: 400px;
         border-radius: 12px;
         overflow: hidden;
         margin: 30px 0;
@@ -272,8 +280,85 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #94a3b8;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
+
+      /* Bootstrap Badge Customization */
+      .badge {
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 12px;
+        margin-right: 8px;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+
+      /* Bootstrap Card for Key Stats */
+      .info-card {
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        margin: 20px 0;
+      }
+
+      .info-card .card-body {
+        padding: 25px;
+      }
+
+      .info-card .card-title {
+        color: #03045e;
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .info-card .card-text {
+        color: #475569;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* Bootstrap Button Customization */
+      .btn-custom {
+        border-radius: 6px;
+        padding: 10px 20px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Alert customization */
+      .alert-custom {
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        margin: 20px 0;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -291,14 +376,26 @@
         <div class="dropdown">
           <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
           <div class="dropdown-menu">
-            <a href="ai.html">AI Workplace</a>
-            <a href="#">Jobs at Risk</a>
-            <a href="#">Emerging Careers</a>
-            <a href="#">Human + AI</a>
-            <a href="#">Skills</a>
-            <a href="#">Ethics</a>
-            <a href="#">Students</a>
-            <a href="#">Future</a>
+            <a
+              href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+              >AI Workplace</a
+            >
+            <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+              >Jobs at Risk</a
+            >
+            <a
+              href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+              >Emerging Careers</a
+            >
+            <a href="../human-ai-collab/overview-human-ai-collab.html"
+              >Human + AI</a
+            >
+            <a href="../future-workforce-skills/">Skills</a>
+            <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+            <a href="../preparing-student/overviewofpreparingstudentsai.html"
+              >Students</a
+            >
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div>
@@ -404,12 +501,29 @@
             and accelerating faster than most anticipated.
           </p>
 
+          <!-- Bootstrap Badges Section -->
+          <div style="margin: 20px 0; display: flex; flex-wrap: wrap">
+            <span class="badge bg-primary">AI Transformation</span>
+            <span class="badge bg-info">Robotics</span>
+            <span class="badge bg-warning text-dark">Industry 4.0</span>
+            <span class="badge bg-danger">Job Displacement</span>
+          </div>
+
           <h2 id="market-boom">The Market is Booming</h2>
-          <p>
-            The global market value of industrial robot installations has
-            reached an all time high of US$ 16.7 billion. This isn't a niche
-            trend—it's a comprehensive industrial restructuring.
-          </p>
+
+          <!-- Bootstrap Card for Key Stat -->
+          <div class="card info-card border-0">
+            <div class="card-body bg-light">
+              <h5 class="card-title">Global Industrial Robot Market</h5>
+              <p class="card-text">
+                The global market value of industrial robot installations has
+                reached an all-time high of <strong>US$ 16.7 billion</strong>.
+                This isn't a niche trend—it's a comprehensive industrial
+                restructuring.
+              </p>
+            </div>
+          </div>
+
           <p>
             Manufacturing jobs have been declining since February 2023, now
             reaching the lowest level since the onset of the COVID 19 pandemic.
@@ -518,6 +632,13 @@
             thinking brands are switching on their competitive edge.
           </p>
 
+          <!-- Bootstrap Alert for Cost Reduction -->
+          <div class="alert alert-success alert-custom" role="alert">
+            <strong>💡 Key Insight:</strong> Organizations implementing
+            lights-out manufacturing report cost reductions of up to
+            <strong>45%</strong> in operational expenses.
+          </div>
+
           <div class="full-width-image">
             <a href="../../images/others/robotarm.jpg" target="image_viewer">
               <img
@@ -529,6 +650,24 @@
           </div>
 
           <h2 id="amazon-example">Real World Deployment: Amazon's Example</h2>
+
+          <!-- Bootstrap Card for Amazon Stats -->
+          <div class="card info-card border-0">
+            <div class="card-body">
+              <h5 class="card-title">Amazon's Robotic Fleet Impact</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <strong>1M+ robots</strong> across 300 fulfillment centers
+                </li>
+                <li><strong>25% boost</strong> in efficiency</li>
+                <li><strong>10% increase</strong> in travel efficiency</li>
+                <li>
+                  <strong>30% more skilled jobs</strong> created at test sites
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <p>
             Amazon has over a million robots across its 300 fulfillment centres.
             They collaborate with human employees to handle repetitive tasks,
@@ -555,6 +694,15 @@
           </p>
 
           <h2 id="skills-gap">The Skills Gap Crisis</h2>
+
+          <!-- Bootstrap Alert for Skills Gap -->
+          <div class="alert alert-warning alert-custom" role="alert">
+            <strong>⚠️ Critical Issue:</strong> By 2033, U.S. manufacturers may
+            need <strong>3.8 million new workers</strong>, but as many as
+            <strong>1.9 million jobs could remain unfilled</strong> due to
+            skills gaps.
+          </div>
+
           <p>
             Despite the opportunity, there's a critical shortage of workers
             prepared for the new manufacturing landscape. By 2033, U.S.
@@ -600,6 +748,15 @@
           </p>
 
           <h2 id="cybersecurity">Cybersecurity Risks in Automation</h2>
+
+          <!-- Bootstrap Alert for Security -->
+          <div class="alert alert-danger alert-custom" role="alert">
+            <strong>🔒 Security Threat:</strong> Manufacturing is the most
+            targeted industry for cyberattacks. Jaguar Land Rover's recent
+            attack cost <strong>$260 million</strong> and caused a
+            <strong>24% revenue decline</strong>.
+          </div>
+
           <p>
             Automation comes with vulnerability: Manufacturing has been the most
             targeted industry for the last four years, according to IBM's X
@@ -670,21 +827,39 @@
           </p>
 
           <h2 id="bottom-line">Bottom Line</h2>
-          <p>
-            Manufacturing automation is not coming—it's here and accelerating at
-            record pace. Workers should see this as a new opportunity. AI
-            doesn't work on its own—it needs people to set it up, guide it, and
-            interpret what it finds. The factories of 2030 will look
-            fundamentally different from those of today, but they won't be
-            empty. They'll be staffed by workers trained in robotics management,
-            AI oversight, predictive maintenance, and advanced problem solving.
-            The question for manufacturing workers isn't whether automation will
-            affect them—it's whether they'll be part of building the future or
-            left behind by it.
+
+          <!-- Bootstrap Card for Conclusion -->
+          <div
+            class="card info-card border-0"
+            style="
+              background: linear-gradient(135deg, #03045e 0%, #0077b6 100%);
+              color: white;
+            "
+          >
+            <div class="card-body">
+              <h5 class="card-title" style="color: white">Key Takeaway</h5>
+              <p class="card-text" style="color: #e8f4f8">
+                Manufacturing automation is not coming—it's here and
+                accelerating at record pace. The factories of 2030 will look
+                fundamentally different, but they won't be empty. They'll be
+                staffed by workers trained in robotics management, AI oversight,
+                predictive maintenance, and advanced problem solving. The
+                question for manufacturing workers isn't whether automation will
+                affect them—it's whether they'll be part of building the future
+                or left behind by it.
+              </p>
+            </div>
+          </div>
+
+          <p style="margin-top: 20px">
+            AI doesn't work on its own—it needs people to set it up, guide it,
+            and interpret what it finds.
           </p>
         </div>
       </main>
     </div>
+
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
 
     <footer>
       <div class="footer-container">
@@ -706,16 +881,33 @@
             <h4>Quick Links</h4>
             <div class="quick-links-grid">
               <div>
-                <a href="#">AI Workplace</a><br />
-                <a href="#">Emerging Careers</a><br />
-                <a href="#">Future Skills</a><br />
-                <a href="#">Students</a>
+                <a
+                  href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+                  >AI Workplace</a
+                ><br />
+                <a
+                  href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+                  >Emerging Careers</a
+                ><br />
+                <a href="../future-workforce-skills/overview-future-skills.html"
+                  >Future Skills</a
+                ><br />
+                <a
+                  href="../preparing-student/overviewofpreparingstudentsai.html"
+                  >Students</a
+                >
               </div>
               <div>
-                <a href="#">Jobs at Risk</a><br />
-                <a href="#">Collaboration</a><br />
-                <a href="#">Ethics</a><br />
-                <a href="#">Future Outlook</a>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+                  >Jobs at Risk</a
+                ><br />
+                <a href="../human-ai-collab/overview-human-ai-collab.html"
+                  >Collaboration</a
+                ><br />
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
+                <a href="../future-outlook-ai/overview-of-future-ai.html"
+                  >Future Outlook</a
+                >
               </div>
             </div>
           </div>

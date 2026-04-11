@@ -20,9 +20,10 @@
     />
 
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
 
     <style>
-      /* ===== RESET & BASE ===== */
+      /* ===== RESET & BASE (USED) ===== */
       * {
         margin: 0;
         padding: 0;
@@ -39,7 +40,7 @@
         background: #f8fafc;
       }
 
-      /* ===== HEADER ===== */
+      /* ===== HEADER (USED) ===== */
       header {
         display: flex;
         justify-content: space-between;
@@ -72,6 +73,7 @@
       nav {
         display: flex;
         gap: 30px;
+        align-items: center; /* 🔥 THIS FIXES THE LINE ISSUE */
       }
 
       nav a {
@@ -85,7 +87,7 @@
         color: #0077b6;
       }
 
-      /* DROPDOWN STYLES */
+      /* DROPDOWN (USED) */
       .dropdown {
         position: relative;
       }
@@ -114,7 +116,7 @@
         visibility: visible;
       }
 
-      /* ===== PAGE LAYOUT ===== */
+      /* ===== PAGE LAYOUT (USED) ===== */
       .page {
         display: grid;
         grid-template-columns: 260px 1fr;
@@ -161,7 +163,7 @@
         pointer-events: none;
       }
 
-      /* ARTICLE CONTENT STYLES */
+      /* ARTICLE CONTENT (USED - text colors fixed) */
       .article-section {
         background: #fff;
         padding: 35px;
@@ -187,7 +189,7 @@
       .article-section p {
         font-size: 15px;
         line-height: 1.8;
-        color: #475569;
+        color: #1e293b;
         margin-bottom: 15px;
       }
 
@@ -204,7 +206,7 @@
       .article-section li {
         font-size: 15px;
         line-height: 1.8;
-        color: #475569;
+        color: #1e293b;
         margin-bottom: 8px;
       }
 
@@ -225,18 +227,10 @@
         text-decoration: none;
       }
 
-      @media (max-width: 1100px) {
-        .footer-container {
-          flex-direction: column;
-        }
-        .footer-links-group {
-          gap: 30px;
-        }
-      }
-
+      /* FULL WIDTH IMAGE (used) */
       .full-width-image {
         width: 100%;
-        height: 600px; /* same feel as hero banner */
+        height: 600px;
         border-radius: 12px;
         overflow: hidden;
         margin: 30px 0;
@@ -250,15 +244,15 @@
         display: block;
       }
 
-      /* Optional overlay for readability (like hero) */
       .full-width-image::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(3, 4, 94, 0.2); /* lighter than hero */
+        background: rgba(3, 4, 94, 0.2);
         pointer-events: none;
       }
 
+      /* SCROLL TOP BUTTON (used) */
       #scrollTopBtn {
         position: fixed;
         bottom: 30px;
@@ -278,8 +272,110 @@
         border: 1px solid #ffffff;
         transition: background-color 0.3s;
       }
+
+      /* AUTHOR (used) */
+      .author {
+        margin-top: 60px;
+        font-size: 13px;
+        color: #475569;
+        text-align: right;
+        padding-right: 105px;
+      }
+
+      /* TABLE STYLES (used - ensures text contrast) */
+      .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #0f172a;
+        background-color: transparent;
+        border-collapse: collapse;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+      }
+      .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+        background-color: #03045e;
+        color: #ffffff;
+      }
+      .table-bordered {
+        border: 1px solid #dee2e6;
+      }
+      .table-bordered th,
+      .table-bordered td {
+        border: 1px solid #dee2e6;
+      }
+      .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+      .table-hover tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+      .table-dark {
+        background-color: #03045e;
+      }
+      .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      /* FORCE DROPDOWN HOVER (override Bootstrap) */
+      .dropdown:hover .dropdown-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Ensure it's hidden by default */
+      .dropdown-menu {
+        display: none;
+      }
+
+      /* ===== BOOTSTRAP BADGES (CUSTOM) ===== */
+      .badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 13px;
+        white-space: nowrap;
+        margin: 0 5px;
+        vertical-align: middle;
+      }
+
+      .badge-warning {
+        background-color: #f59e0b;
+        color: #1e1b4b;
+      }
+
+      .badge-danger {
+        background-color: #ef4444;
+        color: #ffffff;
+      }
+
+      .badge-primary {
+        background-color: #3b82f6;
+        color: #ffffff;
+      }
+
+      .badge-purple {
+        background-color: #a855f7;
+        color: #ffffff;
+      }
+
+      .badge-cyan {
+        background-color: #06b6d4;
+        color: #ffffff;
+      }
     </style>
   </head>
+
+  <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <body id="top">
     <header>
@@ -311,12 +407,14 @@
             <a href="../human-ai-collab/overview-human-ai-collab.html"
               >Human + AI</a
             >
-            <a href="../future-workforce-skills/">Skills</a>
+            <a href="../future-workforce-skills/overview-future-skills.html"
+              >Skills</a
+            >
             <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
             <a href="../preparing-student/overviewofpreparingstudentsai.html"
               >Students</a
             >
-            <a href="../future-outlook-ai/">Future</a>
+            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
         <div>
@@ -411,76 +509,48 @@
             title="Scroll back to top of the page"
             >↑</a
           >
-          <h2 id="industry-risk">The Top 10 Occupations at Highest Risk</h2>
+
+          <!-- HIGHLIGHTED STAT SECTION -->
+          <p style="margin-bottom: 20px">
+            <span class="badge badge-warning">40% No Interviews</span> 40% of
+            white-collar job seekers in 2024 failed to secure interviews while
+            high-paying positions ($96K+) hit decade-low hiring levels.
+          </p>
+
+          <h2>The Scale: 85 Million vs 97 Million</h2>
           <p>
-            The impact of AI on employment is highly selective. Some occupations
-            face existential threats, while others remain remarkably protected.
-            Based on comprehensive research analyzing real-world AI usage and
-            automation potential, the jobs facing the greatest displacement risk
-            are:
+            While the numbers are alarming, there's a nuance that gets lost in
+            headlines. The World Economic Forum (WEF) reports that
+            <span class="badge badge-danger">85M Displaced</span>
+            AI and automation could displace 85 million jobs by 2025, but also
+            <span class="badge badge-primary">97M Created</span>
+            create 97 million new roles more aligned with the division of labor
+            between humans, machines, and algorithms.
+          </p>
+
+          <p>
+            But here's the catch:
+            <span class="badge badge-purple">77% Masters Degrees</span>
+            77% of AI jobs require master's degrees, and
+            <span class="badge badge-cyan">18% Doctorates</span>
+            18% require doctoral degrees. The new jobs being created require far
+            more advanced education than the ones being eliminated.
+          </p>
+
+          <h2 id="critical-occupations">What Makes a Job Vulnerable?</h2>
+          <p>
+            The jobs most exposed are ones that involve knowledge work—like
+            people doing computer, math, or administrative work in an office.
+            Essentially, if your job involves:
           </p>
           <ul>
-            <li>
-              <strong>Data Entry & Processing Clerks</strong> - AI could impact
-              more than 95,000 data entry jobs in London alone
-            </li>
-            <li>
-              <strong>Customer Service Representatives</strong> - A study by
-              Gartner predicts that by 2025, 95% of customer service
-              interactions will be powered by AI
-            </li>
-            <li>
-              <strong>Cashiers & Retail Checkout Workers</strong> - Cashiers
-              stand as the hardest-hit occupation in absolute terms, with
-              313,600 roles set to disappear by 2034, a 10% decline
-            </li>
-            <li>
-              <strong>Administrative Assistants & Office Support</strong> -
-              Office assistant roles are expected to lose 177,800 positions by
-              2034
-            </li>
-            <li>
-              <strong>Interpreters & Translators</strong> - Natural language
-              processing has made rapid advances in this field
-            </li>
-            <li>
-              <strong>Paralegals & Legal Assistants</strong> - AI platforms like
-              ROSS Intelligence and DoNotPay now perform many paralegal
-              functions, including contract review and precedent research
-            </li>
-            <li>
-              <strong>Truck Drivers & Long-Haul Transportation</strong> - A
-              study by the American Center for Mobility estimates that automated
-              vehicles could replace up to 294,000 long-distance truck driving
-              jobs in the US
-            </li>
-            <li>
-              <strong>Bank Tellers</strong> - Bank tellers are projected to
-              decline by 44,900 positions, ranking eighth-highest overall
-            </li>
-            <li>
-              <strong>Bookkeepers & Accountants</strong> - Automated accounting
-              software powered by AI can perform many traditional bookkeeping
-              and basic accounting tasks
-            </li>
-            <li>
-              <strong>Telemarketers</strong> - Telemarketers appear among the
-              fastest-declining occupations, reflecting the growing use of
-              automated marketing platforms and AI-driven customer outreach
-              tools
-            </li>
-          </ul>
-
-          <h2 id="critical-occupations">Critical Occupations Also at Risk</h2>
-          <p>Beyond the top 10, significant threat levels affect:</p>
-          <ul>
-            <li>Writers & Editors</li>
-            <li>Financial Analysts & Market Researchers</li>
-            <li>Historians & Researchers</li>
-            <li>Sales Representatives</li>
-            <li>Advertising & Marketing Specialists</li>
-            <li>Assembly Line Workers & Machine Operators</li>
-            <li>Warehouse Packers</li>
+            <li>Information processing and retrieval</li>
+            <li>Routine, repetitive tasks</li>
+            <li>High-volume data processing</li>
+            <li>Predictable decision-making</li>
+            <li>Pattern recognition</li>
+            <li>Text generation and editing</li>
+            <li>Administrative processing</li>
           </ul>
 
           <h2 id="key-pattern">The Key Pattern: What Makes a Job Vulnerable</h2>
@@ -707,6 +777,8 @@
       </main>
     </div>
 
+    <p class="author">Written by: Cusi, Ailexander Kylle M.</p>
+
     <footer>
       <div class="footer-container">
         <div class="footer-brand">
@@ -727,16 +799,33 @@
             <h4>Quick Links</h4>
             <div class="quick-links-grid">
               <div>
-                <a href="#">AI Workplace</a><br />
-                <a href="#">Emerging Careers</a><br />
-                <a href="#">Future Skills</a><br />
-                <a href="#">Students</a>
+                <a
+                  href="../introduction-ai-workplace/overview-introduction-ai-workplace.html"
+                  >AI Workplace</a
+                ><br />
+                <a
+                  href="../Emerging_AI_Careers/overview-of-emerging-ai-careers.html"
+                  >Emerging Careers</a
+                ><br />
+                <a href="../future-workforce-skills/overview-future-skills.html"
+                  >Future Skills</a
+                ><br />
+                <a
+                  href="../preparing-student/overviewofpreparingstudentsai.html"
+                  >Students</a
+                >
               </div>
               <div>
-                <a href="#">Jobs at Risk</a><br />
-                <a href="#">Collaboration</a><br />
-                <a href="#">Ethics</a><br />
-                <a href="#">Future Outlook</a>
+                <a href="../jobs-at-risk/overview-jobs-at-risk.html"
+                  >Jobs at Risk</a
+                ><br />
+                <a href="../human-ai-collab/overview-human-ai-collab.html"
+                  >Collaboration</a
+                ><br />
+                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br />
+                <a href="../future-outlook-ai/overview-of-future-ai.html"
+                  >Future Outlook</a
+                >
               </div>
             </div>
           </div>
