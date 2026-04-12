@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRATIV | Problem Solving Skills</title>
+    <title>STRATIV | Technology Awareness</title>
     <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
@@ -69,7 +69,6 @@
             color: #0077B6;
         }
 
-        /* Dropdown Functionality */
         .dropdown {
             position: relative;
         }
@@ -97,7 +96,6 @@
             visibility: visible;
         }
 
-        /* Core Layout Grid */
         .page {
             display: grid;
             grid-template-columns: 260px 1fr;
@@ -106,7 +104,6 @@
             align-items: start;
         }
 
-        /* Sidebar Navigation */
         .sidebar {
             background: #fff;
             border: 1px solid #e2e8f0;
@@ -143,14 +140,12 @@
             color: #0077B6;
         }
 
-        /* Main Container */
         .main {
             display: flex;
             flex-direction: column;
             gap: 25px;
         }
 
-        /* Banner/Hero Section */
         .inner-hero {
             height: 320px;
             border-radius: 12px;
@@ -212,6 +207,7 @@
             background-color: #0077B6; 
         }
 
+        /* Footer Styles */
         footer {
             background: #03045E;
             color: #fff;
@@ -314,113 +310,114 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-                /* =========================
-        CONTENT SECTION DESIGN
-        (No HTML changes required)
-        ========================= */
+        /* ================= CONTENT MODULE STYLES ================= */
 
         .about {
-            background: #ffffff;
+            background: #fff;
             padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border-radius: 12px;
             border: 1px solid #e2e8f0;
         }
 
-        /* Headings */
         .about h2 {
             font-family: Georgia, serif;
-            font-size: 28px;
             color: #03045E;
             margin-bottom: 15px;
-            letter-spacing: 0.5px;
         }
 
-        .about h3 {
-            font-size: 20px;
-            color: #0077B6;
-            margin: 25px 0 10px;
-            font-weight: 700;
-        }
-
-        /* Paragraphs */
-        .about p {
-            font-size: 15.5px;
-            line-height: 1.8;
-            color: #334155;
-            margin-bottom: 15px;
-        }
-
-        /* Highlight Boxes */
         .highlight-box {
-            margin: 25px 0;
-            padding: 20px 22px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+            background: #f0f7ff;
             border-left: 5px solid #0077B6;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
         }
 
-        .highlight-box h3 {
-            margin-top: 0;
-            color: #03045E;
-        }
-
-        .highlight-box p {
-            margin-bottom: 0;
-        }
-
-        /* Content Modules */
         .content-module {
-            margin-top: 30px;
-            padding-top: 10px;
+            margin-top: 40px;
         }
 
-        /* Skill Grid */
+        .content-module h3 {
+            font-family: Georgia, serif;
+            color: #03045E;
+            font-size: 24px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
         .skill-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            margin-top: 15px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
         }
 
-        /* Skill Cards */
         .skill-card {
-            background: #ffffff;
+            background: #fff;
             border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 18px;
-            text-align: left;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-            width: 180px;
+            border-radius: 10px;
+            padding: 25px;
+            transition: 0.3s;
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            border-color: #0077B6;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .skill-card h4 {
-            font-size: 16px;
-            color: #03045E;
-            margin-bottom: 8px;
+            color: #0077B6;
+            margin-bottom: 10px;
         }
 
-        .skill-card p {
-            font-size: 14px;
-            color: #475569;
-            margin: 0;
+        .matrix-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
         }
 
-        /* Author styling (optional refinement, still same element) */
-        .author {
-            font-style: italic;
-            color: #64748b;
-            margin-top: 40px;
+        .matrix-item {
+            background: #F8FAFC;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #03045E;
+            text-align: center;
+            transition: all 0.3s ease; /* Added for smooth hover */
         }
+
+        /* HOVER EFFECT FOR SKILL CARDS */
+        .matrix-item:hover {
+            background: #fff;
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(3, 4, 94, 0.15);
+            border-top: 4px solid #0077B6;
+        }
+
+        .matrix-item h4 {
+            transition: color 0.3s ease;
+        }
+
+        .matrix-item:hover h4 {
+            color: #0077B6;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th {
+            background: #03045E;
+            color: #fff;
+            padding: 12px;
+        }
+
+        .comparison-table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+        }
+
     </style>
 </head>
 
@@ -434,20 +431,26 @@
 
     <nav>
         <a href="../../index.html">Home</a>
-        <div class="dropdown">
-            <a href="../../index.html#topics">Topics ▾</a>
-            <div class="dropdown-menu">
-                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
-                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-                <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
-                <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
-                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-                <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
+            <div class="dropdown">
+                <a href="../../index.html#topics">Topics ▾</a>
+                <div class="dropdown-menu">
+                    <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
+                    <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
+                    <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
+                    <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
+                    <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
+                    <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
+                    <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                    <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
+                </div>
+            </div>
+            <a href="../../resources.html">Resources</a>
+                <a href="../../resources/external-links.html">External Links</a>
+                <a href="../../resources/icons-images.html">Icons & Images</a>
+                <a href="../../resources/data-reports.html">Data & Reports</a>
+                <a href="../../resources/case-studies.html">Case Studies</a>
             </div>
         </div>
-        <a href="../../resources.html">Resources</a>
         <a href="../../about.html">About</a>
         <a href="../../contact.html">Contact</a>
     </nav>
@@ -462,65 +465,111 @@
         <a href="digital-literacy.html">Digital Literacy</a>
         <a href="lifelong-learning.html">Lifelong Learning</a>
         <a href="critical-thinking-skills.html">Critical Thinking Skills</a>
-        <a href="#" class="active">Problem Solving Skills</a>
+        <a href="problem-solving-skills.html">Problem Solving Skills</a>
         <a href="adaptability-skills.html">Adaptability Skills</a>
-        <a href="technology-awareness.html">Technology Awareness</a>
+        <a href="#" class="active">Technology Awareness</a>
         <a href="innovation-skills.html">Innovation Skills</a>
         <a href="collaboration-skills.html">Collaboration Skills</a>
         <a href="skills-summary.html">Skills Summary</a>
     </aside>
 
     <main class="main">
-
         <div class="inner-hero">
-            <a href="../../images/future-workforce-skills-images/problem-solving-cover.jpg" target="image_viewer">
-                <img src="../../images/future-workforce-skills-images/problem-solving-cover.jpg" 
-                    alt="Problem Solving Skills Banner" 
-                    title="Problem Solving Skills Banner">
-            </a>
-            <h1>Problem Solving Skills</h1>
+    <a href="../../images/future-workforce-skills-images/tech-awareness-cover.png" target="image_viewer">
+        <img src="../../images/future-workforce-skills-images/tech-awareness-cover.png" 
+             alt="Technology Awareness Banner" 
+             title="Technology Awareness Banner">
+    </a>
+    <h1>Technology Awareness</h1>
         </div>
 
-        <!-- ✅ ADDED CONTENT ONLY -->
         <div class="about">
-            <h2>The Intelligence Behind Every Solution</h2>
-
-            <p>Problem-solving is no longer just about fixing errors—it is about navigating complexity in a world where humans and AI co-create outcomes. In the modern workforce, the most valuable individuals are not those who avoid problems, but those who can decode them faster than others can recognize them.</p>
-
-            <p>As automation takes over routine tasks, human problem-solvers become system navigators—people who understand how to interpret situations, break down uncertainty, and design solutions that machines alone cannot define.</p>
+            <h2>Understanding Technology Awareness</h2>
+            <p>
+                Technology Awareness is the ability to understand, evaluate, and responsibly use emerging digital tools and systems.
+                It goes beyond usage—it is about recognizing impact, risks, and opportunities in a rapidly evolving digital world.
+            </p>
 
             <div class="highlight-box">
-                <h3>The Hidden Algorithm of Decision-Making</h3>
-                <p>Every problem has an invisible structure beneath it. The real skill is not solving what is visible, but identifying what is missing. In AI-driven environments, clarity becomes a competitive advantage—those who can simplify complexity will always outperform those who overcomplicate it.</p>
+                <h3>Key Insight</h3>
+                <p>
+                    In the AI era, awareness is not optional—it is survival. Those who understand technology shape it,
+                    while those who don’t are shaped by it.
+                </p>
             </div>
 
-            <section class="content-module">
-                <h3>The 7-Step Cognitive Debugging Process</h3>
-
+            <div class="content-module">
+                <h3>Core Pillars of Technology Awareness</h3>
                 <div class="skill-grid">
-                    <div class="skill-card"><h4>Detect</h4><p>Identify issues early before escalation.</p></div>
-                    <div class="skill-card"><h4>Define</h4><p>Clearly understand the real problem.</p></div>
-                    <div class="skill-card"><h4>Deconstruct</h4><p>Break problems into smaller parts.</p></div>
-                    <div class="skill-card"><h4>Diagnose</h4><p>Find the root cause of the issue.</p></div>
-                    <div class="skill-card"><h4>Design</h4><p>Create multiple solution paths.</p></div>
-                    <div class="skill-card"><h4>Deploy</h4><p>Implement the best solution.</p></div>
-                    <div class="skill-card"><h4>Debrief</h4><p>Review results and improve.</p></div>
+                    <div class="skill-card">
+                        <h4>Digital Understanding</h4>
+                        <p>Knowing how systems, platforms, and AI tools actually function.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Risk Awareness</h4>
+                        <p>Identifying misinformation, bias, privacy risks, and cyber threats.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Ethical Usage</h4>
+                        <p>Using technology responsibly with awareness of societal impact.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Adaptation</h4>
+                        <p>Continuously updating knowledge as technology evolves rapidly.</p>
+                    </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="content-module">
-                <h3>Problem Solvers in the AI Era</h3>
-                <p>In an AI-powered world, success depends on asking better questions rather than simply finding answers. Human thinking adds meaning, context, and judgment that machines cannot replicate.</p>
+            <div class="content-module">
+                <h3>AI Dependency vs Awareness</h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Low Awareness</th>
+                        <th>High Awareness</th>
+                    </tr>
+                    <tr>
+                        <td>Decision Making</td>
+                        <td>Blind trust in AI output</td>
+                        <td>Critical evaluation of results</td>
+                    </tr>
+                    <tr>
+                        <td>Risk Handling</td>
+                        <td>Unaware of manipulation</td>
+                        <td>Detects bias and misinformation</td>
+                    </tr>
+                    <tr>
+                        <td>Learning</td>
+                        <td>Passive consumption</td>
+                        <td>Active verification and analysis</td>
+                    </tr>
+                </table>
+            </div>
 
-                <div class="highlight-box">
-                    <h3>Final Insight</h3>
-                    <p>Problem-solving is not just a skill—it is a survival ability in the modern workforce. Those who think clearly under pressure will always stay ahead.</p>
+            <div class="content-module">
+                <h3>Technology Awareness Skills</h3>
+                <div class="matrix-container">
+                    <div class="matrix-item">
+                        <h4>Verification</h4>
+                        <p>Checking accuracy and sources before accepting digital information.</p>
+                    </div>
+                    <div class="matrix-item">
+                        <h4>System Thinking</h4>
+                        <p>Understanding how different digital systems and AI tools interact.</p>
+                    </div>
+                    <div class="matrix-item">
+                        <h4>Digital Ethics</h4>
+                        <p>Practicing responsible use of data, privacy, and AI-generated tools.</p>
+                    </div>
+                    <div class="matrix-item">
+                        <h4>Cyber Awareness</h4>
+                        <p>Recognizing online threats, phishing, and security vulnerabilities.</p>
+                    </div>
                 </div>
-            </section>
+            </div>
         </div>
 
         <p class="author">Written by: Austria, Christian Josef M.</p>
-
     </main>
 </div>
 
@@ -540,16 +589,16 @@
                 <h4>Quick Links</h4>
                 <div class="quick-links-grid">
                     <div>
-                        <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a><br>
-                        <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a><br>
-                        <a href="../future-workforce-skills/overview-future-skills.html">Future Skills</a><br>
-                        <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
                     </div>
                     <div>
-                        <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a><br>
-                        <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a><br>
-                        <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a><br>
-                        <a href="../future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
                     </div>
                 </div>
             </div>
@@ -557,13 +606,15 @@
             <div class="f-col">
                 <h4>Contact Info</h4>
                 <div class="contact-item">
-                    <a href="https://facebook.com/strativ" target="_blank">
-                        <span class="icon-box">f</span> Strativ.com
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
                     </a>
                 </div>
                 <div class="contact-item">
-                    <a href="mailto:Strativ018@gmail.com">
-                        <span class="icon-box">✉</span> Strativ018@gmail.com
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
                     </a>
                 </div>
             </div>

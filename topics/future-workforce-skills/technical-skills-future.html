@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STRATIV | Technical Skills for the Future</title>
     <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet">
 
@@ -140,77 +141,104 @@
         .main {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 25px; /* Reduced from 40px to match your preference */
         }
 
+        /* Reduced Hero Size */
         .inner-hero {
-            height: 380px;
+            height: 320px; /* Fixed height as requested */
             border-radius: 12px;
             overflow: hidden;
             position: relative;
         }
 
-        .inner-hero img { width: 100%; height: 100%; object-fit: cover; }
+        .inner-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay tint */
         .inner-hero::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(transparent, rgba(3,4,94,0.8));
+            background: rgba(3, 4, 94, 0.5); /* Solid overlay color */
         }
 
+        /* Hero Title Scaling */
         .inner-hero h1 {
             position: absolute;
             z-index: 2;
             color: #fff;
             font-family: Georgia, serif;
-            font-size: 48px;
-            bottom: 40px;
-            left: 40px;
+            font-size: 38px; /* Balanced size for the 320px height */
+            bottom: 30px;
+            left: 30px;
+            margin-bottom: 0;
+        }
+
+        /* Adjust page padding to match the smaller hero */
+        .page {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 30px;
+            padding: 120px 6% 60px; /* Aligns with the fixed header */
+            align-items: start;
         }
 
         /* Article Styling */
         .article-body {
-            background: #fff;
-            padding: 60px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            background: #ffffff; /* light gray background */
+            padding: 30px 40px;
+            border-radius: 0;
+            border: none;
         }
 
         .article-body h2 {
             font-family: Georgia, serif;
             color: #03045E;
-            margin-bottom: 30px;
-            font-size: 36px;
-            border-left: 5px solid #0077B6;
-            padding-left: 20px;
-            display: block;
-            line-height: 1;
-        }
-
-        .subtitle-line {
-            font-family: Georgia, serif;
-            color: #03045E;
-            font-size: 32px;
-            font-weight: bold;
-            margin: 80px 0 10px 0;
-            border-bottom: 4px solid #0077B6;
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-
-        .section-header {
-            font-family: Georgia, serif;
-            color: #0077B6;
             font-size: 26px;
-            margin: 50px 0 20px;
-            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .article-p {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 0;
+        }
+
+        /* Update these in your <style> section */
+
+        /* This matches "Strategic Adaptability in Practice" from your image */
+        .subtitle-line {
+            font-family: Georgia, serif;
+            color: #03045E;
+            font-size: 24px; /* Scaled down to match the image precisely */
+            font-weight: bold;
+            margin: 40px 0 15px 0;
+            border-bottom: 2px solid #e2e8f0; /* Thin gray line */
+            padding-bottom: 8px;
+            display: block; /* Ensures it stretches the full width of the container */
+        }
+
+        /* This styles the text below the line to match your image spacing */
+        .section-header {
+            font-family: 'Montserrat', sans-serif; /* Standard font for sub-headers */
             color: #334155;
-            margin-bottom: 25px;
-            font-size: 17px;
+            font-size: 18px;
+            margin: 25px 0 15px;
+            font-weight: 600;
+        }
+
+        /* Paragraph spacing to match the image */
+        .article-p {
+            color: #334155;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
             text-align: justify;
         }
 
@@ -338,6 +366,15 @@
             margin-top: 80px; 
         }
 
+        /* Footer Styles */
+        footer {
+            background: #03045E;
+            color: #fff;
+            padding: 40px 6% 30px;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
         .footer-container {
             display: flex;
             justify-content: space-between;
@@ -345,7 +382,9 @@
             gap: 40px;
         }
 
-        .footer-brand { flex: 1; }
+        .footer-brand {
+            flex: 1;
+        }
 
         .footer-logo-blocks {
             display: flex;
@@ -364,6 +403,101 @@
             font-weight: 900;
             font-size: 20px;
             border-radius: 3px;
+        }
+
+        .mission-text p {
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 500;
+            max-width: 380px;
+            color: #fff; /* Ensures visibility on blue */
+        }
+
+        .footer-links-group {
+            display: flex;
+            flex: 2;
+            justify-content: flex-start;
+            gap: 220px;
+        }
+
+        .f-col h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-decoration: underline;
+            line-height: 1;
+            margin-top: -6px;
+            color: #fff;
+        }
+
+        .f-col p, .f-col a {
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            line-height: 1.7;
+        }
+
+        .f-col a:hover {
+            text-decoration: underline;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .icon-box {
+            background: #fff;
+            color: #03045E;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .copyright-bar {
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            z-index: 99; 
+            background-color: #03045E; 
+            color: white; 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; 
+            font-size: 20px; 
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 1px solid #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #0077B6; 
         }
 
         .mission-text p {
@@ -430,6 +564,15 @@
             font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
         }
+
+         .author {
+
+            margin-top: 60px;
+            font-size: 13px;
+            color: #94a3b8;
+            text-align: right;
+
+        }
     </style>
 </head>
 
@@ -455,9 +598,7 @@
                     <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
                 </div>
             </div>
-            <div class="dropdown">
-                <a href="../../resources.html">Resources ▾</a>
-            </div>
+            <a href="../../resources.html">Resources</a>
             <a href="../../about.html">About</a>
             <a href="../../contact.html">Contact</a>
         </nav>
@@ -466,7 +607,7 @@
     <div class="page">
         <aside class="sidebar">
             <h3>AI WORKPLACE</h3>
-            <a href="overview-future-skills.html">Future workforce skills</a>
+            <a href="overview-future-skills.html">Future Workforce Skills</a>
             <a href="#" class="active">Technical Skills for the Future</a>
             <a href="soft-skills.html">Soft Skills</a>
             <a href="digital-literacy.html">Digital Literacy</a>
@@ -474,15 +615,19 @@
             <a href="critical-thinking-skills.html">Critical Thinking Skills</a>
             <a href="problem-solving-skills.html">Problem Solving Skills</a>
             <a href="adaptability-skills.html">Adaptability Skills</a>
-            <a href="#">Technology Awareness</a>
+            <a href="technology-awareness.html">Technology Awareness</a>
             <a href="innovation-skills.html">Innovation Skills</a>
             <a href="collaboration-skills.html">Collaboration Skills</a>
-            <a href="#">Skills Summary</a>
+            <a href="skills-summary.html">Skills Summary</a>
         </aside>
 
         <main class="main">
             <div class="inner-hero">
-                <img src="../images/future-workforce-cover.png" alt="Technical Skills Banner">
+                <a href="../../images/future-workforce-skills-images/future-workforce-cover.png" target="image_viewer">
+                    <img src="../../images/future-workforce-skills-images/future-workforce-cover.png" 
+                        alt="Technical Skills Banner" 
+                        title="Technical Skills for the Future Banner">
+                </a>
                 <h1>Technical Skills for the Future</h1>
             </div>
 
@@ -548,7 +693,11 @@
 
     <div class="media-container">
         <div class="image-box">
-            <img src="../images/invention-1.jpg" alt="Neural Link">
+            <a href="../../images/future-workforce-skills-images/invention-1.jpg" target="image_viewer">
+                <img src="../../images/future-workforce-skills-images/invention-1.jpg" 
+                    alt="Neural Link" 
+                    title="Neural-Digital Interfaces">
+            </a>
         </div>
         <strong class="article-p">Neural-Digital Interfaces</strong>
         <p class="article-p">Currently in the prototyping stage, these interfaces aim to bridge the gap between <b>biological thought</b> and digital computation, effectively allowing humans to use AI as a direct extension of their own memory and cognition. This could redefine <b>accessibility</b> for those with neurological impairments.</p>
@@ -556,7 +705,11 @@
 
     <div class="media-container">
         <div class="image-box">
-            <img src="../images/invention-2.jpg" alt="Quantum AI">
+            <a href="../../images/future-workforce-skills-images/invention-2.jpg" target="image_viewer">
+                <img src="../../images/future-workforce-skills-images/invention-2.jpg" 
+                    alt="Quantum AI" 
+                    title="Quantum-Enhanced Machine Learning">
+            </a>
         </div>
         <strong class="article-p">Quantum-Enhanced Machine Learning</strong>
         <p class="article-p">By utilizing quantum bits (qubits), researchers are building AI that can process <b>molecular simulations</b> in seconds, a task that currently takes traditional computers years to complete. This is expected to trigger a <b>pharmacological revolution</b>, discovering new medicines at lightning speed.</p>
@@ -690,7 +843,9 @@
 
     <div class="media-container">
         <div class="image-box">
-            <img src="../images/invention-3.png" alt="Smart City">
+            <a href="../../images/future-workforce-skills-images/invention-3.png" target="image_viewer">
+                <img src="../../images/future-workforce-skills-images/invention-3.png" alt="Smart City" title="Smart City">
+            </a>
         </div>
         <strong class="article-p">Smart City Infrastructure</strong>
         <p class="article-p">By integrating urban networks with <b>real-time sensor data</b>, these systems optimize traffic flow and energy use, allowing cities to respond autonomously to infrastructure needs.</p>
@@ -698,7 +853,9 @@
 
     <div class="media-container">
         <div class="image-box">
-            <img src="../images/invention-4.png" alt="Edge Chips">
+            <a href="../../images/future-workforce-skills-images/invention-4.png" target="image_viewer">
+                <img src="../../images/future-workforce-skills-images/invention-4.png" alt="Edge Chips" title="Edge Chips">
+            </a>
         </div>
         <strong class="article-p">Edge Analytics Chips</strong>
         <p class="article-p">These specialized hardware units allow AI to process <b>complex data locally</b> on devices. This eliminates the need to send private info to the cloud, ensuring instant results and total privacy.</p>
@@ -778,7 +935,9 @@
 
     <div class="media-container" style="margin-bottom: 0 !important;">
         <div class="image-box">
-            <img src="../images/invention-5.png" alt="Post-Quantum Cryptography">
+            <a href="../../images/future-workforce-skills-images/invention-5.png" target="image_viewer">
+                <img src="../../images/future-workforce-skills-images/invention-5.png" alt="Post-Quantum Cryptography" title="Post-Quantum Cryptography">
+            </a>
         </div>
         <strong class="article-p">Post-Quantum Cryptography</strong>
         <p class="article-p">As quantum computing evolves, researchers are developing <b>lattice-based encryption</b> that remains unbreakable even by quantum processors, securing sensitive data against future decryption threats.</p>
@@ -786,7 +945,9 @@
 
     <div class="media-container" style="margin-bottom: 0 !important;">
         <div class="image-box">
-            <img src="../images/invention-6.jpg" alt="Zero Trust Architecture">
+            <a href="../../images/future-workforce-skills-images/invention-6.jpg" target="image_viewer">
+                <img src="../../images/future-workforce-skills-images/invention-6.jpg" alt="Zero Trust Architecture" title="Zero Trust Architecture">
+            </a>
         </div>
         <strong class="article-p">Zero Trust Architecture (ZTA)</strong>
         <p class="article-p">A security model based on the principle of <b>"never trust, always verify."</b> It requires continuous authentication for every user and device, ensuring that a breach in one area cannot spread across the network.</p>
@@ -983,3 +1144,68 @@
         <li><strong>API Integration:</strong> Study how to connect different software systems together using <b>RESTful APIs</b>.</li>
     </ol>
 </article>
+
+<p class="author">Written by: Austria, Christian Josef M.</p>
+
+</main> 
+</div>
+        
+        
+<footer>
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo-blocks">
+                <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+            </div>
+            <div class="mission-text">
+                <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+            </div>
+        </div>
+
+        <div class="footer-links-group">
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <div class="quick-links-grid">
+                    <div>
+                        <a href="#">AI Workplace</a><br>
+                        <a href="#">Emerging Careers</a><br>
+                        <a href="#">Future Skills</a><br>
+                        <a href="#">Students</a>
+                    </div>
+                    <div>
+                        <a href="#">Jobs at Risk</a><br>
+                        <a href="#">Collaboration</a><br>
+                        <a href="#">Ethics</a><br>
+                        <a href="#">Future Outlook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <div class="contact-item">
+                    <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">f</span>
+                        <span> Strativ.com</span>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon-box">✉</span>
+                        <span>Strativ018@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-bar">
+        <p>© 2026 University of the East. All rights reserved.</p>
+    </div>
+</footer>
+
+<a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
+    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

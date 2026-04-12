@@ -1,674 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collaboration Skills in the AI Era | STRATIV AI Frontier</title>
-    <link rel="icon" type="image/png" href="../../favicon.png" />
-    <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRATIV | Collaboration Skills in the AI Era</title>
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
 
     <style>
-      /* ===== RESET & BASE ===== */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      html {
-        scroll-behavior: smooth;
-      }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #003049;
+            background: #F8FAFC;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-      body {
-        font-family: "Montserrat", sans-serif;
-        color: #003049;
-        background: #f8fafc;
-      }
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-      /* ===== HEADER ===== */
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 6%;
-        background: #ffffff;
-        border-bottom: 1px solid #e2e8f0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-      }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #03045E;
+        }
 
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-family: Georgia, serif;
-        font-size: 24px;
-        font-weight: bold;
-        color: #03045e;
-      }
-      
-      .logo img {
-        width: 40px;
-        height: 40px;
-        object-fit: contain;
-      }
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
 
-      nav {
-        display: flex;
-        gap: 30px;
-        align-items: center;
-      }
+        nav {
+            display: flex;
+            gap: 30px;
+        }
 
-      nav a {
-        text-decoration: none;
-        color: #003049;
-        font-weight: 600;
-        font-size: 14px;
-      }
+        nav a {
+            text-decoration: none;
+            color: #003049;
+            font-weight: 600;
+            font-size: 14px;
+        }
 
-      nav a:hover {
-        color: #0077b6;
-      }
+        nav a:hover {
+            color: #0077B6;
+        }
 
-      /* DROPDOWN STYLES */
-      .nav-dropdown {
-        position: relative;
-      }
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
 
-      .nav-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        min-width: 220px;
-        opacity: 0;
-        visibility: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: opacity 0.3s ease;
-      }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-      .nav-dropdown-menu a {
-        padding: 12px 15px;
-        display: block;
-      }
+        .dropdown-menu a {
+            padding: 12px 15px;
+            display: block;
+        }
 
-      .nav-dropdown:hover .nav-dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-      }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
 
-      /* ===== PAGE LAYOUT ===== */
-      .page {
-        display: grid;
-        grid-template-columns: 260px 1fr;
-        gap: 30px;
-        padding: 120px 6% 60px;
-        align-items: start;
-      }
-
-      /* STICKY SIDEBAR */
-      .sidebar {
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        position: sticky;
-        top: 100px;
-        z-index: 10;
-      }
-
-      .sidebar h3 {
-        background: #03045e;
-        color: #fff;
-        padding: 15px;
-        font-size: 13px;
-        border-radius: 10px 10px 0 0;
-        text-transform: uppercase;
-        font-weight: bold;
-      }
-
-      .sidebar a {
-        display: block;
-        padding: 12px 15px;
-        font-size: 14px;
-        color: #003049;
-        text-decoration: none;
-        border-top: 1px solid #e2e8f0;
-      }
-
-      .sidebar a:hover {
-        background: #f1f5f9;
-        color: #0077b6;
-      }
-
-      .sidebar a.active {
-        background: #eaeaea;
-        color: #0077b6;
-      }
-
-      .main {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-      }
-
-      /* HERO IMAGE FIXES */
-      .inner-hero {
-        height: 320px;
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        background: #000; /* fallback */
-      }
-
-      .inner-hero > a {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-
-      .inner-hero img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures it fills the container proportionally */
-        display: block;
-      }
-
-      .inner-hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(3, 4, 94, 0.5);
-        pointer-events: none;
-      }
-
-      .inner-hero h1 {
-        position: absolute;
-        z-index: 2;
-        color: #fff;
-        font-family: Georgia, serif;
-        font-size: 38px;
-        bottom: 30px;
-        left: 30px;
-        pointer-events: none;
-        font-weight: bold;
-        margin: 0;
-      }
-
-      /* ARTICLE CONTENT STYLES */
-      .article-section {
-        background: #fff;
-        padding: 35px;
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
-      }
-
-      .article-section h2 {
-        font-family: Georgia, serif;
-        color: #03045e;
-        margin-bottom: 20px;
-        font-size: 26px;
-        font-weight: bold;
-        border-bottom: 2px solid #0077B6;
-        display: inline-block;
-        padding-bottom: 5px;
-        margin-top: 30px;
-      }
-
-      .article-section h2:first-of-type {
-        margin-top: 0;
-      }
-
-      .article-section h3 {
-        font-family: Georgia, serif;
-        color: #0077b6;
-        margin-top: 25px;
-        margin-bottom: 12px;
-        font-size: 20px;
-        font-weight: bold;
-      }
-
-      .article-section p {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #475569;
-        margin-bottom: 15px;
-        text-align: justify;
-      }
-
-      .article-section ul, .article-section ol {
-        margin-left: 20px;
-        margin-bottom: 20px;
-      }
-
-      .article-section li {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #475569;
-        margin-bottom: 8px;
-      }
-
-      .article-section a {
-        color: #0077b6;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .article-section a:hover {
-        text-decoration: underline;
-      }
-
-      .article-section strong {
-        color: #03045e;
-      }
-
-      /* IN-ARTICLE IMAGE FIXES */
-      .article-img-wrapper {
-        display: block;
-        width: 100%;
-        max-height: 380px; /* Prevents images from becoming overwhelmingly huge */
-        border-radius: 8px;
-        overflow: hidden;
-        margin: 20px 0;
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-      }
-
-      .article-img-wrapper img {
-        width: 100%;
-        height: 100%;
-        max-height: 380px;
-        object-fit: cover; /* Crops cleanly to fit the max-height */
-        display: block;
-      }
-
-      /* References specific */
-      .references-list {
-        font-size: 13px !important;
-        word-break: break-word;
-      }
-      .references-list li {
-        font-size: 13px !important;
-      }
-
-      /* ===== FOOTER ===== */
-      footer {
-        background: #03045e;
-        color: #ffffff;
-        padding: 40px 6% 30px;
-        font-family: Arial, sans-serif;
-      }
-
-      .footer-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 40px;
-      }
-
-      .footer-brand {
-        flex: 1;
-      }
-      
-      .author {
-        margin-top: 60px;
-        font-size: 13px;
-        color: #94a3b8;
-        text-align: right;
-      }
-
-      .footer-logo-blocks {
-        display: flex;
-        gap: 4px;
-        margin-bottom: 15px;
-      }
-
-      .footer-logo-blocks span {
-        background: #ffffff;
-        color: #03045e;
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 900;
-        font-size: 20px;
-        border-radius: 3px;
-      }
-
-      .mission-text p {
-        font-size: 18px;
-        line-height: 1.5;
-        font-weight: 500;
-        max-width: 380px;
-        color: #ffffff;
-      }
-
-      .footer-links-group {
-        display: flex;
-        flex: 2;
-        justify-content: flex-start;
-        gap: 220px;
-      }
-
-      .f-col h4 {
-        font-size: 18px;
-        margin-bottom: 15px;
-        text-decoration: underline;
-        line-height: 1;
-        margin-top: -6px;
-      }
-
-      .f-col p,
-      .f-col a {
-        font-size: 15px;
-        color: #ffffff;
-        text-decoration: none;
-        line-height: 1.7;
-      }
-
-      .quick-links-grid {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 10px 40px;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 10px;
-      }
-
-      .icon-box {
-        background: #ffffff;
-        color: #03045e;
-        width: 26px;
-        height: 26px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        border-radius: 4px;
-        font-size: 14px;
-      }
-
-      .copyright-bar {
-        margin-top: 30px;
-        padding-top: 20px;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.8);
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      @media (max-width: 1100px) {
+        /* Page layout */
         .page {
-          grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 30px;
+            padding: 120px 6% 60px;
+            align-items: start;
         }
+
+        /* Sidebar */
         .sidebar {
-          display: none;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            position: sticky;
+            top: 100px;
         }
+
+        .sidebar h3 {
+            background: #03045E;
+            color: #fff;
+            padding: 15px;
+            font-size: 13px;
+            border-radius: 10px 10px 0 0;
+            text-transform: uppercase;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #003049;
+            text-decoration: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .sidebar a:hover {
+            background: #f1f5f9;
+            color: #0077B6;
+        }
+
+        /* Active sidebar link without bold effect */
+        .sidebar a.active {
+            background: #eaeaea;
+            color: #0077B6;
+        }
+
+        /* Main content */
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .inner-hero {
+            height: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .inner-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(3,4,94,0.5);
+        }
+
+        .inner-hero h1 {
+            position: absolute;
+            z-index: 2;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 38px;
+            bottom: 30px;
+            left: 30px;
+        }
+
+        /* Content Container */
+        .about {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .about h2 {
+            font-family: Georgia, serif;
+            color: #03045E;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            color: #334155;
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* Content Modules */
+        .content-module {
+            margin-bottom: 60px;
+        }
+
+        .content-module h3 {
+            font-family: Georgia, serif;
+            color: #03045E;
+            font-size: 26px;
+            margin: 35px 0 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .content-module p {
+            color: #334155;
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .content-module ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .content-module li {
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        /* Image Placeholders */
+        .image-placeholder {
+            width: 100%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Example Grid Styling */
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .example-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .example-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-image-box {
+            height: 160px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .card-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-text {
+            padding: 20px;
+        }
+
+        .card-text h4 {
+            color: #0077B6;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .card-text p {
+            font-size: 14px;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* References */
+        .references-list {
+            font-size: 14px !important;
+            word-break: break-word;
+            padding-left: 20px;
+        }
+
+        .references-list li {
+            margin-bottom: 10px;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .references-list a {
+            color: #0077B6;
+            text-decoration: none;
+        }
+
+        .references-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #03045E;
+            color: #fff;
+            padding: 40px 6% 30px;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
         .footer-container {
-          flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
         }
+
+        .footer-brand {
+            flex: 1;
+        }
+
+        .footer-logo-blocks {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-blocks span {
+            background: #fff;
+            color: #03045E;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            border-radius: 3px;
+        }
+
+        .mission-text p {
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 500;
+            max-width: 380px;
+        }
+
         .footer-links-group {
-          gap: 30px;
+            display: flex;
+            flex: 2;
+            justify-content: flex-start;
+            gap: 220px;
         }
-      }
+
+        .f-col h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-decoration: underline;
+            line-height: 1;
+            margin-top: -6px;
+        }
+
+        .f-col p, .f-col a {
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            line-height: 1.7;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .icon-box {
+            background: #fff;
+            color: #03045E;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .copyright-bar {
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        #scrollTopBtn {
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            z-index: 99; 
+            background-color: #03045E; 
+            color: white; 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; 
+            font-size: 20px; 
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 1px solid #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #0077B6; 
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .example-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { flex-direction: column; }
+            .footer-links-group { gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .page { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .example-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
 <body id="top">
-    <header>
-      <div class="logo">
-        <a href="../../images/logo/logo.jpg" target="image-viewer">
-            <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo" />
-        </a>
-        STRATIV
-      </div>
 
-      <nav>
-        <a href="../../index.html" title="Go to Homepage">Home</a>
-        <div class="nav-dropdown">
-          <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
-          <div class="nav-dropdown-menu">
-            <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
-            <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-            <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-            <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
-            <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
-            <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-            <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
-          </div>
+    <header>
+        <div class="logo">
+            <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+            STRATIV
         </div>
-        <div class="nav-dropdown">
-          <a href="../../resources.html" title="View Resources">Resources ▾</a>
-        </div>
-        <a href="../../about.html" title="About Strativ">About</a>
-        <a href="../../contact.html" title="Contact Us">Contact</a>
-      </nav>
+
+        <nav>
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <a href="../../index.html#topics">Topics ▾</a>
+                <div class="dropdown-menu">
+                    <a href="ai.html">AI Workplace</a>
+                    <a href="#">Jobs at Risk</a>
+                    <a href="#">Emerging Careers</a>
+                    <a href="#">Human + AI</a>
+                    <a href="#">Skills</a>
+                    <a href="#">Ethics</a>
+                    <a href="#">Students</a>
+                    <a href="#">Future</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../../resources.html">Resources ▾</a>
+                <div class="dropdown-menu">
+                    <a href="../../resources/external-links.html">External Links</a>
+                    <a href="../../resources/icons-images.html">Icons & Images</a>
+                    <a href="../../resources/data-reports.html">Data & Reports</a>
+                    <a href="../../resources/case-studies.html">Case Studies</a>
+                </div>
+            </div>
+            <a href="../../about.html">About</a>
+            <a href="../../contact.html">Contact</a>
+        </nav>
     </header>
 
     <div class="page">
-      <aside class="sidebar">
-        <h3>AI WORKPLACE</h3>
-        <a href="future-workforce-skills.html" title="Future workforce skills">Future workforce skills</a>
-        <a href="technical-skills.html" title="Technical Skills for the Future">Technical Skills for the Future</a>
-        <a href="soft-skills.html" title="Soft Skills for the Future Workforce">Soft Skills for the Future Workforce</a>
-        <a href="digital-literacy.html" title="Digital Literacy">Digital Literacy</a>
-        <a href="lifelong-learning.html" title="Lifelong Learning">Lifelong Learning</a>
-        <a href="critical-thinking-skills.html" title="Critical Thinking Skills">Critical Thinking Skills</a>
-        <a href="problem-solving-skills.html" title="Problem Solving Skills">Problem Solving Skills</a>
-        <a href="adaptability-skills.html" title="Adaptability Skills">Adaptability Skills</a>
-        <a href="technology-awareness.html" title="Technology Awareness">Technology Awareness</a>
-        <a href="innovation-skills.html" title="Innovation Skills">Innovation Skills</a>
-        <a href="collaboration-skills.html" class="active" title="Collaboration Skills">Collaboration Skills</a>
-        <a href="skills-summary.html" title="Skills Summary">Skills Summary</a>
-      </aside>
+        <aside class="sidebar">
+            <h3>AI WORKPLACE</h3>
+            <a href="overview-future-skills.html">Future Workforce Skills</a>
+            <a href="technical-skills.html">Technical Skills for the Future</a>
+            <a href="soft-skills.html">Soft Skills for the Future Workforce</a>
+            <a href="digital-literacy.html">Digital Literacy</a>
+            <a href="lifelong-learning.html">Lifelong Learning</a>
+            <a href="critical-thinking-skills.html">Critical Thinking Skills</a>
+            <a href="">Problem Solving Skills</a>
+            <a href="#">Adaptability Skills</a>
+            <a href="#">Technology Awareness</a>
+            <a href="innovation-skills.html">Innovation Skills</a>
+            <a href="collaboration-skills.html" class="active">Collaboration Skills</a>
+            <a href="#">Skills Summary</a>
+        </aside>
 
-      <main class="main">
-        <div class="inner-hero">
-            <a href="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" target="image-viewer" title="Skills in the AI Era">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Collaboration Hero" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
-            </a>
-            <h1>Collaboration Skills in the AI Era</h1>
-        </div>
-
-        <div class="article-section">
-            <h2>Definition and Core Concept</h2>
-            <p><strong>Definition:</strong> The ability of individuals to work effectively with both human teammates and AI agents to achieve shared organizational goals.</p>
-            
-            <div class="p-3 mb-4" style="border-left: 4px solid #0077B6; background: #f0f7ff; border-radius: 0 8px 8px 0;">
-                <strong style="display: block; margin-bottom: 5px;">The "Collective Intelligence" Model:</strong> 
-                In this model, AI is treated as a "synthetic team member." True collaboration occurs when the AI handles data-heavy lifting and administrative coordination, while humans provide the creative vision, high-stakes negotiation, and emotional intelligence.
+        <main class="main">
+            <div class="inner-hero">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Team collaborating with AI concept">
+                <h1>Collaboration Skills in the AI Era</h1>
             </div>
 
-            <h2>How AI-Enhanced Collaboration Helps</h2>
-            <a href="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80" target="image-viewer" title="Team collaborating with technology" class="article-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80" alt="Team collaborating with technology">
-            </a>
-            <ul>
-                <li><strong>Eliminating Meeting Friction:</strong> AI tools can act as silent observers in meetings, instantly generating transcripts, identifying action items, and syncing calendars across global time zones.</li>
-                <li><strong>Unbiased Idea Meritocracy:</strong> AI can be used to "blind" brainstorm sessions, stripping away names and seniority from suggestions so that ideas are judged on their quality rather than who said them.</li>
-                <li><strong>Cross-Functional Translation:</strong> AI can act as a bridge between technical and non-technical teams, translating complex "dev-speak" into business-ready summaries, ensuring everyone stays on the same page.</li>
-                <li><strong>Real-Time Conflict Resolution:</strong> Advanced sentiment analysis tools can flag when a digital team's communication (on Slack or Teams) is becoming tense or toxic, allowing leaders to intervene before morale drops.</li>
-            </ul>
+            <div class="about">
+                <h2>Definition and Core Concept</h2>
+                <p><strong>Definition:</strong> The ability of individuals to work effectively with both human teammates and AI agents to achieve shared organizational goals.</p>
+                <p><strong>The "Collective Intelligence" Model:</strong> In this model, AI is treated as a "synthetic team member." True collaboration occurs when the AI handles data-heavy lifting and administrative coordination, while humans provide the creative vision, high-stakes negotiation, and emotional intelligence.</p>
 
-            <h2>Implementation Strategies</h2>
-            <p>To succeed in a modern work environment, professionals must adapt to different modes of interaction, balancing interpersonal warmth with technical precision.</p>
-            
-            <div class="row my-4">
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;"title="Hum">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Human to Human Collaboration" style="height: 180px; object-fit: cover; width: 100%;">
-                        </a>
-                        <div class="card-body bg-light border border-top-0 rounded-bottom">
-                            <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Human-to-Human (H2H)</h4>
-                            <p class="card-text text-muted" style="font-size: 14px;">Building trust, empathy, and psychological safety within the team.<br><br><strong style="color: #03045E;">Key Behavior:</strong> Emotional Intelligence & Active Listening.</p>
+                <section class="content-module">
+                    <h3>How AI-Enhanced Collaboration Helps</h3>
+                    <div class="image-placeholder" style="height: 300px;">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Modern business meeting with AI tools">
+                    </div>
+                    <ul>
+                        <li><strong>Eliminating Meeting Friction:</strong> AI tools can act as silent observers in meetings, instantly generating transcripts, identifying action items, and syncing calendars across global time zones.</li>
+                        <li><strong>Unbiased Idea Meritocracy:</strong> AI can be used to "blind" brainstorm sessions, stripping away names and seniority from suggestions so that ideas are judged on their quality rather than who said them.</li>
+                        <li><strong>Cross-Functional Translation:</strong> AI can act as a bridge between technical and non-technical teams, translating complex "dev-speak" into business-ready summaries, ensuring everyone stays on the same page.</li>
+                        <li><strong>Real-Time Conflict Resolution:</strong> Advanced sentiment analysis tools can flag when a digital team's communication (on Slack or Teams) is becoming tense or toxic, allowing leaders to intervene before morale drops.</li>
+                    </ul>
+                </section>
+
+                <section class="content-module">
+                    <h3>Implementation Strategies</h3>
+                    <p>To succeed in a modern work environment, professionals must adapt to different modes of interaction, balancing interpersonal warmth with technical precision.</p>
+                    
+                    <div class="example-grid">
+                        <div class="example-card">
+                            <div class="card-image-box">
+                                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" alt="Human to Human Collaboration">
+                            </div>
+                            <div class="card-text">
+                                <h4>Human-to-Human (H2H)</h4>
+                                <p>Building trust, empathy, and psychological safety within the team.<br><br><strong>Key Behavior:</strong> Emotional Intelligence & Active Listening.</p>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="card-image-box">
+                                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" alt="Human to AI Collaboration">
+                            </div>
+                            <div class="card-text">
+                                <h4>Human-to-AI (H2A)</h4>
+                                <p>The ability to "prompt" or direct an AI to assist the team effectively.<br><br><strong>Key Behavior:</strong> Precision Communication & Logic.</p>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="card-image-box">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="AI Mediated Collaboration">
+                            </div>
+                            <div class="card-text">
+                                <h4>AI-Mediated (AIM)</h4>
+                                <p>Using AI tools to facilitate smoother human interactions.<br><br><strong>Key Behavior:</strong> Strategic Tool Adoption.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;"title="Human to AI Collaboration">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Human to AI Collaboration" style="height: 180px; object-fit: cover; width: 100%;">
-                        </a>
-                        <div class="card-body bg-light border border-top-0 rounded-bottom">
-                            <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Human-to-AI (H2A)</h4>
-                            <p class="card-text text-muted" style="font-size: 14px;">The ability to "prompt" or direct an AI to assist the team effectively.<br><br><strong style="color: #03045E;">Key Behavior:</strong> Precision Communication & Logic.</p>
-                        </div>
+                </section>
+
+                <section class="content-module">
+                    <h3>Major Issues Addressed by Collaboration Skills</h3>
+                    <div class="image-placeholder" style="height: 300px;">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Team planning and overcoming silos">
                     </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;"title="AI Mediated Collaboration">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="AI Mediated Collaboration" style="height: 180px; object-fit: cover; width: 100%;">
-                        </a>
-                        <div class="card-body bg-light border border-top-0 rounded-bottom">
-                            <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">AI-Mediated (AIM)</h4>
-                            <p class="card-text text-muted" style="font-size: 14px;">Using AI tools to facilitate smoother human interactions.<br><br><strong style="color: #03045E;">Key Behavior:</strong> Strategic Tool Adoption.</p>
-                        </div>
+                    <ul>
+                        <li><strong>The "Silo" Effect:</strong> AI-integrated collaboration tools automatically pull relevant data from different departments, forcing a "whole-of-company" view that prevents teams from working in isolation.</li>
+                        <li><strong>Cognitive Load Reduction:</strong> By offloading "coordination overhead" (scheduling, searching for files, documenting notes) to AI, teams can spend more energy on actual problem-solving.</li>
+                        <li><strong>Asynchronous Alignment:</strong> For global teams, AI ensures that a teammate in London can wake up and get a perfect "state of the union" summary of what the team in Singapore decided overnight.</li>
+                    </ul>
+                </section>
+
+                <section class="content-module">
+                    <h3>Real-World Example: AI in Creative Agencies</h3>
+                    <div class="image-placeholder" style="height: 300px;">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Creative agency team working together">
                     </div>
-                </div>
+                    <p><strong>The Scenario:</strong> A global advertising firm uses Generative AI (like Midjourney or DALL-E) during live client brainstorming sessions.</p>
+                    <p><strong>The Problem:</strong> Initially, designers felt threatened, and clients were overwhelmed by too many options. The "human" element of the collaboration—the art of persuasion and curation—was lost in a sea of AI-generated images.</p>
+                    <p><strong>The Collaboration Fix:</strong> The agency shifted to using AI only for "rapid prototyping." The human designers now act as the Creative Directors of the AI. They use their collaborative skills to interpret the client's vague emotions and "steer" the AI toward a specific vision. This reduced the time from "idea" to "final pitch" by 60% without losing the human touch.</p>
+                </section>
+
+                <section class="content-module">
+                    <h3>Emerging Debates in Collaboration</h3>
+                    <ul>
+                        <li><strong>The "De-Humanization" Risk:</strong> If we rely on AI to summarize all our interactions, do we lose the subtle nuances—the tone of voice, the hesitation, the excitement—that actually build trust between colleagues?</li>
+                        <li><strong>Algorithmic Groupthink:</strong> If a team relies on the same AI tool for suggestions, there is a risk that all their solutions will start to look and sound the same, killing original, "out-of-the-box" thinking.</li>
+                        <li><strong>The Transparency Gap:</strong> Should a teammate disclose when their contribution to a group project was 90% AI-generated? Modern collaboration requires new "etiquette" rules regarding AI transparency to maintain team integrity.</li>
+                    </ul>
+                </section>
+
+                <section class="content-module">
+                    <h3>References</h3>
+                    <ul class="references-list">
+                        <li>Breslow, L. (2025). The future of teamwork: Why human-AI collaboration requires more empathy, not less. MIT Sloan Management Review. <a href="https://sloanreview.mit.edu/article/the-future-of-teamwork/" target="_blank">https://sloanreview.mit.edu/article/the-future-of-teamwork/</a></li>
+                        <li>De Cremer, D., & Kasparov, G. (2026). AI should augment human intelligence, not replace it. Harvard Business Review. <a href="https://hbr.org/2021/03/ai-should-augment-human-intelligence-not-replace-it" target="_blank">https://hbr.org/2021/03/ai-should-augment-human-intelligence-not-replace-it</a></li>
+                        <li>Neeley, T. (2026). Remote work and the AI revolution: Managing global teams in the age of automation. Digital Data Design Institute at Harvard.</li>
+                        <li>World Economic Forum. (2025). The future of jobs report: Emerging skills for the AI-driven economy. <a href="https://www.weforum.org/reports/the-future-of-jobs-report-2025/" target="_blank">https://www.weforum.org/reports/the-future-of-jobs-report-2025/</a></li>
+                    </ul>
+                </section>
             </div>
-
-            <h2>Major Issues Addressed by Collaboration Skills</h2>
-            <a href="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" target="image-viewer" class="article-img-wrapper"title="Team fixing issues">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Team fixing issues">
-            </a>
-            <ul>
-                <li><strong>The "Silo" Effect:</strong> AI-integrated collaboration tools automatically pull relevant data from different departments, forcing a "whole-of-company" view that prevents teams from working in isolation.</li>
-                <li><strong>Cognitive Load Reduction:</strong> By offloading "coordination overhead" (scheduling, searching for files, documenting notes) to AI, teams can spend more energy on actual problem-solving.</li>
-                <li><strong>Asynchronous Alignment:</strong> For global teams, AI ensures that a teammate in London can wake up and get a perfect "state of the union" summary of what the team in Singapore decided overnight.</li>
-            </ul>
-
-            <div class="p-4 bg-light border shadow-sm rounded my-5" style="border-left: 5px solid #0077B6 !important;">
-                <h4 style="color: #03045E; margin-bottom: 15px;">Real-World Example: AI in Creative Agencies</h4>
-                <a href="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=80" target="image-viewer" class="article-img-wrapper" style="margin: 20px auto;"title="Creative Agency Work">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=80" alt="Creative Agency Work">
-                </a>
-                <p><strong>The Scenario:</strong> A global advertising firm uses Generative AI (like Midjourney or DALL-E) during live client brainstorming sessions.</p>
-                <p><strong>The Problem:</strong> Initially, designers felt threatened, and clients were overwhelmed by too many options. The "human" element of the collaboration—the art of persuasion and curation—was lost in a sea of AI-generated images.</p>
-                <p class="mb-0"><strong>The Collaboration Fix:</strong> The agency shifted to using AI only for "rapid prototyping." The human designers now act as the Creative Directors of the AI. They use their collaborative skills to interpret the client's vague emotions and "steer" the AI toward a specific vision. This reduced the time from "idea" to "final pitch" by 60% without losing the human touch.</p>
-            </div>
-
-            <h2>Emerging Debates in Collaboration</h2>
-            <div class="row my-4">
-                <div class="col-md-4 mb-3">
-                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
-                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 16px;">The "De-Humanization" Risk</h4>
-                        <p class="mb-0" style="font-size: 14px;">If we rely on AI to summarize all our interactions, do we lose the subtle nuances—the tone of voice, the hesitation, the excitement—that actually build trust between colleagues?</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
-                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 16px;">Algorithmic Groupthink</h4>
-                        <p class="mb-0" style="font-size: 14px;">If a team relies on the same AI tool for suggestions, there is a risk that all their solutions will start to look and sound the same, killing original, "out-of-the-box" thinking.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
-                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 16px;">The Transparency Gap</h4>
-                        <p class="mb-0" style="font-size: 14px;">Should a teammate disclose when their contribution to a group project was 90% AI-generated? Modern collaboration requires new "etiquette" rules regarding AI transparency to maintain team integrity.</p>
-                    </div>
-                </div>
-            </div>
-
-            
-            
-<p style="margin-top: 60px; font-size: 13px; color: #94a3b8; text-align: right;"><em>Written by: Andrada, Troy Winter T.</em></p>        </div>
-      </main>
+        </main>
     </div>
 
     <footer>
-      
-      <div class="footer-container">
-        <div class="footer-brand">
-          <div class="footer-logo-blocks">
-            <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-          </div>
-          <div class="mission-text">
-            <p>
-              Navigating the future of human-AI collaboration in the workforce.
-              A comprehensive guide to automation and emerging careers.
-            </p>
-          </div>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-blocks">
+                    <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+                </div>
+                <div class="mission-text">
+                    <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+                </div>
+            </div>
+
+            <div class="footer-links-group">
+                <div class="f-col">
+                    <h4>Quick Links</h4>
+                    <div class="quick-links-grid">
+                        <div>
+                            <a href="ai.html">AI Workplace</a><br>
+                            <a href="#">Emerging Careers</a><br>
+                            <a href="#">Future Skills</a><br>
+                            <a href="#">Students</a>
+                        </div>
+                        <div>
+                            <a href="#">Jobs at Risk</a><br>
+                            <a href="#">Collaboration</a><br>
+                            <a href="#">Ethics</a><br>
+                            <a href="#">Future Outlook</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                            <span class="icon-box">f</span><span> Strativ.com</span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                            <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="footer-links-group">
-          <div class="f-col">
-            <h4>Quick Links</h4>
-            <div class="quick-links-grid">
-              <div>
-                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
-                <br>
-                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-                <br>
-                <a href="../future-workforce-skills/overview-future-workforce-skills.html ">Future Skills</a>
-                <br>
-                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-              </div>
-              <div>
-                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <br>
-                <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a>
-                <br>
-                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-                <br>
-                <a href="../future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="f-col">
-            <h4>Contact Info</h4>
-            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
-
-            <div class="contact-item">
-              <a
-                href="https://www.facebook.com/profile.php?id=61580704943031"
-                target="_blank"
-                style="display: flex; align-items: center; gap: 10px"
-              >
-                <span class="icon-box">f</span>
-                <span>Strativ.com</span>
-              </a>
-            </div>
-
-            <p style="margin-top: 10px; margin-bottom: 8px">
-              <strong>Email:</strong>
-            </p>
-
-            <div class="contact-item">
-              <a
-                href="mailto:strativ018@gmail.com"
-                style="display: flex; align-items: center; gap: 10px"
-              >
-                <span class="icon-box">✉</span>
-                <span>strativ018@gmail.com</span>
-              </a>
-            </div>
-          </div>
+        <div class="copyright-bar">
+            <p>© 2026 University of the East. All rights reserved.</p>
         </div>
-      </div>
-
-      <div class="copyright-bar">
-        <p>© 2026 STRATIV. All rights reserved.</p>
-      </div>
     </footer>
-    
-    <a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
-    ↑
-    </a>
-    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
 </body>
 </html>

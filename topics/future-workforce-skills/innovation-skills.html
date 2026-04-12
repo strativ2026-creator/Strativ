@@ -1,674 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Innovation Skills in the AI Era | STRATIV AI Frontier</title>
-    <link rel="icon" type="image/png" href="../../favicon.png" />
-    <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRATIV | Innovation Skills in the AI Era</title>
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
 
     <style>
-      /* ===== RESET & BASE ===== */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      html {
-        scroll-behavior: smooth;
-      }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #003049;
+            background: #F8FAFC;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-      body {
-        font-family: "Montserrat", sans-serif;
-        color: #003049;
-        background: #f8fafc;
-      }
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-      /* ===== HEADER ===== */
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 6%;
-        background: #ffffff;
-        border-bottom: 1px solid #e2e8f0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-      }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #03045E;
+        }
 
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-family: Georgia, serif;
-        font-size: 24px;
-        font-weight: bold;
-        color: #03045e;
-      }
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
 
-      .logo img {
-        width: 40px;
-        height: 40px;
-        object-fit: contain;
-      }
+        nav {
+            display: flex;
+            gap: 30px;
+        }
 
-      nav {
-        display: flex;
-        gap: 30px;
-        align-items: center;
-      }
+        nav a {
+            text-decoration: none;
+            color: #003049;
+            font-weight: 600;
+            font-size: 14px;
+        }
 
-      nav a {
-        text-decoration: none;
-        color: #003049;
-        font-weight: 600;
-        font-size: 14px;
-      }
+        nav a:hover {
+            color: #0077B6;
+        }
 
-      nav a:hover {
-        color: #0077b6;
-      }
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
 
-      /* DROPDOWN STYLES */
-      .nav-dropdown {
-        position: relative;
-      }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-      .nav-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        min-width: 220px;
-        opacity: 0;
-        visibility: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: opacity 0.3s ease;
-      }
+        .dropdown-menu a {
+            padding: 12px 15px;
+            display: block;
+        }
 
-      .nav-dropdown-menu a {
-        padding: 12px 15px;
-        display: block;
-      }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
 
-      .nav-dropdown:hover .nav-dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* ===== PAGE LAYOUT ===== */
-      .page {
-        display: grid;
-        grid-template-columns: 260px 1fr;
-        gap: 30px;
-        padding: 120px 6% 60px;
-        align-items: start;
-      }
-
-      /* STICKY SIDEBAR */
-      .sidebar {
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        position: sticky;
-        top: 100px;
-        z-index: 10;
-      }
-
-      .sidebar h3 {
-        background: #03045e;
-        color: #fff;
-        padding: 15px;
-        font-size: 13px;
-        border-radius: 10px 10px 0 0;
-        text-transform: uppercase;
-        font-weight: bold;
-      }
-
-      .sidebar a {
-        display: block;
-        padding: 12px 15px;
-        font-size: 14px;
-        color: #003049;
-        text-decoration: none;
-        border-top: 1px solid #e2e8f0;
-      }
-
-      .sidebar a:hover {
-        background: #f1f5f9;
-        color: #0077b6;
-      }
-
-      .sidebar a.active {
-        background: #eaeaea;
-        color: #0077b6;
-      }
-
-      .main {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-      }
-
-      /* HERO IMAGE FIXES */
-      .inner-hero {
-        height: 320px;
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        background: #000; /* fallback */
-      }
-
-      .inner-hero > a {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-
-      .inner-hero img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures it fills the container proportionally */
-        display: block;
-      }
-
-      .inner-hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(3, 4, 94, 0.5);
-        pointer-events: none;
-      }
-
-      .inner-hero h1 {
-        position: absolute;
-        z-index: 2;
-        color: #fff;
-        font-family: Georgia, serif;
-        font-size: 38px;
-        bottom: 30px;
-        left: 30px;
-        pointer-events: none;
-        font-weight: bold;
-        margin: 0;
-      }
-
-      /* ARTICLE CONTENT STYLES */
-      .article-section {
-        background: #fff;
-        padding: 35px;
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
-      }
-
-      .article-section h2 {
-        font-family: Georgia, serif;
-        color: #03045e;
-        margin-bottom: 20px;
-        font-size: 26px;
-        font-weight: bold;
-        border-bottom: 2px solid #0077B6;
-        display: inline-block;
-        padding-bottom: 5px;
-        margin-top: 30px;
-      }
-
-      .article-section h2:first-of-type {
-        margin-top: 0;
-      }
-
-      .article-section h3 {
-        font-family: Georgia, serif;
-        color: #0077b6;
-        margin-top: 25px;
-        margin-bottom: 12px;
-        font-size: 20px;
-        font-weight: bold;
-      }
-
-      .article-section p {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #475569;
-        margin-bottom: 15px;
-        text-align: justify;
-      }
-
-      .article-section ul, .article-section ol {
-        margin-left: 20px;
-        margin-bottom: 20px;
-      }
-
-      .article-section li {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #475569;
-        margin-bottom: 8px;
-      }
-
-      .article-section a {
-        color: #0077b6;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .article-section a:hover {
-        text-decoration: underline;
-      }
-
-      .article-section strong {
-        color: #03045e;
-      }
-
-      /* IN-ARTICLE IMAGE FIXES */
-      .article-img-wrapper {
-        display: block;
-        width: 100%;
-        max-height: 380px; /* Prevents images from becoming overwhelmingly huge */
-        border-radius: 8px;
-        overflow: hidden;
-        margin: 20px 0;
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-      }
-
-      .article-img-wrapper img {
-        width: 100%;
-        height: 100%;
-        max-height: 380px;
-        object-fit: cover; /* Crops cleanly to fit the max-height */
-        display: block;
-      }
-
-      /* References specific */
-      .references-list {
-        font-size: 13px !important;
-        word-break: break-word;
-      }
-      .references-list li {
-        font-size: 13px !important;
-      }
-
-      /* ===== FOOTER ===== */
-      footer {
-        background: #03045e;
-        color: #ffffff;
-        padding: 40px 6% 30px;
-        font-family: Arial, sans-serif;
-      }
-
-      .footer-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 40px;
-      }
-
-      .footer-brand {
-        flex: 1;
-      }
-      
-      .author {
-        margin-top: 60px;
-        font-size: 13px;
-        color: #94a3b8;
-        text-align: right;
-      }
-
-      .footer-logo-blocks {
-        display: flex;
-        gap: 4px;
-        margin-bottom: 15px;
-      }
-
-      .footer-logo-blocks span {
-        background: #ffffff;
-        color: #03045e;
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 900;
-        font-size: 20px;
-        border-radius: 3px;
-      }
-
-      .mission-text p {
-        font-size: 18px;
-        line-height: 1.5;
-        font-weight: 500;
-        max-width: 380px;
-        color: #ffffff;
-      }
-
-      .footer-links-group {
-        display: flex;
-        flex: 2;
-        justify-content: flex-start;
-        gap: 220px;
-      }
-
-      .f-col h4 {
-        font-size: 18px;
-        margin-bottom: 15px;
-        text-decoration: underline;
-        line-height: 1;
-        margin-top: -6px;
-      }
-
-      .f-col p,
-      .f-col a {
-        font-size: 15px;
-        color: #ffffff;
-        text-decoration: none;
-        line-height: 1.7;
-      }
-
-      .quick-links-grid {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 10px 40px;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 10px;
-      }
-
-      .icon-box {
-        background: #ffffff;
-        color: #03045e;
-        width: 26px;
-        height: 26px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        border-radius: 4px;
-        font-size: 14px;
-      }
-      
-
-      .copyright-bar {
-        margin-top: 30px;
-        padding-top: 20px;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.8);
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      @media (max-width: 1100px) {
+        /* Page layout */
         .page {
-          grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 30px;
+            padding: 120px 6% 60px;
+            align-items: start;
         }
+
+        /* Sidebar */
         .sidebar {
-          display: none;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            position: sticky;
+            top: 100px;
         }
+
+        .sidebar h3 {
+            background: #03045E;
+            color: #fff;
+            padding: 15px;
+            font-size: 13px;
+            border-radius: 10px 10px 0 0;
+            text-transform: uppercase;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #003049;
+            text-decoration: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .sidebar a:hover {
+            background: #f1f5f9;
+            color: #0077B6;
+        }
+
+        .sidebar a.active {
+            background: #eaeaea;
+            color: #0077B6;
+        }
+
+        /* Main content */
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .inner-hero {
+            height: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .inner-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .inner-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(3,4,94,0.5);
+        }
+
+        .inner-hero h1 {
+            position: absolute;
+            z-index: 2;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 38px;
+            bottom: 30px;
+            left: 30px;
+        }
+
+        /* Content Container */
+        .about {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .about h2 {
+            font-family: Georgia, serif;
+            color: #03045E;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            color: #334155;
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* Content Modules */
+        .content-module {
+            margin-bottom: 60px;
+        }
+
+        .content-module h3 {
+            font-family: Georgia, serif;
+            color: #03045E;
+            font-size: 26px;
+            margin: 35px 0 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .content-module p {
+            color: #334155;
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .content-module ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .content-module li {
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        /* Image Placeholders */
+        .image-placeholder {
+            width: 100%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Example Grid Styling */
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .example-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .example-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-image-box {
+            height: 160px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .card-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-text {
+            padding: 20px;
+        }
+
+        .card-text h4 {
+            color: #0077B6;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .card-text p {
+            font-size: 14px;
+            color: #475569;
+            margin: 0;
+        }
+
+        /* References */
+        .references-list {
+            font-size: 14px !important;
+            word-break: break-word;
+            padding-left: 20px;
+        }
+
+        .references-list li {
+            margin-bottom: 10px;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .references-list a {
+            color: #0077B6;
+            text-decoration: none;
+        }
+
+        .references-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #03045E;
+            color: #fff;
+            padding: 40px 6% 30px;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
         .footer-container {
-          flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
         }
+
+        .footer-brand {
+            flex: 1;
+        }
+
+        .footer-logo-blocks {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-blocks span {
+            background: #fff;
+            color: #03045E;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            border-radius: 3px;
+        }
+
+        .mission-text p {
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 500;
+            max-width: 380px;
+        }
+
         .footer-links-group {
-          gap: 30px;
+            display: flex;
+            flex: 2;
+            justify-content: flex-start;
+            gap: 220px;
         }
-        
-      }
+
+        .f-col h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-decoration: underline;
+            line-height: 1;
+            margin-top: -6px;
+        }
+
+        .f-col p, .f-col a {
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            line-height: 1.7;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .icon-box {
+            background: #fff;
+            color: #03045E;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .copyright-bar {
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        #scrollTopBtn {
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            z-index: 99; 
+            background-color: #03045E; 
+            color: white; 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; 
+            font-size: 20px; 
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 1px solid #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #0077B6; 
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .example-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { flex-direction: column; }
+            .footer-links-group { gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .page { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .example-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
 <body id="top">
-    <header>
-      <div class="logo">
-        <a href="../../images/logo/logo.jpg" target="_blank">
-            <img src="../../images/logo/logo.jpg" alt="Strativ Corporate Logo" title="Strativ Logo" />
-        </a>
-        STRATIV
-      </div>
 
-      <nav>
-        <a href="../../index.html" title="Go to Homepage">Home</a>
-        <div class="nav-dropdown">
-          <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
-          <div class="nav-dropdown-menu">
-            <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
-            <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-            <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-            <a href="../human-ai-collab/overview-human-ai-collab.html">Human + AI</a>
-            <a href="../future-workforce-skills/overview-future-skills.html">Skills</a>
-            <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-            <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-            <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
-          </div>
+    <header>
+        <div class="logo">
+            <img src="../../images/logo/logo.jpg" alt="STRATIV Logo">
+            STRATIV
         </div>
-        <div class="nav-dropdown">
-          <a href="../../resources.html" title="View Resources">Resources ▾</a>
-        </div>
-        <a href="../../about.html" title="About Strativ">About</a>
-        <a href="../../contact.html" title="Contact Us">Contact</a>
-      </nav>
+
+        <nav>
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <a href="../../index.html#topics">Topics ▾</a>
+                <div class="dropdown-menu">
+                    <a href="ai.html">AI Workplace</a>
+                    <a href="#">Jobs at Risk</a>
+                    <a href="#">Emerging Careers</a>
+                    <a href="#">Human + AI</a>
+                    <a href="#">Skills</a>
+                    <a href="#">Ethics</a>
+                    <a href="#">Students</a>
+                    <a href="#">Future</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../../resources.html">Resources ▾</a>
+                <div class="dropdown-menu">
+                    <a href="../../resources/external-links.html">External Links</a>
+                    <a href="../../resources/icons-images.html">Icons & Images</a>
+                    <a href="../../resources/data-reports.html">Data & Reports</a>
+                    <a href="../../resources/case-studies.html">Case Studies</a>
+                </div>
+            </div>
+            <a href="../../about.html">About</a>
+            <a href="../../contact.html">Contact</a>
+        </nav>
     </header>
 
     <div class="page">
-      <aside class="sidebar">
-        <h3>AI WORKPLACE</h3>
-        <a href="future-workforce-skills.html" title="Future workforce skills">Future workforce skills</a>
-        <a href="technical-skills.html" title="Technical Skills for the Future">Technical Skills for the Future</a>
-        <a href="soft-skills.html" title="Soft Skills for the Future Workforce">Soft Skills for the Future Workforce</a>
-        <a href="digital-literacy.html" title="Digital Literacy">Digital Literacy</a>
-        <a href="lifelong-learning.html" title="Lifelong Learning">Lifelong Learning</a>
-        <a href="critical-thinking-skills.html" title="Critical Thinking Skills">Critical Thinking Skills</a>
-        <a href="problem-solving-skills.html" title="Problem Solving Skills">Problem Solving Skills</a>
-        <a href="adaptability-skills.html" title="Adaptability Skills">Adaptability Skills</a>
-        <a href="technology-awareness.html" title="Technology Awareness">Technology Awareness</a>
-        <a href="innovation-skills.html" class="active" title="Innovation Skills">Innovation Skills</a>
-        <a href="collaboration-skills.html" title="Collaboration Skills">Collaboration Skills</a>
-        <a href="skills-summary.html" title="Skills Summary">Skills Summary</a>
-      </aside>
+        <aside class="sidebar">
+            <h3>AI WORKPLACE</h3>
+            <a href="overview-future-skills.html">Future Workforce Skills</a>
+            <a href="technical-skills.html">Technical Skills for the Future</a>
+            <a href="soft-skills.html">Soft Skills for the Future Workforce</a>
+            <a href="digital-literacy.html">Digital Literacy</a>
+            <a href="lifelong-learning.html">Lifelong Learning</a>
+            <a href="critical-thinking-skills.html">Critical Thinking Skills</a>
+            <a href="problem-solving-skills.html">Problem Solving Skills</a>
+            <a href="#">Adaptability Skills</a>
+            <a href="#">Technology Awareness</a>
+            <a href="innovation-skills.html" class="active">Innovation Skills</a>
+            <a href="collaboration-skills.html">Collaboration Skills</a>
+            <a href="#">Skills Summary</a>
+        </aside>
 
-      <main class="main">
-        <div class="inner-hero">
-            <a href="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" target="image-viewer" title="Innovation and AI banner">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Innovation and AI banner" style="filter: sepia(100%) hue-rotate(185deg) saturate(300%) brightness(80%);">
-            </a>
-            <h1>Innovation Skills in the AI Era</h1>
-        </div>
-
-        <div class="article-section">
-            <h2>Overview</h2>
-            <p><strong>Definition:</strong> The ability to leverage artificial intelligence to identify novel opportunities, accelerate the creative process, and transform abstract ideas into scalable solutions.</p>
-            
-            <div class="p-3 mb-4" style="border-left: 4px solid #0077B6; background: #f0f7ff; border-radius: 0 8px 8px 0;">
-                <strong style="display: block; margin-bottom: 5px;">The "Co-Intelligence" Model:</strong> 
-                This model treats AI as a "sparring partner." Innovation shifts from a solo human endeavor to a feedback loop where humans provide the vision and empathy, while AI provides the infinite variations and rapid prototyping.
+        <main class="main">
+            <div class="inner-hero">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Innovation and AI banner">
+                <h1>Innovation Skills in the AI Era</h1>
             </div>
 
-            <h2>How AI-Driven Innovation Helps</h2>
-            <a href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" target="image-viewer" class="article-img-wrapper"title="AI Ideation Process Diagram">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="AI Ideation Process Diagram">
-            </a>
-            <ul>
-                <li><strong>Infinite Ideation (The End of "Blank Page" Syndrome):</strong> AI can generate hundreds of product concepts, marketing angles, or architectural designs in seconds, allowing humans to move immediately to the high-value task of selection and refinement.</li>
-                <li><strong>Rapid Prototyping:</strong> AI-integrated tools (like 3D modeling AI or code generators) allow innovators to build "Minimum Viable Products" (MVPs) in days rather than months, drastically reducing the cost of failure.</li>
-                <li><strong>Predictive Market Insights:</strong> AI can scan global patents, social media trends, and scientific papers to identify "white spaces"—market needs that don't exist yet but are about to emerge.</li>
-                <li><strong>Cross-Pollination of Ideas:</strong> AI can connect concepts from unrelated fields (e.g., applying a biological process to a structural engineering problem), sparking "Blue Ocean" innovations that a human specialist might never see.</li>
-            </ul>
+            <div class="about">
+                <h2>Overview</h2>
+                <p><strong>Definition:</strong> The ability to leverage artificial intelligence to identify novel opportunities, accelerate the creative process, and transform abstract ideas into scalable solutions.</p>
+                <p><strong>The "Co-Intelligence" Model:</strong> This model treats AI as a "sparring partner." Innovation shifts from a solo human endeavor to a feedback loop where humans provide the vision and empathy, while AI provides the infinite variations and rapid prototyping.</p>
 
-            <h2>Key Innovation Competencies for 2026</h2>
-            <p>To successfully integrate innovation into modern workflows, professionals must master specific AI-aligned competencies to maintain their creative edge over automated systems.</p>
-            
-            <div class="row my-4">
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;"title="Prompt Engineering">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Prompt Engineering" style="height: 180px; object-fit: cover; width: 100%;">
-                        </a>
-                        <div class="card-body bg-light border border-top-0 rounded-bottom">
-                            <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Prompt Engineering</h4>
-                            <p class="card-text text-muted" style="font-size: 14px;">The ability to structure inputs to get high-level creative outputs from AI. <br><br><strong style="color: #03045E;">Human Edge:</strong> Linguistic Precision.</p>
+                <section class="content-module">
+                    <h3>How AI-Driven Innovation Helps</h3>
+                    <div class="image-placeholder" style="height: 300px;">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="[AI Ideation Process Diagram]">
+                    </div>
+                    <ul>
+                        <li><strong>Infinite Ideation (The End of "Blank Page" Syndrome):</strong> AI can generate hundreds of product concepts, marketing angles, or architectural designs in seconds, allowing humans to move immediately to the high-value task of selection and refinement.</li>
+                        <li><strong>Rapid Prototyping:</strong> AI-integrated tools (like 3D modeling AI or code generators) allow innovators to build "Minimum Viable Products" (MVPs) in days rather than months, drastically reducing the cost of failure.</li>
+                        <li><strong>Predictive Market Insights:</strong> AI can scan global patents, social media trends, and scientific papers to identify "white spaces"—market needs that don't exist yet but are about to emerge.</li>
+                        <li><strong>Cross-Pollination of Ideas:</strong> AI can connect concepts from unrelated fields (e.g., applying a biological process to a structural engineering problem), sparking "Blue Ocean" innovations that a human specialist might never see.</li>
+                    </ul>
+                </section>
+
+                <section class="content-module">
+                    <h3>Key Innovation Competencies for 2026</h3>
+                    <p>To successfully integrate innovation into modern workflows, professionals must master specific AI-aligned competencies to maintain their creative edge over automated systems.</p>
+                    
+                    <div class="example-grid">
+                        <div class="example-card">
+                            <div class="card-image-box">
+                                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80" alt="Prompt Engineering">
+                            </div>
+                            <div class="card-text">
+                                <h4>Prompt Engineering</h4>
+                                <p>The ability to structure inputs to get high-level creative outputs from AI. <br><br><strong>Human Edge:</strong> Linguistic Precision.</p>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="card-image-box">
+                                <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=400&q=80" alt="Curation and Judgment">
+                            </div>
+                            <div class="card-text">
+                                <h4>Curation & Judgment</h4>
+                                <p>Discerning which AI-generated ideas are truly valuable and "human-centric." <br><br><strong>Human Edge:</strong> Taste & Empathy.</p>
+                            </div>
+                        </div>
+                        <div class="example-card">
+                            <div class="card-image-box">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Iterative Refinement">
+                            </div>
+                            <div class="card-text">
+                                <h4>Iterative Refinement</h4>
+                                <p>Using AI to "fail fast" and pivot based on real-time data feedback. <br><br><strong>Human Edge:</strong> Resilience & Strategy.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;"title="Curation and Judgment">
-                            <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Curation and Judgment" style="height: 180px; object-fit: cover; width: 100%;">
-                        </a>
-                        <div class="card-body bg-light border border-top-0 rounded-bottom">
-                            <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Curation & Judgment</h4>
-                            <p class="card-text text-muted" style="font-size: 14px;">Discerning which AI-generated ideas are truly valuable and "human-centric." <br><br><strong style="color: #03045E;">Human Edge:</strong> Taste & Empathy.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100 shadow-sm border-0">
-                        <a href="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" target="image-viewer" style="display: block;"title="Iterative Refinement">
-                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Iterative Refinement" style="height: 180px; object-fit: cover; width: 100%;">
-                        </a>
-                        <div class="card-body bg-light border border-top-0 rounded-bottom">
-                            <h4 class="card-title" style="color: #0077B6; font-size: 17px; font-weight: bold;">Iterative Refinement</h4>
-                            <p class="card-text text-muted" style="font-size: 14px;">Using AI to "fail fast" and pivot based on real-time data feedback. <br><br><strong style="color: #03045E;">Human Edge:</strong> Resilience & Strategy.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </section>
 
-            <h2>Major Issues Addressed by Innovation Skills</h2>
-            <a href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" target="image-viewer" class="article-img-wrapper"title="Innovation Pipeline Cost Reduction">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Innovation Pipeline Cost Reduction">
-            </a>
-            <ul>
-                <li><strong>The High Cost of R&D:</strong> Traditionally, innovation required massive budgets. AI democratizes innovation, allowing small startups to compete with giant corporations in research and design.</li>
-                <li><strong>Overcoming Human Bias:</strong> Humans tend to stick to what has worked before. AI can be prompted to be "intentionally radical," forcing innovators to consider non-traditional solutions.</li>
-                <li><strong>Accelerating the "Time-to-Market":</strong> By automating the technical heavy lifting of design and testing, AI allows the most impactful innovations (like new medicines or green energy tech) to reach the public years sooner.</li>
-            </ul>
+                <section class="content-module">
+                    <h3>Major Issues Addressed by Innovation Skills</h3>
+                    <div class="image-placeholder" style="height: 300px;">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="[Innovation Pipeline Cost Reduction]">
+                    </div>
+                    <ul>
+                        <li><strong>The High Cost of R&D:</strong> Traditionally, innovation required massive budgets. AI democratizes innovation, allowing small startups to compete with giant corporations in research and design.</li>
+                        <li><strong>Overcoming Human Bias:</strong> Humans tend to stick to what has worked before. AI can be prompted to be "intentionally radical," forcing innovators to consider non-traditional solutions.</li>
+                        <li><strong>Accelerating the "Time-to-Market":</strong> By automating the technical heavy lifting of design and testing, AI allows the most impactful innovations (like new medicines or green energy tech) to reach the public years sooner.</li>
+                    </ul>
+                </section>
 
-            <div class="p-4 bg-light border shadow-sm rounded my-5" style="border-left: 5px solid #0077B6 !important;">
-                <h4 style="color: #03045E; margin-bottom: 15px;">Real-World Example: Generative Design in Aerospace</h4>
-                <a href="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" target="image-viewer" class="article-img-wrapper" style="margin: 20px auto;"title="NASA Generative Design Parts">
-                    <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" alt="NASA Generative Design Parts">
-                </a>
-                <p><strong>The Scenario:</strong> Engineers at NASA and Airbus used AI "Generative Design" to create hardware for space missions.</p>
-                <p><strong>The Problem:</strong> Traditional human-designed parts were heavy and used standard geometric shapes that weren't optimized for weight or stress.</p>
-                <p class="mb-0"><strong>The Innovation Fix:</strong> Engineers set "constraints" (weight, strength, material) and let the AI "grow" the part. The result looked organic—like a bone or a tree branch. These AI-designed parts were 45% lighter and stronger than anything a human could have drawn manually, proving that the modern innovator's job is to set the goals, not the lines.</p>
-            </div>
+                <section class="content-module">
+                    <h3>Real-World Example: Generative Design in Aerospace</h3>
+                    <div class="image-placeholder" style="height: 300px;">
+                        <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=800&q=80" alt="[NASA Generative Design Parts]">
+                    </div>
+                    <p><strong>The Scenario:</strong> Engineers at NASA and Airbus used AI "Generative Design" to create hardware for space missions.</p>
+                    <p><strong>The Problem:</strong> Traditional human-designed parts were heavy and used standard geometric shapes that weren't optimized for weight or stress.</p>
+                    <p><strong>The Innovation Fix:</strong> Engineers set "constraints" (weight, strength, material) and let the AI "grow" the part. The result looked organic—like a bone or a tree branch. These AI-designed parts were 45% lighter and stronger than anything a human could have drawn manually, proving that the modern innovator's job is to set the goals, not the lines.</p>
+                </section>
 
-            <h2>Emerging Debates in Innovation</h2>
-            <div class="row my-4">
-                <div class="col-md-4 mb-3">
-                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
-                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 16px;">The "Creativity" Crisis</h4>
-                        <p class="mb-0" style="font-size: 14px;">If AI generates the ideas, is the human still the "author"? This is creating a legal and philosophical battle over Intellectual Property (IP) and patent laws.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
-                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 16px;">Algorithmic Sameness</h4>
-                        <p class="mb-0" style="font-size: 14px;">If every company uses the same AI models for innovation, will all new products start to look and feel identical? True innovators must learn how to "break" the AI to find truly unique ideas.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="p-4 bg-light border rounded h-100 shadow-sm">
-                        <h4 class="mb-3 border-bottom pb-2" style="color: #03045E; font-size: 16px;">Ethical Innovation</h4>
-                        <p class="mb-0" style="font-size: 14px;">Just because we can build it with AI doesn't mean we should. The most important innovation skill in 2026 is Moral Foresight—predicting the long-term social consequences of a new invention before it is released.</p>
-                    </div>
-                </div>
+                <section class="content-module">
+                    <h3>Emerging Debates in Innovation</h3>
+                    <ul>
+                        <li><strong>The "Creativity" Crisis:</strong> If AI generates the ideas, is the human still the "author"? This is creating a legal and philosophical battle over Intellectual Property (IP) and patent laws.</li>
+                        <li><strong>Algorithmic Sameness:</strong> If every company uses the same AI models for innovation, will all new products start to look and feel identical? True innovators must learn how to "break" the AI to find truly unique ideas.</li>
+                        <li><strong>Ethical Innovation:</strong> Just because we can build it with AI doesn't mean we should. The most important innovation skill in 2026 is Moral Foresight—predicting the long-term social consequences of a new invention before it is released.</li>
+                    </ul>
+                </section>
+
+                <section class="content-module">
+                    <h3>References</h3>
+                    <ul class="references-list">
+                        <li>Harvard Business Review. (2025). How generative AI is changing the way we innovate. <a href="https://hbr.org/2025/01/how-generative-ai-is-changing-the-way-we-innovate" target="_blank">https://hbr.org/2025/01/how-generative-ai-is-changing-the-way-we-innovate</a></li>
+                        <li>IDEO. (2026). Design thinking 2.0: Integrating AI into the creative process. <a href="https://www.ideo.com/blog/design-thinking-ai-2026" target="_blank">https://www.ideo.com/blog/design-thinking-ai-2026</a></li>
+                        <li>MIT Technology Review. (2026). The generative design revolution: From aerospace to consumer goods. <a href="https://www.technologyreview.com/2026/generative-design-revolution" target="_blank">https://www.technologyreview.com/2026/generative-design-revolution</a></li>
+                        <li>Mollick, E. (2024). Co-Intelligence: Living and working with AI. Portfolio. (Updated insights for 2026 innovation frameworks).</li>
+                        <li>Wharton School of the University of Pennsylvania. (2026). The productivity of innovation: Measuring the AI impact. <a href="https://knowledge.wharton.upenn.edu/article/ai-innovation-productivity-2026/" target="_blank">https://knowledge.wharton.upenn.edu/article/ai-innovation-productivity-2026/</a></li>
+                    </ul>
+                </section>
             </div>
-            
-<p style="margin-top: 60px; font-size: 13px; color: #94a3b8; text-align: right;"><em>Written by: Andrada, Troy Winter T.</em></p>
-        </div>
-      </main>
+        </main>
     </div>
 
     <footer>
-      
-      <div class="footer-container">
-        <div class="footer-brand">
-          <div class="footer-logo-blocks">
-            <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
-          </div>
-          <div class="mission-text">
-            <p>
-              Navigating the future of human-AI collaboration in the workforce.
-              A comprehensive guide to automation and emerging careers.
-            </p>
-          </div>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-blocks">
+                    <span>S</span><span>T</span><span>R</span><span>A</span><span>T</span><span>I</span><span>V</span>
+                </div>
+                <div class="mission-text">
+                    <p>Navigating the future of human-AI collaboration in the workforce. A comprehensive guide to automation and emerging careers.</p>
+                </div>
+            </div>
+
+            <div class="footer-links-group">
+                <div class="f-col">
+                    <h4>Quick Links</h4>
+                    <div class="quick-links-grid">
+                        <div>
+                            <a href="ai.html">AI Workplace</a><br>
+                            <a href="#">Emerging Careers</a><br>
+                            <a href="#">Future Skills</a><br>
+                            <a href="#">Students</a>
+                        </div>
+                        <div>
+                            <a href="#">Jobs at Risk</a><br>
+                            <a href="#">Collaboration</a><br>
+                            <a href="#">Ethics</a><br>
+                            <a href="#">Future Outlook</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <a href="https://facebook.com/strativ" target="_blank" style="display: flex; align-items: center; gap: 10px;">
+                            <span class="icon-box">f</span><span> Strativ.com</span>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="mailto:Strativ018@gmail.com" style="display: flex; align-items: center; gap: 10px;">
+                            <span class="icon-box">✉</span><span>Strativ018@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="footer-links-group">
-          <div class="f-col">
-            <h4>Quick Links</h4>
-            <div class="quick-links-grid">
-              <div>
-                <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
-                <br>
-                <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
-                <br>
-                <a href="../future-workforce-skills/overview-future-workforce-skills.html ">Future Skills</a>
-                <br>
-                <a href="../preparing-student/overviewofpreparingstudentsai.html">Students</a>
-              </div>
-              <div>
-                <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
-                <br>
-                <a href="../human-ai-collab/overview-human-ai-collab.html">Collaboration</a>
-                <br>
-                <a href="../ai-ethics/overview-ai-ethics.html">Ethics</a>
-                <br>
-                <a href="../future-outlook-ai/overview-of-future-ai.html">Future Outlook</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="f-col">
-            <h4>Contact Info</h4>
-            <p style="margin-bottom: 8px"><strong>Follow Us:</strong></p>
-
-            <div class="contact-item">
-              <a
-                href="https://www.facebook.com/profile.php?id=61580704943031"
-                target="_blank"
-                style="display: flex; align-items: center; gap: 10px"
-              >
-                <span class="icon-box">f</span>
-                <span>Strativ.com</span>
-              </a>
-            </div>
-
-            <p style="margin-top: 10px; margin-bottom: 8px">
-              <strong>Email:</strong>
-            </p>
-
-            <div class="contact-item">
-              <a
-                href="mailto:strativ018@gmail.com"
-                style="display: flex; align-items: center; gap: 10px"
-              >
-                <span class="icon-box">✉</span>
-                <span>strativ018@gmail.com</span>
-              </a>
-            </div>
-          </div>
+        <div class="copyright-bar">
+            <p>© 2026 University of the East. All rights reserved.</p>
         </div>
-      </div>
-
-      <div class="copyright-bar">
-        <p>© 2026 STRATIV. All rights reserved.</p>
-      </div>
     </footer>
-    
-    <a href="#top" id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle shadow d-flex align-items-center justify-content-center border border-1 border-white" style="width: 50px; height: 50px; z-index: 99;" title="Scroll back to top of the page">
-    ↑
-    </a>
-    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <a href="#top" id="scrollTopBtn" title="Scroll back to top of the page">↑</a>
+
 </body>
 </html>
