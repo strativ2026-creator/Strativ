@@ -45,13 +45,13 @@
       .logo {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
         font-family: Georgia, serif;
         font-size: 24px;
         font-weight: bold;
         color: #03045e;
       }
-      
+
       .logo img {
         width: 40px;
         height: 40px;
@@ -76,11 +76,11 @@
       }
 
       /* DROPDOWN STYLES */
-      .nav-dropdown {
+      .dropdown {
         position: relative;
       }
 
-      .nav-dropdown-menu {
+      .dropdown-menu {
         position: absolute;
         top: 100%;
         left: 0;
@@ -94,14 +94,15 @@
         transition: opacity 0.3s ease;
       }
 
-      .nav-dropdown-menu a {
+      .dropdown-menu a {
         padding: 12px 15px;
         display: block;
       }
 
-      .nav-dropdown:hover .nav-dropdown-menu {
+      .dropdown:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
+        display: block;
       }
 
       /* ===== PAGE LAYOUT ===== */
@@ -436,9 +437,9 @@
 
       <nav>
         <a href="../../index.html" title="Go to Homepage">Home</a>
-        <div class="nav-dropdown">
+        <div class="dropdown">
           <a href="../../index.html#topics" title="View Topics">Topics ▾</a>
-          <div class="nav-dropdown-menu">
+          <div class="dropdown-menu">
             <a href="../introduction-ai-workplace/overview-introduction-ai-workplace.html">AI Workplace</a>
             <a href="../jobs-at-risk/overview-jobs-at-risk.html">Jobs at Risk</a>
             <a href="../emerging_ai_careers/overview-of-emerging-ai-careers.html">Emerging Careers</a>
@@ -449,9 +450,9 @@
             <a href="../future-outlook-ai/overview-of-future-ai.html">Future</a>
           </div>
         </div>
-        <div class="nav-dropdown">
+        <div class="dropdown">
           <a href="../../resources.html" title="View Resources">Resources ▾</a>
-          <div class="nav-dropdown-menu">
+          <div class="dropdown-menu">
             <a href="../../resources/external-links.html">External Links</a>
             <a href="../../resources/icons-images.html">Icons & Images</a>
             <a href="../../resources/data-reports.html">Data & Reports</a>
