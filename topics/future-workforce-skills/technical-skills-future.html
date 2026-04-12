@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STRATIV | Technical Skills for the Future</title>
-    <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="../../favicon.png" />
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet">
@@ -21,10 +22,10 @@
             font-family: 'Montserrat', sans-serif;
             color: #003049;
             background: #F8FAFC;
-            line-height: 1.8;
+            line-height: 1.6; /* Changed from 1.8 to 1.6 */
         }
 
-        /* Header */
+        /* Header - Main Nav Bar Reference */
         header {
             display: flex;
             justify-content: space-between;
@@ -102,27 +103,29 @@
         .page {
             display: grid;
             grid-template-columns: 260px 1fr;
-            gap: 50px;
-            padding: 140px 6% 60px;
+            gap: 30px;
+            padding: 120px 6% 60px;
             align-items: start;
         }
 
-        /* Sidebar */
+        /* Sidebar Reference */
         .sidebar {
             background: #fff;
             border: 1px solid #e2e8f0;
             border-radius: 10px;
             position: sticky;
-            top: 120px;
+            top: 100px;
+            z-index: 10;
         }
 
         .sidebar h3 {
-            background: #03045E;
+            background: #03045e;
             color: #fff;
             padding: 15px;
             font-size: 13px;
             border-radius: 10px 10px 0 0;
             text-transform: uppercase;
+            font-weight: bold;
         }
 
         .sidebar a {
@@ -134,65 +137,86 @@
             border-top: 1px solid #e2e8f0;
         }
 
-        .sidebar a:hover { background: #f1f5f9; color: #0077B6; }
-        .sidebar a.active { background: #eaeaea; color: #0077B6; }
+        .sidebar a:hover {
+            background: #f1f5f9;
+            color: #0077b6;
+        }
 
-        /* Main content */
+        .sidebar a.active {
+            background: #eaeaea;
+            color: #0077b6;
+            font-weight: normal; 
+        }
+
+        /* Main content area */
         .main {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* Reduced from 40px to match your preference */
+            gap: 40px; /* Changed from 25px to 40px */
         }
 
-        /* Reduced Hero Size */
+        /* Responsiveness for the Grid Layout */
+        @media (max-width: 1100px) {
+            .page {
+                grid-template-columns: 1fr; /* Stacks sidebar and main on mobile */
+            }
+            .sidebar {
+                display: none; /* Hides sidebar on smaller screens per your code */
+            }
+        }
+
+        /* HERO IMAGE STYLES */
         .inner-hero {
-            height: 320px; /* Fixed height as requested */
+            height: 320px;
             border-radius: 12px;
             overflow: hidden;
             position: relative;
+            background: #000; 
+        }
+
+        .inner-hero > a {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
         .inner-hero img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; 
+            display: block;
         }
 
-        /* Overlay tint */
+        /* The Dark Overlay */
         .inner-hero::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(3, 4, 94, 0.5); /* Solid overlay color */
+            background: rgba(3, 4, 94, 0.5);
+            pointer-events: none;
         }
 
-        /* Hero Title Scaling */
+        /* Hero Title Text */
         .inner-hero h1 {
             position: absolute;
             z-index: 2;
             color: #fff;
             font-family: Georgia, serif;
-            font-size: 38px; /* Balanced size for the 320px height */
+            font-size: 38px;
             bottom: 30px;
             left: 30px;
-            margin-bottom: 0;
+            pointer-events: none;
+            font-weight: bold;
+            margin: 0;
         }
 
-        /* Adjust page padding to match the smaller hero */
-        .page {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 30px;
-            padding: 120px 6% 60px; /* Aligns with the fixed header */
-            align-items: start;
-        }
 
         /* Article Styling */
         .article-body {
-            background: #ffffff; /* light gray background */
-            padding: 30px 40px;
-            border-radius: 0;
-            border: none;
+            background: #fff;
+            padding: 40px; /* Changed from 30px 40px to match .about */
+            border-radius: 12px; /* Added radius to match */
+            border: 1px solid #e2e8f0; /* Added border to match */
         }
 
         .article-body h2 {
@@ -210,30 +234,27 @@
             margin-bottom: 0;
         }
 
-        /* Update these in your <style> section */
-
-        /* This matches "Strategic Adaptability in Practice" from your image */
+        /* Subtitle and Section Headers */
         .subtitle-line {
             font-family: Georgia, serif;
             color: #03045E;
-            font-size: 24px; /* Scaled down to match the image precisely */
+            font-size: 24px; 
             font-weight: bold;
             margin: 40px 0 15px 0;
-            border-bottom: 2px solid #e2e8f0; /* Thin gray line */
+            border-bottom: 2px solid #e2e8f0; 
             padding-bottom: 8px;
-            display: block; /* Ensures it stretches the full width of the container */
+            display: block; 
         }
 
-        /* This styles the text below the line to match your image spacing */
         .section-header {
-            font-family: 'Montserrat', sans-serif; /* Standard font for sub-headers */
+            font-family: 'Montserrat', sans-serif;
             color: #334155;
             font-size: 18px;
             margin: 25px 0 15px;
             font-weight: 600;
         }
 
-        /* Paragraph spacing to match the image */
+        /* Paragraph spacing */
         .article-p {
             color: #334155;
             margin-bottom: 20px;
@@ -245,7 +266,6 @@
         /* Components */
         .media-container { margin: 40px 0; text-align: center; }
 
-        /* Grouping images and videos to be large and uniform */
         .media-container iframe, 
         .media-container img {
             width: 100%;
@@ -254,29 +274,26 @@
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             display: block;
-            /* Important for images: prevents stretching */
             object-fit: cover; 
             object-position: center;
         }
 
-        /* Consistent spacing for your captions */
         .media-container .image-caption {
             margin-top: 18px;
             font-size: 15px;
             color: #475569;
             line-height: 1.6;
-            text-align: center; /* Keeps it aligned with the big media above it */
+            text-align: center;
         }
 
-            /* The wrapper that holds both items side-by-side */
+        /* Horizontal Row logic */
         .horizontal-row {
             display: flex;
             gap: 20px; 
             width: 100%;
-            margin-bottom: 0px; /* Changed from 30px to 0px */
+            margin-bottom: 0px; 
         }
 
-        /* Add this to remove the invisible gap under the text */
         .horizontal-row p {
             margin-bottom: 0px;
         }
@@ -357,7 +374,7 @@
             background: #f1f5f9;
         }
 
-        /* Footer Styles */
+        /* Footer Definitions (Retained exactly as provided) */
         footer { 
             background: #03045E; 
             color: #fff; 
@@ -366,7 +383,6 @@
             margin-top: 80px; 
         }
 
-        /* Footer Styles */
         footer {
             background: #03045E;
             color: #fff;
@@ -410,7 +426,7 @@
             line-height: 1.5;
             font-weight: 500;
             max-width: 380px;
-            color: #fff; /* Ensures visibility on blue */
+            color: #fff; 
         }
 
         .footer-links-group {
@@ -475,7 +491,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Scroll to Top Button */
         #scrollTopBtn {
             position: fixed; 
             bottom: 30px; 
@@ -500,62 +515,6 @@
             background-color: #0077B6; 
         }
 
-        .mission-text p {
-            font-size: 18px;
-            line-height: 1.5;
-            font-weight: 500;
-            max-width: 380px;
-            color: #fff;
-        }
-
-        .footer-links-group {
-            display: flex;
-            flex: 2;
-            justify-content: flex-start;
-            gap: 220px;
-        }
-
-        .f-col h4 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            text-decoration: underline;
-            line-height: 1;
-            margin-top: -6px;
-        }
-
-        .f-col p, .f-col a {
-            font-size: 15px;
-            color: #fff;
-            text-decoration: none;
-            line-height: 1.7;
-        }
-
-        .quick-links-grid {
-            display: grid;
-            grid-template-columns: auto auto;
-            gap: 10px 40px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-
-        .icon-box {
-            background: #fff;
-            color: #03045E;
-            width: 26px;
-            height: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
         .copyright-bar {
             margin-top: 40px;
             padding-top: 25px;
@@ -565,13 +524,11 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-         .author {
-
+        .author {
             margin-top: 60px;
             font-size: 13px;
             color: #94a3b8;
             text-align: right;
-
         }
     </style>
 </head>
@@ -606,7 +563,7 @@
 
     <div class="page">
         <aside class="sidebar">
-            <h3>AI WORKPLACE</h3>
+            <h3>FUTURE WORKFORCE SKILLS</h3>
             <a href="overview-future-skills.html">Future Workforce Skills</a>
             <a href="#" class="active">Technical Skills for the Future</a>
             <a href="soft-skills.html">Soft Skills</a>

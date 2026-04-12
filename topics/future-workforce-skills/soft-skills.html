@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STRATIV | Soft Skills</title>
-    <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="../../favicon.png" />
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@700&display=swap" rel="stylesheet">
@@ -122,6 +123,7 @@
             font-size: 13px;
             border-radius: 10px 10px 0 0;
             text-transform: uppercase;
+            font-weight: 900; /* This will make it extra bold using your Montserrat font */
         }
 
         .sidebar a {
@@ -163,13 +165,16 @@
             object-fit: cover;
         }
 
+               
         .inner-hero::after {
             content: "";
             position: absolute;
             inset: 0;
             background: rgba(3,4,94,0.5);
+            pointer-events: none; 
         }
 
+        
         .inner-hero h1 {
             position: absolute;
             z-index: 2;
@@ -178,6 +183,8 @@
             font-size: 38px;
             bottom: 30px;
             left: 30px;
+            font-weight: 900;
+            pointer-events: none; 
         }
 
         /* Content Container */
@@ -564,7 +571,7 @@
 
     <div class="page">
         <aside class="sidebar">
-            <h3>AI WORKPLACE</h3>
+            <h3>FUTURE WORKFORCE SKILLS</h3>
             <a href="overview-future-skills.html">Future Workforce Skills</a>
             <a href="technical-skills-future.html">Technical Skills for the Future</a>
             <a href="#" class="active">Soft Skills</a>
@@ -681,7 +688,7 @@
                     </div>
 
                     <div style="margin-bottom: 25px;">
-                        <strong style="color: #03045E; font-size: 18px;">2. Radical Radical Empathy</strong>
+                        <strong style="color: #03045E; font-size: 18px;">2. Radical Empathy</strong>
                         <p>Empathy is often mistaken for "niceness." In business, empathy is a <strong>data-gathering tool</strong>. It allows you to predict how a client will react to a price hike or how a team will respond to a deadline. It is the ultimate competitive intelligence.</p>
                     </div>
 
@@ -729,7 +736,7 @@
             
             <div class="influence-banner">
                 <div class="influence-img">
-                    <img src="../images/vinh-giang.jpg" alt="Vinh Giang">
+                    <img src="../../images/future-workforce-skills-images/vinh-giang.jpg" alt="Vinh Giang">
                 </div>
                 <div class="influence-content">
                     <h4>Vinh Giang</h4>
@@ -739,7 +746,7 @@
 
             <div class="influence-banner" style="background: #0077B6;">
                 <div class="influence-img">
-                    <img src="../images/simon-sinek.png" alt="Simon Sinek">
+                    <img src="../../images/future-workforce-skills-images/simon-sinek.png" alt="Simon Sinek">
                 </div>
                 <div class="influence-content">
                     <h4>Simon Sinek</h4>
@@ -749,7 +756,7 @@
 
             <div class="influence-banner" style="background: #023E8A;">
                 <div class="influence-img">
-                    <img src="../images/robert-greene.jpg" alt="Robert Greene">
+                    <img src="../../images/future-workforce-skills-images/robert-greene.jpg" alt="Robert Greene">
                 </div>
                 <div class="influence-content">
                     <h4>Robert Greene</h4>

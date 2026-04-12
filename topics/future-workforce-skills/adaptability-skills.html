@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STRATIV | Adaptability Skills</title>
-    <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="../../favicon.png" />
+    <link rel="icon" type="image/png" href="../../images/icons/favicon.png" />
     
     <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     
@@ -124,6 +125,7 @@
             font-size: 13px;
             border-radius: 10px 10px 0 0;
             text-transform: uppercase;
+            font-weight: 900; /* This will make it extra bold using your Montserrat font */
         }
 
         .sidebar a {
@@ -170,8 +172,10 @@
             position: absolute;
             inset: 0;
             background: rgba(3,4,94,0.5);
+            pointer-events: none; 
         }
 
+        
         .inner-hero h1 {
             position: absolute;
             z-index: 2;
@@ -180,6 +184,8 @@
             font-size: 38px;
             bottom: 30px;
             left: 30px;
+            font-weight: 900;
+            pointer-events: none; 
         }
 
         /* Content Container */
@@ -341,8 +347,8 @@
 
         .image-placeholder {
             width: 100%; 
-            max-width: 900px; 
-            height: 450px; 
+            max-width: 800px; 
+            height: auto; 
             margin: 40px auto; 
             background: #fff;
             border: 1px solid #e2e8f0;
@@ -352,13 +358,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 30px; 
         }
 
         .image-placeholder img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
+            height: auto; 
+            object-fit: contain; 
             display: block;
         }
 
@@ -524,7 +530,7 @@
 
     <div class="page">
         <aside class="sidebar">
-            <h3>AI WORKPLACE</h3>
+            <h3>FUTURE WORKFORCE SKILLS</h3>
             <a href="overview-future-skills.html">Future Workforce Skills</a>
             <a href="technical-skills-future.html">Technical Skills for the Future</a>
             <a href="soft-skills.html">Soft Skills</a>
