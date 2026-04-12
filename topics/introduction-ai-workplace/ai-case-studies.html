@@ -15,7 +15,6 @@
     />
 
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <!--Abordo, Jana Sayrielle G. Abordo-->
     <style>
       * {
         margin: 0;
@@ -151,9 +150,9 @@
       /* ===== PAGE LAYOUT ===== */
       .page {
         display: grid;
-        grid-template-columns: 260px 1fr;
+        grid-template-columns: 240px 1fr;
         gap: 30px;
-        padding: 120px 6% 60px;
+        padding: 100px 6% 60px;
         align-items: start;
       }
 
@@ -174,6 +173,7 @@
         font-size: 13px;
         border-radius: 10px 10px 0 0;
         text-transform: uppercase;
+        font-weight: bold;
       }
 
       .sidebar a {
@@ -193,6 +193,7 @@
       .sidebar a.active {
         background: #eaeaea;
         color: #0077b6;
+        font-weight: normal;
       }
 
       .main {
@@ -261,7 +262,7 @@
         height: 100%;     /* full height of the h2 */
         background:  #0077b6; 
         border-radius: 3px; /* rounded edges */
-}
+      }
 
       .article-section h3 {
         font-family: Georgia, serif;
@@ -414,18 +415,9 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      @media (max-width: 1100px) {
-        .footer-container {
-          flex-direction: column;
-        }
-        .footer-links-group {
-          gap: 30px;
-        }
-      }
-
       .full-width-image {
         width: 100%;
-        height: 320px; /* same feel as hero banner */
+        height: 320px; 
         border-radius: 12px;
         overflow: hidden;
         margin: 30px 0;
@@ -439,18 +431,12 @@
         display: block;
       }
 
-      /* Optional overlay for readability (like hero) */
       .full-width-image::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(3, 4, 94, 0.2); /* lighter than hero */
+        background: rgba(3, 4, 94, 0.2); 
         pointer-events: none;
-      }
-
-      .sidebar a.active {
-        background: #eaeaea;
-        color: #0077b6;
       }
 
     .author {
@@ -461,96 +447,96 @@
     }
 
     /* Card container adjustments for case studies */
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 20px;
-}
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
 
-/* Individual case study card */
-.card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 18px 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    /* Individual case study card */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
 
-.card-icon {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
+    .card-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
 
-.card h3 {
-  font-size: 17px;
-  margin-bottom: 10px;
-  color: #0077b6;
-}
+    .card h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+      color: #0077b6;
+    }
 
-.card p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
 
-.card ul {
-  margin-left: 18px;
-  margin-bottom: 10px;
-}
+    .card ul {
+      margin-left: 18px;
+      margin-bottom: 10px;
+    }
 
-.card ul li {
-  font-size: 14px;
-  line-height: 1.5;
-}
+    .card ul li {
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
     cite {
-    display: block;               /* makes it a block element so it can be centered */
-    text-align: center;           /* centers the text */
-    font-style: italic;           /* keeps the traditional cite italic */
-    font-weight: 500;             /* slightly bolder for readability */
-    color: #4a5568;               /* soft gray text */
-    font-size: 1.1rem;            /* slightly larger than normal text */
-    margin: 50px auto 0 auto;     /* spacing above the cite */
-    max-width: 600px;             /* optional: limits width for readability */
-    line-height: 1.6;             /* improves line spacing */
-}
+      display: block;               
+      text-align: center;           
+      font-style: italic;           
+      font-weight: 500;             
+      color: #4a5568;               
+      font-size: 1.1rem;            
+      margin: 50px auto 0 auto;     
+      max-width: 600px;             
+      line-height: 1.6;             
+    }
 
     .ai-table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
-        font-family: "Montserrat", sans-serif; /* match body font */
-        color: #003049; /* match primary text color */
+        font-family: "Montserrat", sans-serif; 
+        color: #003049; 
     }
 
     .ai-table th,
     .ai-table td {
         padding: 14px 18px;
-        border: 1px solid #e2e8f0; /* soft border like cards */
+        border: 1px solid #e2e8f0; 
         text-align: left;
         font-size: 15px;
     }
 
     .ai-table thead {
-        background-color: #03045e; /* dark navy header */
-        color: #ffffff; /* white text in header */
-        font-family: Georgia, serif; /* heading style for thead */
+        background-color: #03045e; 
+        color: #ffffff; 
+        font-family: Georgia, serif; 
         font-weight: 700;
     }
 
     .ai-table tbody tr:nth-child(odd) {
-        background-color: #ffffff; /* white row */
+        background-color: #ffffff; 
     }
 
     .ai-table tbody tr:nth-child(even) {
-        background-color: #f1f5f9; /* light gray row matching your design palette */
+        background-color: #f1f5f9; 
     }
 
     /* Role Cards */
@@ -630,7 +616,7 @@
 
     <div class="page">
       <aside class="sidebar">
-        <h3 class="fw-bold">AI WORKPLACE</h3>
+        <h3>AI WORKPLACE</h3>
         <a href="overview-introduction-ai-workplace.html" title="Introduction AI Workplace">Introduction AI Workplace</a>
         <a href="ai-history.html" title="History of Artificial Intelligence">History of Artificial Intelligence</a>
         <a href="ai-tools.html" title="AI Tools Used in the Workplace">AI Tools Used in the Workplace</a>
@@ -819,7 +805,6 @@
     ↑
 </a>
 
-    <!-- FOOTER -->
     <footer>
       <div class="footer-container">
         <div class="footer-brand">
