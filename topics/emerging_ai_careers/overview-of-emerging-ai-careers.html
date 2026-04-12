@@ -106,7 +106,6 @@
       }
 
       /* ===== PAGE LAYOUT ===== */
-      /* Changed from .container to .page to avoid Bootstrap conflicts */
       .page {
         display: grid;
         grid-template-columns: 260px 1fr;
@@ -154,7 +153,7 @@
       .sidebar a.active {
         background: #eaeaea;
         color: #0077b6;
-        font-weight: normal; /* Changed from 600 to normal */
+        font-weight: normal; 
       }
 
       .main {
@@ -249,7 +248,7 @@
         margin-bottom: 8px;
       }
 
-      /* ===== OVERVIEW CARDS (Renamed to avoid Bootstrap) ===== */
+      /* ===== OVERVIEW CARDS ===== */
       .careers-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -284,23 +283,42 @@
         flex-grow: 1;
       }
 
+      /* ===== ENHANCED LEARN MORE BUTTON (Solid Colors) ===== */
       .btn-learn {
-        background: #03045e;
+        background: #03045e; /* Restored solid navy color */
         color: #ffffff;
-        padding: 12px 24px;
+        padding: 12px 28px;
         text-decoration: none;
-        border-radius: 6px;
+        border-radius: 50px; /* Modern pill shape */
         font-weight: 600;
         font-size: 14px;
-        transition: background 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         margin-top: auto; 
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(3, 4, 94, 0.2);
       }
 
+      /* Adds an arrow icon automatically via CSS */
+      .btn-learn::after {
+        content: '→';
+        font-size: 18px;
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      /* Hover state: Lifts the button, strengthens shadow, and moves the arrow */
       .btn-learn:hover {
-        background: #0077b6;
+        background: #0077b6; /* Restored solid hover color */
         color: #ffffff;
+        transform: translateY(-4px); /* Moves the button up slightly */
+        box-shadow: 0 10px 20px rgba(3, 4, 94, 0.4); /* Makes the shadow deeper */
       }
 
+      .btn-learn:hover::after {
+        transform: translateX(6px); /* Slides the arrow to the right */
+      }
       
       /* ===== NAVY FOOTER ===== */
       footer {
@@ -552,6 +570,36 @@
                 <h3>Prompt Engineer</h3>
                 <p>Design and refine the text inputs used to communicate with large language models, optimizing the accuracy and usefulness of the AI's generated outputs.</p>
                 <a href="prompt-engineer.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>AI Research Scientist</h3>
+                <p>Conduct cutting-edge research to advance the foundational science of artificial intelligence, developing new algorithms and pushing the boundaries of what AI can achieve.</p>
+                <a href="ai-research-scientist.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>Robotics Engineer</h3>
+                <p>Design and build intelligent physical systems and robots that use AI to navigate, interact with, and manipulate the real world autonomously.</p>
+                <a href="robotics-engineer.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>AI Trainer</h3>
+                <p>Curate data, evaluate model outputs, and provide human feedback to teach AI systems how to behave safely, accurately, and contextually.</p>
+                <a href="ai-trainer.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>AI Business Consultant</h3>
+                <p>Guide organizations in identifying strategic opportunities for AI adoption, helping them integrate intelligent solutions to drive growth, efficiency, and transformation.</p>
+                <a href="ai-consultant.html" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="career-card">
+                <h3>Careers Summary</h3>
+                <p>Review a comprehensive overview of the diverse roles in the AI industry, bringing together the skills, responsibilities, and real-world impact of these emerging career paths.</p>
+                <a href="careers-summary.html" class="btn-learn">Learn More</a>
             </div>
         </div>
         <p class="author">Written by: Agunod, Miguel Sid A.</p>
